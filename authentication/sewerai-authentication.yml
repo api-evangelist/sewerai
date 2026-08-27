@@ -1,0 +1,75 @@
+generated: '2026-08-27'
+method: searched
+source: https://docs.sewerai.com/
+docs: https://docs.sewerai.com/#authentication-1
+note: >-
+  Upgraded from the derived profile. The verbatim drf-yasg contract at
+  https://api.sewerai.com/swagger.json declares only a single `Basic` HTTP securityDefinition, which
+  is the Django REST framework default and does NOT describe how the published Enterprise API is
+  actually called. The documented schemes below are read from the SewerAI API reference and its
+  worked Python examples, which are the authoritative statement of the auth model.
+summary:
+  types:
+  - apiKey
+  - http
+  primary: apiKey
+  oauth2: false
+  openid_connect: false
+  mutual_tls: false
+  key_issuance: manual
+  self_serve: false
+schemes:
+- name: tokenAuth
+  type: apiKey
+  in: header
+  parameter_name: Authorization
+  prefix: X-SAI
+  example_header: 'Authorization: X-SAI {API_KEY}'
+  description: >-
+    Token-based authentication with the required prefix "X-SAI". The API key is sent in the standard
+    Authorization header but with a SewerAI-specific scheme token rather than Bearer.
+  sources:
+  - https://docs.sewerai.com/#authentication-1
+  - https://docs.sewerai.com/#example-scripts
+- name: jwtAuth
+  type: http
+  scheme: bearer
+  bearer_format: JWT
+  description: >-
+    HTTP bearer authentication with a JSON Web Token. Tokens are obtained from POST /token/ and
+    renewed with POST /token/refresh/ (operationIds token_create and token_refresh_create in the
+    published contract).
+  token_endpoints:
+  - operationId: token_create
+    path: /token/
+    method: POST
+  - operationId: token_refresh_create
+    path: /token/refresh/
+    method: POST
+  sources:
+  - https://docs.sewerai.com/#authentication-1
+  - openapi/sewerai-swagger.json
+- name: Basic
+  type: http
+  scheme: basic
+  status: contract-declared-only
+  description: >-
+    Declared as the sole securityDefinition in the published swagger.json. This is the unmodified
+    Django REST framework / drf-yasg default and is not documented anywhere in the SewerAI API
+    reference. Recorded for fidelity to the contract; not treated as the intended auth model.
+  sources:
+  - openapi/sewerai-swagger.json
+onboarding:
+  self_serve: false
+  process: >-
+    "Please request an API token by contacting your point of contact at SewerAI or emailing:
+    info at sewerai.com. You must be a registered user to test or utilize the API."
+  contact: info@sewerai.com
+  docs: https://docs.sewerai.com/#authentication-1
+observed:
+- url: https://api.sewerai.com/v1/inspections/
+  method: GET
+  http_status: 403
+  body: '{"detail":"Authentication credentials were not provided."}'
+  checked: '2026-08-27'
+  note: Anonymous request; confirms the surface is live and auth-gated.

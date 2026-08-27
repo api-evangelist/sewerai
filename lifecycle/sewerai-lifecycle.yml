@@ -1,0 +1,103 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://docs.sewerai.com/, https://www.sewerai.com/changelog, https://status.sewerai.com/,
+  openapi/sewerai-swagger.json, live probes of api.sewerai.com
+versioning:
+  scheme: path
+  pattern: https://api.sewerai.com/v{n}
+  current: v1
+  contract_version: v1.0.0
+  contract_version_source: >-
+    "SewerAI API v1.0.0" as rendered at https://docs.sewerai.com/#sewerai-api. The harvested
+    drf-yasg contract separately reports info.version "v1", which is the unedited Django REST
+    framework default rather than a curated version string.
+  policy_published: false
+  note: >-
+    No versioning policy, support window, or version-negotiation mechanism is published. There is no
+    version header, no Accept-version media type and no changelog entry describing how versions are
+    retired.
+version_divergence:
+  finding: >-
+    The 2026-07-14 and 2026-07-01 changelog entries announce work on "v2 inspection and observation
+    endpoints" — metric-unit conversion, filtering by customer and owner, a MACP pipe-connection
+    export, large CSV exports and digital-submittal endpoints. No v2 surface is reachable or
+    described anywhere public.
+  probes:
+  - url: https://api.sewerai.com/v2/
+    status: 404
+  - url: https://api.sewerai.com/v2/inspections/
+    status: 404
+  - url: https://api.sewerai.com/v2/observations/
+    status: 404
+  - url: https://api.sewerai.com/api/v2/
+    status: 404
+  - url: https://api.sewerai.com/api/v2/inspections/
+    status: 404
+  contract: >-
+    The published swagger.json harvested 2026-08-27 contains 289 paths and 476 operations, none of
+    them under /v2/. docs.sewerai.com describes v1 only.
+  checked: '2026-08-27'
+  implication: >-
+    An integrator reading the changelog cannot find, call, or read a contract for the v2 endpoints
+    they are told to use. The API's newest capabilities are announced but undiscoverable.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations: []
+  note: >-
+    No deprecation policy exists, and no operation in the published contract carries
+    `deprecated: true`. No Sunset or Deprecation response header was observed. The contract does
+    carry a soft-delete convention instead — `deleted` and `deleted_by` timestamp/actor fields on
+    assets, inspections and observations — which is a data-level lifecycle, not an API one.
+status_page:
+  url: https://status.sewerai.com/
+  http_status: 200
+  provider: hosted status page
+  components:
+  - Website & API
+  - Exports
+  - Imports
+  - Maps
+  history_window: May 2026 - Aug 2026
+  subscribe: true
+  state_at_check: We're fully operational
+  checked: '2026-08-27'
+change_log:
+  url: https://www.sewerai.com/changelog
+  http_status: 200
+  dated: true
+  api_category: true
+  latest_entry: '2026-07-14'
+  artifact: changelog/sewerai-changelog.yml
+sla:
+  published: false
+  note: >-
+    No uptime commitment, support-response target or credit schedule is published. Terms of service
+    at https://www.sewerai.com/terms is a commercial agreement, not an API SLA.
+support:
+  help_center: https://help.sewerai.com/
+  note: >-
+    The knowledge base is partially gated: "Login at the top right to view help articles." Section
+    headings and article titles are public; article bodies are not.
+  api_contact: info@sewerai.com
+maturity:
+  stage: production
+  evidence:
+  - Live auth-gated v1 surface returning 403 to anonymous callers.
+  - Named production customers listed on the trust center (PG&E, City of Houston, Knoxville Utilities Board, LA City Sanitation District).
+  - A dated product changelog with a standing API category.
+interactive_console:
+  url: https://api.sewerai.com/api/schema/swagger/
+  http_status: 200
+  functional: false
+  finding: >-
+    The Swagger playground SewerAI links from its documentation returns a 200 swagger-ui HTML shell
+    whose configured spec URL is "/api/schema/". That endpoint returns HTTP 500
+    ({"message": "Internal Server Error (500)"}), so the console renders empty and cannot be used to
+    call the API. No `Console`/`Sandbox` pointer is emitted in apis.yml for it: the page is served
+    but the surface it advertises does not work. It becomes a valid pointer the moment
+    /api/schema/ returns a document again.
+  checked: '2026-08-27'

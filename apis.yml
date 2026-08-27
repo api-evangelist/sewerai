@@ -1,23 +1,166 @@
 aid: sewerai
 name: SewerAI
-description: 'SewerAI is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  SewerAI is a Walnut Creek, California software company (founded 2019, SewerAI Corp) building AI
+  computer-vision and cloud asset-management software for underground wastewater infrastructure. Its
+  platform pairs PIONEER, a cloud CCTV inspection and sewer asset-management environment, with
+  AutoCode, a computer-vision engine that automatically assigns NASSCO observation codes to sewer
+  pipe, lateral and manhole inspection video, plus Risk & Rehab, Sewer3D, QAI and Smart Project
+  Builder. It is NASSCO-certified software for PACP, LACP and MACP import and export, and sells to
+  municipal utilities, engineering firms and inspection contractors. SewerAI publishes a versioned
+  REST Enterprise API (v1) at api.sewerai.com for creating organizations, assets, projects,
+  inspections, observations and videos, uploading inspection footage via presigned S3 posts,
+  kicking off AutoCode runs, and pulling coded results and exports back into GIS, CMMS and
+  work-order systems such as Esri ArcGIS, Trimble Cityworks, OpenGov Cartegraph, Lucity, Infor and
+  Unearth.
+image: https://sewerai.com/opengraph-image
 url: https://raw.githubusercontent.com/api-evangelist/sewerai/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-27'
 modified: '2026-08-27'
 tags:
 - Company
-apis: []
+- Wastewater
+- Water Infrastructure
+- Sewer Inspection
+- Asset Management
+- Computer Vision
+- Artificial Intelligence
+- GIS
+- Public Works
+- Construction Technology
+- NASSCO
+- CCTV Inspection
+tags_raw:
+- wastewater
+- water-infrastructure
+- sewer-inspection
+- asset-management
+- computer-vision
+- artificial-intelligence
+- gis
+- public-works
+- construction-technology
+- nassco
+- cctv-inspection
+apis:
+- name: SewerAI Enterprise API
+  description: >-
+    Versioned REST API (v1) for transmitting, storing and retrieving sewer asset inspection data and
+    video from the SewerAI PIONEER platform, and for initiating AutoCode AI computer-vision runs and
+    retrieving their coded results. Covers organizations, assets (mainline, lateral,
+    maintenance-hole), projects, inspections (PACP, LACP, MACP), observations, videos with presigned
+    upload, exports and users. Authenticates with an API key using the "X-SAI" Authorization prefix
+    or a JWT bearer token obtained from the token endpoint. Keys are issued by SewerAI on request.
+  humanURL: https://docs.sewerai.com/
+  baseURL: https://api.sewerai.com/v1
+  tags:
+  - Sewer Inspection
+  - Asset Management
+  - Computer Vision
+  - Wastewater
+  - NASSCO
+  - CCTV Inspection
+  tags_raw:
+  - sewer-inspection
+  - asset-management
+  - computer-vision
+  - wastewater
+  - nassco
+  - cctv-inspection
+  properties:
+  - type: Documentation
+    url: https://docs.sewerai.com/
+  - type: APIReference
+    url: https://docs.sewerai.com/#sewerai-api
+  - type: GettingStarted
+    url: https://docs.sewerai.com/#introduction
+  - type: Swagger
+    url: openapi/sewerai-swagger.json
+  - type: OpenAPI
+    url: openapi/sewerai-swagger.json
+  - type: Authentication
+    url: authentication/sewerai-authentication.yml
+  - type: Conventions
+    url: conventions/sewerai-conventions.yml
+  - type: DataModel
+    url: data-model/sewerai-data-model.yml
+  - type: ErrorCatalog
+    url: errors/sewerai-problem-types.yml
+  - type: Overlay
+    url: overlays/sewerai-swagger-overlay.yaml
+common:
+- type: DomainSecurity
+  url: security/sewerai-domain-security.yml
+- type: Website
+  url: https://www.sewerai.com/
+- type: DeveloperPortal
+  url: https://docs.sewerai.com/
+- type: Documentation
+  url: https://docs.sewerai.com/
+- type: APIReference
+  url: https://docs.sewerai.com/#sewerai-api
+- type: GettingStarted
+  url: https://docs.sewerai.com/#introduction
+- type: Support
+  url: https://help.sewerai.com/
+- type: HelpCenter
+  url: https://help.sewerai.com/
+- type: Blog
+  url: https://www.sewerai.com/resources/blog
+- type: GitHubOrganization
+  url: https://github.com/sewerai-org
+- type: Pricing
+  url: https://www.sewerai.com/pricing
+- type: SignUp
+  url: https://www.sewerai.com/demo
+- type: Login
+  url: https://app.sewerai.com/login
+- type: TermsOfService
+  url: https://www.sewerai.com/terms
+- type: PrivacyPolicy
+  url: https://www.sewerai.com/privacy
+- type: StatusPage
+  url: https://status.sewerai.com/
+- type: ChangeLog
+  url: https://www.sewerai.com/changelog
+- type: ChangeLog
+  url: changelog/sewerai-changelog.yml
+- type: TrustCenter
+  url: https://trust.sewerai.com/
+- type: Compliance
+  url: security/sewerai-trust-center.yml
+- type: Authentication
+  url: authentication/sewerai-authentication.yml
+- type: Conventions
+  url: conventions/sewerai-conventions.yml
+- type: Conformance
+  url: conformance/sewerai-conformance.yml
+- type: Lifecycle
+  url: lifecycle/sewerai-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/sewerai-problem-types.yml
+- type: DataModel
+  url: data-model/sewerai-data-model.yml
+- type: Packages
+  url: packages/sewerai-packages.yml
+- type: LLMsTxt
+  url: llms/sewerai-llms.txt
+- type: Plans
+  url: plans/sewerai-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/sewerai-rate-limits.yml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-common:
-- type: Website
-  url: https://www.nasdaqprivatemarket.com/
+x-enrichment:
+  date: '2026-08-27'
+  status: enriched
+  artifacts_added: 22
+  pass: local-v1

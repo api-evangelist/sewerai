@@ -1,0 +1,113 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist identity and security overlay for the SewerAI Enterprise API
+  version: 1.0.0
+extends: openapi/_original/sewerai-swagger.json
+x-generated: '2026-08-27'
+x-method: generated
+x-source: openapi/_original/sewerai-swagger.json
+x-target-format: swagger-2.0
+x-rationale: >-
+  The contract SewerAI publishes at https://api.sewerai.com/swagger.json is a drf-yasg document
+  whose identity block was never edited off the framework's default template. It calls itself
+  "Snippets API" with the description "Test description", points termsOfService at
+  https://www.google.com/policies/terms/, gives contact@snippets.local as the contact email, and
+  declares BSD as the license — none of which is SewerAI's. It also names
+  574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws as its host, which is the AWS Lambda
+  function URL behind the API rather than api.sewerai.com, the host the documentation and every
+  worked example actually use. Finally, its sole securityDefinition is HTTP Basic, the Django REST
+  framework default, while the documented API authenticates with an `Authorization: X-SAI {key}`
+  API key or a JWT bearer token.
+  This overlay records those corrections WITHOUT mutating the harvested original. Everything it
+  asserts is taken from https://docs.sewerai.com/ and https://www.sewerai.com/; nothing is invented.
+  Apply with any Overlay 1.0.0 processor against openapi/_original/sewerai-swagger.json.
+actions:
+- target: $.info
+  description: >-
+    Replace the unedited drf-yasg template identity with SewerAI's own, as stated by the SewerAI API
+    reference (title "SewerAI API v1.0.0") and the SewerAI website.
+  update:
+    title: SewerAI API
+    description: >-
+      Enterprise REST API for the SewerAI PIONEER platform. Transmit, store and retrieve sewer asset
+      inspection information — organizations, assets, projects, inspections, NASSCO-coded
+      observations, videos and exports — and initiate AutoCode AI computer-vision runs to retrieve
+      automatically coded results. NASSCO PACP, LACP and MACP data shapes throughout.
+    version: v1.0.0
+    termsOfService: https://www.sewerai.com/terms
+    contact:
+      name: SewerAI API Support
+      email: info@sewerai.com
+      url: https://docs.sewerai.com/
+    license:
+      name: Proprietary — see the SewerAI Terms & Conditions
+      url: https://www.sewerai.com/terms
+- target: $
+  description: >-
+    Correct the host to the documented, publicly callable API host. The original declares the raw
+    AWS Lambda function URL; https://docs.sewerai.com/#example-scripts sets
+    BASE_URL = "https://api.sewerai.com/v1".
+  update:
+    host: api.sewerai.com
+    basePath: /
+    schemes:
+    - https
+- target: $.securityDefinitions
+  description: >-
+    Add the two authentication schemes SewerAI actually documents at
+    https://docs.sewerai.com/#authentication-1. The original declares only HTTP Basic, which is the
+    framework default and is documented nowhere.
+  update:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Token-based authentication with the required prefix "X-SAI". Send
+        `Authorization: X-SAI {API_KEY}`. Keys are issued by SewerAI on request to info@sewerai.com;
+        there is no self-serve signup. See authentication/sewerai-authentication.yml.
+    jwtAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        JWT bearer authentication. Send `Authorization: Bearer {token}` using a token obtained from
+        POST /token/ and renewed with POST /token/refresh/. Expressed as an apiKey header scheme
+        because Swagger 2.0 has no bearer scheme type.
+- target: $
+  description: Apply the documented schemes as the root security requirement.
+  update:
+    security:
+    - tokenAuth: []
+    - jwtAuth: []
+- target: $.info
+  description: >-
+    Record the domain standard the contract's own schemas implement, so a reader can see the
+    NASSCO conformance without reverse-engineering the field names. See
+    conformance/sewerai-conformance.yml.
+  update:
+    x-domain-standard:
+      id: nassco-pacp
+      name: NASSCO PACP / MACP / LACP
+      body: National Association of Sewer Service Companies
+      claim: NASSCO-Certified Software for PACP LACP MACP import and export
+      claim_source: https://www.sewerai.com/products/integrations
+- target: $.info
+  description: >-
+    Record the runtime characteristics an integrator has to discover by probing, because they are
+    published nowhere. Every value here is a measured absence, not a recommendation.
+  update:
+    x-runtime-notes:
+      pagination: >-
+        None. List operations return unbounded arrays; the documented `Paginated*List` schema names
+        resolve to anonymous arrays with no count/next/previous envelope and no limit/offset/page
+        parameter.
+      rate_limits: None published; no RateLimit-* or Retry-After headers observed.
+      idempotency: >-
+        None. No Idempotency-Key header or replay semantics. POST /v1/inspections/AutoCode/ starts a
+        billable AI run and is not safe to retry blind.
+      errors: >-
+        No 4xx or 5xx response is declared on any of the 476 operations. Live responses use three
+        different envelopes — {"detail":...}, a field-keyed validation map, and {"message":...}.
+        See errors/sewerai-problem-types.yml.
+      request_id: Correlate with the x-amzn-requestid response header; no SewerAI-branded id exists.

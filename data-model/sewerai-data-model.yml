@@ -1,0 +1,291 @@
+generated: '2026-08-27'
+method: derived
+source: openapi/sewerai-swagger.json
+docs: https://docs.sewerai.com/#schemas
+note: >-
+  Derived from the 57 `definitions` in the harvested contract and the schema reference rendered at
+  docs.sewerai.com. Relationships are read from hyperlinked reference fields — the API returns
+  related resources as absolute URLs rather than bare ids, so `asset`, `owner`, `account`,
+  `inspection`, `project` and `created_by` are all URI-typed foreign keys. Only entities on the
+  documented v1 Enterprise surface are modelled as primary; the contract also exposes a large
+  internal ML/labelling model (TrainingModel, ObservationRun, BBInferenceAssignment, ModelEnsemble,
+  RegressionModel, FrameQualityReview) which is listed separately and is not part of the public API.
+identifiers:
+  primary_key: sid
+  format: uuid
+  prefixes: none
+  external_key: >-
+    Assets and inspections accept a caller-supplied `key` (max 128 chars) used as an external
+    correlation identifier.
+entities:
+- name: Account
+  description: The top-level tenant. Every other record carries an `account` reference.
+  schemas:
+  - Account
+  key: sid
+  notable_fields:
+  - default_pacp_project_spec_sid
+  - default_macp_project_spec_sid
+  - logo_url
+  - pdf_template_options
+- name: Organization
+  description: >-
+    The owner of assets — typically a municipality, utility or client agency. Optional in the quick
+    start; assets can exist without one.
+  schemas:
+  - OrganizationRead
+  - OrganizationWrite
+  key: sid
+- name: Asset
+  description: >-
+    A physical piece of sewer infrastructure. `kind` discriminates the three NASSCO classes plus a
+    catch-all.
+  schemas:
+  - AssetList
+  - MainlineAssetRead
+  - MainlineAssetWrite
+  - LateralAssetWriteRequest
+  key: sid
+  discriminator:
+    field: kind
+    values:
+    - mainline
+    - lateral
+    - maintenance-hole
+    - other
+  notable_fields:
+  - geojson
+  - shape
+  - host_material
+  - length
+  - height
+  - width
+  - joint_distance
+  - rim_to_invert
+  - rim_to_grade
+  - renewal_method
+  - renewal_year
+- name: Project
+  description: A body of inspection work. Inspections belong to one or more projects.
+  schemas:
+  - ProjectRead
+  - ProjectWrite
+  key: sid
+- name: Inspection
+  description: >-
+    One survey of one asset at one point in time. The widest entity in the model — the PACP, LACP
+    and MACP header record, carrying well over 150 fields covering pipe geometry, manhole
+    components, coordinates, survey certification and ten NASSCO custom fields.
+  schemas:
+  - Inspection
+  - InspectionList
+  - InspectionRequest
+  - PACPInspectionWriteRequest
+  - MACPInspectionWriteRequest
+  - LACPInspectionWriteRequest
+  - MainlineInspectionWrite
+  - LateralInspectionWriteRequest
+  - MaintenanceHoleInspectionWriteRequest
+  key: sid
+  discriminator:
+    field: inspection_type
+    values:
+    - mainline
+    - lateral
+    - maintenance-hole
+  notable_fields:
+  - PACPInspectionID
+  - Surveyed_By
+  - Certificate_Number
+  - Reviewed_By
+  - Reviewer_Certificate_Number
+  - inspection_datetime
+  - autocode_complete
+  - autocode_complete_date
+  - Custom_Fields
+  - Custom_Labels
+  - IsImperial
+  - ratings
+  - pipe_connections
+- name: InspectionRatings
+  description: >-
+    The NASSCO PACP/MACP rating block attached to an inspection — structural (ST) and operations &
+    maintenance (OM) grade counts and grade scores, quick ratings and likelihood-of-failure indices.
+  schemas:
+  - InspectionRatings
+  embedded_in: Inspection.ratings
+  notable_fields:
+  - ST1..ST5
+  - OM1..OM5
+  - STGradeScore1..5
+  - OMGradeScore1..5
+  - PACPQuickRating
+  - MACPQuickRating
+  - OverallQuickRating
+  - LoFPACP
+  - LoFMACP
+  - OverallMHRatingsIndex
+- name: Observation
+  description: >-
+    A single coded defect or feature found at a chainage position in an inspection. This is the PACP
+    observation record.
+  schemas:
+  - ObservationRead
+  - ObservationWrite
+  - ObservationWriteRequest
+  key: sid
+  notable_fields:
+  - code
+  - Distance
+  - Grade
+  - Continuous
+  - Joint
+  - Clock_At_From
+  - Clock_To
+  - Value_1st_Dimension
+  - Value_2nd_Dimension
+  - Value_Percent
+  - Remarks
+  - video_frame
+  - snapshot_url
+  - bounding_boxes
+- name: Video
+  description: >-
+    Inspection footage. Created against an inspection; the create response returns
+    `presigned_upload_data` for a direct multipart POST to S3. Carries a processing `stage` /
+    `state` machine that includes the AutoCode and NASSCO review phases.
+  schemas:
+  - VideoRead
+  - VideoWrite
+  - Video
+  key: sid
+  notable_fields:
+  - stage
+  - state
+  - presigned_upload_data
+  - video_name
+  - autocode_complete
+  - qai_status
+  - submittal_status
+- name: Export
+  description: An asynchronous export job producing downloadable inspection data.
+  schemas:
+  - ExportRead
+  - ExportWrite
+  key: sid
+- name: User
+  description: An account member.
+  schemas:
+  - UserList
+  - UserRead
+  - AccountUser
+  key: sid
+- name: PartnerLink
+  description: A link from an inspection to an external partner system record.
+  schemas:
+  - PartnerLink
+  embedded_in: Inspection.partner_links
+relationships:
+- from: Asset
+  to: Organization
+  type: belongs_to
+  via: owner
+- from: Asset
+  to: Account
+  type: belongs_to
+  via: account
+- from: Inspection
+  to: Asset
+  type: belongs_to
+  via: asset
+  required: true
+- from: Inspection
+  to: Project
+  type: has_many
+  via: projects
+- from: Inspection
+  to: Organization
+  type: belongs_to
+  via: owner
+- from: Inspection
+  to: Organization
+  type: belongs_to
+  via: client
+- from: Inspection
+  to: Video
+  type: has_one
+  via: video
+- from: Inspection
+  to: InspectionRatings
+  type: has_one
+  via: ratings
+- from: Inspection
+  to: PartnerLink
+  type: has_many
+  via: partner_links
+- from: Observation
+  to: Inspection
+  type: belongs_to
+  via: path parent (/v1/inspections/{inspection_sid}/observations/)
+- from: Observation
+  to: Video
+  type: belongs_to
+  via: video_frame
+  note: Positional rather than referential — the frame index into the inspection video.
+- from: Video
+  to: Inspection
+  type: belongs_to
+  via: inspection
+- from: Video
+  to: Project
+  type: has_many
+  via: projects
+- from: Project
+  to: Account
+  type: belongs_to
+  via: account
+- from: User
+  to: Account
+  type: belongs_to
+  via: account
+audit_fields:
+  present_on:
+  - Asset
+  - Inspection
+  - Observation
+  - Video
+  fields:
+  - created
+  - created_by
+  - updated
+  - updated_by
+  - deleted
+  - deleted_by
+  note: >-
+    `deleted`/`deleted_by` are read-only date-time and actor URIs on every major entity, which means
+    deletion is a soft delete recorded on the row. See the reversibility block in
+    conventions/sewerai-conventions.yml.
+internal_model_not_public:
+  note: >-
+    The published contract also exposes SewerAI's internal machine-learning and labelling model.
+    These entities are reachable in the spec but are not part of the documented Enterprise API and
+    should not be treated as a supported integration surface.
+  entities:
+  - TrainingModel
+  - ModelEnsemble
+  - RegressionModel
+  - ObservationRun
+  - InferenceAssignment
+  - BBInferenceAssignment
+  - ProvisionalObservationClassification
+  - TestObservationClassification
+  - VideoObservationClassification
+  - VideoObservationRegression
+  - ClassificationGroup
+  - FrameQualityReview
+  - BoundingBox
+  - VideoPayout
+  - ETETest
+  - AIAnnotation
+entity_count: 11
+relationship_count: 15

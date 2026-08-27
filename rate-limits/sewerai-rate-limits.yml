@@ -1,0 +1,55 @@
+generated: '2026-08-27'
+method: searched
+source: https://docs.sewerai.com/
+checked: '2026-08-27'
+limit_count: 0
+documented: false
+headers: []
+exhaustion_status: null
+retry_after: false
+note: >-
+  SewerAI publishes no rate limits. The API reference at docs.sewerai.com contains no rate-limit,
+  throttle, quota or 429 section; the harvested contract declares no 429 response on any of its 476
+  operations; and no RateLimit-*, X-RateLimit-* or Retry-After header appeared on any live response
+  observed on 2026-08-27. This is an honest zero — an absence of published limits, not an absence of
+  limits.
+limits: []
+observed_responses:
+- url: https://api.sewerai.com/v1/inspections/
+  method: GET
+  http_status: 403
+  rate_limit_headers: none
+  headers_present:
+  - allow
+  - vary
+  - x-amzn-requestid
+  - x-amzn-trace-id
+  - strict-transport-security
+  - x-content-type-options
+  - x-frame-options
+  - referrer-policy
+  - permissions-policy
+  checked: '2026-08-27'
+  note: >-
+    Anonymous request. Only the AWS request identifiers and standard security headers are returned;
+    no throttling signal of any kind. A deeper observation would need an issued key, which SewerAI
+    grants only on request.
+- url: https://api.sewerai.com/token/
+  method: POST
+  http_status: 400
+  rate_limit_headers: none
+  checked: '2026-08-27'
+  note: >-
+    An unauthenticated credential endpoint returning field-validation errors with no throttle
+    header and no documented lockout policy.
+implications:
+  for_agents: >-
+    An autonomous caller has no runtime signal telling it how fast it may go, no header telling it
+    how much budget remains, and no documented status code or backoff hint for exhaustion. Combined
+    with the absent pagination (see conventions/sewerai-conventions.yml), a bulk read of a large
+    inspection program has neither a paging contract nor a pacing contract.
+gaps:
+- No published limit for any scope (per key, per account, per endpoint).
+- No RateLimit-* or X-RateLimit-* response headers.
+- No documented status code or Retry-After behaviour on exhaustion.
+- No quota or usage endpoint on the documented v1 surface.

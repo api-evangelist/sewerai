@@ -1,0 +1,80 @@
+generated: '2026-08-27'
+method: searched
+source: https://www.sewerai.com/pricing
+http_status: 200
+checked: '2026-08-27'
+currency: USD
+public_pricing: false
+self_serve_signup: false
+free_tier: false
+free_trial: false
+api_priced_separately: false
+plan_count: 3
+note: >-
+  SewerAI names three product tiers and states the BILLING MODEL for each, but publishes no price,
+  no quota, no overage rate and no numeric limit for any of them. Every tier routes to a "GET
+  PRICING" form or a sales call on +1 (855) 952-2200. Nothing here is an estimate; every price
+  field is null because no price is published. The API is not sold as its own tier — it is the
+  Enterprise API bundled with the PIONEER platform, and API keys are issued by SewerAI on request
+  rather than self-serve.
+plans:
+- name: PIONEER
+  slug: pioneer
+  price: null
+  currency: USD
+  billing_period: annual
+  billing_model: seat-based subscription
+  included_quota: null
+  overage: null
+  limits: null
+  features:
+  - NASSCO PACP/MACP certified inspection workflow
+  - Cloud-based access to inspection data
+  - Digital submittals
+  source: https://www.sewerai.com/pricing
+- name: AutoCode
+  slug: autocode
+  price: null
+  currency: USD
+  billing_period: usage
+  billing_model: usage-based
+  included_quota: null
+  overage: null
+  limits: null
+  features:
+  - AI computer-vision defect detection on inspection video
+  - Automatic NASSCO observation coding
+  source: https://www.sewerai.com/pricing
+  note: >-
+    Usage-based billing with no published unit rate or unit of measure. Relevant to API callers
+    because POST /v1/inspections/AutoCode/ starts a billable run and the API publishes no cost
+    signal, no quota counter and no cancel path.
+- name: Risk & Rehab
+  slug: risk-rehab
+  price: null
+  currency: USD
+  billing_period: annual
+  billing_model: population-based
+  included_quota: null
+  overage: null
+  limits: null
+  features:
+  - Asset risk scoring
+  - Rehabilitation planning
+  - GIS-integrated maps
+  source: https://www.sewerai.com/pricing
+bundles:
+- name: AutoCode + Pioneer Starter Bundle
+  price: null
+  note: Bundled rate available on request; no figure published.
+free_offers:
+- name: Free Preliminary Rehab Plan
+  price: 0
+  description: >-
+    A no-cost preliminary rehabilitation plan showing the top 10-20 risk assets with cost estimates.
+    A lead-generation offer, not an API or product tier.
+  source: https://www.sewerai.com/pricing
+contact:
+  sales_form: https://www.sewerai.com/pricing
+  demo: https://www.sewerai.com/demo
+  phone: '+1 855 952 2200'

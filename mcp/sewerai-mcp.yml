@@ -1,0 +1,154 @@
+generated: '2026-08-27'
+method: derived
+source: openapi/sewerai-swagger.json
+status: candidate
+searched:
+- query: SewerAI MCP server / model context protocol
+  result: no first-party or third-party MCP server found
+  checked: '2026-08-27'
+- url: https://docs.sewerai.com/
+  result: no MCP, agent or tool-calling surface documented
+  http_status: 200
+  checked: '2026-08-27'
+- url: https://github.com/sewerai-org
+  result: no MCP repository in the organization
+  http_status: 200
+  checked: '2026-08-27'
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: derived
+note: >-
+  SewerAI ships no MCP server. The tools below are a DERIVED candidate mapping of the documented
+  v1 Enterprise API operations onto MCP tool shapes, offered as a design sketch of what a SewerAI
+  MCP server could expose. Nothing here is published by SewerAI. Every `rest` value is a real
+  operationId taken verbatim from the harvested contract; no endpoint URL is invented. An
+  implementation would authenticate the same way the REST API does (Authorization: X-SAI <key>,
+  or a JWT bearer from POST /token/) — see authentication/sewerai-authentication.yml.
+server:
+  name: sewerai
+  transport: null
+  url: null
+tools:
+- name: list_inspections
+  description: List sewer asset inspections, optionally filtered by project, asset or date window.
+  rest: v1_inspections_list
+  category: inspections
+- name: get_inspection
+  description: Retrieve a single inspection by sid.
+  rest: v1_inspections_read
+  category: inspections
+- name: create_inspection
+  description: Create an inspection of an asset, attached to a project.
+  rest: v1_inspections_create
+  category: inspections
+  write: true
+- name: update_inspection
+  description: Update inspection header fields.
+  rest: v1_inspections_partial_update
+  category: inspections
+  write: true
+- name: delete_inspection
+  description: Delete an inspection.
+  rest: v1_inspections_delete
+  category: inspections
+  write: true
+- name: run_autocode
+  description: Kick off an AutoCode AI computer-vision run over a set of inspections or projects.
+  rest: v1_inspections_AutoCode
+  category: autocode
+  write: true
+- name: list_inspection_observations
+  description: List the NASSCO-coded observations recorded against one inspection.
+  rest: v1_inspections_observations_list
+  category: observations
+- name: get_observation
+  description: Retrieve one observation.
+  rest: v1_observations_read
+  category: observations
+- name: list_observations
+  description: List observations across inspections.
+  rest: v1_observations_list
+  category: observations
+- name: create_observation
+  description: Record an observation against an inspection.
+  rest: v1_inspections_observations_create
+  category: observations
+  write: true
+- name: list_assets
+  description: List sewer assets (mainline, lateral, maintenance-hole, other).
+  rest: v1_assets_list
+  category: assets
+- name: get_asset
+  description: Retrieve one asset by sid.
+  rest: v1_assets_read
+  category: assets
+- name: create_asset
+  description: Create a sewer asset owned by an organization.
+  rest: v1_assets_create
+  category: assets
+  write: true
+- name: update_asset
+  description: Update an asset.
+  rest: v1_assets_partial_update
+  category: assets
+  write: true
+- name: list_projects
+  description: List inspection projects.
+  rest: v1_projects_list
+  category: projects
+- name: create_project
+  description: Create an inspection project.
+  rest: v1_projects_create
+  category: projects
+  write: true
+- name: list_organizations
+  description: List organizations that own assets.
+  rest: v1_organizations_list
+  category: organizations
+- name: create_organization
+  description: Create an organization.
+  rest: v1_organizations_create
+  category: organizations
+  write: true
+- name: list_videos
+  description: List inspection videos and their processing stage.
+  rest: v1_videos_list
+  category: videos
+- name: create_video
+  description: Register a video against an inspection and receive presigned S3 upload data.
+  rest: v1_videos_create
+  category: videos
+  write: true
+- name: get_video_url
+  description: Retrieve a playback URL for an inspection video.
+  rest: v1_videos_url
+  category: videos
+- name: change_video_inspection
+  description: Reassign a video to a different inspection.
+  rest: v1_videos_change_inspection
+  category: videos
+  write: true
+- name: create_export
+  description: Initiate an export of inspection data.
+  rest: v1_exports_create
+  category: exports
+  write: true
+- name: get_export
+  description: Fetch an export's status and download location.
+  rest: v1_exports_read
+  category: exports
+- name: list_users
+  description: List users in the account.
+  rest: v1_users_list
+  category: users
+tool_count: 25
+pointer_policy: >-
+  No `MCPServer` pointer is emitted in apis.yml for this file. The MCPServer type is a scored
+  presence claim that an agent can reach this provider through MCP, and SewerAI publishes no such
+  server. Wiring the pointer for a derived candidate would credit SewerAI with an agent surface it
+  does not ship. The pointer becomes correct the moment SewerAI publishes a real endpoint or
+  package, at which point deployment.mode moves off `none`.

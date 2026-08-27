@@ -1,0 +1,32 @@
+generated: '2026-08-27'
+method: generated
+source: >-
+  Packaged Agent Skills generated from the SewerAI contract harvested verbatim 2026-08-27 at
+  https://api.sewerai.com/swagger.json (openapi/sewerai-swagger.json, copy in openapi/_original/).
+  Every operationId in every skill was verified verbatim in that contract; no operation, parameter
+  or endpoint is invented. Flows mirror the Quick Start, the worked Python and the "Initiate and
+  Fetch an Export" example published at https://docs.sewerai.com/. Cross-cutting rules cite
+  ../authentication/, ../errors/, ../conventions/, ../rate-limits/, ../data-model/ and
+  ../conformance/.
+skills:
+- file: sewerai-upload-inspection-and-run-autocode.md
+  name: Upload an inspection video and run AutoCode
+  api: openapi/sewerai-swagger.json
+  operations: [v1_organizations_create, v1_assets_create, v1_projects_create, v1_inspections_create, v1_videos_create, v1_videos_read, v1_inspections_AutoCode, v1_inspections_observations_list]
+  note: >-
+    The marquee flow. Carries the heaviest safety rules in the set, because AutoCode is billable,
+    non-idempotent and has no cancel or refund path.
+- file: sewerai-pull-coded-observations.md
+  name: Pull NASSCO-coded observations for a program
+  api: openapi/sewerai-swagger.json
+  operations: [v1_inspections_list, v1_inspections_read, v1_inspections_observations_list, v1_observations_list, v1_observations_read, v1_videos_list, v1_videos_url, v1_assets_list]
+  note: >-
+    Read-only. The integration path behind SewerAI's GIS and CMMS connectors. Works around the
+    absence of pagination by slicing on update-time windows.
+- file: sewerai-export-inspection-data.md
+  name: Initiate and fetch an inspection export
+  api: openapi/sewerai-swagger.json
+  operations: [v1_exports_create, v1_exports_list, v1_exports_read, v1_exports_delete, v1_inspections_list]
+  note: >-
+    The asynchronous job pattern. Polling is the only completion signal — SewerAI publishes no
+    webhook, event or callback surface.

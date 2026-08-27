@@ -1,0 +1,107 @@
+generated: '2026-08-27'
+method: probed
+source: >-
+  live unauthenticated requests to https://api.sewerai.com/, plus openapi/sewerai-swagger.json and
+  https://docs.sewerai.com/
+format: json
+rfc9457: false
+media_type: application/json
+note: >-
+  SewerAI publishes NO error reference. The harvested contract declares only success responses —
+  a census of all 476 operations found 302 `200`, 126 `201` and 48 `204` declarations and not one
+  4xx or 5xx response object — so nothing about failure can be derived from the spec. Every entry
+  below was captured from a live anonymous request against the production API on 2026-08-27 and is
+  reproduced verbatim. Two different envelope shapes are in use, which is itself the finding: the
+  Django application returns `{"detail": ...}` (sometimes with `code` and `messages`) or a
+  field-keyed validation map, while the gateway in front of it returns `{"message": ...}`. An agent
+  cannot parse SewerAI errors with a single shape.
+envelopes:
+- name: drf-detail
+  shape: '{"detail": "<human message>"}'
+  optional_fields:
+  - code
+  - messages
+  emitted_by: the Django REST framework application
+- name: drf-validation
+  shape: '{"<field_name>": ["<message>", ...]}'
+  emitted_by: serializer validation failures on write operations
+- name: gateway-message
+  shape: '{"message": "<status text> (<code>)"}'
+  emitted_by: the routing layer for unmatched paths and unhandled server errors
+problem_types:
+- status: 403
+  code: null
+  title: Authentication credentials were not provided
+  body: '{"detail":"Authentication credentials were not provided."}'
+  envelope: drf-detail
+  meaning: >-
+    No credentials, or credentials the API did not recognise as a credential at all. Note that
+    SewerAI answers 403 rather than 401 here, and returns no WWW-Authenticate header, so a client
+    cannot discover the auth scheme from a challenge.
+  remediation: >-
+    Send Authorization with the X-SAI prefix and a key issued by SewerAI, or a JWT bearer obtained
+    from POST /token/.
+  observed:
+    url: https://api.sewerai.com/v1/inspections/
+    method: GET
+    checked: '2026-08-27'
+- status: 403
+  code: token_not_valid
+  title: Given token not valid for any token type
+  body: >-
+    {"detail":"Given token not valid for any token type","code":"token_not_valid","messages":[{"token_class":"AccessToken","token_type":"access","message":"Token is invalid"}]}
+  envelope: drf-detail
+  meaning: A bearer token was supplied but is expired, malformed, or not issued by this API.
+  remediation: Refresh with POST /token/refresh/, or re-authenticate with POST /token/.
+  observed:
+    url: https://api.sewerai.com/v1/inspections/
+    method: GET
+    checked: '2026-08-27'
+- status: 400
+  code: null
+  title: Field validation failure
+  body: '{"username":["This field is required."],"password":["This field is required."]}'
+  envelope: drf-validation
+  meaning: >-
+    One or more request fields failed serializer validation. The response is keyed by field name,
+    with an array of messages per field. There is no top-level `detail`, `error` or `code`.
+  remediation: Correct the named fields and resubmit.
+  observed:
+    url: https://api.sewerai.com/token/
+    method: POST
+    checked: '2026-08-27'
+- status: 404
+  code: null
+  title: Not Found
+  body: '{"message": "Not Found (404)"}'
+  envelope: gateway-message
+  meaning: The path is not routed. Returned for unknown resources and for unrouted versions.
+  remediation: Check the path against the published contract.
+  observed:
+    url: https://api.sewerai.com/v1/nope/
+    method: GET
+    checked: '2026-08-27'
+- status: 500
+  code: null
+  title: Internal Server Error
+  body: '{"message": "Internal Server Error (500)"}'
+  envelope: gateway-message
+  meaning: Unhandled server error, with no correlation identifier in the body.
+  remediation: >-
+    Retry, then contact support with the x-amzn-requestid response header value, which is the only
+    correlation identifier the API returns.
+  observed:
+    url: https://api.sewerai.com/api/schema/
+    method: GET
+    checked: '2026-08-27'
+    note: >-
+      The OpenAPI schema endpoint that the documentation and the Swagger playground both point at is
+      itself returning 500. This is a live defect on the provider's published contract endpoint.
+gaps:
+- No 4xx or 5xx response is declared for any of the 476 operations in the published contract.
+- No error-code registry, error reference page, or list of documented failure modes exists.
+- >-
+  403 is returned where 401 is meant, with no WWW-Authenticate header, so an agent cannot
+  distinguish "not authenticated" from "authenticated but forbidden".
+- No application/problem+json (RFC 9457) support.
+- No error identifier is returned in any body; correlation is only possible via x-amzn-requestid.

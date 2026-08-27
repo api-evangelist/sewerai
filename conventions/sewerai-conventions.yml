@@ -1,0 +1,216 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://docs.sewerai.com/, openapi/sewerai-swagger.json, live probes of https://api.sewerai.com/
+see_also:
+- authentication/sewerai-authentication.yml
+- errors/sewerai-problem-types.yml
+- lifecycle/sewerai-lifecycle.yml
+- rate-limits/sewerai-rate-limits.yml
+- data-model/sewerai-data-model.yml
+base_url: https://api.sewerai.com/v1
+contract_host_note: >-
+  The published swagger.json declares `host:
+  574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws` and `basePath: /` — the raw AWS
+  Lambda function URL behind the API, not api.sewerai.com. A client that trusts the contract's own
+  host field will not call the API the documentation describes. api.sewerai.com is the correct,
+  Cloudflare-fronted host per https://docs.sewerai.com/#example-scripts.
+auth:
+  style: api-key-in-authorization-header
+  header: 'Authorization: X-SAI {API_KEY}'
+  alternative: 'Authorization: Bearer {JWT}'
+  self_serve: false
+  detail: authentication/sewerai-authentication.yml
+media_types:
+  request: application/json
+  response: application/json
+  file_upload: multipart/form-data to a presigned S3 POST, not to the SewerAI API
+identifiers:
+  primary_key: sid
+  format: uuid
+  prefixed: false
+  client_supplied_key: >-
+    Assets and inspections accept a `key` field — "A unique key for this inspection (if not
+    provided, then a uuid is added)" — which lets a caller carry its own external identifier.
+  hyperlinked: >-
+    Related resources are returned as absolute URLs (`url`, `owner`, `asset`, `account`,
+    `created_by`) rather than bare ids. This is Django REST framework HyperlinkedModelSerializer
+    style: an agent must parse the trailing path segment to recover a sid.
+pagination:
+  supported: false
+  style: none
+  params: []
+  response_fields: []
+  finding: >-
+    The v1 list operations return an unbounded JSON array. The documentation names the response
+    schemas `PaginatedAssetListList`, `PaginatedInspectionListList`, `PaginatedObservationReadList`
+    and so on, but each one resolves to an anonymous array of the item schema with no `count`,
+    `next`, `previous` or `results` envelope, and no `limit`, `offset`, `page` or `cursor` parameter
+    is documented on any list endpoint. The name promises pagination the payload does not deliver.
+    A caller listing observations across a large program has no supported way to page.
+  checked: '2026-08-27'
+filtering:
+  supported: true
+  style: query-parameters
+  examples:
+  - operation: v1_assets_list
+    params:
+    - created_after
+    - created_before
+    - updated_after
+    - updated_before
+    - kind
+    enums:
+      kind:
+      - lateral
+      - mainline
+      - maintenance-hole
+      - other
+  - operation: v1_inspections_list
+    params:
+    - project
+    - inspection_type
+    - date ranges
+  note: >-
+    The 2026-07 changelog adds customer and owner filters to the v2 inspection and observation
+    endpoints; those are not present on the v1 surface described here.
+sorting:
+  supported: false
+  note: No sort or ordering parameter is documented.
+field_expansion:
+  supported: false
+sparse_fieldsets:
+  supported: false
+metadata:
+  supported: partial
+  note: >-
+    NASSCO inspections carry ten custom fields (Custom Field 1-10). As of the 2026-07-01 release the
+    labels for those fields are configurable on the project spec, and the 2026-07-01 changelog says
+    the v2 API can update them. There is no free-form metadata bag.
+request_tracing:
+  client_request_id: false
+  response_headers:
+  - x-amzn-requestid
+  - x-amzn-trace-id
+  note: >-
+    Correlation is only possible via the AWS-generated request id echoed by the platform. There is
+    no documented, SewerAI-branded request identifier, and none is mentioned in the error responses.
+  observed: '2026-08-27'
+versioning:
+  style: path
+  current: v1
+  detail: lifecycle/sewerai-lifecycle.yml
+error_envelope:
+  rfc9457: false
+  shapes:
+  - '{"detail": "..."}'
+  - '{"detail": "...", "code": "...", "messages": [...]}'
+  - '{"<field>": ["..."]}'
+  - '{"message": "..."}'
+  detail: errors/sewerai-problem-types.yml
+rate_limit_signaling:
+  headers: []
+  documented: false
+  detail: rate-limits/sewerai-rate-limits.yml
+idempotency:
+  supported: false
+  grade: absent
+  header: null
+  scope: null
+  retention: null
+  evidence:
+  - >-
+    No Idempotency-Key header, replay key, or retry-safety statement appears in the contract, the
+    documentation, or any observed response.
+  - >-
+    The `key` field on inspections and assets is a client-supplied natural key, not a documented
+    idempotency guarantee — the docs describe it as a uniqueness handle, and no behaviour on
+    duplicate submission is stated.
+  impact: >-
+    POST /v1/inspections/, POST /v1/videos/ and POST /v1/inspections/AutoCode/ are all unsafe to
+    retry blind. AutoCode is a metered compute run, so a duplicated retry is a duplicated charge.
+dry_run_mode:
+  supported: false
+  grade: absent
+  note: >-
+    No preview, validate-only, or simulate parameter exists on any write operation. The nearest
+    thing in the contract is /accounts/{account_sid}/files/{sid}/import-test-data/, an
+    account-scoped test-data import on the internal surface, which is not a dry run of a write.
+reversibility:
+  grade: documented
+  credit_basis: >-
+    Reversal operations exist in the published contract, but no reversal WINDOW is stated anywhere
+    in the documentation, so this cannot be graded `verified`. No window has been invented here.
+  write_surfaces:
+  - surface: inspections
+    write_ops:
+    - v1_inspections_create
+    - v1_inspections_update
+    - v1_inspections_partial_update
+    reversal:
+      operation: v1_inspections_delete
+      kind: soft-delete
+      evidence: >-
+        Inspection, asset and observation schemas all carry `deleted` (date-time) and `deleted_by`
+        (uri) read-only fields, so a delete is recorded rather than erased. No restore operation is
+        published for inspections on the v1 surface.
+      window: null
+      window_source: null
+      restore_operation: null
+  - surface: videos
+    write_ops:
+    - v1_videos_create
+    - v1_videos_update
+    - v1_videos_change_inspection
+    reversal:
+      operation: videos_Restore
+      path: POST /videos/{sid}/Restore/
+      kind: restore-after-delete
+      evidence: openapi/sewerai-swagger.json
+      window: null
+      window_source: null
+      note: >-
+        A genuine restore operation exists, but it sits on the legacy /videos/ namespace rather than
+        the documented /v1/videos/ surface, and it is not mentioned in the API documentation. Its
+        preconditions and any retention window are unstated.
+  - surface: assets
+    write_ops:
+    - v1_assets_create
+    - v1_assets_update
+    - v1_assets_partial_update
+    reversal:
+      operation: v1_assets_delete
+      kind: soft-delete
+      window: null
+      window_source: null
+  - surface: autocode
+    write_ops:
+    - v1_inspections_AutoCode
+    reversal:
+      operation: null
+      kind: none
+      window: null
+      note: >-
+        An AutoCode run is a metered AI inference job over inspection video. Nothing in the contract
+        or the documentation offers a cancel, abort or undo, and no statement exists about whether a
+        started run is billable. This is the single riskiest write on the API for an autonomous
+        caller: it is not idempotent, it cannot be rehearsed, and it cannot be taken back.
+  - surface: observations
+    write_ops:
+    - v1_inspections_observations_create
+    - v1_inspections_observations_update
+    reversal:
+      operation: v1_inspections_observations_delete
+      kind: soft-delete
+      window: null
+  related_but_undocumented:
+  - operation: videos_UnreviewFrame
+    path: PATCH /videos/UnreviewFrame/
+    note: Reverses a frame review; legacy namespace, undocumented.
+  - operation: videos_BulkArchive
+    path: POST /videos/BulkArchive/
+    note: Archive rather than delete; no unarchive operation is published.
+  gaps:
+  - No reversal window is stated for any operation.
+  - The one true restore operation is on an undocumented legacy namespace.
+  - AutoCode, the operation that costs money, has no reversal path at all.

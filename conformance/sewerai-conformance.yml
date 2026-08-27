@@ -1,0 +1,190 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://docs.sewerai.com/, https://trust.sewerai.com/, https://www.sewerai.com/products/integrations,
+  openapi/sewerai-swagger.json
+note: >-
+  Assertions are graded against what SewerAI's own contract and public pages state. `conforms: false`
+  means the standard is not in evidence, not that SewerAI claims and fails it.
+domain_standard:
+  id: nassco-pacp
+  name: NASSCO PACP / MACP / LACP
+  body: National Association of Sewer Service Companies (NASSCO)
+  market: sewer condition assessment and inspection data exchange
+  conforms: true
+  confidence: high
+  claim: >-
+    "NASSCO-Certified Software for PACP LACP MACP import and export."
+  claim_source: https://www.sewerai.com/products/integrations
+  contract_evidence:
+  - location: definitions.ObservationWrite
+    file: openapi/sewerai-swagger.json
+    fields:
+    - Distance
+    - code
+    - Continuous
+    - Joint
+    - Clock_At_From
+    - Clock_To
+    - Value_1st_Dimension
+    - Value_2nd_Dimension
+    - Value_Percent
+    - Remarks
+    note: >-
+      This is the PACP defect-coding record verbatim — observation code, chainage distance,
+      continuous-defect linkage, joint flag, clock positions from/to, first and second dimension
+      values, percentage value and remarks. An integrator that already speaks PACP reads this
+      payload with no bespoke mapping.
+  - location: definitions.InspectionRatings
+    file: openapi/sewerai-swagger.json
+    fields:
+    - ST1..ST5
+    - OM1..OM5
+    - STGradeScore1..5
+    - OMGradeScore1..5
+    note: >-
+      The PACP Structural (ST) and Operations & Maintenance (OM) grade and grade-score arrays that
+      make up a PACP pipe rating.
+  - location: inspection header schemas
+    file: openapi/sewerai-swagger.json
+    fields:
+    - PACPQuickRating
+    - MACPQuickRating
+    - OverallQuickRating
+    - LoFPACP
+    - LoFMACP
+    - PACPInspectionID
+    - OverallMHRatingsIndex
+    - Down_Rim_to_Grade
+    - Lateral_Segment_Reference
+    note: >-
+      PACP and MACP quick ratings, likelihood-of-failure indices and the PACP inspection identifier
+      are first-class contract fields.
+  - location: definitions.*.state enum (video processing state)
+    file: openapi/sewerai-swagger.json
+    values:
+    - nassco_review_pending
+    - nassco_review_in_progress
+    - nassco_review_qc_pending
+    - prescreen_autocode_rejected_pending
+    note: The NASSCO review stage is modelled directly into the video lifecycle state machine.
+  - location: account settings
+    file: openapi/sewerai-swagger.json
+    fields:
+    - default_pacp_project_spec_sid
+    - default_macp_project_spec_sid
+    note: Per-account default PACP and MACP project specifications.
+  - location: asset kind enumeration
+    file: openapi/sewerai-swagger.json
+    values:
+    - mainline
+    - lateral
+    - maintenance-hole
+    - other
+    docs: https://docs.sewerai.com/#assets_list-parameters
+    note: >-
+      The three asset classes map one-to-one onto the three NASSCO certification programs —
+      mainline/PACP, lateral/LACP, maintenance-hole/MACP.
+conformance:
+- id: nassco-pacp
+  name: NASSCO Pipeline Assessment Certification Program
+  conforms: true
+  evidence:
+  - https://www.sewerai.com/products/integrations
+  - openapi/sewerai-swagger.json#/definitions/ObservationWrite
+  - openapi/sewerai-swagger.json#/definitions/InspectionRatings
+- id: nassco-macp
+  name: NASSCO Manhole Assessment Certification Program
+  conforms: true
+  evidence:
+  - https://www.sewerai.com/products/integrations
+  - openapi/sewerai-swagger.json (MACPQuickRating, LoFMACP, default_macp_project_spec_sid)
+  - https://www.sewerai.com/platform
+- id: nassco-lacp
+  name: NASSCO Lateral Assessment Certification Program
+  conforms: true
+  evidence:
+  - https://www.sewerai.com/products/integrations
+  - openapi/sewerai-swagger.json (asset kind "lateral", Lateral_Segment_Reference)
+- id: geojson
+  name: GeoJSON (RFC 7946)
+  conforms: partial
+  evidence:
+  - openapi/sewerai-swagger.json (asset.geojson object property)
+  note: >-
+    Assets carry a `geojson` property, but it is typed as a bare `object` with no schema, so the
+    contract does not constrain it to RFC 7946.
+- id: jwt
+  name: JSON Web Token (RFC 7519)
+  conforms: true
+  evidence:
+  - https://docs.sewerai.com/#authentication-1
+  - openapi/sewerai-swagger.json (token_create, token_refresh_create)
+- id: oauth2
+  name: OAuth 2.0
+  conforms: false
+  evidence:
+  - openapi/sewerai-swagger.json (no oauth2 securityDefinition)
+  - https://api.sewerai.com/.well-known/oauth-authorization-server -> 404
+- id: oidc
+  name: OpenID Connect
+  conforms: false
+  evidence:
+  - https://www.sewerai.com/.well-known/openid-configuration -> 404
+- id: rfc9457
+  name: RFC 9457 Problem Details for HTTP APIs
+  conforms: false
+  evidence:
+  - >-
+    Observed error bodies use bare `{"detail": ...}` and `{"message": ...}` envelopes with
+    Content-Type application/json, not application/problem+json. See
+    errors/sewerai-problem-types.yml.
+- id: pagination
+  name: Offset/limit pagination
+  conforms: true
+  evidence:
+  - https://docs.sewerai.com/ (Paginated*List response wrappers with count/next/previous/results)
+  note: >-
+    The documented v1 surface returns drf-style Paginated wrappers. The harvested drf-yasg contract
+    at api.sewerai.com/swagger.json returns bare arrays for the same list operations — the two
+    published descriptions of the same API disagree on the list envelope.
+- id: idempotency
+  name: Idempotency keys on unsafe methods
+  conforms: false
+  evidence:
+  - >-
+    No Idempotency-Key header, request-key parameter or replay semantics appear anywhere in the
+    contract or the documentation. Inspections carry a client-supplied `key` field described as
+    "A unique key for this inspection (if not provided, then a uuid is added)", which is a natural
+    key, not a documented idempotency guarantee.
+  - https://docs.sewerai.com/#example-scripts
+- id: soc2
+  name: SOC 2
+  conforms: true
+  evidence:
+  - https://trust.sewerai.com/
+  note: Listed as "SOC 2 Compliant" on the SewerAI Trust Center. Report available on request.
+- id: iso-27001
+  name: ISO/IEC 27001:2022
+  conforms: true
+  evidence:
+  - https://trust.sewerai.com/
+  note: Listed as "ISO 27001 v2022 Compliant" on the SewerAI Trust Center.
+- id: fedramp
+  name: FedRAMP
+  conforms: false
+  evidence:
+  - https://trust.sewerai.com/ (no FedRAMP authorization listed)
+- id: hipaa
+  name: HIPAA
+  conforms: false
+  evidence:
+  - https://trust.sewerai.com/ (not listed; not applicable to wastewater infrastructure data)
+regulatory_regime:
+  applicable: false
+  note: >-
+    Municipal wastewater condition assessment has no data-sharing regime of the kind scoring.yml
+    models for banking, health, payments, telecom or energy. The operative standard for this market
+    is NASSCO PACP/MACP/LACP, recorded above as the domain standard. US utilities using this data
+    for CMOM and consent-decree reporting are regulated under the Clean Water Act, but that
+    obligation falls on the utility, not on the software vendor's API.

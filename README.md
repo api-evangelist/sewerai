@@ -64,5 +64,20 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-SewerAI is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+SewerAI is a Walnut Creek, California software company (founded 2019, SewerAI Corp) building AI
+computer-vision and cloud asset-management software for underground wastewater infrastructure. Its
+PIONEER platform stores and reviews sewer CCTV inspection data, and AutoCode automatically assigns
+NASSCO observation codes to pipe, lateral and manhole inspection video. SewerAI is NASSCO-certified
+software for PACP, LACP and MACP import and export, and sells to municipal utilities, engineering
+firms and inspection contractors.
+
+SewerAI publishes a versioned REST Enterprise API (v1) at `https://api.sewerai.com/v1` for
+organizations, assets, projects, inspections, NASSCO-coded observations, videos and exports, and for
+starting AutoCode runs. Keys are issued by SewerAI on request rather than self-serve.
+
+- Website: https://www.sewerai.com/
+- API documentation: https://docs.sewerai.com/
+- Contract: https://api.sewerai.com/swagger.json (harvested verbatim to `openapi/`)
+- Status: https://status.sewerai.com/
+- Changelog: https://www.sewerai.com/changelog
+- Trust center: https://trust.sewerai.com/ (SOC 2, ISO 27001:2022)
