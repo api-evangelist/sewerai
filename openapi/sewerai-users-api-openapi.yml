@@ -1,0 +1,570 @@
+openapi: 3.2.0
+info:
+  title: Snippets Users API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: users
+paths:
+  /users/:
+    parameters: []
+    get:
+      operationId: users_list
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - users
+    post:
+      operationId: users_create
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /users/change_email/:
+    parameters: []
+    post:
+      operationId: users_change_email
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /users/get_current/:
+    parameters: []
+    get:
+      operationId: users_get_current
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - users
+  /users/get_metabase_url/:
+    parameters: []
+    get:
+      operationId: users_get_metabase_url
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - users
+  /users/import_users/:
+    parameters: []
+    get:
+      operationId: users_import_users
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - users
+  /users/labelers/:
+    parameters: []
+    get:
+      operationId: users_labelers
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - users
+  /users/my_permissions/:
+    parameters: []
+    get:
+      operationId: users_my_permissions
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - users
+  /users/notifications/:
+    parameters: []
+    get:
+      operationId: users_notifications
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - users
+  /users/push_notification/:
+    parameters: []
+    post:
+      operationId: users_push_notification
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /users/reset_password/:
+    parameters: []
+    post:
+      operationId: users_reset_password
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /users/set_tos_accepted/:
+    parameters: []
+    post:
+      operationId: users_set_tos_accepted
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /users/set_user_hotbuttons/:
+    parameters: []
+    post:
+      operationId: users_set_user_hotbuttons
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /users/stats/:
+    parameters: []
+    post:
+      operationId: users_stats
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /users/submit_jira_issue/:
+    parameters: []
+    post:
+      operationId: users_submit_jira_issue
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /users/subscribe/:
+    parameters: []
+    post:
+      operationId: users_subscribe
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /users/test_push/:
+    parameters: []
+    get:
+      operationId: users_test_push
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - users
+  /users/update_current/:
+    parameters: []
+    patch:
+      operationId: users_update_current
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /users/{id}/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: users_read
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+    put:
+      operationId: users_update
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+    patch:
+      operationId: users_partial_update
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+    delete:
+      operationId: users_delete
+      description: API endpoint that returns user data.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - users
+  /users/{id}/labeler_stats/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: users_labeler_stats
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - users
+components:
+  schemas:
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
+    User:
+      required:
+      - username
+      - email
+      - admin
+      - staff
+      - labeler
+      - is_senior_labeler
+      - picture
+      - certificates
+      - joined
+      - email_verified
+      - phone_number
+      - organization
+      - country_code
+      - country_area_code
+      - country_area
+      - city
+      - postal_code
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        username:
+          title: Username
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+          type: string
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+          minLength: 1
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        admin:
+          title: Admin
+          type: boolean
+        staff:
+          title: Staff
+          type: boolean
+        labeler:
+          title: Labeler
+          type: boolean
+        is_senior_labeler:
+          title: Is senior labeler
+          type: boolean
+        tos_accepted:
+          title: Tos accepted
+          type: string
+          readOnly: true
+        picture:
+          title: Picture
+          type: string
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Certificate'
+        account_level:
+          title: Account level
+          type: string
+          readOnly: true
+        joined:
+          title: Joined
+          type: string
+          minLength: 1
+        email_verified:
+          title: Email verified
+          type: boolean
+        phone_number:
+          title: Phone number
+          type: string
+        organization:
+          title: Organization
+          type: string
+        country_code:
+          title: Country code
+          type: string
+        country_area_code:
+          title: Country area code
+          type: string
+        country_area:
+          title: Country area
+          type: string
+        city:
+          title: City
+          type: string
+        postal_code:
+          title: Postal code
+          type: string
+        token:
+          title: Token
+          type: string
+          readOnly: true
+        auth_type:
+          title: Auth type
+          type: string
+          readOnly: true
+        auth_token:
+          title: Auth token
+          type: string
+          readOnly: true
+        source:
+          title: Source
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type: object
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

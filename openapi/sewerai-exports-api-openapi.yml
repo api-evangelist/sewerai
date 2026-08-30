@@ -1,0 +1,251 @@
+openapi: 3.2.0
+info:
+  title: Snippets Exports API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: exports
+paths:
+  /exports/:
+    parameters: []
+    get:
+      operationId: exports_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Export'
+      tags:
+      - exports
+    post:
+      operationId: exports_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Export'
+      tags:
+      - exports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Export'
+        required: true
+  /exports/SchemaOptions/:
+    parameters: []
+    get:
+      operationId: exports_SchemaOptions
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Export'
+      tags:
+      - exports
+  /exports/file-output-paths/:
+    parameters: []
+    post:
+      operationId: exports_file_output_paths
+      description: "Given an account SID and inspection header data,\nreturn the file naming format that will be used when exporting a video.\n\nExample inspection header data:\n{\n    \"Pipe_Segment_Reference\": \"01234 01235\",\n    \"Inspection_Date\": \"2020-12-24\",\n    \"Inspection_Time\": \"20:09\",\n    ...\n}"
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Export'
+      tags:
+      - exports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Export'
+        required: true
+  /exports/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: exports_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Export'
+      tags:
+      - exports
+    put:
+      operationId: exports_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Export'
+      tags:
+      - exports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Export'
+        required: true
+    patch:
+      operationId: exports_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Export'
+      tags:
+      - exports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Export'
+        required: true
+    delete:
+      operationId: exports_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - exports
+components:
+  schemas:
+    Export:
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        options:
+          title: Options
+          type: string
+          readOnly: true
+        name:
+          title: Name
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        num_inspections:
+          title: Num inspections
+          type: string
+          readOnly: true
+        num_inspections_completed:
+          title: Num inspections completed
+          type: string
+          readOnly: true
+        num_files:
+          title: Num files
+          type: string
+          readOnly: true
+        is_done:
+          title: Is done
+          type: string
+          readOnly: true
+        files:
+          title: Files
+          type: string
+          readOnly: true
+        has_error:
+          title: Has error
+          type: string
+          readOnly: true
+        lineal_feet:
+          title: Lineal feet
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        projects:
+          type: array
+          items:
+            title: Projects
+            type: string
+            maxLength: 512
+            minLength: 1
+        total_size:
+          title: Total size
+          type: number
+        progress:
+          title: Progress
+          type: object
+        packaging_progress:
+          title: Packaging progress
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: integer
+          readOnly: true
+        created_by_email:
+          title: Created by email
+          type: string
+          readOnly: true
+          minLength: 1
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: integer
+          readOnly: true
+        completed_at:
+          title: Completed at
+          type:
+          - string
+          - 'null'
+          format: date-time
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

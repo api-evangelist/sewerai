@@ -1,0 +1,154 @@
+openapi: 3.2.0
+info:
+  title: Snippets Autocode API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: autocode
+paths:
+  /autocode/:
+    parameters: []
+    get:
+      operationId: autocode_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - autocode
+    post:
+      operationId: autocode_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+      tags:
+      - autocode
+  /autocode/CombineAutocodes/:
+    parameters: []
+    post:
+      operationId: autocode_CombineAutocodes
+      description: ''
+      responses:
+        '201':
+          description: ''
+      tags:
+      - autocode
+  /autocode/QueueReport/:
+    parameters: []
+    get:
+      operationId: autocode_QueueReport
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - autocode
+  /autocode/Statistics/:
+    parameters: []
+    get:
+      operationId: autocode_Statistics
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - autocode
+  /autocode/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: autocode_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - autocode
+    put:
+      operationId: autocode_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - autocode
+    patch:
+      operationId: autocode_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - autocode
+    delete:
+      operationId: autocode_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - autocode
+  /autocode/{sid}/NeededAndBadPayoutSIDS/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: autocode_NeededAndBadPayoutSIDS
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - autocode
+  /autocode/{sid}/NeededPayoutSIDS/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: autocode_NeededPayoutSIDS
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - autocode
+  /autocode/{sid}/SetAllComplete/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    patch:
+      operationId: autocode_SetAllComplete
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - autocode
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

@@ -1,0 +1,191 @@
+openapi: 3.2.0
+info:
+  title: Snippets Annotations API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: annotations
+paths:
+  /annotations/:
+    parameters: []
+    get:
+      operationId: annotations_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AIAnnotation'
+      tags:
+      - annotations
+    post:
+      operationId: annotations_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIAnnotation'
+      tags:
+      - annotations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIAnnotation'
+        required: true
+  /annotations/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: annotations_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIAnnotation'
+      tags:
+      - annotations
+    put:
+      operationId: annotations_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIAnnotation'
+      tags:
+      - annotations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIAnnotation'
+        required: true
+    patch:
+      operationId: annotations_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIAnnotation'
+      tags:
+      - annotations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIAnnotation'
+        required: true
+    delete:
+      operationId: annotations_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - annotations
+components:
+  schemas:
+    AIAnnotation:
+      required:
+      - frame
+      - video_sid
+      - code
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        video_sid:
+          title: Video sid
+          type: string
+          minLength: 1
+        code:
+          title: Code
+          type: string
+          minLength: 1
+        box:
+          type:
+          - array
+          - 'null'
+          items:
+            title: Box
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+          maxItems: 4
+        frame_width:
+          title: Frame width
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        frame_height:
+          title: Frame height
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        reviewed_by_user:
+          title: Reviewed by user
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: integer
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: integer
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

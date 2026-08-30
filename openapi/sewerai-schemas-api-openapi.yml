@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: Snippets Schemas API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: schemas
+paths:
+  /schemas/get_condition_schema/:
+    parameters: []
+    get:
+      operationId: schemas_get_condition_schema
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - schemas
+  /schemas/get_header_fields/:
+    parameters: []
+    get:
+      operationId: schemas_get_header_fields
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - schemas
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

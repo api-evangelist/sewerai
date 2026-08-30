@@ -1,0 +1,204 @@
+openapi: 3.2.0
+info:
+  title: Snippets Notification Preferences API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: notification-preferences
+paths:
+  /notification-preferences/:
+    parameters: []
+    get:
+      operationId: notification-preferences_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotificationPreference'
+      tags:
+      - notification-preferences
+    post:
+      operationId: notification-preferences_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreference'
+      tags:
+      - notification-preferences
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreference'
+        required: true
+  /notification-preferences/create-by-category/:
+    parameters: []
+    post:
+      operationId: notification-preferences_create_by_category
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreference'
+      tags:
+      - notification-preferences
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreference'
+        required: true
+  /notification-preferences/delete-by-category/:
+    parameters: []
+    post:
+      operationId: notification-preferences_destroy_by_category
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreference'
+      tags:
+      - notification-preferences
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreference'
+        required: true
+  /notification-preferences/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: notification-preferences_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreference'
+      tags:
+      - notification-preferences
+    put:
+      operationId: notification-preferences_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreference'
+      tags:
+      - notification-preferences
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreference'
+        required: true
+    patch:
+      operationId: notification-preferences_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreference'
+      tags:
+      - notification-preferences
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreference'
+        required: true
+    delete:
+      operationId: notification-preferences_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - notification-preferences
+components:
+  schemas:
+    NotificationPreference:
+      required:
+      - notification_type
+      type: object
+      properties:
+        notification_method:
+          title: Notification method
+          type: string
+          enum:
+          - email
+          - app
+          default: app
+        notification_type:
+          title: Notification type
+          type: string
+          enum:
+          - export_ready
+          - digital_submittal_sent
+          - digital_submittal_accepted
+          - digital_submittal_received
+          - digital_submittal_deleted
+          - review_task_created
+          - review_task_comment_created
+          - review_task_comment_user_tagged
+          - user_invited_to_account_or_project
+        notification_type_category:
+          title: Notification type category
+          type: string
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        user:
+          title: User
+          type: string
+          readOnly: true
+          minLength: 1
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

@@ -1,0 +1,125 @@
+openapi: 3.2.0
+info:
+  title: Snippets Canvotation Templates API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: canvotation-templates
+paths:
+  /canvotation-templates/:
+    parameters: []
+    get:
+      operationId: canvotation-templates_list
+      summary: 'Return a list of templates, ordered alphabetically within the
+
+        following groups:'
+      description: '- Project-related templates
+
+        - Account-related templates
+
+        - Global templates
+
+
+        Admins can see every template.'
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: The initial index from which to return the results.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  previous:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      type: string
+      tags:
+      - canvotation-templates
+  /canvotation-templates/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: canvotation-templates_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+      - canvotation-templates
+  /canvotation-templates/{sid}/add-to-project/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: canvotation-templates_add_to_project
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+      - canvotation-templates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

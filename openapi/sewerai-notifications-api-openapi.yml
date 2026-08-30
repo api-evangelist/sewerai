@@ -1,0 +1,212 @@
+openapi: 3.2.0
+info:
+  title: Snippets Notifications API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: notifications
+paths:
+  /notifications/:
+    parameters: []
+    get:
+      operationId: notifications_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+      tags:
+      - notifications
+    post:
+      operationId: notifications_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+      tags:
+      - notifications
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+  /notifications/mark-all-read/:
+    parameters: []
+    post:
+      operationId: notifications_mark_all_read
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+      tags:
+      - notifications
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+  /notifications/reference/:
+    parameters: []
+    get:
+      operationId: notifications_reference
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+      tags:
+      - notifications
+  /notifications/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: notifications_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+      tags:
+      - notifications
+    put:
+      operationId: notifications_update
+      description: Ensure that only the _read_ field is updatable.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+      tags:
+      - notifications
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+    patch:
+      operationId: notifications_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+      tags:
+      - notifications
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+    delete:
+      operationId: notifications_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - notifications
+components:
+  schemas:
+    Notification:
+      required:
+      - content
+      type: object
+      properties:
+        action_url:
+          title: Action url
+          type: string
+          readOnly: true
+        category:
+          title: Category
+          type: string
+          readOnly: true
+        content:
+          title: Content
+          type: string
+          enum:
+          - export_ready
+          - digital_submittal_sent
+          - digital_submittal_accepted
+          - digital_submittal_received
+          - digital_submittal_deleted
+          - review_task_created
+          - review_task_comment_created
+          - review_task_comment_user_tagged
+          - user_invited_to_account_or_project
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        full_content:
+          title: Full content
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type: object
+        read:
+          title: Read
+          type: boolean
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        target_user:
+          title: Target user
+          type: string
+          readOnly: true
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

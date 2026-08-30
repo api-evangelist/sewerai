@@ -1,0 +1,136 @@
+openapi: 3.2.0
+info:
+  title: Snippets Groups API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: groups
+paths:
+  /groups/:
+    parameters: []
+    get:
+      operationId: groups_list
+      description: API endpoint that allows groups to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+      tags:
+      - groups
+    post:
+      operationId: groups_create
+      description: API endpoint that allows groups to be viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+  /groups/{id}/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this group.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: groups_read
+      description: API endpoint that allows groups to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+      tags:
+      - groups
+    put:
+      operationId: groups_update
+      description: API endpoint that allows groups to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+    patch:
+      operationId: groups_partial_update
+      description: API endpoint that allows groups to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+    delete:
+      operationId: groups_delete
+      description: API endpoint that allows groups to be viewed or edited.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - groups
+components:
+  schemas:
+    Group:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 150
+          minLength: 1
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

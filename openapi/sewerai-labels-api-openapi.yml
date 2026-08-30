@@ -1,0 +1,412 @@
+openapi: 3.2.0
+info:
+  title: Snippets Labels API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: labels
+paths:
+  /labels/classifications/video/:
+    parameters: []
+    get:
+      operationId: labels_classifications_video_list
+      description: 'API endpoint that allows Video Observation Classifications to be viewed
+
+        and created.'
+      parameters:
+      - name: system
+        in: query
+        description: system
+        required: false
+        schema:
+          type: string
+      - name: code
+        in: query
+        description: code
+        required: false
+        schema:
+          type: string
+      - name: version
+        in: query
+        description: version
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VideoObservationClassification'
+      tags:
+      - labels
+    post:
+      operationId: labels_classifications_video_create
+      description: 'API endpoint that allows Video Observation Classifications to be viewed
+
+        and created.'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoObservationClassification'
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoObservationClassification'
+        required: true
+  /labels/classifications/video/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: labels_classifications_video_read
+      description: 'API endpoint that allows Video Observation Classifications to be viewed
+
+        and created.'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoObservationClassification'
+      tags:
+      - labels
+    put:
+      operationId: labels_classifications_video_update
+      description: 'API endpoint that allows Video Observation Classifications to be viewed
+
+        and created.'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoObservationClassification'
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoObservationClassification'
+        required: true
+    patch:
+      operationId: labels_classifications_video_partial_update
+      description: 'API endpoint that allows Video Observation Classifications to be viewed
+
+        and created.'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoObservationClassification'
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoObservationClassification'
+        required: true
+    delete:
+      operationId: labels_classifications_video_delete
+      description: 'API endpoint that allows Video Observation Classifications to be viewed
+
+        and created.'
+      responses:
+        '204':
+          description: ''
+      tags:
+      - labels
+  /labels/regressions/video/:
+    parameters: []
+    get:
+      operationId: labels_regressions_video_list
+      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+
+        created.'
+      parameters:
+      - name: system
+        in: query
+        description: system
+        required: false
+        schema:
+          type: string
+      - name: code
+        in: query
+        description: code
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VideoObservationRegression'
+      tags:
+      - labels
+    post:
+      operationId: labels_regressions_video_create
+      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+
+        created.'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoObservationRegression'
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoObservationRegression'
+        required: true
+  /labels/regressions/video/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: labels_regressions_video_read
+      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+
+        created.'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoObservationRegression'
+      tags:
+      - labels
+    put:
+      operationId: labels_regressions_video_update
+      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+
+        created.'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoObservationRegression'
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoObservationRegression'
+        required: true
+    patch:
+      operationId: labels_regressions_video_partial_update
+      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+
+        created.'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoObservationRegression'
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoObservationRegression'
+        required: true
+    delete:
+      operationId: labels_regressions_video_delete
+      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+
+        created.'
+      responses:
+        '204':
+          description: ''
+      tags:
+      - labels
+components:
+  schemas:
+    VideoObservationRegression:
+      required:
+      - system
+      - code
+      - version
+      - meaning
+      - system_field
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        meaning:
+          title: Meaning
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        system_field:
+          title: System field
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

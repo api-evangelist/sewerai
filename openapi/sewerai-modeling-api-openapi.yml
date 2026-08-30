@@ -1,0 +1,4157 @@
+openapi: 3.2.0
+info:
+  title: Snippets Modeling API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: modeling
+paths:
+  /modeling/bbinference/:
+    parameters: []
+    get:
+      operationId: modeling_bbinference_list
+      description: Bounding Box Inference Assignment.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BBInferenceAssignment'
+      tags:
+      - modeling
+    post:
+      operationId: modeling_bbinference_create
+      description: Bounding Box Inference Assignment.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BBInferenceAssignment'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BBInferenceAssignment'
+        required: true
+  /modeling/bbinference/AutoBBModels/:
+    parameters: []
+    get:
+      operationId: modeling_bbinference_AutoBBModels
+      description: Bounding Box Inference Assignment.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BBInferenceAssignment'
+      tags:
+      - modeling
+  /modeling/bbinference/MakeObsModel/:
+    parameters: []
+    post:
+      operationId: modeling_bbinference_MakeObsModel
+      description: Bounding Box Inference Assignment.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BBInferenceAssignment'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BBInferenceAssignment'
+        required: true
+  /modeling/bbinference/ObsParams/:
+    parameters: []
+    get:
+      operationId: modeling_bbinference_ObsParams
+      description: Bounding Box Inference Assignment.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BBInferenceAssignment'
+      tags:
+      - modeling
+  /modeling/bbinference/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_bbinference_read
+      description: Bounding Box Inference Assignment.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BBInferenceAssignment'
+      tags:
+      - modeling
+    put:
+      operationId: modeling_bbinference_update
+      description: Bounding Box Inference Assignment.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BBInferenceAssignment'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BBInferenceAssignment'
+        required: true
+    patch:
+      operationId: modeling_bbinference_partial_update
+      description: Bounding Box Inference Assignment.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BBInferenceAssignment'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BBInferenceAssignment'
+        required: true
+    delete:
+      operationId: modeling_bbinference_delete
+      description: Bounding Box Inference Assignment.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - modeling
+  /modeling/bbinference/{sid}/MakeObs/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: modeling_bbinference_MakeObs
+      description: Bounding Box Inference Assignment.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BBInferenceAssignment'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BBInferenceAssignment'
+        required: true
+  /modeling/ensembles/:
+    parameters: []
+    get:
+      operationId: modeling_ensembles_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelEnsemble'
+      tags:
+      - modeling
+    post:
+      operationId: modeling_ensembles_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelEnsemble'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelEnsemble'
+        required: true
+  /modeling/ensembles/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_ensembles_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelEnsemble'
+      tags:
+      - modeling
+    put:
+      operationId: modeling_ensembles_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelEnsemble'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelEnsemble'
+        required: true
+    patch:
+      operationId: modeling_ensembles_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelEnsemble'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelEnsemble'
+        required: true
+    delete:
+      operationId: modeling_ensembles_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - modeling
+  /modeling/groups/:
+    parameters: []
+    get:
+      operationId: modeling_groups_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClassificationGroup'
+      tags:
+      - modeling
+    post:
+      operationId: modeling_groups_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationGroup'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassificationGroup'
+        required: true
+  /modeling/groups/GetFastGroups/:
+    parameters: []
+    get:
+      operationId: modeling_groups_GetFastGroups
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClassificationGroup'
+      tags:
+      - modeling
+  /modeling/groups/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_groups_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationGroup'
+      tags:
+      - modeling
+    put:
+      operationId: modeling_groups_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationGroup'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassificationGroup'
+        required: true
+    patch:
+      operationId: modeling_groups_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationGroup'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassificationGroup'
+        required: true
+    delete:
+      operationId: modeling_groups_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - modeling
+  /modeling/inference/:
+    parameters: []
+    get:
+      operationId: modeling_inference_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InferenceAssignment'
+      tags:
+      - modeling
+    post:
+      operationId: modeling_inference_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceAssignment'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InferenceAssignment'
+        required: true
+  /modeling/inference/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_inference_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceAssignment'
+      tags:
+      - modeling
+    put:
+      operationId: modeling_inference_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceAssignment'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InferenceAssignment'
+        required: true
+    patch:
+      operationId: modeling_inference_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceAssignment'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InferenceAssignment'
+        required: true
+    delete:
+      operationId: modeling_inference_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - modeling
+  /modeling/inference/{sid}/add_csv/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    patch:
+      operationId: modeling_inference_add_csv
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceAssignment'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InferenceAssignment'
+        required: true
+  /modeling/models/:
+    parameters: []
+    get:
+      operationId: modeling_models_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrainingModel'
+      tags:
+      - modeling
+    post:
+      operationId: modeling_models_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingModel'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingModel'
+        required: true
+  /modeling/models/GetModelNames/:
+    parameters: []
+    get:
+      operationId: modeling_models_GetModelNames
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrainingModel'
+      tags:
+      - modeling
+  /modeling/models/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_models_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingModel'
+      tags:
+      - modeling
+    put:
+      operationId: modeling_models_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingModel'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingModel'
+        required: true
+    patch:
+      operationId: modeling_models_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingModel'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainingModel'
+        required: true
+    delete:
+      operationId: modeling_models_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - modeling
+  /modeling/models/{sid}/coco/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_models_coco
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingModel'
+      tags:
+      - modeling
+  /modeling/observationrun/:
+    parameters: []
+    get:
+      operationId: modeling_observationrun_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+    post:
+      operationId: modeling_observationrun_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationRun'
+        required: true
+  /modeling/observationrun/AddRunsToGroup/:
+    parameters: []
+    patch:
+      operationId: modeling_observationrun_AddRunsToGroup
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationRun'
+        required: true
+  /modeling/observationrun/CreateRunGroup/:
+    parameters: []
+    post:
+      operationId: modeling_observationrun_CreateRunGroup
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationRun'
+        required: true
+  /modeling/observationrun/CreateTemplateRun/:
+    parameters: []
+    post:
+      operationId: modeling_observationrun_CreateTemplateRun
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationRun'
+        required: true
+  /modeling/observationrun/DeleteRunsFromGroups/:
+    parameters: []
+    patch:
+      operationId: modeling_observationrun_DeleteRunsFromGroups
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationRun'
+        required: true
+  /modeling/observationrun/GetFilters/:
+    parameters: []
+    get:
+      operationId: modeling_observationrun_GetFilters
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+  /modeling/observationrun/GetRunGroups/:
+    parameters: []
+    get:
+      operationId: modeling_observationrun_GetRunGroups
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+  /modeling/observationrun/GetRunNames/:
+    parameters: []
+    get:
+      operationId: modeling_observationrun_GetRunNames
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+  /modeling/observationrun/GetSourcePresets/:
+    parameters: []
+    get:
+      operationId: modeling_observationrun_GetSourcePresets
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+  /modeling/observationrun/MakeRunsFromTemplateGroup/:
+    parameters: []
+    post:
+      operationId: modeling_observationrun_MakeRunsFromTemplateGroup
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationRun'
+        required: true
+  /modeling/observationrun/ReifyGroup/:
+    parameters: []
+    get:
+      operationId: modeling_observationrun_ReifyGroup
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+  /modeling/observationrun/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_observationrun_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+    put:
+      operationId: modeling_observationrun_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationRun'
+        required: true
+    patch:
+      operationId: modeling_observationrun_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationRun'
+        required: true
+    delete:
+      operationId: modeling_observationrun_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - modeling
+  /modeling/observationrun/{sid}/GetGraph/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_observationrun_GetGraph
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+  /modeling/observationrun/{sid}/Reify/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_observationrun_Reify
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+  /modeling/observationrun/{sid}/RunObsRun/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_observationrun_RunObsRun
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRun'
+      tags:
+      - modeling
+  /modeling/pobs/:
+    parameters: []
+    get:
+      operationId: modeling_pobs_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProvisionalObservationClassification'
+      tags:
+      - modeling
+    post:
+      operationId: modeling_pobs_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionalObservationClassification'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvisionalObservationClassification'
+        required: true
+  /modeling/pobs/GetIntervalReview/:
+    parameters: []
+    get:
+      operationId: modeling_pobs_GetIntervalReview
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProvisionalObservationClassification'
+      tags:
+      - modeling
+  /modeling/pobs/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_pobs_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionalObservationClassification'
+      tags:
+      - modeling
+    put:
+      operationId: modeling_pobs_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionalObservationClassification'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvisionalObservationClassification'
+        required: true
+    patch:
+      operationId: modeling_pobs_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionalObservationClassification'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvisionalObservationClassification'
+        required: true
+    delete:
+      operationId: modeling_pobs_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - modeling
+  /modeling/pobs/{sid}/ReviewInterval/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: modeling_pobs_ReviewInterval
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionalObservationClassification'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvisionalObservationClassification'
+        required: true
+  /modeling/reginference/:
+    parameters: []
+    get:
+      operationId: modeling_reginference_list
+      description: Regression Inference Assignment.
+      responses:
+        '200':
+          description: ''
+      tags:
+      - modeling
+    post:
+      operationId: modeling_reginference_create
+      description: Regression Inference Assignment.
+      responses:
+        '201':
+          description: ''
+      tags:
+      - modeling
+  /modeling/reginference/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_reginference_read
+      description: Regression Inference Assignment.
+      responses:
+        '200':
+          description: ''
+      tags:
+      - modeling
+    put:
+      operationId: modeling_reginference_update
+      description: Regression Inference Assignment.
+      responses:
+        '200':
+          description: ''
+      tags:
+      - modeling
+    patch:
+      operationId: modeling_reginference_partial_update
+      description: Regression Inference Assignment.
+      responses:
+        '200':
+          description: ''
+      tags:
+      - modeling
+    delete:
+      operationId: modeling_reginference_delete
+      description: Regression Inference Assignment.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - modeling
+  /modeling/regmodels/:
+    parameters: []
+    get:
+      operationId: modeling_regmodels_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RegressionModel'
+      tags:
+      - modeling
+    post:
+      operationId: modeling_regmodels_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegressionModel'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegressionModel'
+        required: true
+  /modeling/regmodels/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_regmodels_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegressionModel'
+      tags:
+      - modeling
+    put:
+      operationId: modeling_regmodels_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegressionModel'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegressionModel'
+        required: true
+    patch:
+      operationId: modeling_regmodels_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegressionModel'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegressionModel'
+        required: true
+    delete:
+      operationId: modeling_regmodels_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - modeling
+  /modeling/testobservation/:
+    parameters: []
+    get:
+      operationId: modeling_testobservation_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TestObservationClassification'
+      tags:
+      - modeling
+    post:
+      operationId: modeling_testobservation_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestObservationClassification'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestObservationClassification'
+        required: true
+  /modeling/testobservation/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: modeling_testobservation_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestObservationClassification'
+      tags:
+      - modeling
+    put:
+      operationId: modeling_testobservation_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestObservationClassification'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestObservationClassification'
+        required: true
+    patch:
+      operationId: modeling_testobservation_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestObservationClassification'
+      tags:
+      - modeling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestObservationClassification'
+        required: true
+    delete:
+      operationId: modeling_testobservation_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - modeling
+components:
+  schemas:
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
+          readOnly: true
+    TrainingModel:
+      required:
+      - name
+      - groups
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        location:
+          title: Location
+          description: S3 location of saved model
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        wandb:
+          title: Wandb
+          description: Weights and Biases link
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - defined
+          - queued
+          - training
+          - trained
+        groups:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        groups_detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationGroup'
+          readOnly: true
+        config_location:
+          title: Config location
+          description: S3 location of config json file
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        excluded_codes:
+          title: Excluded codes
+          type:
+          - object
+          - 'null'
+        is_testable:
+          title: Is testable
+          type: boolean
+        meta:
+          title: Meta
+          type:
+          - object
+          - 'null'
+        statistics:
+          title: Statistics
+          type:
+          - object
+          - 'null'
+        hyperparameters:
+          title: Hyperparameters
+          type:
+          - object
+          - 'null'
+        qa_type:
+          title: Qa type
+          type: string
+          enum:
+          - qa
+          - review
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    Inspection:
+      required:
+      - ratings
+      - pipe_connections
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        Inspection_Date:
+          title: Inspection date
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        Inspection_Time:
+          title: Inspection time
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        inspection_datetime:
+          title: Inspection datetime
+          type: string
+          format: date-time
+          readOnly: true
+        Street:
+          title: Street
+          type: string
+          minLength: 1
+        City:
+          title: City
+          type: string
+          minLength: 1
+        City_Area:
+          title: City area
+          type: string
+          minLength: 1
+        Country_Area:
+          title: Country area
+          type: string
+          minLength: 1
+        Country_Code:
+          title: Country code
+          type: string
+          minLength: 1
+        Postal_Code:
+          title: Postal code
+          type: string
+          minLength: 1
+        Sorting_Code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        validate:
+          title: Validate
+          description: 'Should this inspection be validated (default: True)'
+          type: boolean
+        geojson:
+          title: Geojson
+          type: object
+          readOnly: true
+        partner_links:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartnerLink'
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: integer
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: integer
+          readOnly: true
+        ratings:
+          $ref: '#/components/schemas/InspectionRatings'
+        num_errors:
+          title: Num errors
+          type: string
+          readOnly: true
+        InspectionID:
+          title: Inspectionid
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Surveyed_By:
+          title: Surveyed by
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Certificate_Number:
+          title: Certificate number
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Reviewed_By:
+          title: Reviewed by
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Reviewer_Certificate_Number:
+          title: Reviewer certificate number
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Owner:
+          title: Owner
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Customer:
+          title: Customer
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        PO_Number:
+          title: Po number
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        WorkOrder:
+          title: Workorder
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Media_Label:
+          title: Media label
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Project:
+          title: Project
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Weather:
+          title: Weather
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        PreCleaning:
+          title: Precleaning
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Date_Cleaned:
+          title: Date cleaned
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Purpose:
+          title: Purpose
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Consequence_Of_Failure:
+          title: Consequence of failure
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Drainage_Area:
+          title: Drainage area
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Location_Code:
+          title: Location code
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Location_Details:
+          title: Location details
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Vertical_Datum:
+          title: Vertical datum
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        GPS_Accuracy:
+          title: Gps accuracy
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Additional_Info:
+          title: Additional info
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Year_Constructed:
+          title: Year constructed
+          type:
+          - integer
+          - 'null'
+        Year_Renewed:
+          title: Year renewed
+          type:
+          - integer
+          - 'null'
+        Sheet_Number:
+          title: Sheet number
+          type:
+          - integer
+          - 'null'
+        IsImperial:
+          title: Isimperial
+          type:
+          - boolean
+          - 'null'
+        Custom_Fields:
+          title: Custom fields
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+        Custom_Labels:
+          title: Custom labels
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+        Pipe_Use:
+          title: Pipe use
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Upstream_MH:
+          title: Upstream mh
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Downstream_MH:
+          title: Downstream mh
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Material:
+          title: Material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Lining_Method:
+          title: Lining method
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Direction:
+          title: Direction
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Pipe_Segment_Reference:
+          title: Pipe segment reference
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Inspection_Status:
+          title: Inspection status
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Pressure_Value:
+          title: Pressure value
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Total_Length:
+          title: Total length
+          type:
+          - number
+          - 'null'
+        Length_Surveyed:
+          title: Length surveyed
+          type:
+          - number
+          - 'null'
+        Reverse_Setup:
+          title: Reverse setup
+          type:
+          - number
+          - 'null'
+        Inspection_Technology_Used_CCTV:
+          title: Inspection technology used cctv
+          type:
+          - boolean
+          - 'null'
+        Inspection_Technology_Used_Laser:
+          title: Inspection technology used laser
+          type:
+          - boolean
+          - 'null'
+        Inspection_Technology_Used_Sonar:
+          title: Inspection technology used sonar
+          type:
+          - boolean
+          - 'null'
+        Inspection_Technology_Used_Sidewall:
+          title: Inspection technology used sidewall
+          type:
+          - boolean
+          - 'null'
+        Inspection_Technology_Used_Zoom:
+          title: Inspection technology used zoom
+          type:
+          - boolean
+          - 'null'
+        Inspection_Technology_Used_Other:
+          title: Inspection technology used other
+          type:
+          - boolean
+          - 'null'
+        Flow_Control:
+          title: Flow control
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Shape:
+          title: Shape
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Coating_Method:
+          title: Coating method
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Up_Northing:
+          title: Up northing
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Up_Easting:
+          title: Up easting
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Up_Elevation:
+          title: Up elevation
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Down_Northing:
+          title: Down northing
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Down_Easting:
+          title: Down easting
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Down_Elevation:
+          title: Down elevation
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        MH_Coordinate_System:
+          title: Mh coordinate system
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Coordinate_System:
+          title: Coordinate system
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Height:
+          title: Height
+          type:
+          - number
+          - 'null'
+        Width:
+          title: Width
+          type:
+          - number
+          - 'null'
+        Pipe_Joint_Length:
+          title: Pipe joint length
+          type:
+          - number
+          - 'null'
+        Up_Rim_to_Invert:
+          title: Up rim to invert
+          type:
+          - number
+          - 'null'
+        Up_Grade_to_Invert:
+          title: Up grade to invert
+          type:
+          - number
+          - 'null'
+        Up_Rim_to_Grade:
+          title: Up rim to grade
+          type:
+          - number
+          - 'null'
+        Down_Rim_to_Invert:
+          title: Down rim to invert
+          type:
+          - number
+          - 'null'
+        Down_Grade_to_Invert:
+          title: Down grade to invert
+          type:
+          - number
+          - 'null'
+        Down_Rim_to_Grade:
+          title: Down rim to grade
+          type:
+          - number
+          - 'null'
+        PACPInspectionID:
+          title: Pacpinspectionid
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Lateral_Segment_Reference:
+          title: Lateral segment reference
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Access_Point:
+          title: Access point
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Access_Point_Northing:
+          title: Access point northing
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Access_Point_Easting:
+          title: Access point easting
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Access_Point_Elevation:
+          title: Access point elevation
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        StartManhole:
+          title: Startmanhole
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Size:
+          title: Size
+          type:
+          - number
+          - 'null'
+        Property_Line:
+          title: Property line
+          type:
+          - number
+          - 'null'
+        Tap_Location:
+          title: Tap location
+          type:
+          - number
+          - 'null'
+        Rim_Invert:
+          title: Rim invert
+          type:
+          - number
+          - 'null'
+        InspectionLevel:
+          title: Inspectionlevel
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Manhole_Number:
+          title: Manhole number
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Inflow_Potential_from_Runoff:
+          title: Inflow potential from runoff
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        MH_Use:
+          title: Mh use
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Access_Type:
+          title: Access type
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Northing:
+          title: Northing
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Easting:
+          title: Easting
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Elevation:
+          title: Elevation
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cover_Shape:
+          title: Cover shape
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cover_Material:
+          title: Cover material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Hole_Diameter:
+          title: Hole diameter
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cover_Frame_Fit:
+          title: Cover frame fit
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cover_Insert_Type:
+          title: Cover insert type
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Adjustment_Ring_Type:
+          title: Adjustment ring type
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Adjustment_Ring_Material:
+          title: Adjustment ring material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Frame_Material:
+          title: Frame material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Frame_Seal_Inflow:
+          title: Frame seal inflow
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Present:
+          title: Chimney present
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Material1:
+          title: Chimney material1
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Material2:
+          title: Chimney material2
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_InI:
+          title: Chimney ini
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Lining_Interior:
+          title: Chimney lining interior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Lining_Exterior:
+          title: Chimney lining exterior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Condition:
+          title: Chimney condition
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cone_Type:
+          title: Cone type
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cone_Material:
+          title: Cone material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cone_Lining_Interior:
+          title: Cone lining interior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cone_Lining_Exterior:
+          title: Cone lining exterior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cone_Condition:
+          title: Cone condition
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Wall_Material:
+          title: Wall material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Wall_Lining_Interior:
+          title: Wall lining interior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Wall_Lining_Exterior:
+          title: Wall lining exterior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Wall_Condition:
+          title: Wall condition
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Bench_Present:
+          title: Bench present
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Bench_Material:
+          title: Bench material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Bench_Lining:
+          title: Bench lining
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Bench_Condition:
+          title: Bench condition
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Channel_Installed:
+          title: Channel installed
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Channel_Material:
+          title: Channel material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Channel_Type:
+          title: Channel type
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Channel_Exposure:
+          title: Channel exposure
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Channel_Condition:
+          title: Channel condition
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Step_Material:
+          title: Step material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Evidence_Surcharge:
+          title: Evidence surcharge
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        AdditionalComponentInfo:
+          title: Additionalcomponentinfo
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Rim_to_Invert:
+          title: Rim to invert
+          type:
+          - number
+          - 'null'
+        Rim_to_Grade:
+          title: Rim to grade
+          type:
+          - number
+          - 'null'
+        Grade_to_Invert:
+          title: Grade to invert
+          type:
+          - number
+          - 'null'
+        Rim_to_Grade_Exposed:
+          title: Rim to grade exposed
+          type:
+          - number
+          - 'null'
+        Cover_Size:
+          title: Cover size
+          type:
+          - number
+          - 'null'
+        Center_Cover_Size:
+          title: Center cover size
+          type:
+          - number
+          - 'null'
+        Cover_Size_Width:
+          title: Cover size width
+          type:
+          - number
+          - 'null'
+        Cover_Bearing_Surface_Dia:
+          title: Cover bearing surface dia
+          type:
+          - number
+          - 'null'
+        Cover_Bearing_Surface_Width:
+          title: Cover bearing surface width
+          type:
+          - number
+          - 'null'
+        Adjustment_Ring_Height:
+          title: Adjustment ring height
+          type:
+          - number
+          - 'null'
+        Frame_Bearing_Surface_Width:
+          title: Frame bearing surface width
+          type:
+          - number
+          - 'null'
+        Frame_Bearing_Surface_Depth:
+          title: Frame bearing surface depth
+          type:
+          - number
+          - 'null'
+        Frame_Clear_Open_Diam:
+          title: Frame clear open diam
+          type:
+          - number
+          - 'null'
+        Frame_Clear_Open_Width:
+          title: Frame clear open width
+          type:
+          - number
+          - 'null'
+        Frame_Offset_Distance:
+          title: Frame offset distance
+          type:
+          - number
+          - 'null'
+        Frame_Depth:
+          title: Frame depth
+          type:
+          - number
+          - 'null'
+        Chimney_Clear_Opening:
+          title: Chimney clear opening
+          type:
+          - number
+          - 'null'
+        Chimney_Depth:
+          title: Chimney depth
+          type:
+          - number
+          - 'null'
+        Cone_Depth:
+          title: Cone depth
+          type:
+          - number
+          - 'null'
+        Wall_Diam:
+          title: Wall diam
+          type:
+          - number
+          - 'null'
+        Wall_BySize:
+          title: Wall bysize
+          type:
+          - number
+          - 'null'
+        Wall_Depth:
+          title: Wall depth
+          type:
+          - number
+          - 'null'
+        Hole_Number:
+          title: Hole number
+          type:
+          - integer
+          - 'null'
+        Step_Number:
+          title: Step number
+          type:
+          - integer
+          - 'null'
+        Surface_Type_Asphalt:
+          title: Surface type asphalt
+          type:
+          - boolean
+          - 'null'
+        Surface_Type_ConcretePavement:
+          title: Surface type concretepavement
+          type:
+          - boolean
+          - 'null'
+        Surface_Type_ConcreteCollar:
+          title: Surface type concretecollar
+          type:
+          - boolean
+          - 'null'
+        Surface_Type_GrassDirt:
+          title: Surface type grassdirt
+          type:
+          - boolean
+          - 'null'
+        Surface_Type_Gravel:
+          title: Surface type gravel
+          type:
+          - boolean
+          - 'null'
+        Surface_Type_Other:
+          title: Surface type other
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Bolted:
+          title: Cover type bolted
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Gasketed:
+          title: Cover type gasketed
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Hatch_Double:
+          title: Cover type hatch double
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Hatch_Single:
+          title: Cover type hatch single
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Inner_Cover:
+          title: Cover type inner cover
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Lamphole:
+          title: Cover type lamphole
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Locking:
+          title: Cover type locking
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Removable_Center:
+          title: Cover type removable center
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Solid:
+          title: Cover type solid
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Vented:
+          title: Cover type vented
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_BoltsMissing:
+          title: Cover condition boltsmissing
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Broken:
+          title: Cover condition broken
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Corroded:
+          title: Cover condition corroded
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Cracked:
+          title: Cover condition cracked
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Missing:
+          title: Cover condition missing
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Restraint_Defective:
+          title: Cover condition restraint defective
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Restraint_Missing:
+          title: Cover condition restraint missing
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Sound:
+          title: Cover condition sound
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_Cracked:
+          title: Insert condition cracked
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_Corroded:
+          title: Insert condition corroded
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_InsertFell:
+          title: Insert condition insertfell
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_Leaking:
+          title: Insert condition leaking
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_PoorlyFitting:
+          title: Insert condition poorlyfitting
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_Sound:
+          title: Insert condition sound
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_Broken:
+          title: Ring condition broken
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_Corroded:
+          title: Ring condition corroded
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_Cracked:
+          title: Ring condition cracked
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_Leaking:
+          title: Ring condition leaking
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_PoorInstall:
+          title: Ring condition poorinstall
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_Sound:
+          title: Ring condition sound
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Broken:
+          title: Frame condition broken
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Coated:
+          title: Frame condition coated
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Corroded:
+          title: Frame condition corroded
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Cracked:
+          title: Frame condition cracked
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Missing:
+          title: Frame condition missing
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Sound:
+          title: Frame condition sound
+          type:
+          - boolean
+          - 'null'
+        Seal_Condition_Cracked:
+          title: Seal condition cracked
+          type:
+          - boolean
+          - 'null'
+        Seal_Condition_Loose:
+          title: Seal condition loose
+          type:
+          - boolean
+          - 'null'
+        Seal_Condition_Missing:
+          title: Seal condition missing
+          type:
+          - boolean
+          - 'null'
+        Seal_Condition_Offset:
+          title: Seal condition offset
+          type:
+          - boolean
+          - 'null'
+        Seal_Condition_Sound:
+          title: Seal condition sound
+          type:
+          - boolean
+          - 'null'
+        pipe_connections:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+    Video:
+      required:
+      - created_by
+      - inspection_type
+      - inspection
+      - problem
+      - updated_by
+      type: object
+      properties:
+        account_sid:
+          title: Account sid
+          type: string
+          readOnly: true
+          minLength: 1
+        account:
+          title: Account
+          type: string
+          readOnly: true
+        agency:
+          title: Agency
+          type: string
+          readOnly: true
+        autocode_complete:
+          title: Autocode complete
+          type: boolean
+          readOnly: true
+        autocode_complete_date:
+          title: Autocode complete date
+          type: string
+          readOnly: true
+        autocode_labeled_by_id:
+          title: Autocode labeled by id
+          type: integer
+          readOnly: true
+        autocode_labeler_complete_datetime:
+          title: Autocode labeler complete datetime
+          type: string
+          format: date-time
+          readOnly: true
+        autocode_mode:
+          title: Autocode mode
+          type: string
+          readOnly: true
+          minLength: 1
+        auxillary_videos:
+          title: Auxillary videos
+          type:
+          - object
+          - 'null'
+        camera:
+          title: Camera
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+        client_reviewed_by:
+          title: Client reviewed by
+          type: string
+          readOnly: true
+          minLength: 1
+        client_reviewed:
+          title: Client reviewed
+          type: string
+          format: date-time
+          readOnly: true
+        contractor:
+          title: Contractor
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        created_by:
+          $ref: '#/components/schemas/AccountUser'
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        default_position_coords:
+          title: Default position coords
+          type:
+          - object
+          - 'null'
+        deleted_by:
+          title: Archived By
+          type:
+          - string
+          - 'null'
+          format: uri
+          readOnly: true
+        deleted:
+          title: Archived
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        encoded:
+          title: Encoded
+          type: boolean
+        encoding_location_exists:
+          title: Encoding location exists
+          type:
+          - boolean
+          - 'null'
+        encoding_location:
+          title: Encoding location
+          description: The S3 location of the encoding
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        file_name:
+          title: File name
+          type: string
+          readOnly: true
+        friendly_stage_str:
+          title: Friendly stage str
+          type: string
+          readOnly: true
+        inspection_type:
+          title: Inspection type
+          type: string
+          minLength: 1
+        inspection:
+          $ref: '#/components/schemas/Inspection'
+        is_metashape:
+          title: Is metashape
+          type: string
+          readOnly: true
+        is_selectable:
+          title: Is selectable
+          type: boolean
+        key:
+          title: Key
+          type: string
+          readOnly: true
+          minLength: 1
+        last_internal_review_date:
+          title: Last internal review date
+          type: string
+          format: date-time
+          readOnly: true
+        last_internal_reviewer:
+          title: Last internal reviewer
+          type: string
+          readOnly: true
+          minLength: 1
+        maximo_id:
+          title: Maximo id
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type: string
+          readOnly: true
+        model_scale_factor:
+          title: Model scale factor
+          type:
+          - number
+          - 'null'
+        needs_prescreen:
+          title: Needs prescreen
+          type: boolean
+          readOnly: true
+        needs_qc:
+          title: Needs qc
+          type: boolean
+          readOnly: true
+        num_errors:
+          title: Num errors
+          type: string
+          readOnly: true
+        number_of_frames:
+          title: Number of frames
+          description: The number of frames in this video
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        pano_offset:
+          title: Pano offset
+          type: string
+          readOnly: true
+        payout_bb:
+          title: Payout bb
+          type: string
+          readOnly: true
+        payout_bg:
+          title: Payout bg
+          type: string
+          readOnly: true
+        pdf_exists:
+          title: Pdf exists
+          type: string
+          readOnly: true
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        pipe:
+          title: Pipe
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+        problem:
+          title: Problem
+          type: string
+          minLength: 1
+        project_names:
+          title: Project names
+          type: string
+          readOnly: true
+        project:
+          title: Project
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
+        qai_status:
+          title: Qai status
+          type:
+          - string
+          - 'null'
+          enum:
+          - failed
+          - passed
+          - open
+        qc_reviewed:
+          title: Qc reviewed
+          type: boolean
+          readOnly: true
+        ready_for_labeling:
+          title: Ready for labeling
+          type: string
+          readOnly: true
+        rotated_pano:
+          title: Rotated pano
+          type: string
+          readOnly: true
+        sepehr_im_sorry:
+          title: Sepehr im sorry
+          type: string
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        stage_components:
+          title: Stage components
+          type: string
+          readOnly: true
+        stage_str:
+          title: Stage str
+          type: string
+          readOnly: true
+        state:
+          title: State
+          description: The state of the video. Supersedes existing status values.
+          type:
+          - string
+          - 'null'
+          enum:
+          - queued_for_processing
+          - queued_for_autocode
+          - transcoding
+          - rendering
+          - transcoding_for_autocode
+          - rendering_for_autocode
+          - uploaded
+          - video_unplayable
+          - rendering_failed
+          - inference_pending
+          - inference_running
+          - autocode_rejected
+          - autocode_complete
+          - prescreen_pending
+          - prescreen_in_progress
+          - prescreen_rendering
+          - prescreen_inference_pending
+          - prescreen_inference_running
+          - prescreen_qc_pending
+          - prescreen_qc_in_progress
+          - prescreen_qc_rendering
+          - prescreen_qc_inference_pending
+          - prescreen_qc_inference_running
+          - prescreen_autocode_rejected_pending
+          - nassco_review_autocode_rejected_pending
+          - merge_pending
+          - merge_in_progress
+          - nassco_review_pending
+          - nassco_review_in_progress
+          - nassco_review_rendering
+          - nassco_review_inference_pending
+          - nassco_review_inference_running
+          - nassco_review_qc_pending
+          - nassco_review_qc_in_progress
+          - nassco_review_qc_rendering
+          - nassco_review_qc_inference_pending
+          - nassco_review_qc_inference_running
+        state_updated_by_sid:
+          title: State updated by sid
+          type: string
+          readOnly: true
+        six_oclock_angle_degrees:
+          title: Six oclock angle degrees
+          type:
+          - number
+          - 'null'
+        six_oclock_ai_set:
+          title: Six oclock ai set
+          type:
+          - boolean
+          - 'null'
+        stage:
+          title: Stage
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 11
+          - 12
+          - 13
+          - 20
+          readOnly: true
+        submittal_status:
+          title: Submittal status
+          type: string
+          readOnly: true
+        tahoe_phase:
+          title: Tahoe phase
+          type: string
+          readOnly: true
+        training_mode:
+          title: Training mode
+          type: string
+          readOnly: true
+        truck_info:
+          title: Truck info
+          type: object
+          readOnly: true
+        updated_by:
+          $ref: '#/components/schemas/AccountUser'
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        variant:
+          title: Variant
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+        video_duration:
+          title: Video duration
+          description: The duration in seconds of the video
+          type:
+          - number
+          - 'null'
+        video_format:
+          title: Video format
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+        video_height:
+          title: Video height
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        video_width:
+          title: Video width
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        zero_distance_mark:
+          title: Zero distance mark
+          type:
+          - number
+          - 'null'
+    ClassificationGroup:
+      required:
+      - name
+      - codes
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          description: The name of the group
+          type: string
+          maxLength: 128
+          minLength: 1
+        codes:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        codes_detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/VideoObservationClassification'
+          readOnly: true
+        bb_count:
+          title: Bb count
+          type: integer
+          readOnly: true
+        bb_reviewed_count:
+          title: Bb reviewed count
+          type: integer
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    PartnerLink:
+      required:
+      - partner
+      - link
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        partner:
+          title: Partner
+          type: string
+          enum:
+          - unearth
+        link:
+          title: Link
+          type: string
+          format: uri
+          maxLength: 1024
+          minLength: 1
+        icon_url:
+          title: Icon url
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type:
+          - object
+          - 'null'
+    ModelEnsemble:
+      required:
+      - name
+      - training_models
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        training_models:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        model_names:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          uniqueItems: true
+        logic:
+          title: Logic
+          type:
+          - object
+          - 'null'
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    AccountUser:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        last_pioneer_login:
+          title: Last pioneer login
+          type: string
+          readOnly: true
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
+    ObservationRun:
+      required:
+      - training_model
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        training_model:
+          title: Training model
+          type: string
+          format: uri
+        model_name:
+          title: Model name
+          type: string
+          readOnly: true
+          minLength: 1
+        run_type:
+          title: Run type
+          type: integer
+          enum:
+          - 1
+          - 0
+          - 2
+        model_version:
+          title: Model version
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        display_name:
+          title: Display name
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        params:
+          title: Params
+          type: object
+        metrics:
+          title: Metrics
+          type: string
+          readOnly: true
+        source_preset:
+          title: Source preset
+          type: integer
+          enum:
+          - 4
+          - 0
+          - 3
+          - 2
+          - 1
+        source_kwargs:
+          title: Source kwargs
+          type: object
+        num_inference_required:
+          title: Num inference required
+          type: string
+          readOnly: true
+        eligible_count:
+          title: Eligible count
+          type: string
+          readOnly: true
+        videos:
+          title: Videos
+          type: string
+          readOnly: true
+        run_status:
+          title: Run status
+          type: integer
+          enum:
+          - 2
+          - 0
+          - 1
+        completed_count:
+          title: Completed count
+          type: string
+          readOnly: true
+        model_sid:
+          title: Model sid
+          type: string
+          readOnly: true
+          minLength: 1
+        group_sids:
+          title: Group sids
+          type: string
+          readOnly: true
+        video_filters:
+          title: Video filters
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        codes:
+          title: Codes
+          type: string
+          readOnly: true
+        inference_resolution:
+          title: Inference resolution
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        run_groups:
+          title: Run groups
+          type: string
+          readOnly: true
+        prov_obs_stats:
+          title: Prov obs stats
+          type: string
+          readOnly: true
+    InferenceAssignment:
+      required:
+      - name
+      - ensembles
+      - video
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        ensembles:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        ensemble_names:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          uniqueItems: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        model_csvs:
+          type:
+          - array
+          - 'null'
+          items:
+            title: Model csvs
+            type: string
+            maxLength: 1024
+            minLength: 1
+        truth_table_location:
+          title: Truth table location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        boolean_output_location:
+          title: Boolean output location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        boolean_location_url:
+          title: Boolean location url
+          type: string
+          readOnly: true
+        truth_table_location_url:
+          title: Truth table location url
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    BBInferenceAssignment:
+      required:
+      - video
+      - training_models
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        frame_size:
+          title: Frame size
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        training_models:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        model_names:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          uniqueItems: true
+        model_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrainingModel'
+          readOnly: true
+        bb_json_location:
+          title: BB JSON location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        bb_json_location_url:
+          title: Bb json location url
+          type: string
+          readOnly: true
+        start_time:
+          title: Start time
+          type:
+          - string
+          - 'null'
+        end_time:
+          title: End time
+          type:
+          - string
+          - 'null'
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        video_details:
+          $ref: '#/components/schemas/Video'
+    TestObservationClassification:
+      required:
+      - observation_run
+      - video
+      - video_frame
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        observation_run:
+          title: Observation run
+          type: string
+          format: uri
+        video:
+          title: Video
+          type: string
+          format: uri
+        video_sid:
+          title: Video sid
+          type: string
+          readOnly: true
+          minLength: 1
+        classification:
+          $ref: '#/components/schemas/VideoObservationClassification'
+        payout:
+          title: Payout
+          type:
+          - number
+          - 'null'
+        video_frame:
+          title: Video frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    ProvisionalObservationClassification:
+      required:
+      - start_frame
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        video_sid:
+          title: Video sid
+          type: string
+          readOnly: true
+          minLength: 1
+        observation_run_sid:
+          title: Observation run sid
+          type: string
+          readOnly: true
+          minLength: 1
+        classification:
+          $ref: '#/components/schemas/VideoObservationClassification'
+        interval:
+          title: Interval
+          type: string
+          readOnly: true
+        frame_urls:
+          title: Frame urls
+          type: string
+          readOnly: true
+        start_payout:
+          title: Start payout
+          type:
+          - number
+          - 'null'
+        end_payout:
+          title: End payout
+          type:
+          - number
+          - 'null'
+        start_frame:
+          title: Start frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        end_frame:
+          title: End frame
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        boxes:
+          title: Boxes
+          type: object
+        reviewed_by:
+          title: Reviewed by
+          type:
+          - string
+          - 'null'
+          format: uri
+        frame_map:
+          title: Frame map
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        inference_sid:
+          title: Inference sid
+          type: string
+          readOnly: true
+          minLength: 1
+        graph_url:
+          title: Graph url
+          type: string
+          readOnly: true
+        private_comment:
+          title: Private comment
+          type: string
+          maxLength: 10000
+          minLength: 1
+        pacp_comment:
+          title: Pacp comment
+          type: string
+          maxLength: 10000
+          minLength: 1
+    InspectionRatings:
+      type: object
+      properties:
+        STGradeScore1:
+          title: Stgradescore1
+          type:
+          - number
+          - 'null'
+        STGradeScore2:
+          title: Stgradescore2
+          type:
+          - number
+          - 'null'
+        STGradeScore3:
+          title: Stgradescore3
+          type:
+          - number
+          - 'null'
+        STGradeScore4:
+          title: Stgradescore4
+          type:
+          - number
+          - 'null'
+        STGradeScore5:
+          title: Stgradescore5
+          type:
+          - number
+          - 'null'
+        OMGradeScore1:
+          title: Omgradescore1
+          type:
+          - number
+          - 'null'
+        OMGradeScore2:
+          title: Omgradescore2
+          type:
+          - number
+          - 'null'
+        OMGradeScore3:
+          title: Omgradescore3
+          type:
+          - number
+          - 'null'
+        OMGradeScore4:
+          title: Omgradescore4
+          type:
+          - number
+          - 'null'
+        OMGradeScore5:
+          title: Omgradescore5
+          type:
+          - number
+          - 'null'
+        ST1:
+          title: St1
+          type:
+          - number
+          - 'null'
+        ST2:
+          title: St2
+          type:
+          - number
+          - 'null'
+        ST3:
+          title: St3
+          type:
+          - number
+          - 'null'
+        ST4:
+          title: St4
+          type:
+          - number
+          - 'null'
+        ST5:
+          title: St5
+          type:
+          - number
+          - 'null'
+        OM1:
+          title: Om1
+          type:
+          - number
+          - 'null'
+        OM2:
+          title: Om2
+          type:
+          - number
+          - 'null'
+        OM3:
+          title: Om3
+          type:
+          - number
+          - 'null'
+        OM4:
+          title: Om4
+          type:
+          - number
+          - 'null'
+        OM5:
+          title: Om5
+          type:
+          - number
+          - 'null'
+        STPipeRating:
+          title: Stpiperating
+          type:
+          - number
+          - 'null'
+        OMPipeRating:
+          title: Ompiperating
+          type:
+          - number
+          - 'null'
+        OverallPipeRating:
+          title: Overallpiperating
+          type:
+          - number
+          - 'null'
+        STPipeRatingsIndex:
+          title: Stpiperatingsindex
+          type:
+          - number
+          - 'null'
+        OMPipeRatingsIndex:
+          title: Ompiperatingsindex
+          type:
+          - number
+          - 'null'
+        OverallPipeRatingsIndex:
+          title: Overallpiperatingsindex
+          type:
+          - number
+          - 'null'
+        Risk:
+          title: Risk
+          type:
+          - number
+          - 'null'
+        RatingID:
+          title: Ratingid
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STQuickRating:
+          title: Stquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OMQuickRating:
+          title: Omquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OverallQuickRating:
+          title: Overallquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFPACP:
+          title: Lofpacp
+          type:
+          - number
+          - 'null'
+        PACPQuickRating:
+          title: Pacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFLACP:
+          title: Loflacp
+          type:
+          - number
+          - 'null'
+        LACPQuickRating:
+          title: Lacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STMHRating:
+          title: Stmhrating
+          type:
+          - number
+          - 'null'
+        OMMHRating:
+          title: Ommhrating
+          type:
+          - number
+          - 'null'
+        OverallMHRating:
+          title: Overallmhrating
+          type:
+          - number
+          - 'null'
+        STMHRatingsIndex:
+          title: Stmhratingsindex
+          type:
+          - number
+          - 'null'
+        OMMHRatingsIndex:
+          title: Ommhratingsindex
+          type:
+          - number
+          - 'null'
+        OverallMHRatingsIndex:
+          title: Overallmhratingsindex
+          type:
+          - number
+          - 'null'
+        LoFMACP:
+          title: Lofmacp
+          type:
+          - number
+          - 'null'
+        MACPQuickRating:
+          title: Macpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+    RegressionModel:
+      required:
+      - name
+      - regression_type
+      - dims
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        location:
+          title: Location
+          description: S3 location of saved model
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        wandb:
+          title: Wandb
+          description: Weights and Biases link
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - defined
+          - queued
+          - training
+          - trained
+        regression_type:
+          title: Regression type
+          type: string
+          maxLength: 128
+          minLength: 1
+        dims:
+          title: Dims
+          type: object
+        config_location:
+          title: Config location
+          description: S3 location of config json file
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        is_testable:
+          title: Is testable
+          type: boolean
+        meta:
+          title: Meta
+          type:
+          - object
+          - 'null'
+        statistics:
+          title: Statistics
+          type:
+          - object
+          - 'null'
+        hyperparameters:
+          title: Hyperparameters
+          type:
+          - object
+          - 'null'
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

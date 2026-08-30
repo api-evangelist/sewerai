@@ -1,0 +1,99 @@
+openapi: 3.2.0
+info:
+  title: Snippets Account Usage API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: account_usage
+paths:
+  /account_usage/:
+    parameters: []
+    get:
+      operationId: account_usage_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - account_usage
+    post:
+      operationId: account_usage_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+      tags:
+      - account_usage
+  /account_usage/get_account_usage/:
+    parameters: []
+    get:
+      operationId: account_usage_get_account_usage
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - account_usage
+  /account_usage/get_filter_options/:
+    parameters: []
+    get:
+      operationId: account_usage_get_filter_options
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - account_usage
+  /account_usage/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: account_usage_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - account_usage
+    put:
+      operationId: account_usage_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - account_usage
+    patch:
+      operationId: account_usage_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - account_usage
+    delete:
+      operationId: account_usage_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - account_usage
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

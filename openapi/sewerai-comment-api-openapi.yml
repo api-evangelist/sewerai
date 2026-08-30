@@ -1,0 +1,175 @@
+openapi: 3.2.0
+info:
+  title: Snippets Comment API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: comment
+paths:
+  /comment/:
+    parameters: []
+    get:
+      operationId: comment_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+      tags:
+      - comment
+    post:
+      operationId: comment_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+      tags:
+      - comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+  /comment/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: comment_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+      tags:
+      - comment
+    put:
+      operationId: comment_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+      tags:
+      - comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+    patch:
+      operationId: comment_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+      tags:
+      - comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+    delete:
+      operationId: comment_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - comment
+components:
+  schemas:
+    Comment:
+      required:
+      - note_sid
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by_username:
+          title: Created by username
+          type: string
+          readOnly: true
+          minLength: 1
+        deleted:
+          title: Archived
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        picture:
+          title: Picture
+          type: string
+          readOnly: true
+        text:
+          title: Text
+          type:
+          - string
+          - 'null'
+        note_sid:
+          title: Note sid
+          type: string
+          maxLength: 64
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        tagged_users:
+          title: Tagged users
+          type: string
+          readOnly: true
+        is_editable:
+          title: Is editable
+          type: string
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

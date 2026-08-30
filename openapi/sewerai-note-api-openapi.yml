@@ -1,0 +1,286 @@
+openapi: 3.2.0
+info:
+  title: Snippets Note API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: note
+paths:
+  /note/:
+    parameters: []
+    get:
+      operationId: note_list
+      description: Read IsSaiPermittedPatch definition.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Note'
+      tags:
+      - note
+    post:
+      operationId: note_create
+      description: Read IsSaiPermittedPatch definition.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+      tags:
+      - note
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+        required: true
+  /note/get_filter_options/:
+    parameters: []
+    get:
+      operationId: note_get_filter_options
+      description: Read IsSaiPermittedPatch definition.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Note'
+      tags:
+      - note
+  /note/get_taggable_users/:
+    parameters: []
+    get:
+      operationId: note_get_taggable_users
+      description: Read IsSaiPermittedPatch definition.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Note'
+      tags:
+      - note
+  /note/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: note_read
+      description: Read IsSaiPermittedPatch definition.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+      tags:
+      - note
+    put:
+      operationId: note_update
+      description: Read IsSaiPermittedPatch definition.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+      tags:
+      - note
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+        required: true
+    patch:
+      operationId: note_partial_update
+      description: Read IsSaiPermittedPatch definition.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+      tags:
+      - note
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+        required: true
+    delete:
+      operationId: note_delete
+      description: Read IsSaiPermittedPatch definition.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - note
+components:
+  schemas:
+    Comment:
+      required:
+      - note_sid
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by_username:
+          title: Created by username
+          type: string
+          readOnly: true
+          minLength: 1
+        deleted:
+          title: Archived
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        picture:
+          title: Picture
+          type: string
+          readOnly: true
+        text:
+          title: Text
+          type:
+          - string
+          - 'null'
+        note_sid:
+          title: Note sid
+          type: string
+          maxLength: 64
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        tagged_users:
+          title: Tagged users
+          type: string
+          readOnly: true
+        is_editable:
+          title: Is editable
+          type: string
+          readOnly: true
+    Note:
+      required:
+      - inspection_sid
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          readOnly: true
+        deleted:
+          title: Archived
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        comment_set:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+          readOnly: true
+        status:
+          title: Status
+          type: string
+          enum:
+          - failed
+          - needs_correction
+          - open
+          - passed
+        inspection_sid:
+          title: Inspection sid
+          type: string
+          maxLength: 64
+          minLength: 1
+        video:
+          title: Video
+          type: string
+          readOnly: true
+          minLength: 1
+        text:
+          title: Text
+          type:
+          - string
+          - 'null'
+        viewed_by:
+          title: Viewed by
+          type: object
+          readOnly: true
+        viewed_by_user_sid:
+          title: Viewed by user sid
+          type: string
+          maxLength: 64
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        inspection:
+          title: Inspection
+          type: string
+          readOnly: true
+        is_editable:
+          title: Is editable
+          type: string
+          readOnly: true
+        escalation_count:
+          title: Escalation count
+          type: integer
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

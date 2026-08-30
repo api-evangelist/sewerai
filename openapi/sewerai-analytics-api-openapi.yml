@@ -1,0 +1,815 @@
+openapi: 3.2.0
+info:
+  title: Snippets Analytics API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: analytics
+paths:
+  /analytics/bbuser/:
+    parameters: []
+    get:
+      operationId: analytics_bbuser_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - analytics
+  /analytics/dashboards/:
+    parameters: []
+    get:
+      operationId: analytics_dashboards_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AnalyticsDashboard'
+      tags:
+      - analytics
+    post:
+      operationId: analytics_dashboards_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyticsDashboard'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalyticsDashboard'
+        required: true
+  /analytics/dashboards/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: analytics_dashboards_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyticsDashboard'
+      tags:
+      - analytics
+    put:
+      operationId: analytics_dashboards_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyticsDashboard'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalyticsDashboard'
+        required: true
+    patch:
+      operationId: analytics_dashboards_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyticsDashboard'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalyticsDashboard'
+        required: true
+    delete:
+      operationId: analytics_dashboards_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - analytics
+  /analytics/downloadhistory/:
+    parameters: []
+    get:
+      operationId: analytics_downloadhistory_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DownloadHistory'
+      tags:
+      - analytics
+    post:
+      operationId: analytics_downloadhistory_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadHistory'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadHistory'
+        required: true
+  /analytics/downloadhistory/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: analytics_downloadhistory_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadHistory'
+      tags:
+      - analytics
+    put:
+      operationId: analytics_downloadhistory_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadHistory'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadHistory'
+        required: true
+    patch:
+      operationId: analytics_downloadhistory_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadHistory'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadHistory'
+        required: true
+    delete:
+      operationId: analytics_downloadhistory_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - analytics
+  /analytics/ete/:
+    parameters: []
+    get:
+      operationId: analytics_ete_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ETETest'
+      tags:
+      - analytics
+    post:
+      operationId: analytics_ete_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ETETest'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ETETest'
+        required: true
+  /analytics/ete/GetETEFilters/:
+    parameters: []
+    get:
+      operationId: analytics_ete_GetETEFilters
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ETETest'
+      tags:
+      - analytics
+  /analytics/ete/GetGraphs/:
+    parameters: []
+    get:
+      operationId: analytics_ete_GetGraphs
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ETETest'
+      tags:
+      - analytics
+  /analytics/ete/GetRuns/:
+    parameters: []
+    get:
+      operationId: analytics_ete_GetRuns
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ETETest'
+      tags:
+      - analytics
+  /analytics/ete/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: analytics_ete_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ETETest'
+      tags:
+      - analytics
+    put:
+      operationId: analytics_ete_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ETETest'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ETETest'
+        required: true
+    patch:
+      operationId: analytics_ete_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ETETest'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ETETest'
+        required: true
+    delete:
+      operationId: analytics_ete_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - analytics
+  /analytics/framereview/:
+    parameters: []
+    get:
+      operationId: analytics_framereview_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrameQualityReview'
+      tags:
+      - analytics
+    post:
+      operationId: analytics_framereview_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrameQualityReview'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FrameQualityReview'
+        required: true
+  /analytics/framereview/GetBadReviews/:
+    parameters: []
+    get:
+      operationId: analytics_framereview_GetBadReviews
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrameQualityReview'
+      tags:
+      - analytics
+  /analytics/framereview/GetSFTestResults/:
+    parameters: []
+    get:
+      operationId: analytics_framereview_GetSFTestResults
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrameQualityReview'
+      tags:
+      - analytics
+  /analytics/framereview/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: analytics_framereview_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrameQualityReview'
+      tags:
+      - analytics
+    put:
+      operationId: analytics_framereview_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrameQualityReview'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FrameQualityReview'
+        required: true
+    patch:
+      operationId: analytics_framereview_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrameQualityReview'
+      tags:
+      - analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FrameQualityReview'
+        required: true
+    delete:
+      operationId: analytics_framereview_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - analytics
+components:
+  schemas:
+    DownloadHistory:
+      required:
+      - video
+      - frame
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        video_sid:
+          title: Video sid
+          type: string
+          readOnly: true
+          minLength: 1
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    ETETest:
+      required:
+      - inf
+      - precision
+      - recall
+      - f1
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        inf:
+          title: Inf
+          type: string
+          format: uri
+        inf_sid:
+          title: Inf sid
+          type: string
+          readOnly: true
+          minLength: 1
+        video_sid:
+          title: Video sid
+          type: string
+          readOnly: true
+          minLength: 1
+        obs_run_sid:
+          title: Obs run sid
+          type: string
+          readOnly: true
+          minLength: 1
+        params:
+          title: Params
+          type: object
+        precision:
+          title: Precision
+          type: number
+        recall:
+          title: Recall
+          type: number
+        f1:
+          title: F1
+          type: number
+        num_pos:
+          title: Num pos
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        num_gt:
+          title: Num gt
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        tp:
+          title: Tp
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        fp:
+          title: Fp
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        fn:
+          title: Fn
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        score_type:
+          title: Score type
+          type: string
+          maxLength: 128
+          minLength: 1
+        tp_bin:
+          title: Tp bin
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        fp_bin:
+          title: Fp bin
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        fn_bin:
+          title: Fn bin
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        precision_bin:
+          title: Precision bin
+          type: number
+        recall_bin:
+          title: Recall bin
+          type: number
+        f1_bin:
+          title: F1 bin
+          type: number
+        review_bins_needed:
+          title: Review bins needed
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        real_tp:
+          title: Real tp
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        real_fp:
+          title: Real fp
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        real_fn:
+          title: Real fn
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        real_recall:
+          title: Real recall
+          type: number
+        real_precision:
+          title: Real precision
+          type: number
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    AnalyticsDashboard:
+      required:
+      - name
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        private:
+          title: Private
+          type: boolean
+        admin_only:
+          title: Admin only
+          type: boolean
+        dashboard:
+          title: Dashboard
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    FrameQualityReview:
+      required:
+      - video
+      - frame
+      - boxes_created_on
+      - is_good
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        boxes_created_by:
+          title: Boxes created by
+          type:
+          - string
+          - 'null'
+          format: uri
+        boxes_created_on:
+          title: Boxes created on
+          type: string
+          format: date-time
+        is_good:
+          title: Is good
+          type: boolean
+        from_intermediate:
+          title: From intermediate
+          type: boolean
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

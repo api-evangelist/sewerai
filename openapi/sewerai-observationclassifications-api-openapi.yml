@@ -1,0 +1,266 @@
+openapi: 3.2.0
+info:
+  title: Snippets Observationclassifications API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: observationclassifications
+paths:
+  /observationclassifications/:
+    parameters: []
+    get:
+      operationId: observationclassifications_list
+      description: ''
+      parameters:
+      - name: sid
+        in: query
+        description: sid
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationClassificationAnalytics'
+      tags:
+      - observationclassifications
+  /observationclassifications/get_stats/:
+    parameters: []
+    get:
+      operationId: observationclassifications_get_stats
+      description: ''
+      parameters:
+      - name: sid
+        in: query
+        description: sid
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationClassificationAnalytics'
+      tags:
+      - observationclassifications
+  /observationclassifications/{id}/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this Customer Observation Classification.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: observationclassifications_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationClassificationAnalytics'
+      tags:
+      - observationclassifications
+components:
+  schemas:
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
+          readOnly: true
+    ObservationClassificationAnalytics:
+      required:
+      - percent
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_sid:
+          title: Video sid
+          type: string
+          readOnly: true
+        encoding_location:
+          title: Encoding location
+          type: string
+          readOnly: true
+        encoding_location_url:
+          title: Encoding location url
+          type: string
+          readOnly: true
+        video_agency:
+          title: Video agency
+          type: string
+          readOnly: true
+        video_contractor:
+          title: Video contractor
+          type: string
+          readOnly: true
+        classification:
+          $ref: '#/components/schemas/VideoObservationClassification'
+        dimension_1:
+          title: Dimension 1
+          type:
+          - number
+          - 'null'
+        payout:
+          title: Payout
+          type:
+          - number
+          - 'null'
+        video_frame:
+          title: Video frame
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        dimension_2:
+          title: Dimension 2
+          type:
+          - number
+          - 'null'
+        percent:
+          title: Percent
+          type: number
+          format: decimal
+          maximum: 100.0
+        joint:
+          title: Joint
+          type:
+          - boolean
+          - 'null'
+        clock_from:
+          title: Clock from
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        clock_to:
+          title: Clock to
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        remarks:
+          title: Remarks
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

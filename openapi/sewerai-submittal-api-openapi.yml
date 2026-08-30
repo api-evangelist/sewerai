@@ -1,0 +1,224 @@
+openapi: 3.2.0
+info:
+  title: Snippets Submittal API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: submittal
+paths:
+  /submittal/:
+    parameters: []
+    get:
+      operationId: submittal_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Submittal'
+      tags:
+      - submittal
+    post:
+      operationId: submittal_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submittal'
+      tags:
+      - submittal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Submittal'
+        required: true
+  /submittal/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: submittal_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submittal'
+      tags:
+      - submittal
+    put:
+      operationId: submittal_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submittal'
+      tags:
+      - submittal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Submittal'
+        required: true
+    patch:
+      operationId: submittal_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submittal'
+      tags:
+      - submittal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Submittal'
+        required: true
+    delete:
+      operationId: submittal_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - submittal
+  /submittal/{sid}/send-reminder/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: submittal_send_reminder
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submittal'
+      tags:
+      - submittal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Submittal'
+        required: true
+components:
+  schemas:
+    Submittal:
+      type: object
+      properties:
+        accepted:
+          title: Accepted
+          type: boolean
+        accepting_project_name:
+          title: Accepting project name
+          type: string
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          readOnly: true
+          minLength: 1
+        account_name:
+          title: Account name
+          type: string
+          readOnly: true
+          minLength: 1
+        am_initiator:
+          title: Am initiator
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        download_ready:
+          title: Download ready
+          type: string
+          readOnly: true
+        initiator:
+          title: Initiator
+          type: string
+          readOnly: true
+          minLength: 1
+        name:
+          title: Name
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        num_ins:
+          title: Num ins
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        project_names:
+          type: array
+          items:
+            title: Project names
+            type: string
+            maxLength: 256
+            minLength: 1
+        reviewers:
+          title: Reviewers
+          type: string
+          readOnly: true
+        s3_zip_location:
+          title: S3 zip location
+          type:
+          - string
+          - 'null'
+          maxLength: 512
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        submittal_reviewers:
+          title: Submittal reviewers
+          type: string
+          readOnly: true
+        zip_downloaders:
+          title: Zip downloaders
+          type: string
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

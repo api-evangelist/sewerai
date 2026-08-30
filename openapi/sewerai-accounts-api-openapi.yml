@@ -1,0 +1,1192 @@
+openapi: 3.2.0
+info:
+  title: Snippets Accounts API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: accounts
+paths:
+  /accounts/:
+    parameters: []
+    get:
+      operationId: accounts_list
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+      tags:
+      - accounts
+    post:
+      operationId: accounts_create
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+        required: true
+  /accounts/{account_sid}/files/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: accounts_files_list
+      description: An Endpoint for Files.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+    post:
+      operationId: accounts_files_create
+      description: An Endpoint for Files.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+        required: true
+  /accounts/{account_sid}/files/attach_files/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: accounts_files_attach_files
+      description: An Endpoint for Files.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+        required: true
+  /accounts/{account_sid}/files/attachments/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: accounts_files_attachments
+      description: An Endpoint for Files.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+  /accounts/{account_sid}/files/batch/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: accounts_files_batch
+      description: An Endpoint for Files.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+        required: true
+  /accounts/{account_sid}/files/reject_match/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: accounts_files_reject_match
+      description: An Endpoint for Files.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+        required: true
+  /accounts/{account_sid}/files/{sid}/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: accounts_files_read
+      description: An Endpoint for Files.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+    put:
+      operationId: accounts_files_update
+      description: An Endpoint for Files.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+        required: true
+    patch:
+      operationId: accounts_files_partial_update
+      description: An Endpoint for Files.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+        required: true
+    delete:
+      operationId: accounts_files_delete
+      description: An Endpoint for Files.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - accounts
+  /accounts/{account_sid}/files/{sid}/import-test-data/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: accounts_files_import_test_data
+      description: 'This endpoint is used by the import_test Django admin command to
+
+        verify that an import has properly executed.'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+  /accounts/{account_sid}/files/{sid}/{part}/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: part
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: accounts_upload_part
+      summary: Return a presigned S3 POST for a single chunked-upload part.
+      description: 'The Pioneer SPA (client-external) uploads each chunk of a file as its own
+
+        S3 object — accounts/{account_sid}/files/{file_sid}/{0,1,...} then an empty
+
+        .../done marker — exactly as it does in prod, where cort''s file_save_task
+
+        invokes the Tarer state machine on the `done` marker to stitch the parts
+
+        into the final file. This endpoint hands the SPA the per-part presign.
+
+
+        LOCAL ONLY: prod/staging serve this path through console.sewerai.com;
+
+        gate to settings.IS_LOCAL so no new prod endpoint is introduced. Auth is the
+
+        viewset default (IsAuthenticated & IsSaiPermitted), satisfied by the X-SAI
+
+        token in LocalStack e2e. The key layout mirrors File.file_path_within_bucket
+
+        (settings.ACCOUNT_FILES_PREFIX + file.sid) so file_save_task''s
+
+        `accounts/(.*)/files/(.*)` split — and create_presigned_upload''s
+
+        LocalStack-aware, host-reachable signing — work unchanged.'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - accounts
+  /accounts/{account_sid}/maps/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: accounts_maps_list
+      description: Project endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GISMap'
+      tags:
+      - accounts
+  /accounts/{account_sid}/maps/{sid}/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: accounts_maps_read
+      description: Project endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GISMap'
+      tags:
+      - accounts
+  /accounts/{account_sid}/projects/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: accounts_projects_list
+      description: Project endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountProject'
+      tags:
+      - accounts
+    post:
+      operationId: accounts_projects_create
+      description: Project endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountProject'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountProject'
+        required: true
+  /accounts/{account_sid}/projects/{sid}/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: accounts_projects_read
+      description: Project endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountProject'
+      tags:
+      - accounts
+    put:
+      operationId: accounts_projects_update
+      description: Project endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountProject'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountProject'
+        required: true
+    patch:
+      operationId: accounts_projects_partial_update
+      description: Project endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountProject'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountProject'
+        required: true
+    delete:
+      operationId: accounts_projects_delete
+      description: Project endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - accounts
+  /accounts/{account_sid}/projects/{sid}/add-canvotation-template/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: accounts_projects_add_canvotation_template
+      description: Project endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountProject'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountProject'
+        required: true
+  /accounts/{account_sid}/projects/{sid}/remove-canvotation-template/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: accounts_projects_remove_canvotation_template
+      description: Project endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountProject'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountProject'
+        required: true
+  /accounts/{account_sid}/projects/{sid}/sample-video/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: accounts_projects_sample_video
+      description: Project endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountProject'
+      tags:
+      - accounts
+  /accounts/{account_sid}/users/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: accounts_users_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - accounts
+    post:
+      operationId: accounts_users_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /accounts/{account_sid}/users/{sid}/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: accounts_users_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - accounts
+    put:
+      operationId: accounts_users_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+    patch:
+      operationId: accounts_users_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+    delete:
+      operationId: accounts_users_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - accounts
+  /accounts/{account_sid}/users/{sid}/send-reminder/:
+    parameters:
+    - name: account_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: accounts_users_send_reminder
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /accounts/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: accounts_read
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+      tags:
+      - accounts
+    put:
+      operationId: accounts_update
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+        required: true
+    patch:
+      operationId: accounts_partial_update
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+        required: true
+    delete:
+      operationId: accounts_delete
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - accounts
+  /accounts/{sid}/logo_upload_url/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: accounts_logo_upload_url
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+      tags:
+      - accounts
+components:
+  schemas:
+    User:
+      required:
+      - username
+      - email
+      - admin
+      - staff
+      - labeler
+      - is_senior_labeler
+      - picture
+      - certificates
+      - joined
+      - email_verified
+      - phone_number
+      - organization
+      - country_code
+      - country_area_code
+      - country_area
+      - city
+      - postal_code
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        username:
+          title: Username
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+          type: string
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+          minLength: 1
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        admin:
+          title: Admin
+          type: boolean
+        staff:
+          title: Staff
+          type: boolean
+        labeler:
+          title: Labeler
+          type: boolean
+        is_senior_labeler:
+          title: Is senior labeler
+          type: boolean
+        tos_accepted:
+          title: Tos accepted
+          type: string
+          readOnly: true
+        picture:
+          title: Picture
+          type: string
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Certificate'
+        account_level:
+          title: Account level
+          type: string
+          readOnly: true
+        joined:
+          title: Joined
+          type: string
+          minLength: 1
+        email_verified:
+          title: Email verified
+          type: boolean
+        phone_number:
+          title: Phone number
+          type: string
+        organization:
+          title: Organization
+          type: string
+        country_code:
+          title: Country code
+          type: string
+        country_area_code:
+          title: Country area code
+          type: string
+        country_area:
+          title: Country area
+          type: string
+        city:
+          title: City
+          type: string
+        postal_code:
+          title: Postal code
+          type: string
+        token:
+          title: Token
+          type: string
+          readOnly: true
+        auth_type:
+          title: Auth type
+          type: string
+          readOnly: true
+        auth_token:
+          title: Auth token
+          type: string
+          readOnly: true
+        source:
+          title: Source
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type: object
+    AccountProject:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        active:
+          title: Active
+          type: boolean
+        date_due:
+          title: Date due
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_started:
+          title: Date started
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_finished:
+          title: Date finished
+          type:
+          - string
+          - 'null'
+          format: date-time
+        summary:
+          title: Summary
+          type: object
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        preferred_canvotation_template:
+          title: Preferred canvotation template
+          type: string
+          readOnly: true
+        notes:
+          title: Notes
+          type:
+          - string
+          - 'null'
+    Account:
+      required:
+      - name
+      - display_name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 512
+          minLength: 1
+        display_name:
+          title: Display name
+          type: string
+          maxLength: 512
+          minLength: 1
+        location:
+          title: Location
+          type: string
+          maxLength: 512
+        user_permission:
+          title: User permission
+          type: string
+          readOnly: true
+        stage:
+          title: Stage
+          type: string
+          readOnly: true
+        kind:
+          title: Kind
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+        owners:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        file_naming_formats:
+          title: File naming formats
+          type: object
+        pdf_template_options:
+          title: Pdf template options
+          type: string
+          readOnly: true
+        logo_url:
+          title: Logo url
+          type: string
+          readOnly: true
+        default_pacp_project_spec_sid:
+          title: Default pacp project spec sid
+          type: string
+          readOnly: true
+        default_macp_project_spec_sid:
+          title: Default macp project spec sid
+          type: string
+          readOnly: true
+        default_lacp_project_spec_sid:
+          title: Default lacp project spec sid
+          type: string
+          readOnly: true
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
+    GISMap:
+      required:
+      - url
+      - name
+      - sewer_key_pipe
+      - sewer_key_upmh
+      - sewer_key_downmh
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          maxLength: 1024
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_pipe:
+          title: Sewer key pipe
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_upmh:
+          title: Sewer key upmh
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_downmh:
+          title: Sewer key downmh
+          type: string
+          maxLength: 128
+          minLength: 1
+    File:
+      required:
+      - meta
+      - presigned_upload
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        origin_path:
+          title: Origin path
+          type: string
+          readOnly: true
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          readOnly: true
+          minLength: 1
+        kind:
+          title: Kind
+          type: integer
+          readOnly: true
+        location:
+          title: Location
+          type:
+          - string
+          - 'null'
+        size:
+          title: Size
+          type: string
+          readOnly: true
+        exists:
+          title: Exists
+          type: string
+          readOnly: true
+        upload_location:
+          title: Upload location
+          type: string
+          readOnly: true
+          minLength: 1
+        meta:
+          title: Meta
+          type: object
+        dropbox_meta:
+          title: Dropbox meta
+          type:
+          - object
+          - 'null'
+        presigned_upload:
+          title: Presigned upload
+          type: object
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

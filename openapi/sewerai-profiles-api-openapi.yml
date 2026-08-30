@@ -1,0 +1,274 @@
+openapi: 3.2.0
+info:
+  title: Snippets Profiles API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: profiles
+paths:
+  /profiles/:
+    parameters: []
+    get:
+      operationId: profiles_list
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Profile'
+      tags:
+      - profiles
+    post:
+      operationId: profiles_create
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+      tags:
+      - profiles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Profile'
+        required: true
+  /profiles/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: profiles_read
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+      tags:
+      - profiles
+    put:
+      operationId: profiles_update
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+      tags:
+      - profiles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Profile'
+        required: true
+    patch:
+      operationId: profiles_partial_update
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+      tags:
+      - profiles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Profile'
+        required: true
+    delete:
+      operationId: profiles_delete
+      description: API endpoint that allows users to be viewed or edited.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - profiles
+components:
+  schemas:
+    Profile:
+      required:
+      - user
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        user:
+          $ref: '#/components/schemas/User'
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
+    User:
+      required:
+      - username
+      - email
+      - admin
+      - staff
+      - labeler
+      - is_senior_labeler
+      - picture
+      - certificates
+      - joined
+      - email_verified
+      - phone_number
+      - organization
+      - country_code
+      - country_area_code
+      - country_area
+      - city
+      - postal_code
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        username:
+          title: Username
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+          type: string
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+          minLength: 1
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        admin:
+          title: Admin
+          type: boolean
+        staff:
+          title: Staff
+          type: boolean
+        labeler:
+          title: Labeler
+          type: boolean
+        is_senior_labeler:
+          title: Is senior labeler
+          type: boolean
+        tos_accepted:
+          title: Tos accepted
+          type: string
+          readOnly: true
+        picture:
+          title: Picture
+          type: string
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Certificate'
+        account_level:
+          title: Account level
+          type: string
+          readOnly: true
+        joined:
+          title: Joined
+          type: string
+          minLength: 1
+        email_verified:
+          title: Email verified
+          type: boolean
+        phone_number:
+          title: Phone number
+          type: string
+        organization:
+          title: Organization
+          type: string
+        country_code:
+          title: Country code
+          type: string
+        country_area_code:
+          title: Country area code
+          type: string
+        country_area:
+          title: Country area
+          type: string
+        city:
+          title: City
+          type: string
+        postal_code:
+          title: Postal code
+          type: string
+        token:
+          title: Token
+          type: string
+          readOnly: true
+        auth_type:
+          title: Auth type
+          type: string
+          readOnly: true
+        auth_token:
+          title: Auth token
+          type: string
+          readOnly: true
+        source:
+          title: Source
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type: object
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

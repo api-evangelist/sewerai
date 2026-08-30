@@ -1,0 +1,188 @@
+openapi: 3.2.0
+info:
+  title: Snippets Files API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: files
+paths:
+  /files/:
+    parameters: []
+    get:
+      operationId: files_list
+      description: An endpoint for Files.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/File'
+      tags:
+      - files
+  /files/FileOptions/:
+    parameters: []
+    get:
+      operationId: files_FileOptions
+      description: An endpoint for Files.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/File'
+      tags:
+      - files
+  /files/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: files_read
+      description: An endpoint for Files.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - files
+  /files/{sid}/Import/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: files_Import
+      description: An endpoint for Files.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - files
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+        required: true
+  /files/{sid}/Read/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: files_Read
+      description: An endpoint for Files.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+      tags:
+      - files
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/File'
+        required: true
+components:
+  schemas:
+    File:
+      required:
+      - meta
+      - presigned_upload
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        origin_path:
+          title: Origin path
+          type: string
+          readOnly: true
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          readOnly: true
+          minLength: 1
+        kind:
+          title: Kind
+          type: integer
+          readOnly: true
+        location:
+          title: Location
+          type:
+          - string
+          - 'null'
+        size:
+          title: Size
+          type: string
+          readOnly: true
+        exists:
+          title: Exists
+          type: string
+          readOnly: true
+        upload_location:
+          title: Upload location
+          type: string
+          readOnly: true
+          minLength: 1
+        meta:
+          title: Meta
+          type: object
+        dropbox_meta:
+          title: Dropbox meta
+          type:
+          - object
+          - 'null'
+        presigned_upload:
+          title: Presigned upload
+          type: object
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

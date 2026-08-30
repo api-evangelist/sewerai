@@ -1,0 +1,93 @@
+openapi: 3.2.0
+info:
+  title: Snippets Token API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: token
+paths:
+  /token/:
+    parameters: []
+    post:
+      operationId: token_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CortTokenObtainPair'
+      tags:
+      - token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CortTokenObtainPair'
+        required: true
+  /token/refresh/:
+    parameters: []
+    post:
+      operationId: token_refresh_create
+      description: 'Takes a refresh type JSON web token and returns an access type JSON web
+
+        token if the refresh token is valid.'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+      tags:
+      - token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+components:
+  schemas:
+    CortTokenObtainPair:
+      required:
+      - username
+      - password
+      type: object
+      properties:
+        username:
+          title: Username
+          type: string
+          minLength: 1
+        password:
+          title: Password
+          type: string
+          minLength: 1
+    TokenRefresh:
+      required:
+      - refresh
+      type: object
+      properties:
+        refresh:
+          title: Refresh
+          type: string
+          minLength: 1
+        access:
+          title: Access
+          type: string
+          readOnly: true
+          minLength: 1
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

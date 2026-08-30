@@ -1,0 +1,4238 @@
+openapi: 3.2.0
+info:
+  title: Snippets Videos API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: videos
+paths:
+  /videos/:
+    parameters: []
+    get:
+      operationId: videos_list
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+    post:
+      operationId: videos_create
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/AddCharacter/:
+    parameters: []
+    post:
+      operationId: videos_AddCharacter
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/AddRemoveProject/:
+    parameters: []
+    post:
+      operationId: videos_AddRemoveProject_create
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+    delete:
+      operationId: videos_AddRemoveProject_delete
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - videos
+  /videos/BulkArchive/:
+    parameters: []
+    post:
+      operationId: videos_BulkArchive
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/BulkFlagPrescreen/:
+    parameters: []
+    post:
+      operationId: videos_BulkFlagPrescreen
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/BulkMarkReviewed/:
+    parameters: []
+    post:
+      operationId: videos_BulkMarkReviewed
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/DeleteFrame/:
+    parameters: []
+    delete:
+      operationId: videos_DeleteFrame
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - videos
+  /videos/Encode/:
+    parameters: []
+    post:
+      operationId: videos_Encode
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/ExtractPayoutSamples/:
+    parameters: []
+    get:
+      operationId: videos_ExtractPayoutSamples
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/GetBBReview/:
+    parameters: []
+    get:
+      operationId: videos_GetBBReview
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/GetListCSV/:
+    parameters: []
+    post:
+      operationId: videos_GetListCSV
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/GetListObservationsCSV/:
+    parameters: []
+    post:
+      operationId: videos_GetListObservationsCSV
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/GetRegressionSchema/:
+    parameters: []
+    get:
+      operationId: videos_GetRegressionSchema
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/GetRegressionTypes/:
+    parameters: []
+    get:
+      operationId: videos_GetRegressionTypes
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/ListObservationClassifications/:
+    parameters: []
+    get:
+      operationId: videos_ListObservationClassifications
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/PipeStatistics/:
+    parameters: []
+    get:
+      operationId: videos_PipeStatistics
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/Statistics/:
+    parameters: []
+    get:
+      operationId: videos_Statistics_read
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+    post:
+      operationId: videos_Statistics_create
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/StatisticsNew/:
+    parameters: []
+    get:
+      operationId: videos_StatisticsNew_read
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+    post:
+      operationId: videos_StatisticsNew_create
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/SubmitBBReview/:
+    parameters: []
+    post:
+      operationId: videos_SubmitBBReview
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/UnreviewFrame/:
+    parameters: []
+    patch:
+      operationId: videos_UnreviewFrame
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/ValidationReport/:
+    parameters: []
+    get:
+      operationId: videos_ValidationReport_read
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+    post:
+      operationId: videos_ValidationReport_create
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/_download/:
+    parameters: []
+    post:
+      operationId: videos__download
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/_validate/:
+    parameters: []
+    post:
+      operationId: videos__validate
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/convert_to_dtp/:
+    parameters: []
+    post:
+      operationId: videos_convert_to_dtp
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/export_inspection_files/:
+    parameters: []
+    get:
+      operationId: videos_export_inspection_files
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/get_accounts/:
+    parameters: []
+    get:
+      operationId: videos_get_accounts
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/get_agencies/:
+    parameters: []
+    get:
+      operationId: videos_get_agencies
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/get_bb_review/:
+    parameters: []
+    get:
+      operationId: videos_get_bb_review
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/get_fake_bb_review/:
+    parameters: []
+    get:
+      operationId: videos_get_fake_bb_review
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/get_filter_options/:
+    parameters: []
+    get:
+      operationId: videos_get_filter_options
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/get_manual_payout/:
+    parameters: []
+    get:
+      operationId: videos_get_manual_payout
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/get_random_payout/:
+    parameters: []
+    get:
+      operationId: videos_get_random_payout
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/get_random_payout_review/:
+    parameters: []
+    get:
+      operationId: videos_get_random_payout_review
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/get_taggable_users/:
+    parameters: []
+    get:
+      operationId: videos_get_taggable_users
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/get_test_review/:
+    parameters: []
+    get:
+      operationId: videos_get_test_review
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/kickoff_autocode/:
+    parameters: []
+    post:
+      operationId: videos_kickoff_autocode
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/kickoff_submittal/:
+    parameters: []
+    post:
+      operationId: videos_kickoff_submittal
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/post_phone_info/:
+    parameters: []
+    post:
+      operationId: videos_post_phone_info
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/submit_bb_review/:
+    parameters: []
+    post:
+      operationId: videos_submit_bb_review
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/submit_test_review/:
+    parameters: []
+    post:
+      operationId: videos_submit_test_review
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/trim/:
+    parameters: []
+    post:
+      operationId: videos_trim
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_read
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+    put:
+      operationId: videos_update
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+    patch:
+      operationId: videos_partial_update
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+    delete:
+      operationId: videos_delete
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - videos
+  /videos/{sid}/AddBB/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_AddBB
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/AddPayoutBB/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_AddPayoutBB
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/AddToList/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_AddToList
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/CreateOrUpdateObservationClassification/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_CreateOrUpdateObservationClassification_create
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+    delete:
+      operationId: videos_CreateOrUpdateObservationClassification_delete
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - videos
+  /videos/{sid}/Done/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_Done
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/GetBB/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_GetBB_read
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/GetMetashapeFiles/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_GetMetashapeFiles
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/GetObservationClassificationsFlat/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_GetObservationClassificationsFlat
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/GetPayout/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_GetPayout
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/GetPayoutBox/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_GetPayoutBox
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/GetPointcloud/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_GetPointcloud_read
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/GetSideImages/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_GetSideImages
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/MarkBadPayout/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_MarkBadPayout
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/ObservationClassifications/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_ObservationClassifications_read
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/ObservationTernary/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_ObservationTernary
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/PayoutBB/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_PayoutBB
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/Ready/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_Ready
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/Restore/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_Restore
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/ToggleClientReviewed/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    patch:
+      operationId: videos_ToggleClientReviewed
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/ToggleLabelerReviewed/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    patch:
+      operationId: videos_ToggleLabelerReviewed
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/UploadPayout/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    patch:
+      operationId: videos_UploadPayout
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/change-inspection/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_change_inspection
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/get_payout_review/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_get_payout_review
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/get_presigned_phone_url/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_get_presigned_phone_url
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/header/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_header_read
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+    patch:
+      operationId: videos_header_partial_update
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/inference_status/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_inference_status
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/pdf/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_pdf
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/playback/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_playback
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{sid}/render/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_render
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/test_360_frames/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_test_360_frames
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/update-file/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_update_file
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+  /videos/{sid}/url/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_url
+      description: API endpoint that allows Video Instance data to viewed or edited.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+      tags:
+      - videos
+  /videos/{video_sid}/classifications/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_classifications_list
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '200':
+          description: ''
+      tags:
+      - videos
+    post:
+      operationId: videos_classifications_create
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '201':
+          description: ''
+      tags:
+      - videos
+  /videos/{video_sid}/classifications/{observation_classification_sid}/bb/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: observation_classification_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_classifications_bb_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BoundingBox'
+      tags:
+      - videos
+    post:
+      operationId: videos_classifications_bb_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoundingBox'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BoundingBox'
+        required: true
+  /videos/{video_sid}/classifications/{observation_classification_sid}/bb/{sid}/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: observation_classification_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_classifications_bb_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoundingBox'
+      tags:
+      - videos
+    put:
+      operationId: videos_classifications_bb_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoundingBox'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BoundingBox'
+        required: true
+    patch:
+      operationId: videos_classifications_bb_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoundingBox'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BoundingBox'
+        required: true
+    delete:
+      operationId: videos_classifications_bb_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - videos
+  /videos/{video_sid}/classifications/{observation_classification_sid}/bb/{sid}/Delete/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: observation_classification_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_classifications_bb_Delete
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoundingBox'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BoundingBox'
+        required: true
+  /videos/{video_sid}/classifications/{observation_classification_sid}/bb/{sid}/ToggleReviewed/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: observation_classification_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    patch:
+      operationId: videos_classifications_bb_ToggleReviewed
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoundingBox'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BoundingBox'
+        required: true
+  /videos/{video_sid}/classifications/{observation_classification_sid}/bb/{sid}/UpdateAncillary/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: observation_classification_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_classifications_bb_UpdateAncillary
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoundingBox'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BoundingBox'
+        required: true
+  /videos/{video_sid}/classifications/{observation_classification_sid}/bb/{sid}/UploadFrame/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: observation_classification_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_classifications_bb_UploadFrame
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoundingBox'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BoundingBox'
+        required: true
+  /videos/{video_sid}/classifications/{sid}/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_classifications_read
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '200':
+          description: ''
+      tags:
+      - videos
+    put:
+      operationId: videos_classifications_update
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '200':
+          description: ''
+      tags:
+      - videos
+    patch:
+      operationId: videos_classifications_partial_update
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '200':
+          description: ''
+      tags:
+      - videos
+    delete:
+      operationId: videos_classifications_delete
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - videos
+  /videos/{video_sid}/classifications/{sid}/GetSnapshot/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_classifications_GetSnapshot
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '200':
+          description: ''
+      tags:
+      - videos
+  /videos/{video_sid}/classifications/{sid}/UpdateAncillary/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_classifications_UpdateAncillary
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '201':
+          description: ''
+      tags:
+      - videos
+  /videos/{video_sid}/classifications/{sid}/UploadSnapshot/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_classifications_UploadSnapshot
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '201':
+          description: ''
+      tags:
+      - videos
+  /videos/{video_sid}/classifications/{sid}/add_bb/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: videos_classifications_add_bb
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '201':
+          description: ''
+      tags:
+      - videos
+  /videos/{video_sid}/classifications/{sid}/snapshot/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_classifications_snapshot
+      description: API endpoint that allows Observations to be Classified.
+      responses:
+        '200':
+          description: ''
+      tags:
+      - videos
+  /videos/{video_sid}/payout/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_payout_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VideoPayout'
+      tags:
+      - videos
+    post:
+      operationId: videos_payout_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoPayout'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoPayout'
+        required: true
+  /videos/{video_sid}/payout/{sid}/:
+    parameters:
+    - name: video_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: videos_payout_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoPayout'
+      tags:
+      - videos
+    put:
+      operationId: videos_payout_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoPayout'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoPayout'
+        required: true
+    patch:
+      operationId: videos_payout_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoPayout'
+      tags:
+      - videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoPayout'
+        required: true
+    delete:
+      operationId: videos_payout_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - videos
+components:
+  schemas:
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
+          readOnly: true
+    Inspection:
+      required:
+      - ratings
+      - pipe_connections
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        Inspection_Date:
+          title: Inspection date
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        Inspection_Time:
+          title: Inspection time
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        inspection_datetime:
+          title: Inspection datetime
+          type: string
+          format: date-time
+          readOnly: true
+        Street:
+          title: Street
+          type: string
+          minLength: 1
+        City:
+          title: City
+          type: string
+          minLength: 1
+        City_Area:
+          title: City area
+          type: string
+          minLength: 1
+        Country_Area:
+          title: Country area
+          type: string
+          minLength: 1
+        Country_Code:
+          title: Country code
+          type: string
+          minLength: 1
+        Postal_Code:
+          title: Postal code
+          type: string
+          minLength: 1
+        Sorting_Code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        validate:
+          title: Validate
+          description: 'Should this inspection be validated (default: True)'
+          type: boolean
+        geojson:
+          title: Geojson
+          type: object
+          readOnly: true
+        partner_links:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartnerLink'
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: integer
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: integer
+          readOnly: true
+        ratings:
+          $ref: '#/components/schemas/InspectionRatings'
+        num_errors:
+          title: Num errors
+          type: string
+          readOnly: true
+        InspectionID:
+          title: Inspectionid
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Surveyed_By:
+          title: Surveyed by
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Certificate_Number:
+          title: Certificate number
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Reviewed_By:
+          title: Reviewed by
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Reviewer_Certificate_Number:
+          title: Reviewer certificate number
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Owner:
+          title: Owner
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Customer:
+          title: Customer
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        PO_Number:
+          title: Po number
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        WorkOrder:
+          title: Workorder
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Media_Label:
+          title: Media label
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Project:
+          title: Project
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Weather:
+          title: Weather
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        PreCleaning:
+          title: Precleaning
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Date_Cleaned:
+          title: Date cleaned
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Purpose:
+          title: Purpose
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Consequence_Of_Failure:
+          title: Consequence of failure
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Drainage_Area:
+          title: Drainage area
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Location_Code:
+          title: Location code
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Location_Details:
+          title: Location details
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Vertical_Datum:
+          title: Vertical datum
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        GPS_Accuracy:
+          title: Gps accuracy
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Additional_Info:
+          title: Additional info
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Year_Constructed:
+          title: Year constructed
+          type:
+          - integer
+          - 'null'
+        Year_Renewed:
+          title: Year renewed
+          type:
+          - integer
+          - 'null'
+        Sheet_Number:
+          title: Sheet number
+          type:
+          - integer
+          - 'null'
+        IsImperial:
+          title: Isimperial
+          type:
+          - boolean
+          - 'null'
+        Custom_Fields:
+          title: Custom fields
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+        Custom_Labels:
+          title: Custom labels
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+        Pipe_Use:
+          title: Pipe use
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Upstream_MH:
+          title: Upstream mh
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Downstream_MH:
+          title: Downstream mh
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Material:
+          title: Material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Lining_Method:
+          title: Lining method
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Direction:
+          title: Direction
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Pipe_Segment_Reference:
+          title: Pipe segment reference
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Inspection_Status:
+          title: Inspection status
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Pressure_Value:
+          title: Pressure value
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Total_Length:
+          title: Total length
+          type:
+          - number
+          - 'null'
+        Length_Surveyed:
+          title: Length surveyed
+          type:
+          - number
+          - 'null'
+        Reverse_Setup:
+          title: Reverse setup
+          type:
+          - number
+          - 'null'
+        Inspection_Technology_Used_CCTV:
+          title: Inspection technology used cctv
+          type:
+          - boolean
+          - 'null'
+        Inspection_Technology_Used_Laser:
+          title: Inspection technology used laser
+          type:
+          - boolean
+          - 'null'
+        Inspection_Technology_Used_Sonar:
+          title: Inspection technology used sonar
+          type:
+          - boolean
+          - 'null'
+        Inspection_Technology_Used_Sidewall:
+          title: Inspection technology used sidewall
+          type:
+          - boolean
+          - 'null'
+        Inspection_Technology_Used_Zoom:
+          title: Inspection technology used zoom
+          type:
+          - boolean
+          - 'null'
+        Inspection_Technology_Used_Other:
+          title: Inspection technology used other
+          type:
+          - boolean
+          - 'null'
+        Flow_Control:
+          title: Flow control
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Shape:
+          title: Shape
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Coating_Method:
+          title: Coating method
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Up_Northing:
+          title: Up northing
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Up_Easting:
+          title: Up easting
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Up_Elevation:
+          title: Up elevation
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Down_Northing:
+          title: Down northing
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Down_Easting:
+          title: Down easting
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Down_Elevation:
+          title: Down elevation
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        MH_Coordinate_System:
+          title: Mh coordinate system
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Coordinate_System:
+          title: Coordinate system
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Height:
+          title: Height
+          type:
+          - number
+          - 'null'
+        Width:
+          title: Width
+          type:
+          - number
+          - 'null'
+        Pipe_Joint_Length:
+          title: Pipe joint length
+          type:
+          - number
+          - 'null'
+        Up_Rim_to_Invert:
+          title: Up rim to invert
+          type:
+          - number
+          - 'null'
+        Up_Grade_to_Invert:
+          title: Up grade to invert
+          type:
+          - number
+          - 'null'
+        Up_Rim_to_Grade:
+          title: Up rim to grade
+          type:
+          - number
+          - 'null'
+        Down_Rim_to_Invert:
+          title: Down rim to invert
+          type:
+          - number
+          - 'null'
+        Down_Grade_to_Invert:
+          title: Down grade to invert
+          type:
+          - number
+          - 'null'
+        Down_Rim_to_Grade:
+          title: Down rim to grade
+          type:
+          - number
+          - 'null'
+        PACPInspectionID:
+          title: Pacpinspectionid
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Lateral_Segment_Reference:
+          title: Lateral segment reference
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Access_Point:
+          title: Access point
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Access_Point_Northing:
+          title: Access point northing
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Access_Point_Easting:
+          title: Access point easting
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Access_Point_Elevation:
+          title: Access point elevation
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        StartManhole:
+          title: Startmanhole
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Size:
+          title: Size
+          type:
+          - number
+          - 'null'
+        Property_Line:
+          title: Property line
+          type:
+          - number
+          - 'null'
+        Tap_Location:
+          title: Tap location
+          type:
+          - number
+          - 'null'
+        Rim_Invert:
+          title: Rim invert
+          type:
+          - number
+          - 'null'
+        InspectionLevel:
+          title: Inspectionlevel
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Manhole_Number:
+          title: Manhole number
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Inflow_Potential_from_Runoff:
+          title: Inflow potential from runoff
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        MH_Use:
+          title: Mh use
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Access_Type:
+          title: Access type
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Northing:
+          title: Northing
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Easting:
+          title: Easting
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Elevation:
+          title: Elevation
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cover_Shape:
+          title: Cover shape
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cover_Material:
+          title: Cover material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Hole_Diameter:
+          title: Hole diameter
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cover_Frame_Fit:
+          title: Cover frame fit
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cover_Insert_Type:
+          title: Cover insert type
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Adjustment_Ring_Type:
+          title: Adjustment ring type
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Adjustment_Ring_Material:
+          title: Adjustment ring material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Frame_Material:
+          title: Frame material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Frame_Seal_Inflow:
+          title: Frame seal inflow
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Present:
+          title: Chimney present
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Material1:
+          title: Chimney material1
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Material2:
+          title: Chimney material2
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_InI:
+          title: Chimney ini
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Lining_Interior:
+          title: Chimney lining interior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Lining_Exterior:
+          title: Chimney lining exterior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Chimney_Condition:
+          title: Chimney condition
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cone_Type:
+          title: Cone type
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cone_Material:
+          title: Cone material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cone_Lining_Interior:
+          title: Cone lining interior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cone_Lining_Exterior:
+          title: Cone lining exterior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Cone_Condition:
+          title: Cone condition
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Wall_Material:
+          title: Wall material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Wall_Lining_Interior:
+          title: Wall lining interior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Wall_Lining_Exterior:
+          title: Wall lining exterior
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Wall_Condition:
+          title: Wall condition
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Bench_Present:
+          title: Bench present
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Bench_Material:
+          title: Bench material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Bench_Lining:
+          title: Bench lining
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Bench_Condition:
+          title: Bench condition
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Channel_Installed:
+          title: Channel installed
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Channel_Material:
+          title: Channel material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Channel_Type:
+          title: Channel type
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Channel_Exposure:
+          title: Channel exposure
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Channel_Condition:
+          title: Channel condition
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Step_Material:
+          title: Step material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Evidence_Surcharge:
+          title: Evidence surcharge
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        AdditionalComponentInfo:
+          title: Additionalcomponentinfo
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        Rim_to_Invert:
+          title: Rim to invert
+          type:
+          - number
+          - 'null'
+        Rim_to_Grade:
+          title: Rim to grade
+          type:
+          - number
+          - 'null'
+        Grade_to_Invert:
+          title: Grade to invert
+          type:
+          - number
+          - 'null'
+        Rim_to_Grade_Exposed:
+          title: Rim to grade exposed
+          type:
+          - number
+          - 'null'
+        Cover_Size:
+          title: Cover size
+          type:
+          - number
+          - 'null'
+        Center_Cover_Size:
+          title: Center cover size
+          type:
+          - number
+          - 'null'
+        Cover_Size_Width:
+          title: Cover size width
+          type:
+          - number
+          - 'null'
+        Cover_Bearing_Surface_Dia:
+          title: Cover bearing surface dia
+          type:
+          - number
+          - 'null'
+        Cover_Bearing_Surface_Width:
+          title: Cover bearing surface width
+          type:
+          - number
+          - 'null'
+        Adjustment_Ring_Height:
+          title: Adjustment ring height
+          type:
+          - number
+          - 'null'
+        Frame_Bearing_Surface_Width:
+          title: Frame bearing surface width
+          type:
+          - number
+          - 'null'
+        Frame_Bearing_Surface_Depth:
+          title: Frame bearing surface depth
+          type:
+          - number
+          - 'null'
+        Frame_Clear_Open_Diam:
+          title: Frame clear open diam
+          type:
+          - number
+          - 'null'
+        Frame_Clear_Open_Width:
+          title: Frame clear open width
+          type:
+          - number
+          - 'null'
+        Frame_Offset_Distance:
+          title: Frame offset distance
+          type:
+          - number
+          - 'null'
+        Frame_Depth:
+          title: Frame depth
+          type:
+          - number
+          - 'null'
+        Chimney_Clear_Opening:
+          title: Chimney clear opening
+          type:
+          - number
+          - 'null'
+        Chimney_Depth:
+          title: Chimney depth
+          type:
+          - number
+          - 'null'
+        Cone_Depth:
+          title: Cone depth
+          type:
+          - number
+          - 'null'
+        Wall_Diam:
+          title: Wall diam
+          type:
+          - number
+          - 'null'
+        Wall_BySize:
+          title: Wall bysize
+          type:
+          - number
+          - 'null'
+        Wall_Depth:
+          title: Wall depth
+          type:
+          - number
+          - 'null'
+        Hole_Number:
+          title: Hole number
+          type:
+          - integer
+          - 'null'
+        Step_Number:
+          title: Step number
+          type:
+          - integer
+          - 'null'
+        Surface_Type_Asphalt:
+          title: Surface type asphalt
+          type:
+          - boolean
+          - 'null'
+        Surface_Type_ConcretePavement:
+          title: Surface type concretepavement
+          type:
+          - boolean
+          - 'null'
+        Surface_Type_ConcreteCollar:
+          title: Surface type concretecollar
+          type:
+          - boolean
+          - 'null'
+        Surface_Type_GrassDirt:
+          title: Surface type grassdirt
+          type:
+          - boolean
+          - 'null'
+        Surface_Type_Gravel:
+          title: Surface type gravel
+          type:
+          - boolean
+          - 'null'
+        Surface_Type_Other:
+          title: Surface type other
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Bolted:
+          title: Cover type bolted
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Gasketed:
+          title: Cover type gasketed
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Hatch_Double:
+          title: Cover type hatch double
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Hatch_Single:
+          title: Cover type hatch single
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Inner_Cover:
+          title: Cover type inner cover
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Lamphole:
+          title: Cover type lamphole
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Locking:
+          title: Cover type locking
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Removable_Center:
+          title: Cover type removable center
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Solid:
+          title: Cover type solid
+          type:
+          - boolean
+          - 'null'
+        Cover_Type_Vented:
+          title: Cover type vented
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_BoltsMissing:
+          title: Cover condition boltsmissing
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Broken:
+          title: Cover condition broken
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Corroded:
+          title: Cover condition corroded
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Cracked:
+          title: Cover condition cracked
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Missing:
+          title: Cover condition missing
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Restraint_Defective:
+          title: Cover condition restraint defective
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Restraint_Missing:
+          title: Cover condition restraint missing
+          type:
+          - boolean
+          - 'null'
+        Cover_Condition_Sound:
+          title: Cover condition sound
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_Cracked:
+          title: Insert condition cracked
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_Corroded:
+          title: Insert condition corroded
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_InsertFell:
+          title: Insert condition insertfell
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_Leaking:
+          title: Insert condition leaking
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_PoorlyFitting:
+          title: Insert condition poorlyfitting
+          type:
+          - boolean
+          - 'null'
+        Insert_Condition_Sound:
+          title: Insert condition sound
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_Broken:
+          title: Ring condition broken
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_Corroded:
+          title: Ring condition corroded
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_Cracked:
+          title: Ring condition cracked
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_Leaking:
+          title: Ring condition leaking
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_PoorInstall:
+          title: Ring condition poorinstall
+          type:
+          - boolean
+          - 'null'
+        Ring_Condition_Sound:
+          title: Ring condition sound
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Broken:
+          title: Frame condition broken
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Coated:
+          title: Frame condition coated
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Corroded:
+          title: Frame condition corroded
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Cracked:
+          title: Frame condition cracked
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Missing:
+          title: Frame condition missing
+          type:
+          - boolean
+          - 'null'
+        Frame_Condition_Sound:
+          title: Frame condition sound
+          type:
+          - boolean
+          - 'null'
+        Seal_Condition_Cracked:
+          title: Seal condition cracked
+          type:
+          - boolean
+          - 'null'
+        Seal_Condition_Loose:
+          title: Seal condition loose
+          type:
+          - boolean
+          - 'null'
+        Seal_Condition_Missing:
+          title: Seal condition missing
+          type:
+          - boolean
+          - 'null'
+        Seal_Condition_Offset:
+          title: Seal condition offset
+          type:
+          - boolean
+          - 'null'
+        Seal_Condition_Sound:
+          title: Seal condition sound
+          type:
+          - boolean
+          - 'null'
+        pipe_connections:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+    Video:
+      required:
+      - created_by
+      - inspection_type
+      - inspection
+      - problem
+      - updated_by
+      type: object
+      properties:
+        account_sid:
+          title: Account sid
+          type: string
+          readOnly: true
+          minLength: 1
+        account:
+          title: Account
+          type: string
+          readOnly: true
+        agency:
+          title: Agency
+          type: string
+          readOnly: true
+        autocode_complete:
+          title: Autocode complete
+          type: boolean
+          readOnly: true
+        autocode_complete_date:
+          title: Autocode complete date
+          type: string
+          readOnly: true
+        autocode_labeled_by_id:
+          title: Autocode labeled by id
+          type: integer
+          readOnly: true
+        autocode_labeler_complete_datetime:
+          title: Autocode labeler complete datetime
+          type: string
+          format: date-time
+          readOnly: true
+        autocode_mode:
+          title: Autocode mode
+          type: string
+          readOnly: true
+          minLength: 1
+        auxillary_videos:
+          title: Auxillary videos
+          type:
+          - object
+          - 'null'
+        camera:
+          title: Camera
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+        client_reviewed_by:
+          title: Client reviewed by
+          type: string
+          readOnly: true
+          minLength: 1
+        client_reviewed:
+          title: Client reviewed
+          type: string
+          format: date-time
+          readOnly: true
+        contractor:
+          title: Contractor
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        created_by:
+          $ref: '#/components/schemas/AccountUser'
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        default_position_coords:
+          title: Default position coords
+          type:
+          - object
+          - 'null'
+        deleted_by:
+          title: Archived By
+          type:
+          - string
+          - 'null'
+          format: uri
+          readOnly: true
+        deleted:
+          title: Archived
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        encoded:
+          title: Encoded
+          type: boolean
+        encoding_location_exists:
+          title: Encoding location exists
+          type:
+          - boolean
+          - 'null'
+        encoding_location:
+          title: Encoding location
+          description: The S3 location of the encoding
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        file_name:
+          title: File name
+          type: string
+          readOnly: true
+        friendly_stage_str:
+          title: Friendly stage str
+          type: string
+          readOnly: true
+        inspection_type:
+          title: Inspection type
+          type: string
+          minLength: 1
+        inspection:
+          $ref: '#/components/schemas/Inspection'
+        is_metashape:
+          title: Is metashape
+          type: string
+          readOnly: true
+        is_selectable:
+          title: Is selectable
+          type: boolean
+        key:
+          title: Key
+          type: string
+          readOnly: true
+          minLength: 1
+        last_internal_review_date:
+          title: Last internal review date
+          type: string
+          format: date-time
+          readOnly: true
+        last_internal_reviewer:
+          title: Last internal reviewer
+          type: string
+          readOnly: true
+          minLength: 1
+        maximo_id:
+          title: Maximo id
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type: string
+          readOnly: true
+        model_scale_factor:
+          title: Model scale factor
+          type:
+          - number
+          - 'null'
+        needs_prescreen:
+          title: Needs prescreen
+          type: boolean
+          readOnly: true
+        needs_qc:
+          title: Needs qc
+          type: boolean
+          readOnly: true
+        num_errors:
+          title: Num errors
+          type: string
+          readOnly: true
+        number_of_frames:
+          title: Number of frames
+          description: The number of frames in this video
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        pano_offset:
+          title: Pano offset
+          type: string
+          readOnly: true
+        payout_bb:
+          title: Payout bb
+          type: string
+          readOnly: true
+        payout_bg:
+          title: Payout bg
+          type: string
+          readOnly: true
+        pdf_exists:
+          title: Pdf exists
+          type: string
+          readOnly: true
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        pipe:
+          title: Pipe
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+        problem:
+          title: Problem
+          type: string
+          minLength: 1
+        project_names:
+          title: Project names
+          type: string
+          readOnly: true
+        project:
+          title: Project
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
+        qai_status:
+          title: Qai status
+          type:
+          - string
+          - 'null'
+          enum:
+          - failed
+          - passed
+          - open
+        qc_reviewed:
+          title: Qc reviewed
+          type: boolean
+          readOnly: true
+        ready_for_labeling:
+          title: Ready for labeling
+          type: string
+          readOnly: true
+        rotated_pano:
+          title: Rotated pano
+          type: string
+          readOnly: true
+        sepehr_im_sorry:
+          title: Sepehr im sorry
+          type: string
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        stage_components:
+          title: Stage components
+          type: string
+          readOnly: true
+        stage_str:
+          title: Stage str
+          type: string
+          readOnly: true
+        state:
+          title: State
+          description: The state of the video. Supersedes existing status values.
+          type:
+          - string
+          - 'null'
+          enum:
+          - queued_for_processing
+          - queued_for_autocode
+          - transcoding
+          - rendering
+          - transcoding_for_autocode
+          - rendering_for_autocode
+          - uploaded
+          - video_unplayable
+          - rendering_failed
+          - inference_pending
+          - inference_running
+          - autocode_rejected
+          - autocode_complete
+          - prescreen_pending
+          - prescreen_in_progress
+          - prescreen_rendering
+          - prescreen_inference_pending
+          - prescreen_inference_running
+          - prescreen_qc_pending
+          - prescreen_qc_in_progress
+          - prescreen_qc_rendering
+          - prescreen_qc_inference_pending
+          - prescreen_qc_inference_running
+          - prescreen_autocode_rejected_pending
+          - nassco_review_autocode_rejected_pending
+          - merge_pending
+          - merge_in_progress
+          - nassco_review_pending
+          - nassco_review_in_progress
+          - nassco_review_rendering
+          - nassco_review_inference_pending
+          - nassco_review_inference_running
+          - nassco_review_qc_pending
+          - nassco_review_qc_in_progress
+          - nassco_review_qc_rendering
+          - nassco_review_qc_inference_pending
+          - nassco_review_qc_inference_running
+        state_updated_by_sid:
+          title: State updated by sid
+          type: string
+          readOnly: true
+        six_oclock_angle_degrees:
+          title: Six oclock angle degrees
+          type:
+          - number
+          - 'null'
+        six_oclock_ai_set:
+          title: Six oclock ai set
+          type:
+          - boolean
+          - 'null'
+        stage:
+          title: Stage
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 11
+          - 12
+          - 13
+          - 20
+          readOnly: true
+        submittal_status:
+          title: Submittal status
+          type: string
+          readOnly: true
+        tahoe_phase:
+          title: Tahoe phase
+          type: string
+          readOnly: true
+        training_mode:
+          title: Training mode
+          type: string
+          readOnly: true
+        truck_info:
+          title: Truck info
+          type: object
+          readOnly: true
+        updated_by:
+          $ref: '#/components/schemas/AccountUser'
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        variant:
+          title: Variant
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+        video_duration:
+          title: Video duration
+          description: The duration in seconds of the video
+          type:
+          - number
+          - 'null'
+        video_format:
+          title: Video format
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+        video_height:
+          title: Video height
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        video_width:
+          title: Video width
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        zero_distance_mark:
+          title: Zero distance mark
+          type:
+          - number
+          - 'null'
+    PartnerLink:
+      required:
+      - partner
+      - link
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        partner:
+          title: Partner
+          type: string
+          enum:
+          - unearth
+        link:
+          title: Link
+          type: string
+          format: uri
+          maxLength: 1024
+          minLength: 1
+        icon_url:
+          title: Icon url
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type:
+          - object
+          - 'null'
+    AccountUser:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        last_pioneer_login:
+          title: Last pioneer login
+          type: string
+          readOnly: true
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
+    VideoPayout:
+      required:
+      - payouts
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video:
+          title: Video
+          type: string
+          format: uri
+          readOnly: true
+        payouts:
+          type: array
+          items:
+            title: Payouts
+            type: number
+        check_results:
+          title: Check results
+          type: object
+        auto_created:
+          title: Auto created
+          type: boolean
+        loaded_from_text:
+          title: Loaded from text
+          type: boolean
+        graph_url:
+          title: Graph url
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    BoundingBox:
+      required:
+      - frame
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        observation_classification:
+          title: Observation classification
+          type: string
+          format: uri
+          readOnly: true
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        boxes:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              title: Boxes
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+            maxItems: 4
+        frame_location:
+          title: Frame location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        frame_file_size:
+          title: Frame file size
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        reviewed_by:
+          title: Reviewed by
+          type:
+          - string
+          - 'null'
+          format: uri
+        frame_height:
+          title: Frame height
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        frame_width:
+          title: Frame width
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        code:
+          $ref: '#/components/schemas/VideoObservationClassification'
+        video:
+          $ref: '#/components/schemas/Video'
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    InspectionRatings:
+      type: object
+      properties:
+        STGradeScore1:
+          title: Stgradescore1
+          type:
+          - number
+          - 'null'
+        STGradeScore2:
+          title: Stgradescore2
+          type:
+          - number
+          - 'null'
+        STGradeScore3:
+          title: Stgradescore3
+          type:
+          - number
+          - 'null'
+        STGradeScore4:
+          title: Stgradescore4
+          type:
+          - number
+          - 'null'
+        STGradeScore5:
+          title: Stgradescore5
+          type:
+          - number
+          - 'null'
+        OMGradeScore1:
+          title: Omgradescore1
+          type:
+          - number
+          - 'null'
+        OMGradeScore2:
+          title: Omgradescore2
+          type:
+          - number
+          - 'null'
+        OMGradeScore3:
+          title: Omgradescore3
+          type:
+          - number
+          - 'null'
+        OMGradeScore4:
+          title: Omgradescore4
+          type:
+          - number
+          - 'null'
+        OMGradeScore5:
+          title: Omgradescore5
+          type:
+          - number
+          - 'null'
+        ST1:
+          title: St1
+          type:
+          - number
+          - 'null'
+        ST2:
+          title: St2
+          type:
+          - number
+          - 'null'
+        ST3:
+          title: St3
+          type:
+          - number
+          - 'null'
+        ST4:
+          title: St4
+          type:
+          - number
+          - 'null'
+        ST5:
+          title: St5
+          type:
+          - number
+          - 'null'
+        OM1:
+          title: Om1
+          type:
+          - number
+          - 'null'
+        OM2:
+          title: Om2
+          type:
+          - number
+          - 'null'
+        OM3:
+          title: Om3
+          type:
+          - number
+          - 'null'
+        OM4:
+          title: Om4
+          type:
+          - number
+          - 'null'
+        OM5:
+          title: Om5
+          type:
+          - number
+          - 'null'
+        STPipeRating:
+          title: Stpiperating
+          type:
+          - number
+          - 'null'
+        OMPipeRating:
+          title: Ompiperating
+          type:
+          - number
+          - 'null'
+        OverallPipeRating:
+          title: Overallpiperating
+          type:
+          - number
+          - 'null'
+        STPipeRatingsIndex:
+          title: Stpiperatingsindex
+          type:
+          - number
+          - 'null'
+        OMPipeRatingsIndex:
+          title: Ompiperatingsindex
+          type:
+          - number
+          - 'null'
+        OverallPipeRatingsIndex:
+          title: Overallpiperatingsindex
+          type:
+          - number
+          - 'null'
+        Risk:
+          title: Risk
+          type:
+          - number
+          - 'null'
+        RatingID:
+          title: Ratingid
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STQuickRating:
+          title: Stquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OMQuickRating:
+          title: Omquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OverallQuickRating:
+          title: Overallquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFPACP:
+          title: Lofpacp
+          type:
+          - number
+          - 'null'
+        PACPQuickRating:
+          title: Pacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFLACP:
+          title: Loflacp
+          type:
+          - number
+          - 'null'
+        LACPQuickRating:
+          title: Lacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STMHRating:
+          title: Stmhrating
+          type:
+          - number
+          - 'null'
+        OMMHRating:
+          title: Ommhrating
+          type:
+          - number
+          - 'null'
+        OverallMHRating:
+          title: Overallmhrating
+          type:
+          - number
+          - 'null'
+        STMHRatingsIndex:
+          title: Stmhratingsindex
+          type:
+          - number
+          - 'null'
+        OMMHRatingsIndex:
+          title: Ommhratingsindex
+          type:
+          - number
+          - 'null'
+        OverallMHRatingsIndex:
+          title: Overallmhratingsindex
+          type:
+          - number
+          - 'null'
+        LoFMACP:
+          title: Lofmacp
+          type:
+          - number
+          - 'null'
+        MACPQuickRating:
+          title: Macpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

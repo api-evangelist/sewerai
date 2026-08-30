@@ -1,0 +1,32 @@
+openapi: 3.2.0
+info:
+  title: Snippets Saitests API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: saitests
+paths:
+  /saitests/get_tests/:
+    parameters: []
+    get:
+      operationId: saitests_get_tests
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - saitests
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

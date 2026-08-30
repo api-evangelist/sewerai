@@ -1,0 +1,255 @@
+openapi: 3.2.0
+info:
+  title: Snippets Project Tasks API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: project_tasks
+paths:
+  /project_tasks/:
+    parameters: []
+    get:
+      operationId: project_tasks_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProjectTask'
+      tags:
+      - project_tasks
+    post:
+      operationId: project_tasks_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTask'
+      tags:
+      - project_tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectTask'
+        required: true
+  /project_tasks/GetUserTasks/:
+    parameters: []
+    get:
+      operationId: project_tasks_GetUserTasks
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProjectTask'
+      tags:
+      - project_tasks
+  /project_tasks/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: project_tasks_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTask'
+      tags:
+      - project_tasks
+    put:
+      operationId: project_tasks_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTask'
+      tags:
+      - project_tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectTask'
+        required: true
+    patch:
+      operationId: project_tasks_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTask'
+      tags:
+      - project_tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectTask'
+        required: true
+    delete:
+      operationId: project_tasks_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - project_tasks
+  /project_tasks/{sid}/GetSubtask/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: project_tasks_GetSubtask
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTask'
+      tags:
+      - project_tasks
+  /project_tasks/{sid}/SubmitSubtask/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: project_tasks_SubmitSubtask
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectTask'
+      tags:
+      - project_tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectTask'
+        required: true
+components:
+  schemas:
+    ProjectTask:
+      required:
+      - task_type
+      - explicit_assignees
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        task_type:
+          title: Task type
+          type: string
+          maxLength: 128
+          minLength: 1
+        task_details:
+          title: Task details
+          type: object
+        task_priority:
+          title: Task priority
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        status:
+          title: Status
+          type: string
+          readOnly: true
+        project:
+          title: Project
+          type: string
+          format: uri
+          readOnly: true
+        project_name:
+          title: Project name
+          type: string
+          readOnly: true
+          minLength: 1
+        explicit_assignees:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        instructions:
+          title: Instructions
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

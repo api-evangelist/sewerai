@@ -1,0 +1,454 @@
+openapi: 3.2.0
+info:
+  title: Snippets Core API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: core
+paths:
+  /core/SAIAnalytics/:
+    parameters: []
+    post:
+      operationId: core_SAIAnalytics
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - core
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /core/StatFuncList/:
+    parameters: []
+    get:
+      operationId: core_StatFuncList
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - core
+  /core/import_users/:
+    parameters: []
+    get:
+      operationId: core_import_users
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - core
+  /core/notifications/:
+    parameters: []
+    get:
+      operationId: core_notifications
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - core
+  /core/push_notification/:
+    parameters: []
+    post:
+      operationId: core_push_notification
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - core
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /core/roi/:
+    parameters: []
+    post:
+      operationId: core_roi
+      description: "example body\n{\n    \"body\": {\n        \"projectScope\": \"\",\n        \"footPerShift\": 1500,\n        \"bidPrice\": \"2.00\",\n        \"theirCostPerFoot\": \"2.01\",\n        \"saiCostPerFoot\": \"1.26\",\n        \"shiftsSAI\": \"\",\n        \"theirShifts\": \"\",\n        \"email\": \"example@sewerai.com\",\n        \"savings\": \"\",\n        \"additionalProfit\": \"100000.00\"\n    }\n}"
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - core
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /core/set_tos_accepted/:
+    parameters: []
+    post:
+      operationId: core_set_tos_accepted
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - core
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /core/set_user_hotbuttons/:
+    parameters: []
+    post:
+      operationId: core_set_user_hotbuttons
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - core
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /core/slack/:
+    parameters: []
+    post:
+      operationId: core_slack
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - core
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /core/stats/:
+    parameters: []
+    post:
+      operationId: core_stats
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - core
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /core/submit_jira_issue/:
+    parameters: []
+    post:
+      operationId: core_submit_jira_issue
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - core
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /core/subscribe/:
+    parameters: []
+    post:
+      operationId: core_subscribe
+      description: API endpoint that returns user data.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - core
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /core/test_push/:
+    parameters: []
+    get:
+      operationId: core_test_push
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - core
+  /core/user/:
+    parameters: []
+    get:
+      operationId: core_user_read
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - core
+    patch:
+      operationId: core_user_partial_update
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - core
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+  /core/users/:
+    parameters: []
+    get:
+      operationId: core_users
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - core
+components:
+  schemas:
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
+    User:
+      required:
+      - username
+      - email
+      - admin
+      - staff
+      - labeler
+      - is_senior_labeler
+      - picture
+      - certificates
+      - joined
+      - email_verified
+      - phone_number
+      - organization
+      - country_code
+      - country_area_code
+      - country_area
+      - city
+      - postal_code
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        username:
+          title: Username
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+          type: string
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+          minLength: 1
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        admin:
+          title: Admin
+          type: boolean
+        staff:
+          title: Staff
+          type: boolean
+        labeler:
+          title: Labeler
+          type: boolean
+        is_senior_labeler:
+          title: Is senior labeler
+          type: boolean
+        tos_accepted:
+          title: Tos accepted
+          type: string
+          readOnly: true
+        picture:
+          title: Picture
+          type: string
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Certificate'
+        account_level:
+          title: Account level
+          type: string
+          readOnly: true
+        joined:
+          title: Joined
+          type: string
+          minLength: 1
+        email_verified:
+          title: Email verified
+          type: boolean
+        phone_number:
+          title: Phone number
+          type: string
+        organization:
+          title: Organization
+          type: string
+        country_code:
+          title: Country code
+          type: string
+        country_area_code:
+          title: Country area code
+          type: string
+        country_area:
+          title: Country area
+          type: string
+        city:
+          title: City
+          type: string
+        postal_code:
+          title: Postal code
+          type: string
+        token:
+          title: Token
+          type: string
+          readOnly: true
+        auth_type:
+          title: Auth type
+          type: string
+          readOnly: true
+        auth_token:
+          title: Auth token
+          type: string
+          readOnly: true
+        source:
+          title: Source
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type: object
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

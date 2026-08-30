@@ -1,0 +1,2337 @@
+openapi: 3.2.0
+info:
+  title: Snippets V1 API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: v1
+paths:
+  /v1/assets/:
+    parameters: []
+    get:
+      operationId: v1_assets_list
+      description: Asset endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssetList'
+      tags:
+      - v1
+    post:
+      operationId: v1_assets_create
+      description: Asset endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MainlineAssetWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MainlineAssetWrite'
+        required: true
+  /v1/assets/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_assets_read
+      description: Asset endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MainlineAssetRead'
+      tags:
+      - v1
+    put:
+      operationId: v1_assets_update
+      description: Asset endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MainlineAssetWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MainlineAssetWrite'
+        required: true
+    patch:
+      operationId: v1_assets_partial_update
+      description: Asset endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MainlineAssetWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MainlineAssetWrite'
+        required: true
+    delete:
+      operationId: v1_assets_delete
+      description: Asset endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/exports/:
+    parameters: []
+    get:
+      operationId: v1_exports_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExportRead'
+      tags:
+      - v1
+    post:
+      operationId: v1_exports_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportWrite'
+        required: true
+  /v1/exports/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: v1_exports_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportRead'
+      tags:
+      - v1
+    put:
+      operationId: v1_exports_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportWrite'
+        required: true
+    patch:
+      operationId: v1_exports_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportWrite'
+        required: true
+    delete:
+      operationId: v1_exports_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/inspections/:
+    parameters: []
+    get:
+      operationId: v1_inspections_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InspectionList'
+      tags:
+      - v1
+    post:
+      operationId: v1_inspections_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+      tags:
+      - v1
+  /v1/inspections/AutoCode/:
+    parameters: []
+    post:
+      operationId: v1_inspections_AutoCode
+      description: ''
+      responses:
+        '201':
+          description: ''
+      tags:
+      - v1
+  /v1/inspections/{inspection_sid}/observations/:
+    parameters:
+    - name: inspection_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: v1_inspections_observations_list
+      description: Observations endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationRead'
+      tags:
+      - v1
+    post:
+      operationId: v1_inspections_observations_create
+      description: Observations endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationWrite'
+        required: true
+  /v1/inspections/{inspection_sid}/observations/{sid}/:
+    parameters:
+    - name: inspection_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_inspections_observations_read
+      description: Observations endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRead'
+      tags:
+      - v1
+    put:
+      operationId: v1_inspections_observations_update
+      description: Observations endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationWrite'
+        required: true
+    patch:
+      operationId: v1_inspections_observations_partial_update
+      description: Observations endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationWrite'
+        required: true
+    delete:
+      operationId: v1_inspections_observations_delete
+      description: Observations endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/inspections/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_inspections_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - v1
+    put:
+      operationId: v1_inspections_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - v1
+    patch:
+      operationId: v1_inspections_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - v1
+    delete:
+      operationId: v1_inspections_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/observations/:
+    parameters: []
+    get:
+      operationId: v1_observations_list
+      description: Observations endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationRead'
+      tags:
+      - v1
+  /v1/observations/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_observations_read
+      description: Observations endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRead'
+      tags:
+      - v1
+  /v1/organizations/:
+    parameters: []
+    get:
+      operationId: v1_organizations_list
+      description: Organization endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrganizationRead'
+      tags:
+      - v1
+    post:
+      operationId: v1_organizations_create
+      description: Organization endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationWrite'
+        required: true
+  /v1/organizations/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_organizations_read
+      description: Organization endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationRead'
+      tags:
+      - v1
+    put:
+      operationId: v1_organizations_update
+      description: Organization endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationWrite'
+        required: true
+    patch:
+      operationId: v1_organizations_partial_update
+      description: Organization endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationWrite'
+        required: true
+    delete:
+      operationId: v1_organizations_delete
+      description: Organization endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/projects/:
+    parameters: []
+    get:
+      operationId: v1_projects_list
+      description: Projects endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProjectRead'
+      tags:
+      - v1
+    post:
+      operationId: v1_projects_create
+      description: Projects endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectWrite'
+        required: true
+  /v1/projects/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_projects_read
+      description: Projects endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectRead'
+      tags:
+      - v1
+    put:
+      operationId: v1_projects_update
+      description: Projects endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectWrite'
+        required: true
+    patch:
+      operationId: v1_projects_partial_update
+      description: Projects endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectWrite'
+        required: true
+    delete:
+      operationId: v1_projects_delete
+      description: Projects endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/users/:
+    parameters: []
+    get:
+      operationId: v1_users_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserList'
+      tags:
+      - v1
+    post:
+      operationId: v1_users_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRead'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRead'
+        required: true
+  /v1/users/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_users_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRead'
+      tags:
+      - v1
+    put:
+      operationId: v1_users_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRead'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRead'
+        required: true
+    patch:
+      operationId: v1_users_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRead'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRead'
+        required: true
+    delete:
+      operationId: v1_users_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/videos/:
+    parameters: []
+    get:
+      operationId: v1_videos_list
+      description: Video endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VideoRead'
+      tags:
+      - v1
+    post:
+      operationId: v1_videos_create
+      description: Video endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoWrite'
+        required: true
+  /v1/videos/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_videos_read
+      description: Video endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoRead'
+      tags:
+      - v1
+    put:
+      operationId: v1_videos_update
+      description: Video endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoWrite'
+        required: true
+    patch:
+      operationId: v1_videos_partial_update
+      description: Video endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoWrite'
+        required: true
+    delete:
+      operationId: v1_videos_delete
+      description: Video endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/videos/{sid}/change-inspection/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: v1_videos_change_inspection
+      description: Video endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoWrite'
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoWrite'
+        required: true
+  /v1/videos/{sid}/url/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_videos_url
+      description: Video endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoWrite'
+      tags:
+      - v1
+components:
+  schemas:
+    MainlineAssetWrite:
+      required:
+      - name
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        key:
+          title: Key
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        owner:
+          title: Owner
+          type:
+          - string
+          - 'null'
+          format: uuid
+        kind:
+          title: Kind
+          type: string
+          default: mainline
+          minLength: 1
+        geojson:
+          title: Geojson
+          type: object
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uuid
+        category:
+          title: Category
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        metric:
+          title: Metric
+          type:
+          - boolean
+          - 'null'
+        shape:
+          title: Shape
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        host_material:
+          title: Host material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        renewal_method:
+          title: Renewal method
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        renewal_year:
+          title: Renewal year
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        length:
+          title: Length
+          type:
+          - number
+          - 'null'
+        height:
+          title: Height
+          type:
+          - number
+          - 'null'
+        width:
+          title: Width
+          type:
+          - number
+          - 'null'
+        joint_distance:
+          title: Joint distance
+          type:
+          - number
+          - 'null'
+        rim_to_invert:
+          title: Rim to invert
+          type:
+          - number
+          - 'null'
+        rim_to_grade:
+          title: Rim to grade
+          type:
+          - number
+          - 'null'
+    ProjectRead:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        client:
+          title: Client
+          type: string
+          format: uri
+          readOnly: true
+        date_due:
+          title: Date due
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_started:
+          title: Date started
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_finished:
+          title: Date finished
+          type:
+          - string
+          - 'null'
+          format: date-time
+        active:
+          title: Active
+          type: boolean
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+    OrganizationWrite:
+      required:
+      - name
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        phone_number:
+          title: Phone number
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        account:
+          title: Account
+          type: string
+          format: uuid
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+    ObservationWrite:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_frame:
+          title: Video frame
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        Distance:
+          title: Distance
+          type: number
+          readOnly: true
+        code:
+          title: Code
+          type: string
+          readOnly: true
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          readOnly: true
+          minLength: 1
+        Continuous:
+          title: Continuous
+          type: string
+          readOnly: true
+          minLength: 1
+        Joint:
+          title: Joint
+          type: boolean
+          readOnly: true
+        Clock_At_From:
+          title: Clock at from
+          type: integer
+          readOnly: true
+        Clock_To:
+          title: Clock to
+          type: integer
+          readOnly: true
+        Value_1st_Dimension:
+          title: Value 1st dimension
+          type: number
+          readOnly: true
+        Value_2nd_Dimension:
+          title: Value 2nd dimension
+          type: number
+          readOnly: true
+        Value_Percent:
+          title: Value percent
+          type: number
+          readOnly: true
+        Remarks:
+          title: Remarks
+          type: string
+          readOnly: true
+          minLength: 1
+        snapshot_url:
+          title: Snapshot url
+          type: string
+          readOnly: true
+        bounding_boxes:
+          title: Bounding boxes
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uuid
+    ExportRead:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        downloads:
+          title: Downloads
+          type: string
+          readOnly: true
+        output_paths:
+          title: Output paths
+          type: string
+          readOnly: true
+        progress:
+          title: Progress
+          type: object
+        total_size:
+          title: Total size
+          type: number
+    VideoWrite:
+      required:
+      - inspection
+      - path
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_name:
+          title: Video name
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        inspection:
+          title: Inspection
+          type: string
+          format: uuid
+        payouts:
+          title: Payouts
+          type: string
+        path:
+          title: Path
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        presigned_upload_data:
+          title: Presigned upload data
+          type: object
+          readOnly: true
+        stage:
+          title: Stage
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 11
+          - 12
+          - 13
+          - 20
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uuid
+    VideoRead:
+      required:
+      - path
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_name:
+          title: Video name
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        inspection:
+          title: Inspection
+          type: string
+          format: uri
+          readOnly: true
+        path:
+          title: Path
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        stage:
+          title: Stage
+          type: string
+          readOnly: true
+        presigned_upload_data:
+          title: Presigned upload data
+          type: object
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        project:
+          $ref: '#/components/schemas/ProjectRead'
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+    OrganizationRead:
+      required:
+      - name
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        phone_number:
+          title: Phone number
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+    UserRead:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
+    ObservationRead:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_frame:
+          title: Video frame
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        Distance:
+          title: Distance
+          type: number
+          readOnly: true
+        code:
+          title: Code
+          type: string
+          readOnly: true
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          readOnly: true
+          minLength: 1
+        Continuous:
+          title: Continuous
+          type: string
+          readOnly: true
+          minLength: 1
+        Joint:
+          title: Joint
+          type: boolean
+          readOnly: true
+        Clock_At_From:
+          title: Clock at from
+          type: integer
+          readOnly: true
+        Clock_To:
+          title: Clock to
+          type: integer
+          readOnly: true
+        Value_1st_Dimension:
+          title: Value 1st dimension
+          type: number
+          readOnly: true
+        Value_2nd_Dimension:
+          title: Value 2nd dimension
+          type: number
+          readOnly: true
+        Value_Percent:
+          title: Value percent
+          type: number
+          readOnly: true
+        Grade:
+          title: Grade
+          type: string
+          readOnly: true
+          minLength: 1
+        Remarks:
+          title: Remarks
+          type: string
+          readOnly: true
+          minLength: 1
+        snapshot_url:
+          title: Snapshot url
+          type: string
+          readOnly: true
+        bounding_boxes:
+          title: Bounding boxes
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+    AssetList:
+      required:
+      - name
+      - kind
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        key:
+          title: Key
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        owner:
+          title: Owner
+          type: string
+          format: uri
+          readOnly: true
+        kind:
+          title: Kind
+          type: string
+          enum:
+          - mainline
+          - lateral
+          - maintenance-hole
+        geojson:
+          title: Geojson
+          type: object
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+    ExportWrite:
+      type: object
+      properties:
+        name:
+          title: Name
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+    ProjectWrite:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uuid
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        client:
+          title: Client
+          type:
+          - string
+          - 'null'
+          format: uuid
+        date_due:
+          title: Date due
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_started:
+          title: Date started
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_finished:
+          title: Date finished
+          type:
+          - string
+          - 'null'
+          format: date-time
+        active:
+          title: Active
+          type: boolean
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+    UserList:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+    InspectionList:
+      required:
+      - key
+      - inspection_datetime
+      - inspection_type
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        key:
+          title: Key
+          description: Enables customers to uniquely identify inspections using their own method
+          type: string
+          maxLength: 128
+          minLength: 1
+        asset:
+          title: Asset
+          type: string
+          format: uri
+          readOnly: true
+        owner:
+          title: Owner
+          type: string
+          format: uri
+          readOnly: true
+        client:
+          title: Client
+          type: string
+          format: uri
+          readOnly: true
+        reason:
+          title: Reason
+          type: string
+          enum:
+          - operations-support
+          - infiltation-and-inflow
+          - new-install
+          - post-renewal
+          - pre-renewal
+          - routine
+          - pre-construction
+          - resurvey
+          - sewer-system-evaluation-survey
+          - pre-existing-media
+          - other
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        inspection_datetime:
+          title: Inspection datetime
+          type: string
+          format: date-time
+        inspection_type:
+          title: Inspection type
+          type: string
+          enum:
+          - mainline
+          - lateral
+          - maintenance-hole
+        autocode_complete:
+          title: Autocoded
+          type: boolean
+        autocode_complete_date:
+          title: Autocode complete date
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        distance:
+          title: Distance
+          type: object
+        metadata:
+          title: Metadata
+          description: Customer defined Inspection metadata.
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          format: uuid
+        video:
+          title: Video
+          type: string
+          format: uri
+          readOnly: true
+        validate:
+          title: Validate
+          description: 'Should this inspection be validated (default: True)'
+          type: boolean
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+    MainlineAssetRead:
+      required:
+      - name
+      - kind
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        key:
+          title: Key
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        owner:
+          title: Owner
+          type: string
+          format: uri
+          readOnly: true
+        kind:
+          title: Kind
+          type: string
+          enum:
+          - mainline
+          - lateral
+          - maintenance-hole
+        geojson:
+          title: Geojson
+          type: object
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        category:
+          title: Category
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        metric:
+          title: Metric
+          type:
+          - boolean
+          - 'null'
+        shape:
+          title: Shape
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        host_material:
+          title: Host material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        renewal_method:
+          title: Renewal method
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        renewal_year:
+          title: Renewal year
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        length:
+          title: Length
+          type:
+          - number
+          - 'null'
+        height:
+          title: Height
+          type:
+          - number
+          - 'null'
+        width:
+          title: Width
+          type:
+          - number
+          - 'null'
+        joint_distance:
+          title: Joint distance
+          type:
+          - number
+          - 'null'
+        rim_to_invert:
+          title: Rim to invert
+          type:
+          - number
+          - 'null'
+        rim_to_grade:
+          title: Rim to grade
+          type:
+          - number
+          - 'null'
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

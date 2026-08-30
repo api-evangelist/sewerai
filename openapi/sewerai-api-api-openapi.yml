@@ -1,0 +1,55 @@
+openapi: 3.2.0
+info:
+  title: Snippets API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: api
+paths:
+  /api/schema/:
+    parameters: []
+    get:
+      operationId: api_schema_list
+      summary: OpenApi3 schema for this API. Format can be selected via content negotiation.
+      description: '- YAML: application/vnd.oai.openapi
+
+        - JSON: application/vnd.oai.openapi+json'
+      responses:
+        '200':
+          description: ''
+      tags:
+      - api
+  /api/schema/redoc/:
+    parameters: []
+    get:
+      operationId: api_schema_redoc_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - api
+  /api/schema/swagger/:
+    parameters: []
+    get:
+      operationId: api_schema_swagger_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - api
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic
