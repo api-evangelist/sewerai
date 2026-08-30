@@ -762,6 +762,9 @@ apis:
   - type: ErrorCatalog
     url: errors/sewerai-problem-types.yml
 common:
+- type: CapabilityMap
+  url: capabilities/sewerai-capability-edges.yml
+  name: SewerAI Business Capability Map
 - type: Overlay
   url: overlays/sewerai-swagger-overlay.yaml
 - type: DomainSecurity

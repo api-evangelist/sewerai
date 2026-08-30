@@ -1,0 +1,36 @@
+slug: sewerai
+provider: SewerAI
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Infrastructure
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: modeling
+  spec_file: sewerai-modeling-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.85
+  evidence: 'schemas: TrainingModel, ModelEnsemble, RegressionModel, InferenceAssignment, ObservationRun;
+    POST /modeling/bbinference/MakeObsModel/'
+  reason: Operations create and run training models, ensembles and inference assignments — plainly ML
+    model lifecycle / MLOps management.
+- tag: v1
+  spec_file: sewerai-v1-api-openapi.yml
+  capability_id: BC-5070
+  capability_id_l1: BC-5070
+  capability_name: Infrastructure Asset Management
+  confidence: 0.75
+  evidence: GET /v1/assets/  v1_assets_list ; schemas MainlineAssetRead, InspectionList, ObservationRead,
+    ProjectRead
+  reason: The versioned public surface manages the sewer asset register together with inspections and
+    observations against those assets — whole-life infrastructure asset information. L2 left open because
+    the tag spans asset register, condition/observation data and exports rather than a single sub-capability.
