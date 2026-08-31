@@ -32,18 +32,17 @@ specificationVersion: '0.20'
 created: '2026-08-27'
 modified: '2026-08-27'
 tags:
-- Company
-- Wastewater
-- Water Infrastructure
-- Sewer Inspection
-- Asset Management
-- Computer Vision
-- Artificial Intelligence
-- GIS
-- Public Works
-- Construction Technology
-- NASSCO
-- CCTV Inspection
+- wastewater
+- water-infrastructure
+- sewer-inspection
+- asset-management
+- computer-vision
+- artificial-intelligence
+- gis
+- public-works
+- construction-technology
+- nassco
+- cctv-inspection
 tags_raw:
 - wastewater
 - water-infrastructure
@@ -63,6 +62,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Account Usage
+  tags_raw:
   - account_usage
   properties:
   - type: OpenAPI
@@ -89,6 +90,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Account
+  tags_raw:
   - accounts
   properties:
   - type: OpenAPI
@@ -115,6 +118,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Analytics
+  tags_raw:
   - analytics
   properties:
   - type: OpenAPI
@@ -141,6 +146,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Annotations
+  tags_raw:
   - annotations
   properties:
   - type: OpenAPI
@@ -166,7 +173,8 @@ apis:
   description: The api API from SewerAI — 3 operation(s) for api.
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - api
   properties:
   - type: OpenAPI
@@ -245,6 +253,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Comment
+  tags_raw:
   - comment
   properties:
   - type: OpenAPI
@@ -271,6 +281,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Core
+  tags_raw:
   - core
   properties:
   - type: OpenAPI
@@ -297,6 +309,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Export
+  tags_raw:
   - exports
   properties:
   - type: OpenAPI
@@ -323,6 +337,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - File
+  tags_raw:
   - files
   properties:
   - type: OpenAPI
@@ -349,6 +365,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Group
+  tags_raw:
   - groups
   properties:
   - type: OpenAPI
@@ -375,6 +393,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Labels
+  tags_raw:
   - labels
   properties:
   - type: OpenAPI
@@ -401,6 +421,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Modeling
+  tags_raw:
   - modeling
   properties:
   - type: OpenAPI
@@ -427,6 +449,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Note
+  tags_raw:
   - note
   properties:
   - type: OpenAPI
@@ -454,6 +478,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Notification Preferences
+  tags_raw:
   - notification-preferences
   properties:
   - type: OpenAPI
@@ -480,6 +506,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Notification
+  tags_raw:
   - notifications
   properties:
   - type: OpenAPI
@@ -533,6 +561,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Profiles
+  tags_raw:
   - profiles
   properties:
   - type: OpenAPI
@@ -559,6 +589,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Project Tasks
+  tags_raw:
   - project_tasks
   properties:
   - type: OpenAPI
@@ -611,6 +643,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Schemas
+  tags_raw:
   - schemas
   properties:
   - type: OpenAPI
@@ -663,6 +697,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Token
+  tags_raw:
   - token
   properties:
   - type: OpenAPI
@@ -689,6 +725,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI
@@ -741,6 +779,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Videos
+  tags_raw:
   - videos
   properties:
   - type: OpenAPI
