@@ -32,15 +32,15 @@ specificationVersion: '0.20'
 created: '2026-08-27'
 modified: '2026-08-27'
 tags:
-- wastewater
-- water-infrastructure
-- sewer-inspection
-- asset-management
-- computer-vision
-- artificial-intelligence
-- gis
-- public-works
-- construction-technology
+- Wastewater
+- Water Infrastructure
+- Sewer Inspection
+- Asset Management
+- Computer-Vision
+- Artificial Intelligence
+- GIS
+- Public Works
+- Construction Technology
 - nassco
 - cctv-inspection
 tags_raw:
