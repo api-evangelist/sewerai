@@ -90,7 +90,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -118,7 +118,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -146,7 +146,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -161,7 +161,7 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
-  - Annotations
+  - Annotation
   tags_raw:
   - annotations
   properties:
@@ -174,7 +174,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -201,7 +201,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -227,7 +227,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -253,7 +253,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -281,7 +281,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -309,7 +309,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -337,7 +337,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -365,7 +365,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -393,7 +393,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -421,7 +421,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -449,7 +449,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -477,7 +477,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -506,7 +506,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -534,7 +534,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -561,7 +561,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -589,7 +589,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -617,7 +617,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -643,7 +643,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -658,7 +658,7 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
-  - Schemas
+  - Schema
   tags_raw:
   - schemas
   properties:
@@ -671,7 +671,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -697,7 +697,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -712,7 +712,7 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
-  - Token
+  - Tokens
   tags_raw:
   - token
   properties:
@@ -725,7 +725,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -753,7 +753,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -779,7 +779,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
@@ -794,7 +794,7 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
-  - Videos
+  - Video
   tags_raw:
   - videos
   properties:
@@ -807,7 +807,7 @@ apis:
   - type: GettingStarted
     url: https://docs.sewerai.com/#introduction
   - type: Swagger
-    url: openapi/sewerai-swagger.json
+    url: openapi/_original/sewerai-swagger.json
   - type: Authentication
     url: authentication/sewerai-authentication.yml
   - type: Conventions
