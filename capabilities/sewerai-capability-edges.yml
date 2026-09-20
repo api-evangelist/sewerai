@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 2
+edge_count: 3
 edges:
 - tag: modeling
   spec_file: sewerai-modeling-api-openapi.yml
@@ -23,6 +23,17 @@ edges:
     POST /modeling/bbinference/MakeObsModel/'
   reason: Operations create and run training models, ensembles and inference assignments — plainly ML
     model lifecycle / MLOps management.
+- tag: analytics
+  spec_file: sewerai-analytics-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.75
+  evidence: 'GET /analytics/dashboards/  analytics_dashboards_list; schemas: DownloadHistory, AnalyticsDashboard'
+  reason: Operations manage analytics dashboards and download history with an AnalyticsDashboard schema,
+    which is reporting/BI delivery. Confidence moderated because other endpoints (bbuser, ETETest, FrameQualityReview)
+    suggest the tag also bundles unrelated internal tooling.
+  recovered_from: vertical-engineering-services-edges.json
 - tag: v1
   spec_file: sewerai-v1-api-openapi.yml
   capability_id: BC-5070
