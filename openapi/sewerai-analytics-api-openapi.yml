@@ -13,7 +13,7 @@ servers:
 security:
 - Basic: []
 tags:
-- name: analytics
+- name: Analytics
 paths:
   /analytics/bbuser/:
     parameters: []
@@ -24,7 +24,9 @@ paths:
         '200':
           description: ''
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics bbuser list
+      x-summary-source: derived
   /analytics/dashboards/:
     parameters: []
     get:
@@ -40,7 +42,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/AnalyticsDashboard'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics dashboards list
+      x-summary-source: derived
     post:
       operationId: analytics_dashboards_create
       description: ''
@@ -52,13 +56,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AnalyticsDashboard'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AnalyticsDashboard'
         required: true
+      summary: Analytics dashboards create
+      x-summary-source: derived
   /analytics/dashboards/{sid}/:
     parameters:
     - name: sid
@@ -78,7 +84,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/AnalyticsDashboard'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics dashboards read
+      x-summary-source: derived
     put:
       operationId: analytics_dashboards_update
       description: ''
@@ -90,13 +98,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AnalyticsDashboard'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AnalyticsDashboard'
         required: true
+      summary: Analytics dashboards update
+      x-summary-source: derived
     patch:
       operationId: analytics_dashboards_partial_update
       description: ''
@@ -108,13 +118,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AnalyticsDashboard'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AnalyticsDashboard'
         required: true
+      summary: Analytics dashboards partial update
+      x-summary-source: derived
     delete:
       operationId: analytics_dashboards_delete
       description: ''
@@ -122,7 +134,9 @@ paths:
         '204':
           description: ''
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics dashboards delete
+      x-summary-source: derived
   /analytics/downloadhistory/:
     parameters: []
     get:
@@ -138,7 +152,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/DownloadHistory'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics downloadhistory list
+      x-summary-source: derived
     post:
       operationId: analytics_downloadhistory_create
       description: ''
@@ -150,13 +166,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/DownloadHistory'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/DownloadHistory'
         required: true
+      summary: Analytics downloadhistory create
+      x-summary-source: derived
   /analytics/downloadhistory/{sid}/:
     parameters:
     - name: sid
@@ -176,7 +194,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/DownloadHistory'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics downloadhistory read
+      x-summary-source: derived
     put:
       operationId: analytics_downloadhistory_update
       description: ''
@@ -188,13 +208,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/DownloadHistory'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/DownloadHistory'
         required: true
+      summary: Analytics downloadhistory update
+      x-summary-source: derived
     patch:
       operationId: analytics_downloadhistory_partial_update
       description: ''
@@ -206,13 +228,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/DownloadHistory'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/DownloadHistory'
         required: true
+      summary: Analytics downloadhistory partial update
+      x-summary-source: derived
     delete:
       operationId: analytics_downloadhistory_delete
       description: ''
@@ -220,7 +244,9 @@ paths:
         '204':
           description: ''
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics downloadhistory delete
+      x-summary-source: derived
   /analytics/ete/:
     parameters: []
     get:
@@ -236,7 +262,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/ETETest'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics ete list
+      x-summary-source: derived
     post:
       operationId: analytics_ete_create
       description: ''
@@ -248,13 +276,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ETETest'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/ETETest'
         required: true
+      summary: Analytics ete create
+      x-summary-source: derived
   /analytics/ete/GetETEFilters/:
     parameters: []
     get:
@@ -270,7 +300,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/ETETest'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics ete get ETE filters
+      x-summary-source: derived
   /analytics/ete/GetGraphs/:
     parameters: []
     get:
@@ -286,7 +318,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/ETETest'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics ete get graphs
+      x-summary-source: derived
   /analytics/ete/GetRuns/:
     parameters: []
     get:
@@ -302,7 +336,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/ETETest'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics ete get runs
+      x-summary-source: derived
   /analytics/ete/{sid}/:
     parameters:
     - name: sid
@@ -322,7 +358,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ETETest'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics ete read
+      x-summary-source: derived
     put:
       operationId: analytics_ete_update
       description: ''
@@ -334,13 +372,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ETETest'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/ETETest'
         required: true
+      summary: Analytics ete update
+      x-summary-source: derived
     patch:
       operationId: analytics_ete_partial_update
       description: ''
@@ -352,13 +392,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/ETETest'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/ETETest'
         required: true
+      summary: Analytics ete partial update
+      x-summary-source: derived
     delete:
       operationId: analytics_ete_delete
       description: ''
@@ -366,7 +408,9 @@ paths:
         '204':
           description: ''
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics ete delete
+      x-summary-source: derived
   /analytics/framereview/:
     parameters: []
     get:
@@ -382,7 +426,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/FrameQualityReview'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics framereview list
+      x-summary-source: derived
     post:
       operationId: analytics_framereview_create
       description: ''
@@ -394,13 +440,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/FrameQualityReview'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/FrameQualityReview'
         required: true
+      summary: Analytics framereview create
+      x-summary-source: derived
   /analytics/framereview/GetBadReviews/:
     parameters: []
     get:
@@ -416,7 +464,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/FrameQualityReview'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics framereview get bad reviews
+      x-summary-source: derived
   /analytics/framereview/GetSFTestResults/:
     parameters: []
     get:
@@ -432,7 +482,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/FrameQualityReview'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics framereview get SF test results
+      x-summary-source: derived
   /analytics/framereview/{sid}/:
     parameters:
     - name: sid
@@ -452,7 +504,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/FrameQualityReview'
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics framereview read
+      x-summary-source: derived
     put:
       operationId: analytics_framereview_update
       description: ''
@@ -464,13 +518,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/FrameQualityReview'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/FrameQualityReview'
         required: true
+      summary: Analytics framereview update
+      x-summary-source: derived
     patch:
       operationId: analytics_framereview_partial_update
       description: ''
@@ -482,13 +538,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/FrameQualityReview'
       tags:
-      - analytics
+      - Analytics
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/FrameQualityReview'
         required: true
+      summary: Analytics framereview partial update
+      x-summary-source: derived
     delete:
       operationId: analytics_framereview_delete
       description: ''
@@ -496,7 +554,9 @@ paths:
         '204':
           description: ''
       tags:
-      - analytics
+      - Analytics
+      summary: Analytics framereview delete
+      x-summary-source: derived
 components:
   schemas:
     DownloadHistory:
@@ -532,6 +592,69 @@ components:
         meta:
           title: Meta
           type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    FrameQualityReview:
+      required:
+      - video
+      - frame
+      - boxes_created_on
+      - is_good
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        boxes_created_by:
+          title: Boxes created by
+          type:
+          - string
+          - 'null'
+          format: uri
+        boxes_created_on:
+          title: Boxes created on
+          type: string
+          format: date-time
+        is_good:
+          title: Is good
+          type: boolean
+        from_intermediate:
+          title: From intermediate
+          type: boolean
         created:
           title: Created
           type: string
@@ -726,69 +849,6 @@ components:
           title: Dashboard
           type: string
           readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    FrameQualityReview:
-      required:
-      - video
-      - frame
-      - boxes_created_on
-      - is_good
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        video:
-          title: Video
-          type: string
-          format: uri
-        frame:
-          title: Frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        boxes_created_by:
-          title: Boxes created by
-          type:
-          - string
-          - 'null'
-          format: uri
-        boxes_created_on:
-          title: Boxes created on
-          type: string
-          format: date-time
-        is_good:
-          title: Is good
-          type: boolean
-        from_intermediate:
-          title: From intermediate
-          type: boolean
         created:
           title: Created
           type: string

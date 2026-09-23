@@ -13,7 +13,7 @@ servers:
 security:
 - Basic: []
 tags:
-- name: comment
+- name: Comment
 paths:
   /comment/:
     parameters: []
@@ -30,7 +30,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Comment'
       tags:
-      - comment
+      - Comment
+      summary: Comment list
+      x-summary-source: derived
     post:
       operationId: comment_create
       description: ''
@@ -42,13 +44,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Comment'
       tags:
-      - comment
+      - Comment
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Comment'
         required: true
+      summary: Comment create
+      x-summary-source: derived
   /comment/{sid}/:
     parameters:
     - name: sid
@@ -68,7 +72,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Comment'
       tags:
-      - comment
+      - Comment
+      summary: Comment read
+      x-summary-source: derived
     put:
       operationId: comment_update
       description: ''
@@ -80,13 +86,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Comment'
       tags:
-      - comment
+      - Comment
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Comment'
         required: true
+      summary: Comment update
+      x-summary-source: derived
     patch:
       operationId: comment_partial_update
       description: ''
@@ -98,13 +106,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Comment'
       tags:
-      - comment
+      - Comment
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Comment'
         required: true
+      summary: Comment partial update
+      x-summary-source: derived
     delete:
       operationId: comment_delete
       description: ''
@@ -112,7 +122,9 @@ paths:
         '204':
           description: ''
       tags:
-      - comment
+      - Comment
+      summary: Comment delete
+      x-summary-source: derived
 components:
   schemas:
     Comment:

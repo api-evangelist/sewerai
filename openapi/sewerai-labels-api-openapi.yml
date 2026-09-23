@@ -13,7 +13,7 @@ servers:
 security:
 - Basic: []
 tags:
-- name: labels
+- name: Labels
 paths:
   /labels/classifications/video/:
     parameters: []
@@ -51,7 +51,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/VideoObservationClassification'
       tags:
-      - labels
+      - Labels
+      summary: Labels classifications video list
+      x-summary-source: derived
     post:
       operationId: labels_classifications_video_create
       description: 'API endpoint that allows Video Observation Classifications to be viewed
@@ -65,13 +67,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoObservationClassification'
       tags:
-      - labels
+      - Labels
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/VideoObservationClassification'
         required: true
+      summary: Labels classifications video create
+      x-summary-source: derived
   /labels/classifications/video/{sid}/:
     parameters:
     - name: sid
@@ -93,7 +97,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoObservationClassification'
       tags:
-      - labels
+      - Labels
+      summary: Labels classifications video read
+      x-summary-source: derived
     put:
       operationId: labels_classifications_video_update
       description: 'API endpoint that allows Video Observation Classifications to be viewed
@@ -107,13 +113,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoObservationClassification'
       tags:
-      - labels
+      - Labels
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/VideoObservationClassification'
         required: true
+      summary: Labels classifications video update
+      x-summary-source: derived
     patch:
       operationId: labels_classifications_video_partial_update
       description: 'API endpoint that allows Video Observation Classifications to be viewed
@@ -127,13 +135,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoObservationClassification'
       tags:
-      - labels
+      - Labels
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/VideoObservationClassification'
         required: true
+      summary: Labels classifications video partial update
+      x-summary-source: derived
     delete:
       operationId: labels_classifications_video_delete
       description: 'API endpoint that allows Video Observation Classifications to be viewed
@@ -143,7 +153,9 @@ paths:
         '204':
           description: ''
       tags:
-      - labels
+      - Labels
+      summary: Labels classifications video delete
+      x-summary-source: derived
   /labels/regressions/video/:
     parameters: []
     get:
@@ -174,7 +186,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/VideoObservationRegression'
       tags:
-      - labels
+      - Labels
+      summary: Labels regressions video list
+      x-summary-source: derived
     post:
       operationId: labels_regressions_video_create
       description: 'API endpoint that allows Video Observation Regressions to be viewed and
@@ -188,13 +202,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoObservationRegression'
       tags:
-      - labels
+      - Labels
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/VideoObservationRegression'
         required: true
+      summary: Labels regressions video create
+      x-summary-source: derived
   /labels/regressions/video/{sid}/:
     parameters:
     - name: sid
@@ -216,7 +232,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoObservationRegression'
       tags:
-      - labels
+      - Labels
+      summary: Labels regressions video read
+      x-summary-source: derived
     put:
       operationId: labels_regressions_video_update
       description: 'API endpoint that allows Video Observation Regressions to be viewed and
@@ -230,13 +248,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoObservationRegression'
       tags:
-      - labels
+      - Labels
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/VideoObservationRegression'
         required: true
+      summary: Labels regressions video update
+      x-summary-source: derived
     patch:
       operationId: labels_regressions_video_partial_update
       description: 'API endpoint that allows Video Observation Regressions to be viewed and
@@ -250,13 +270,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoObservationRegression'
       tags:
-      - labels
+      - Labels
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/VideoObservationRegression'
         required: true
+      summary: Labels regressions video partial update
+      x-summary-source: derived
     delete:
       operationId: labels_regressions_video_delete
       description: 'API endpoint that allows Video Observation Regressions to be viewed and
@@ -266,7 +288,9 @@ paths:
         '204':
           description: ''
       tags:
-      - labels
+      - Labels
+      summary: Labels regressions video delete
+      x-summary-source: derived
 components:
   schemas:
     VideoObservationRegression:

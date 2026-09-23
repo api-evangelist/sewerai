@@ -25,6 +25,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode list
+      x-summary-source: derived
     post:
       operationId: autocode_create
       description: ''
@@ -33,6 +35,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode create
+      x-summary-source: derived
   /autocode/CombineAutocodes/:
     parameters: []
     post:
@@ -43,6 +47,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode combine autocodes
+      x-summary-source: derived
   /autocode/QueueReport/:
     parameters: []
     get:
@@ -53,6 +59,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode queue report
+      x-summary-source: derived
   /autocode/Statistics/:
     parameters: []
     get:
@@ -63,6 +71,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode statistics
+      x-summary-source: derived
   /autocode/{sid}/:
     parameters:
     - name: sid
@@ -78,6 +88,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode read
+      x-summary-source: derived
     put:
       operationId: autocode_update
       description: ''
@@ -86,6 +98,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode update
+      x-summary-source: derived
     patch:
       operationId: autocode_partial_update
       description: ''
@@ -94,6 +108,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode partial update
+      x-summary-source: derived
     delete:
       operationId: autocode_delete
       description: ''
@@ -102,6 +118,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode delete
+      x-summary-source: derived
   /autocode/{sid}/NeededAndBadPayoutSIDS/:
     parameters:
     - name: sid
@@ -117,6 +135,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode needed and bad payout SIDS
+      x-summary-source: derived
   /autocode/{sid}/NeededPayoutSIDS/:
     parameters:
     - name: sid
@@ -132,6 +152,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode needed payout SIDS
+      x-summary-source: derived
   /autocode/{sid}/SetAllComplete/:
     parameters:
     - name: sid
@@ -147,6 +169,8 @@ paths:
           description: ''
       tags:
       - autocode
+      summary: Autocode set all complete
+      x-summary-source: derived
 components:
   securitySchemes:
     Basic:

@@ -13,7 +13,7 @@ servers:
 security:
 - Basic: []
 tags:
-- name: videos
+- name: Videos
 paths:
   /videos/:
     parameters: []
@@ -30,7 +30,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos list
+      x-summary-source: derived
     post:
       operationId: videos_create
       description: API endpoint that allows Video Instance data to viewed or edited.
@@ -42,13 +44,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos create
+      x-summary-source: derived
   /videos/AddCharacter/:
     parameters: []
     post:
@@ -62,13 +66,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos add character
+      x-summary-source: derived
   /videos/AddRemoveProject/:
     parameters: []
     post:
@@ -82,13 +88,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos add remove project create
+      x-summary-source: derived
     delete:
       operationId: videos_AddRemoveProject_delete
       description: API endpoint that allows Video Instance data to viewed or edited.
@@ -96,7 +104,9 @@ paths:
         '204':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos add remove project delete
+      x-summary-source: derived
   /videos/BulkArchive/:
     parameters: []
     post:
@@ -110,13 +120,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos bulk archive
+      x-summary-source: derived
   /videos/BulkFlagPrescreen/:
     parameters: []
     post:
@@ -130,13 +142,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos bulk flag prescreen
+      x-summary-source: derived
   /videos/BulkMarkReviewed/:
     parameters: []
     post:
@@ -150,13 +164,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos bulk mark reviewed
+      x-summary-source: derived
   /videos/DeleteFrame/:
     parameters: []
     delete:
@@ -166,7 +182,9 @@ paths:
         '204':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos delete frame
+      x-summary-source: derived
   /videos/Encode/:
     parameters: []
     post:
@@ -180,13 +198,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos encode
+      x-summary-source: derived
   /videos/ExtractPayoutSamples/:
     parameters: []
     get:
@@ -202,7 +222,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos extract payout samples
+      x-summary-source: derived
   /videos/GetBBReview/:
     parameters: []
     get:
@@ -218,7 +240,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get BB review
+      x-summary-source: derived
   /videos/GetListCSV/:
     parameters: []
     post:
@@ -232,13 +256,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos get list CSV
+      x-summary-source: derived
   /videos/GetListObservationsCSV/:
     parameters: []
     post:
@@ -252,13 +278,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos get list observations CSV
+      x-summary-source: derived
   /videos/GetRegressionSchema/:
     parameters: []
     get:
@@ -274,7 +302,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get regression schema
+      x-summary-source: derived
   /videos/GetRegressionTypes/:
     parameters: []
     get:
@@ -290,7 +320,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get regression types
+      x-summary-source: derived
   /videos/ListObservationClassifications/:
     parameters: []
     get:
@@ -306,7 +338,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos list observation classifications
+      x-summary-source: derived
   /videos/PipeStatistics/:
     parameters: []
     get:
@@ -322,7 +356,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos pipe statistics
+      x-summary-source: derived
   /videos/Statistics/:
     parameters: []
     get:
@@ -338,7 +374,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos statistics read
+      x-summary-source: derived
     post:
       operationId: videos_Statistics_create
       description: API endpoint that allows Video Instance data to viewed or edited.
@@ -350,13 +388,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos statistics create
+      x-summary-source: derived
   /videos/StatisticsNew/:
     parameters: []
     get:
@@ -372,7 +412,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos statistics new read
+      x-summary-source: derived
     post:
       operationId: videos_StatisticsNew_create
       description: API endpoint that allows Video Instance data to viewed or edited.
@@ -384,13 +426,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos statistics new create
+      x-summary-source: derived
   /videos/SubmitBBReview/:
     parameters: []
     post:
@@ -404,13 +448,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos submit BB review
+      x-summary-source: derived
   /videos/UnreviewFrame/:
     parameters: []
     patch:
@@ -424,13 +470,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos unreview frame
+      x-summary-source: derived
   /videos/ValidationReport/:
     parameters: []
     get:
@@ -446,7 +494,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos validation report read
+      x-summary-source: derived
     post:
       operationId: videos_ValidationReport_create
       description: API endpoint that allows Video Instance data to viewed or edited.
@@ -458,13 +508,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos validation report create
+      x-summary-source: derived
   /videos/_download/:
     parameters: []
     post:
@@ -478,13 +530,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos download
+      x-summary-source: derived
   /videos/_validate/:
     parameters: []
     post:
@@ -498,13 +552,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos validate
+      x-summary-source: derived
   /videos/convert_to_dtp/:
     parameters: []
     post:
@@ -518,13 +574,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos convert to dtp
+      x-summary-source: derived
   /videos/export_inspection_files/:
     parameters: []
     get:
@@ -540,7 +598,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos export inspection files
+      x-summary-source: derived
   /videos/get_accounts/:
     parameters: []
     get:
@@ -556,7 +616,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get accounts
+      x-summary-source: derived
   /videos/get_agencies/:
     parameters: []
     get:
@@ -572,7 +634,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get agencies
+      x-summary-source: derived
   /videos/get_bb_review/:
     parameters: []
     get:
@@ -588,7 +652,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get bb review
+      x-summary-source: derived
   /videos/get_fake_bb_review/:
     parameters: []
     get:
@@ -604,7 +670,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get fake bb review
+      x-summary-source: derived
   /videos/get_filter_options/:
     parameters: []
     get:
@@ -620,7 +688,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get filter options
+      x-summary-source: derived
   /videos/get_manual_payout/:
     parameters: []
     get:
@@ -636,7 +706,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get manual payout
+      x-summary-source: derived
   /videos/get_random_payout/:
     parameters: []
     get:
@@ -652,7 +724,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get random payout
+      x-summary-source: derived
   /videos/get_random_payout_review/:
     parameters: []
     get:
@@ -668,7 +742,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get random payout review
+      x-summary-source: derived
   /videos/get_taggable_users/:
     parameters: []
     get:
@@ -684,7 +760,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get taggable users
+      x-summary-source: derived
   /videos/get_test_review/:
     parameters: []
     get:
@@ -700,7 +778,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get test review
+      x-summary-source: derived
   /videos/kickoff_autocode/:
     parameters: []
     post:
@@ -714,13 +794,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos kickoff autocode
+      x-summary-source: derived
   /videos/kickoff_submittal/:
     parameters: []
     post:
@@ -734,13 +816,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos kickoff submittal
+      x-summary-source: derived
   /videos/post_phone_info/:
     parameters: []
     post:
@@ -754,13 +838,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos post phone info
+      x-summary-source: derived
   /videos/submit_bb_review/:
     parameters: []
     post:
@@ -774,13 +860,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos submit bb review
+      x-summary-source: derived
   /videos/submit_test_review/:
     parameters: []
     post:
@@ -794,13 +882,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos submit test review
+      x-summary-source: derived
   /videos/trim/:
     parameters: []
     post:
@@ -814,13 +904,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos trim
+      x-summary-source: derived
   /videos/{sid}/:
     parameters:
     - name: sid
@@ -839,7 +931,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos read
+      x-summary-source: derived
     put:
       operationId: videos_update
       description: API endpoint that allows Video Instance data to viewed or edited.
@@ -851,13 +945,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos update
+      x-summary-source: derived
     patch:
       operationId: videos_partial_update
       description: API endpoint that allows Video Instance data to viewed or edited.
@@ -869,13 +965,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos partial update
+      x-summary-source: derived
     delete:
       operationId: videos_delete
       description: API endpoint that allows Video Instance data to viewed or edited.
@@ -883,7 +981,9 @@ paths:
         '204':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos delete
+      x-summary-source: derived
   /videos/{sid}/AddBB/:
     parameters:
     - name: sid
@@ -902,13 +1002,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos add BB
+      x-summary-source: derived
   /videos/{sid}/AddPayoutBB/:
     parameters:
     - name: sid
@@ -927,13 +1029,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos add payout BB
+      x-summary-source: derived
   /videos/{sid}/AddToList/:
     parameters:
     - name: sid
@@ -952,7 +1056,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos add to list
+      x-summary-source: derived
   /videos/{sid}/CreateOrUpdateObservationClassification/:
     parameters:
     - name: sid
@@ -971,13 +1077,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos create or update observation classification create
+      x-summary-source: derived
     delete:
       operationId: videos_CreateOrUpdateObservationClassification_delete
       description: API endpoint that allows Video Instance data to viewed or edited.
@@ -985,7 +1093,9 @@ paths:
         '204':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos create or update observation classification delete
+      x-summary-source: derived
   /videos/{sid}/Done/:
     parameters:
     - name: sid
@@ -1004,13 +1114,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos done
+      x-summary-source: derived
   /videos/{sid}/GetBB/:
     parameters:
     - name: sid
@@ -1029,7 +1141,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get BB read
+      x-summary-source: derived
   /videos/{sid}/GetMetashapeFiles/:
     parameters:
     - name: sid
@@ -1048,7 +1162,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get metashape files
+      x-summary-source: derived
   /videos/{sid}/GetObservationClassificationsFlat/:
     parameters:
     - name: sid
@@ -1067,7 +1183,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get observation classifications flat
+      x-summary-source: derived
   /videos/{sid}/GetPayout/:
     parameters:
     - name: sid
@@ -1086,7 +1204,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get payout
+      x-summary-source: derived
   /videos/{sid}/GetPayoutBox/:
     parameters:
     - name: sid
@@ -1105,7 +1225,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get payout box
+      x-summary-source: derived
   /videos/{sid}/GetPointcloud/:
     parameters:
     - name: sid
@@ -1124,7 +1246,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get pointcloud read
+      x-summary-source: derived
   /videos/{sid}/GetSideImages/:
     parameters:
     - name: sid
@@ -1143,7 +1267,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get side images
+      x-summary-source: derived
   /videos/{sid}/MarkBadPayout/:
     parameters:
     - name: sid
@@ -1162,7 +1288,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos mark bad payout
+      x-summary-source: derived
   /videos/{sid}/ObservationClassifications/:
     parameters:
     - name: sid
@@ -1181,7 +1309,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos observation classifications read
+      x-summary-source: derived
   /videos/{sid}/ObservationTernary/:
     parameters:
     - name: sid
@@ -1200,13 +1330,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos observation ternary
+      x-summary-source: derived
   /videos/{sid}/PayoutBB/:
     parameters:
     - name: sid
@@ -1225,7 +1357,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos payout BB
+      x-summary-source: derived
   /videos/{sid}/Ready/:
     parameters:
     - name: sid
@@ -1244,13 +1378,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos ready
+      x-summary-source: derived
   /videos/{sid}/Restore/:
     parameters:
     - name: sid
@@ -1269,13 +1405,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos restore
+      x-summary-source: derived
   /videos/{sid}/ToggleClientReviewed/:
     parameters:
     - name: sid
@@ -1294,13 +1432,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos toggle client reviewed
+      x-summary-source: derived
   /videos/{sid}/ToggleLabelerReviewed/:
     parameters:
     - name: sid
@@ -1319,13 +1459,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos toggle labeler reviewed
+      x-summary-source: derived
   /videos/{sid}/UploadPayout/:
     parameters:
     - name: sid
@@ -1344,13 +1486,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos upload payout
+      x-summary-source: derived
   /videos/{sid}/change-inspection/:
     parameters:
     - name: sid
@@ -1369,13 +1513,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos change inspection
+      x-summary-source: derived
   /videos/{sid}/get_payout_review/:
     parameters:
     - name: sid
@@ -1394,7 +1540,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get payout review
+      x-summary-source: derived
   /videos/{sid}/get_presigned_phone_url/:
     parameters:
     - name: sid
@@ -1413,7 +1561,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos get presigned phone url
+      x-summary-source: derived
   /videos/{sid}/header/:
     parameters:
     - name: sid
@@ -1432,7 +1582,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos header read
+      x-summary-source: derived
     patch:
       operationId: videos_header_partial_update
       description: API endpoint that allows Video Instance data to viewed or edited.
@@ -1444,13 +1596,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos header partial update
+      x-summary-source: derived
   /videos/{sid}/inference_status/:
     parameters:
     - name: sid
@@ -1469,7 +1623,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos inference status
+      x-summary-source: derived
   /videos/{sid}/pdf/:
     parameters:
     - name: sid
@@ -1488,7 +1644,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos pdf
+      x-summary-source: derived
   /videos/{sid}/playback/:
     parameters:
     - name: sid
@@ -1507,7 +1665,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos playback
+      x-summary-source: derived
   /videos/{sid}/render/:
     parameters:
     - name: sid
@@ -1526,13 +1686,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos render
+      x-summary-source: derived
   /videos/{sid}/test_360_frames/:
     parameters:
     - name: sid
@@ -1551,13 +1713,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos test 360 frames
+      x-summary-source: derived
   /videos/{sid}/update-file/:
     parameters:
     - name: sid
@@ -1576,13 +1740,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Video'
         required: true
+      summary: Videos update file
+      x-summary-source: derived
   /videos/{sid}/url/:
     parameters:
     - name: sid
@@ -1601,7 +1767,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Video'
       tags:
-      - videos
+      - Videos
+      summary: Videos url
+      x-summary-source: derived
   /videos/{video_sid}/classifications/:
     parameters:
     - name: video_sid
@@ -1616,7 +1784,9 @@ paths:
         '200':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications list
+      x-summary-source: derived
     post:
       operationId: videos_classifications_create
       description: API endpoint that allows Observations to be Classified.
@@ -1624,7 +1794,9 @@ paths:
         '201':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications create
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{observation_classification_sid}/bb/:
     parameters:
     - name: video_sid
@@ -1650,7 +1822,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/BoundingBox'
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications bb list
+      x-summary-source: derived
     post:
       operationId: videos_classifications_bb_create
       description: ''
@@ -1662,13 +1836,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundingBox'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BoundingBox'
         required: true
+      summary: Videos classifications bb create
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{observation_classification_sid}/bb/{sid}/:
     parameters:
     - name: video_sid
@@ -1697,7 +1873,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundingBox'
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications bb read
+      x-summary-source: derived
     put:
       operationId: videos_classifications_bb_update
       description: ''
@@ -1709,13 +1887,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundingBox'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BoundingBox'
         required: true
+      summary: Videos classifications bb update
+      x-summary-source: derived
     patch:
       operationId: videos_classifications_bb_partial_update
       description: ''
@@ -1727,13 +1907,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundingBox'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BoundingBox'
         required: true
+      summary: Videos classifications bb partial update
+      x-summary-source: derived
     delete:
       operationId: videos_classifications_bb_delete
       description: ''
@@ -1741,7 +1923,9 @@ paths:
         '204':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications bb delete
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{observation_classification_sid}/bb/{sid}/Delete/:
     parameters:
     - name: video_sid
@@ -1770,13 +1954,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundingBox'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BoundingBox'
         required: true
+      summary: Videos classifications bb delete
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{observation_classification_sid}/bb/{sid}/ToggleReviewed/:
     parameters:
     - name: video_sid
@@ -1805,13 +1991,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundingBox'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BoundingBox'
         required: true
+      summary: Videos classifications bb toggle reviewed
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{observation_classification_sid}/bb/{sid}/UpdateAncillary/:
     parameters:
     - name: video_sid
@@ -1840,13 +2028,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundingBox'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BoundingBox'
         required: true
+      summary: Videos classifications bb update ancillary
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{observation_classification_sid}/bb/{sid}/UploadFrame/:
     parameters:
     - name: video_sid
@@ -1875,13 +2065,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/BoundingBox'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BoundingBox'
         required: true
+      summary: Videos classifications bb upload frame
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{sid}/:
     parameters:
     - name: video_sid
@@ -1901,7 +2093,9 @@ paths:
         '200':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications read
+      x-summary-source: derived
     put:
       operationId: videos_classifications_update
       description: API endpoint that allows Observations to be Classified.
@@ -1909,7 +2103,9 @@ paths:
         '200':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications update
+      x-summary-source: derived
     patch:
       operationId: videos_classifications_partial_update
       description: API endpoint that allows Observations to be Classified.
@@ -1917,7 +2113,9 @@ paths:
         '200':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications partial update
+      x-summary-source: derived
     delete:
       operationId: videos_classifications_delete
       description: API endpoint that allows Observations to be Classified.
@@ -1925,7 +2123,9 @@ paths:
         '204':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications delete
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{sid}/GetSnapshot/:
     parameters:
     - name: video_sid
@@ -1945,7 +2145,9 @@ paths:
         '200':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications get snapshot
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{sid}/UpdateAncillary/:
     parameters:
     - name: video_sid
@@ -1965,7 +2167,9 @@ paths:
         '201':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications update ancillary
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{sid}/UploadSnapshot/:
     parameters:
     - name: video_sid
@@ -1985,7 +2189,9 @@ paths:
         '201':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications upload snapshot
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{sid}/add_bb/:
     parameters:
     - name: video_sid
@@ -2005,7 +2211,9 @@ paths:
         '201':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications add bb
+      x-summary-source: derived
   /videos/{video_sid}/classifications/{sid}/snapshot/:
     parameters:
     - name: video_sid
@@ -2025,7 +2233,9 @@ paths:
         '200':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos classifications snapshot
+      x-summary-source: derived
   /videos/{video_sid}/payout/:
     parameters:
     - name: video_sid
@@ -2046,7 +2256,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/VideoPayout'
       tags:
-      - videos
+      - Videos
+      summary: Videos payout list
+      x-summary-source: derived
     post:
       operationId: videos_payout_create
       description: ''
@@ -2058,13 +2270,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoPayout'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/VideoPayout'
         required: true
+      summary: Videos payout create
+      x-summary-source: derived
   /videos/{video_sid}/payout/{sid}/:
     parameters:
     - name: video_sid
@@ -2088,7 +2302,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoPayout'
       tags:
-      - videos
+      - Videos
+      summary: Videos payout read
+      x-summary-source: derived
     put:
       operationId: videos_payout_update
       description: ''
@@ -2100,13 +2316,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoPayout'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/VideoPayout'
         required: true
+      summary: Videos payout update
+      x-summary-source: derived
     patch:
       operationId: videos_payout_partial_update
       description: ''
@@ -2118,13 +2336,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/VideoPayout'
       tags:
-      - videos
+      - Videos
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/VideoPayout'
         required: true
+      summary: Videos payout partial update
+      x-summary-source: derived
     delete:
       operationId: videos_payout_delete
       description: ''
@@ -2132,77 +2352,11 @@ paths:
         '204':
           description: ''
       tags:
-      - videos
+      - Videos
+      summary: Videos payout delete
+      x-summary-source: derived
 components:
   schemas:
-    VideoObservationClassification:
-      required:
-      - system
-      - code
-      - version
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        system:
-          title: System
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        code:
-          title: Code
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        version:
-          title: Version
-          type:
-          - string
-          - 'null'
-          maxLength: 32
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        family_group_color:
-          title: Family group color
-          type: string
-          readOnly: true
     Inspection:
       required:
       - ratings
@@ -3371,6 +3525,335 @@ components:
             type:
             - string
             - 'null'
+    AccountUser:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        last_pioneer_login:
+          title: Last pioneer login
+          type: string
+          readOnly: true
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
+    InspectionRatings:
+      type: object
+      properties:
+        STGradeScore1:
+          title: Stgradescore1
+          type:
+          - number
+          - 'null'
+        STGradeScore2:
+          title: Stgradescore2
+          type:
+          - number
+          - 'null'
+        STGradeScore3:
+          title: Stgradescore3
+          type:
+          - number
+          - 'null'
+        STGradeScore4:
+          title: Stgradescore4
+          type:
+          - number
+          - 'null'
+        STGradeScore5:
+          title: Stgradescore5
+          type:
+          - number
+          - 'null'
+        OMGradeScore1:
+          title: Omgradescore1
+          type:
+          - number
+          - 'null'
+        OMGradeScore2:
+          title: Omgradescore2
+          type:
+          - number
+          - 'null'
+        OMGradeScore3:
+          title: Omgradescore3
+          type:
+          - number
+          - 'null'
+        OMGradeScore4:
+          title: Omgradescore4
+          type:
+          - number
+          - 'null'
+        OMGradeScore5:
+          title: Omgradescore5
+          type:
+          - number
+          - 'null'
+        ST1:
+          title: St1
+          type:
+          - number
+          - 'null'
+        ST2:
+          title: St2
+          type:
+          - number
+          - 'null'
+        ST3:
+          title: St3
+          type:
+          - number
+          - 'null'
+        ST4:
+          title: St4
+          type:
+          - number
+          - 'null'
+        ST5:
+          title: St5
+          type:
+          - number
+          - 'null'
+        OM1:
+          title: Om1
+          type:
+          - number
+          - 'null'
+        OM2:
+          title: Om2
+          type:
+          - number
+          - 'null'
+        OM3:
+          title: Om3
+          type:
+          - number
+          - 'null'
+        OM4:
+          title: Om4
+          type:
+          - number
+          - 'null'
+        OM5:
+          title: Om5
+          type:
+          - number
+          - 'null'
+        STPipeRating:
+          title: Stpiperating
+          type:
+          - number
+          - 'null'
+        OMPipeRating:
+          title: Ompiperating
+          type:
+          - number
+          - 'null'
+        OverallPipeRating:
+          title: Overallpiperating
+          type:
+          - number
+          - 'null'
+        STPipeRatingsIndex:
+          title: Stpiperatingsindex
+          type:
+          - number
+          - 'null'
+        OMPipeRatingsIndex:
+          title: Ompiperatingsindex
+          type:
+          - number
+          - 'null'
+        OverallPipeRatingsIndex:
+          title: Overallpiperatingsindex
+          type:
+          - number
+          - 'null'
+        Risk:
+          title: Risk
+          type:
+          - number
+          - 'null'
+        RatingID:
+          title: Ratingid
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STQuickRating:
+          title: Stquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OMQuickRating:
+          title: Omquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OverallQuickRating:
+          title: Overallquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFPACP:
+          title: Lofpacp
+          type:
+          - number
+          - 'null'
+        PACPQuickRating:
+          title: Pacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFLACP:
+          title: Loflacp
+          type:
+          - number
+          - 'null'
+        LACPQuickRating:
+          title: Lacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STMHRating:
+          title: Stmhrating
+          type:
+          - number
+          - 'null'
+        OMMHRating:
+          title: Ommhrating
+          type:
+          - number
+          - 'null'
+        OverallMHRating:
+          title: Overallmhrating
+          type:
+          - number
+          - 'null'
+        STMHRatingsIndex:
+          title: Stmhratingsindex
+          type:
+          - number
+          - 'null'
+        OMMHRatingsIndex:
+          title: Ommhratingsindex
+          type:
+          - number
+          - 'null'
+        OverallMHRatingsIndex:
+          title: Overallmhratingsindex
+          type:
+          - number
+          - 'null'
+        LoFMACP:
+          title: Lofmacp
+          type:
+          - number
+          - 'null'
+        MACPQuickRating:
+          title: Macpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
+          readOnly: true
     Video:
       required:
       - created_by
@@ -3816,42 +4299,6 @@ components:
           type:
           - object
           - 'null'
-    AccountUser:
-      required:
-      - email
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        first_name:
-          title: First name
-          type: string
-          maxLength: 150
-        last_name:
-          title: Last name
-          type: string
-          maxLength: 150
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
-        last_pioneer_login:
-          title: Last pioneer login
-          type: string
-          readOnly: true
-        permission_level:
-          title: Permission level
-          type: string
-          readOnly: true
-        projects:
-          title: Projects
-          type: string
-          readOnly: true
     VideoPayout:
       required:
       - payouts
@@ -4007,231 +4454,6 @@ components:
           type: string
           format: uri
           readOnly: true
-    InspectionRatings:
-      type: object
-      properties:
-        STGradeScore1:
-          title: Stgradescore1
-          type:
-          - number
-          - 'null'
-        STGradeScore2:
-          title: Stgradescore2
-          type:
-          - number
-          - 'null'
-        STGradeScore3:
-          title: Stgradescore3
-          type:
-          - number
-          - 'null'
-        STGradeScore4:
-          title: Stgradescore4
-          type:
-          - number
-          - 'null'
-        STGradeScore5:
-          title: Stgradescore5
-          type:
-          - number
-          - 'null'
-        OMGradeScore1:
-          title: Omgradescore1
-          type:
-          - number
-          - 'null'
-        OMGradeScore2:
-          title: Omgradescore2
-          type:
-          - number
-          - 'null'
-        OMGradeScore3:
-          title: Omgradescore3
-          type:
-          - number
-          - 'null'
-        OMGradeScore4:
-          title: Omgradescore4
-          type:
-          - number
-          - 'null'
-        OMGradeScore5:
-          title: Omgradescore5
-          type:
-          - number
-          - 'null'
-        ST1:
-          title: St1
-          type:
-          - number
-          - 'null'
-        ST2:
-          title: St2
-          type:
-          - number
-          - 'null'
-        ST3:
-          title: St3
-          type:
-          - number
-          - 'null'
-        ST4:
-          title: St4
-          type:
-          - number
-          - 'null'
-        ST5:
-          title: St5
-          type:
-          - number
-          - 'null'
-        OM1:
-          title: Om1
-          type:
-          - number
-          - 'null'
-        OM2:
-          title: Om2
-          type:
-          - number
-          - 'null'
-        OM3:
-          title: Om3
-          type:
-          - number
-          - 'null'
-        OM4:
-          title: Om4
-          type:
-          - number
-          - 'null'
-        OM5:
-          title: Om5
-          type:
-          - number
-          - 'null'
-        STPipeRating:
-          title: Stpiperating
-          type:
-          - number
-          - 'null'
-        OMPipeRating:
-          title: Ompiperating
-          type:
-          - number
-          - 'null'
-        OverallPipeRating:
-          title: Overallpiperating
-          type:
-          - number
-          - 'null'
-        STPipeRatingsIndex:
-          title: Stpiperatingsindex
-          type:
-          - number
-          - 'null'
-        OMPipeRatingsIndex:
-          title: Ompiperatingsindex
-          type:
-          - number
-          - 'null'
-        OverallPipeRatingsIndex:
-          title: Overallpiperatingsindex
-          type:
-          - number
-          - 'null'
-        Risk:
-          title: Risk
-          type:
-          - number
-          - 'null'
-        RatingID:
-          title: Ratingid
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        STQuickRating:
-          title: Stquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        OMQuickRating:
-          title: Omquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        OverallQuickRating:
-          title: Overallquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        LoFPACP:
-          title: Lofpacp
-          type:
-          - number
-          - 'null'
-        PACPQuickRating:
-          title: Pacpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        LoFLACP:
-          title: Loflacp
-          type:
-          - number
-          - 'null'
-        LACPQuickRating:
-          title: Lacpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        STMHRating:
-          title: Stmhrating
-          type:
-          - number
-          - 'null'
-        OMMHRating:
-          title: Ommhrating
-          type:
-          - number
-          - 'null'
-        OverallMHRating:
-          title: Overallmhrating
-          type:
-          - number
-          - 'null'
-        STMHRatingsIndex:
-          title: Stmhratingsindex
-          type:
-          - number
-          - 'null'
-        OMMHRatingsIndex:
-          title: Ommhratingsindex
-          type:
-          - number
-          - 'null'
-        OverallMHRatingsIndex:
-          title: Overallmhratingsindex
-          type:
-          - number
-          - 'null'
-        LoFMACP:
-          title: Lofmacp
-          type:
-          - number
-          - 'null'
-        MACPQuickRating:
-          title: Macpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
   securitySchemes:
     Basic:
       type: http

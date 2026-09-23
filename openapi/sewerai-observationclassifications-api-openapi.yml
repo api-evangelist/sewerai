@@ -38,6 +38,8 @@ paths:
                   $ref: '#/components/schemas/ObservationClassificationAnalytics'
       tags:
       - observationclassifications
+      summary: Observationclassifications list
+      x-summary-source: derived
   /observationclassifications/get_stats/:
     parameters: []
     get:
@@ -61,6 +63,8 @@ paths:
                   $ref: '#/components/schemas/ObservationClassificationAnalytics'
       tags:
       - observationclassifications
+      summary: Observationclassifications get stats
+      x-summary-source: derived
   /observationclassifications/{id}/:
     parameters:
     - name: id
@@ -81,6 +85,8 @@ paths:
                 $ref: '#/components/schemas/ObservationClassificationAnalytics'
       tags:
       - observationclassifications
+      summary: Observationclassifications read
+      x-summary-source: derived
 components:
   schemas:
     VideoObservationClassification:

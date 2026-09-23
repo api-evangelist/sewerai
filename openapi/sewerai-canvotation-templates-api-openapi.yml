@@ -19,9 +19,7 @@ paths:
     parameters: []
     get:
       operationId: canvotation-templates_list
-      summary: 'Return a list of templates, ordered alphabetically within the
-
-        following groups:'
+      summary: 'Return a list of templates, ordered alphabetically within the following groups:'
       description: '- Project-related templates
 
         - Account-related templates
@@ -92,6 +90,8 @@ paths:
                 type: string
       tags:
       - canvotation-templates
+      summary: Canvotation templates read
+      x-summary-source: derived
   /canvotation-templates/{sid}/add-to-project/:
     parameters:
     - name: sid
@@ -118,6 +118,8 @@ paths:
             schema:
               type: string
         required: true
+      summary: Canvotation templates add to project
+      x-summary-source: derived
 components:
   securitySchemes:
     Basic:

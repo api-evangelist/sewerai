@@ -31,6 +31,8 @@ paths:
                   $ref: '#/components/schemas/AssetList'
       tags:
       - v1
+      summary: V1 assets list
+      x-summary-source: derived
     post:
       operationId: v1_assets_create
       description: Asset endpoint.
@@ -49,6 +51,8 @@ paths:
             schema:
               $ref: '#/components/schemas/MainlineAssetWrite'
         required: true
+      summary: V1 assets create
+      x-summary-source: derived
   /v1/assets/{sid}/:
     parameters:
     - name: sid
@@ -69,6 +73,8 @@ paths:
                 $ref: '#/components/schemas/MainlineAssetRead'
       tags:
       - v1
+      summary: V1 assets read
+      x-summary-source: derived
     put:
       operationId: v1_assets_update
       description: Asset endpoint.
@@ -87,6 +93,8 @@ paths:
             schema:
               $ref: '#/components/schemas/MainlineAssetWrite'
         required: true
+      summary: V1 assets update
+      x-summary-source: derived
     patch:
       operationId: v1_assets_partial_update
       description: Asset endpoint.
@@ -105,6 +113,8 @@ paths:
             schema:
               $ref: '#/components/schemas/MainlineAssetWrite'
         required: true
+      summary: V1 assets partial update
+      x-summary-source: derived
     delete:
       operationId: v1_assets_delete
       description: Asset endpoint.
@@ -113,6 +123,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 assets delete
+      x-summary-source: derived
   /v1/exports/:
     parameters: []
     get:
@@ -129,6 +141,8 @@ paths:
                   $ref: '#/components/schemas/ExportRead'
       tags:
       - v1
+      summary: V1 exports list
+      x-summary-source: derived
     post:
       operationId: v1_exports_create
       description: ''
@@ -147,6 +161,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ExportWrite'
         required: true
+      summary: V1 exports create
+      x-summary-source: derived
   /v1/exports/{sid}/:
     parameters:
     - name: sid
@@ -166,6 +182,8 @@ paths:
                 $ref: '#/components/schemas/ExportRead'
       tags:
       - v1
+      summary: V1 exports read
+      x-summary-source: derived
     put:
       operationId: v1_exports_update
       description: ''
@@ -184,6 +202,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ExportWrite'
         required: true
+      summary: V1 exports update
+      x-summary-source: derived
     patch:
       operationId: v1_exports_partial_update
       description: ''
@@ -202,6 +222,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ExportWrite'
         required: true
+      summary: V1 exports partial update
+      x-summary-source: derived
     delete:
       operationId: v1_exports_delete
       description: ''
@@ -210,6 +232,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 exports delete
+      x-summary-source: derived
   /v1/inspections/:
     parameters: []
     get:
@@ -226,6 +250,8 @@ paths:
                   $ref: '#/components/schemas/InspectionList'
       tags:
       - v1
+      summary: V1 inspections list
+      x-summary-source: derived
     post:
       operationId: v1_inspections_create
       description: ''
@@ -234,6 +260,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 inspections create
+      x-summary-source: derived
   /v1/inspections/AutoCode/:
     parameters: []
     post:
@@ -244,6 +272,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 inspections auto code
+      x-summary-source: derived
   /v1/inspections/{inspection_sid}/observations/:
     parameters:
     - name: inspection_sid
@@ -265,6 +295,8 @@ paths:
                   $ref: '#/components/schemas/ObservationRead'
       tags:
       - v1
+      summary: V1 inspections observations list
+      x-summary-source: derived
     post:
       operationId: v1_inspections_observations_create
       description: Observations endpoint.
@@ -283,6 +315,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationWrite'
         required: true
+      summary: V1 inspections observations create
+      x-summary-source: derived
   /v1/inspections/{inspection_sid}/observations/{sid}/:
     parameters:
     - name: inspection_sid
@@ -308,6 +342,8 @@ paths:
                 $ref: '#/components/schemas/ObservationRead'
       tags:
       - v1
+      summary: V1 inspections observations read
+      x-summary-source: derived
     put:
       operationId: v1_inspections_observations_update
       description: Observations endpoint.
@@ -326,6 +362,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationWrite'
         required: true
+      summary: V1 inspections observations update
+      x-summary-source: derived
     patch:
       operationId: v1_inspections_observations_partial_update
       description: Observations endpoint.
@@ -344,6 +382,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationWrite'
         required: true
+      summary: V1 inspections observations partial update
+      x-summary-source: derived
     delete:
       operationId: v1_inspections_observations_delete
       description: Observations endpoint.
@@ -352,6 +392,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 inspections observations delete
+      x-summary-source: derived
   /v1/inspections/{sid}/:
     parameters:
     - name: sid
@@ -368,6 +410,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 inspections read
+      x-summary-source: derived
     put:
       operationId: v1_inspections_update
       description: ''
@@ -376,6 +420,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 inspections update
+      x-summary-source: derived
     patch:
       operationId: v1_inspections_partial_update
       description: ''
@@ -384,6 +430,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 inspections partial update
+      x-summary-source: derived
     delete:
       operationId: v1_inspections_delete
       description: ''
@@ -392,6 +440,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 inspections delete
+      x-summary-source: derived
   /v1/observations/:
     parameters: []
     get:
@@ -408,6 +458,8 @@ paths:
                   $ref: '#/components/schemas/ObservationRead'
       tags:
       - v1
+      summary: V1 observations list
+      x-summary-source: derived
   /v1/observations/{sid}/:
     parameters:
     - name: sid
@@ -428,6 +480,8 @@ paths:
                 $ref: '#/components/schemas/ObservationRead'
       tags:
       - v1
+      summary: V1 observations read
+      x-summary-source: derived
   /v1/organizations/:
     parameters: []
     get:
@@ -444,6 +498,8 @@ paths:
                   $ref: '#/components/schemas/OrganizationRead'
       tags:
       - v1
+      summary: V1 organizations list
+      x-summary-source: derived
     post:
       operationId: v1_organizations_create
       description: Organization endpoint.
@@ -462,6 +518,8 @@ paths:
             schema:
               $ref: '#/components/schemas/OrganizationWrite'
         required: true
+      summary: V1 organizations create
+      x-summary-source: derived
   /v1/organizations/{sid}/:
     parameters:
     - name: sid
@@ -482,6 +540,8 @@ paths:
                 $ref: '#/components/schemas/OrganizationRead'
       tags:
       - v1
+      summary: V1 organizations read
+      x-summary-source: derived
     put:
       operationId: v1_organizations_update
       description: Organization endpoint.
@@ -500,6 +560,8 @@ paths:
             schema:
               $ref: '#/components/schemas/OrganizationWrite'
         required: true
+      summary: V1 organizations update
+      x-summary-source: derived
     patch:
       operationId: v1_organizations_partial_update
       description: Organization endpoint.
@@ -518,6 +580,8 @@ paths:
             schema:
               $ref: '#/components/schemas/OrganizationWrite'
         required: true
+      summary: V1 organizations partial update
+      x-summary-source: derived
     delete:
       operationId: v1_organizations_delete
       description: Organization endpoint.
@@ -526,6 +590,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 organizations delete
+      x-summary-source: derived
   /v1/projects/:
     parameters: []
     get:
@@ -542,6 +608,8 @@ paths:
                   $ref: '#/components/schemas/ProjectRead'
       tags:
       - v1
+      summary: V1 projects list
+      x-summary-source: derived
     post:
       operationId: v1_projects_create
       description: Projects endpoint.
@@ -560,6 +628,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ProjectWrite'
         required: true
+      summary: V1 projects create
+      x-summary-source: derived
   /v1/projects/{sid}/:
     parameters:
     - name: sid
@@ -580,6 +650,8 @@ paths:
                 $ref: '#/components/schemas/ProjectRead'
       tags:
       - v1
+      summary: V1 projects read
+      x-summary-source: derived
     put:
       operationId: v1_projects_update
       description: Projects endpoint.
@@ -598,6 +670,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ProjectWrite'
         required: true
+      summary: V1 projects update
+      x-summary-source: derived
     patch:
       operationId: v1_projects_partial_update
       description: Projects endpoint.
@@ -616,6 +690,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ProjectWrite'
         required: true
+      summary: V1 projects partial update
+      x-summary-source: derived
     delete:
       operationId: v1_projects_delete
       description: Projects endpoint.
@@ -624,6 +700,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 projects delete
+      x-summary-source: derived
   /v1/users/:
     parameters: []
     get:
@@ -640,6 +718,8 @@ paths:
                   $ref: '#/components/schemas/UserList'
       tags:
       - v1
+      summary: V1 users list
+      x-summary-source: derived
     post:
       operationId: v1_users_create
       description: ''
@@ -658,6 +738,8 @@ paths:
             schema:
               $ref: '#/components/schemas/UserRead'
         required: true
+      summary: V1 users create
+      x-summary-source: derived
   /v1/users/{sid}/:
     parameters:
     - name: sid
@@ -678,6 +760,8 @@ paths:
                 $ref: '#/components/schemas/UserRead'
       tags:
       - v1
+      summary: V1 users read
+      x-summary-source: derived
     put:
       operationId: v1_users_update
       description: ''
@@ -696,6 +780,8 @@ paths:
             schema:
               $ref: '#/components/schemas/UserRead'
         required: true
+      summary: V1 users update
+      x-summary-source: derived
     patch:
       operationId: v1_users_partial_update
       description: ''
@@ -714,6 +800,8 @@ paths:
             schema:
               $ref: '#/components/schemas/UserRead'
         required: true
+      summary: V1 users partial update
+      x-summary-source: derived
     delete:
       operationId: v1_users_delete
       description: ''
@@ -722,6 +810,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 users delete
+      x-summary-source: derived
   /v1/videos/:
     parameters: []
     get:
@@ -738,6 +828,8 @@ paths:
                   $ref: '#/components/schemas/VideoRead'
       tags:
       - v1
+      summary: V1 videos list
+      x-summary-source: derived
     post:
       operationId: v1_videos_create
       description: Video endpoint.
@@ -756,6 +848,8 @@ paths:
             schema:
               $ref: '#/components/schemas/VideoWrite'
         required: true
+      summary: V1 videos create
+      x-summary-source: derived
   /v1/videos/{sid}/:
     parameters:
     - name: sid
@@ -776,6 +870,8 @@ paths:
                 $ref: '#/components/schemas/VideoRead'
       tags:
       - v1
+      summary: V1 videos read
+      x-summary-source: derived
     put:
       operationId: v1_videos_update
       description: Video endpoint.
@@ -794,6 +890,8 @@ paths:
             schema:
               $ref: '#/components/schemas/VideoWrite'
         required: true
+      summary: V1 videos update
+      x-summary-source: derived
     patch:
       operationId: v1_videos_partial_update
       description: Video endpoint.
@@ -812,6 +910,8 @@ paths:
             schema:
               $ref: '#/components/schemas/VideoWrite'
         required: true
+      summary: V1 videos partial update
+      x-summary-source: derived
     delete:
       operationId: v1_videos_delete
       description: Video endpoint.
@@ -820,6 +920,8 @@ paths:
           description: ''
       tags:
       - v1
+      summary: V1 videos delete
+      x-summary-source: derived
   /v1/videos/{sid}/change-inspection/:
     parameters:
     - name: sid
@@ -846,6 +948,8 @@ paths:
             schema:
               $ref: '#/components/schemas/VideoWrite'
         required: true
+      summary: V1 videos change inspection
+      x-summary-source: derived
   /v1/videos/{sid}/url/:
     parameters:
     - name: sid
@@ -866,8 +970,609 @@ paths:
                 $ref: '#/components/schemas/VideoWrite'
       tags:
       - v1
+      summary: V1 videos url
+      x-summary-source: derived
 components:
   schemas:
+    InspectionList:
+      required:
+      - key
+      - inspection_datetime
+      - inspection_type
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        key:
+          title: Key
+          description: Enables customers to uniquely identify inspections using their own method
+          type: string
+          maxLength: 128
+          minLength: 1
+        asset:
+          title: Asset
+          type: string
+          format: uri
+          readOnly: true
+        owner:
+          title: Owner
+          type: string
+          format: uri
+          readOnly: true
+        client:
+          title: Client
+          type: string
+          format: uri
+          readOnly: true
+        reason:
+          title: Reason
+          type: string
+          enum:
+          - operations-support
+          - infiltation-and-inflow
+          - new-install
+          - post-renewal
+          - pre-renewal
+          - routine
+          - pre-construction
+          - resurvey
+          - sewer-system-evaluation-survey
+          - pre-existing-media
+          - other
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        inspection_datetime:
+          title: Inspection datetime
+          type: string
+          format: date-time
+        inspection_type:
+          title: Inspection type
+          type: string
+          enum:
+          - mainline
+          - lateral
+          - maintenance-hole
+        autocode_complete:
+          title: Autocoded
+          type: boolean
+        autocode_complete_date:
+          title: Autocode complete date
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        distance:
+          title: Distance
+          type: object
+        metadata:
+          title: Metadata
+          description: Customer defined Inspection metadata.
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          format: uuid
+        video:
+          title: Video
+          type: string
+          format: uri
+          readOnly: true
+        validate:
+          title: Validate
+          description: 'Should this inspection be validated (default: True)'
+          type: boolean
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+    ProjectWrite:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uuid
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        client:
+          title: Client
+          type:
+          - string
+          - 'null'
+          format: uuid
+        date_due:
+          title: Date due
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_started:
+          title: Date started
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_finished:
+          title: Date finished
+          type:
+          - string
+          - 'null'
+          format: date-time
+        active:
+          title: Active
+          type: boolean
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+    ExportWrite:
+      type: object
+      properties:
+        name:
+          title: Name
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+    AssetList:
+      required:
+      - name
+      - kind
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        key:
+          title: Key
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        owner:
+          title: Owner
+          type: string
+          format: uri
+          readOnly: true
+        kind:
+          title: Kind
+          type: string
+          enum:
+          - mainline
+          - lateral
+          - maintenance-hole
+        geojson:
+          title: Geojson
+          type: object
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+    ExportRead:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        downloads:
+          title: Downloads
+          type: string
+          readOnly: true
+        output_paths:
+          title: Output paths
+          type: string
+          readOnly: true
+        progress:
+          title: Progress
+          type: object
+        total_size:
+          title: Total size
+          type: number
+    VideoRead:
+      required:
+      - path
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_name:
+          title: Video name
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        inspection:
+          title: Inspection
+          type: string
+          format: uri
+          readOnly: true
+        path:
+          title: Path
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        stage:
+          title: Stage
+          type: string
+          readOnly: true
+        presigned_upload_data:
+          title: Presigned upload data
+          type: object
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        project:
+          $ref: '#/components/schemas/ProjectRead'
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+    ProjectRead:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        client:
+          title: Client
+          type: string
+          format: uri
+          readOnly: true
+        date_due:
+          title: Date due
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_started:
+          title: Date started
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_finished:
+          title: Date finished
+          type:
+          - string
+          - 'null'
+          format: date-time
+        active:
+          title: Active
+          type: boolean
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+    UserRead:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
     MainlineAssetWrite:
       required:
       - name
@@ -1037,93 +1742,6 @@ components:
           type:
           - number
           - 'null'
-    ProjectRead:
-      required:
-      - name
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-        client:
-          title: Client
-          type: string
-          format: uri
-          readOnly: true
-        date_due:
-          title: Date due
-          type:
-          - string
-          - 'null'
-          format: date-time
-        date_started:
-          title: Date started
-          type:
-          - string
-          - 'null'
-          format: date-time
-        date_finished:
-          title: Date finished
-          type:
-          - string
-          - 'null'
-          format: date-time
-        active:
-          title: Active
-          type: boolean
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        deleted:
-          title: Deleted
-          type: string
-          format: date-time
-          readOnly: true
-        deleted_by:
-          title: Deleted by
-          type: string
-          format: uri
-          readOnly: true
     OrganizationWrite:
       required:
       - name
@@ -1324,331 +1942,6 @@ components:
           title: Account
           type: string
           format: uuid
-    ExportRead:
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        name:
-          title: Name
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        downloads:
-          title: Downloads
-          type: string
-          readOnly: true
-        output_paths:
-          title: Output paths
-          type: string
-          readOnly: true
-        progress:
-          title: Progress
-          type: object
-        total_size:
-          title: Total size
-          type: number
-    VideoWrite:
-      required:
-      - inspection
-      - path
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        video_name:
-          title: Video name
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        inspection:
-          title: Inspection
-          type: string
-          format: uuid
-        payouts:
-          title: Payouts
-          type: string
-        path:
-          title: Path
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        presigned_upload_data:
-          title: Presigned upload data
-          type: object
-          readOnly: true
-        stage:
-          title: Stage
-          type: integer
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 11
-          - 12
-          - 13
-          - 20
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        deleted:
-          title: Deleted
-          type: string
-          format: date-time
-          readOnly: true
-        deleted_by:
-          title: Deleted by
-          type: string
-          format: uri
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uuid
-    VideoRead:
-      required:
-      - path
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        video_name:
-          title: Video name
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        inspection:
-          title: Inspection
-          type: string
-          format: uri
-          readOnly: true
-        path:
-          title: Path
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        stage:
-          title: Stage
-          type: string
-          readOnly: true
-        presigned_upload_data:
-          title: Presigned upload data
-          type: object
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        project:
-          $ref: '#/components/schemas/ProjectRead'
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        deleted:
-          title: Deleted
-          type: string
-          format: date-time
-          readOnly: true
-        deleted_by:
-          title: Deleted by
-          type: string
-          format: uri
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-    OrganizationRead:
-      required:
-      - name
-      - city
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 1024
-          minLength: 1
-        city:
-          title: City
-          type: string
-          minLength: 1
-        city_area:
-          title: City area
-          type: string
-          minLength: 1
-        country_area:
-          title: Country area
-          type: string
-          minLength: 1
-        country_code:
-          title: Country code
-          type: string
-          minLength: 1
-        postal_code:
-          title: Postal code
-          type: string
-          minLength: 1
-        sorting_code:
-          title: Sorting code
-          type: string
-          minLength: 1
-        street_address:
-          title: Street address
-          type: string
-          minLength: 1
-        phone_number:
-          title: Phone number
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-          minLength: 1
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        deleted:
-          title: Deleted
-          type: string
-          format: date-time
-          readOnly: true
-        deleted_by:
-          title: Deleted by
-          type: string
-          format: uri
-          readOnly: true
-    UserRead:
-      required:
-      - email
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        first_name:
-          title: First name
-          type: string
-          maxLength: 150
-        last_name:
-          title: Last name
-          type: string
-          maxLength: 150
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
-        permission_level:
-          title: Permission level
-          type: string
-          readOnly: true
-        projects:
-          title: Projects
-          type: string
-          readOnly: true
     ObservationRead:
       type: object
       properties:
@@ -1744,400 +2037,6 @@ components:
           title: Updated
           type: string
           format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        deleted:
-          title: Deleted
-          type: string
-          format: date-time
-          readOnly: true
-        deleted_by:
-          title: Deleted by
-          type: string
-          format: uri
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-    AssetList:
-      required:
-      - name
-      - kind
-      - city
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 1024
-          minLength: 1
-        key:
-          title: Key
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-          minLength: 1
-        owner:
-          title: Owner
-          type: string
-          format: uri
-          readOnly: true
-        kind:
-          title: Kind
-          type: string
-          enum:
-          - mainline
-          - lateral
-          - maintenance-hole
-        geojson:
-          title: Geojson
-          type: object
-        city:
-          title: City
-          type: string
-          minLength: 1
-        city_area:
-          title: City area
-          type: string
-          minLength: 1
-        country_area:
-          title: Country area
-          type: string
-          minLength: 1
-        country_code:
-          title: Country code
-          type: string
-          minLength: 1
-        postal_code:
-          title: Postal code
-          type: string
-          minLength: 1
-        sorting_code:
-          title: Sorting code
-          type: string
-          minLength: 1
-        street_address:
-          title: Street address
-          type: string
-          minLength: 1
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        deleted:
-          title: Deleted
-          type: string
-          format: date-time
-          readOnly: true
-        deleted_by:
-          title: Deleted by
-          type: string
-          format: uri
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-    ExportWrite:
-      type: object
-      properties:
-        name:
-          title: Name
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-    ProjectWrite:
-      required:
-      - name
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uuid
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-        client:
-          title: Client
-          type:
-          - string
-          - 'null'
-          format: uuid
-        date_due:
-          title: Date due
-          type:
-          - string
-          - 'null'
-          format: date-time
-        date_started:
-          title: Date started
-          type:
-          - string
-          - 'null'
-          format: date-time
-        date_finished:
-          title: Date finished
-          type:
-          - string
-          - 'null'
-          format: date-time
-        active:
-          title: Active
-          type: boolean
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        deleted:
-          title: Deleted
-          type: string
-          format: date-time
-          readOnly: true
-        deleted_by:
-          title: Deleted by
-          type: string
-          format: uri
-          readOnly: true
-    UserList:
-      required:
-      - email
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        first_name:
-          title: First name
-          type: string
-          maxLength: 150
-        last_name:
-          title: Last name
-          type: string
-          maxLength: 150
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
-    InspectionList:
-      required:
-      - key
-      - inspection_datetime
-      - inspection_type
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        key:
-          title: Key
-          description: Enables customers to uniquely identify inspections using their own method
-          type: string
-          maxLength: 128
-          minLength: 1
-        asset:
-          title: Asset
-          type: string
-          format: uri
-          readOnly: true
-        owner:
-          title: Owner
-          type: string
-          format: uri
-          readOnly: true
-        client:
-          title: Client
-          type: string
-          format: uri
-          readOnly: true
-        reason:
-          title: Reason
-          type: string
-          enum:
-          - operations-support
-          - infiltation-and-inflow
-          - new-install
-          - post-renewal
-          - pre-renewal
-          - routine
-          - pre-construction
-          - resurvey
-          - sewer-system-evaluation-survey
-          - pre-existing-media
-          - other
-        city:
-          title: City
-          type: string
-          minLength: 1
-        city_area:
-          title: City area
-          type: string
-          minLength: 1
-        country_area:
-          title: Country area
-          type: string
-          minLength: 1
-        country_code:
-          title: Country code
-          type: string
-          minLength: 1
-        postal_code:
-          title: Postal code
-          type: string
-          minLength: 1
-        sorting_code:
-          title: Sorting code
-          type: string
-          minLength: 1
-        street_address:
-          title: Street address
-          type: string
-          minLength: 1
-        inspection_datetime:
-          title: Inspection datetime
-          type: string
-          format: date-time
-        inspection_type:
-          title: Inspection type
-          type: string
-          enum:
-          - mainline
-          - lateral
-          - maintenance-hole
-        autocode_complete:
-          title: Autocoded
-          type: boolean
-        autocode_complete_date:
-          title: Autocode complete date
-          type:
-          - string
-          - 'null'
-          format: date-time
-          readOnly: true
-        distance:
-          title: Distance
-          type: object
-        metadata:
-          title: Metadata
-          description: Customer defined Inspection metadata.
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        projects:
-          title: Projects
-          type: string
-          format: uuid
-        video:
-          title: Video
-          type: string
-          format: uri
-          readOnly: true
-        validate:
-          title: Validate
-          description: 'Should this inspection be validated (default: True)'
-          type: boolean
-        created_by:
-          title: Created by
-          type: string
-          format: uri
           readOnly: true
         updated_by:
           title: Updated by
@@ -2331,6 +2230,213 @@ components:
           type:
           - number
           - 'null'
+    VideoWrite:
+      required:
+      - inspection
+      - path
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_name:
+          title: Video name
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        inspection:
+          title: Inspection
+          type: string
+          format: uuid
+        payouts:
+          title: Payouts
+          type: string
+        path:
+          title: Path
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        presigned_upload_data:
+          title: Presigned upload data
+          type: object
+          readOnly: true
+        stage:
+          title: Stage
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 11
+          - 12
+          - 13
+          - 20
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uuid
+    OrganizationRead:
+      required:
+      - name
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        phone_number:
+          title: Phone number
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+    UserList:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
   securitySchemes:
     Basic:
       type: http

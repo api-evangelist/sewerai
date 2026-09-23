@@ -25,6 +25,8 @@ paths:
           description: ''
       tags:
       - saitests
+      summary: Saitests get tests
+      x-summary-source: derived
 components:
   securitySchemes:
     Basic:

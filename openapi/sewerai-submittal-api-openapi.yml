@@ -31,6 +31,8 @@ paths:
                   $ref: '#/components/schemas/Submittal'
       tags:
       - submittal
+      summary: Submittal list
+      x-summary-source: derived
     post:
       operationId: submittal_create
       description: ''
@@ -49,6 +51,8 @@ paths:
             schema:
               $ref: '#/components/schemas/Submittal'
         required: true
+      summary: Submittal create
+      x-summary-source: derived
   /submittal/{sid}/:
     parameters:
     - name: sid
@@ -68,6 +72,8 @@ paths:
                 $ref: '#/components/schemas/Submittal'
       tags:
       - submittal
+      summary: Submittal read
+      x-summary-source: derived
     put:
       operationId: submittal_update
       description: ''
@@ -86,6 +92,8 @@ paths:
             schema:
               $ref: '#/components/schemas/Submittal'
         required: true
+      summary: Submittal update
+      x-summary-source: derived
     patch:
       operationId: submittal_partial_update
       description: ''
@@ -104,6 +112,8 @@ paths:
             schema:
               $ref: '#/components/schemas/Submittal'
         required: true
+      summary: Submittal partial update
+      x-summary-source: derived
     delete:
       operationId: submittal_delete
       description: ''
@@ -112,6 +122,8 @@ paths:
           description: ''
       tags:
       - submittal
+      summary: Submittal delete
+      x-summary-source: derived
   /submittal/{sid}/send-reminder/:
     parameters:
     - name: sid
@@ -137,6 +149,8 @@ paths:
             schema:
               $ref: '#/components/schemas/Submittal'
         required: true
+      summary: Submittal send reminder
+      x-summary-source: derived
 components:
   schemas:
     Submittal:

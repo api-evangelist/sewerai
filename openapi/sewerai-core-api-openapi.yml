@@ -13,7 +13,7 @@ servers:
 security:
 - Basic: []
 tags:
-- name: core
+- name: Core
 paths:
   /core/SAIAnalytics/:
     parameters: []
@@ -28,13 +28,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Core SAI analytics
+      x-summary-source: derived
   /core/StatFuncList/:
     parameters: []
     get:
@@ -50,7 +52,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
+      summary: Core stat func list
+      x-summary-source: derived
   /core/import_users/:
     parameters: []
     get:
@@ -66,7 +70,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
+      summary: Core import users
+      x-summary-source: derived
   /core/notifications/:
     parameters: []
     get:
@@ -82,7 +88,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
+      summary: Core notifications
+      x-summary-source: derived
   /core/push_notification/:
     parameters: []
     post:
@@ -96,18 +104,48 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Core push notification
+      x-summary-source: derived
   /core/roi/:
     parameters: []
     post:
       operationId: core_roi
-      description: "example body\n{\n    \"body\": {\n        \"projectScope\": \"\",\n        \"footPerShift\": 1500,\n        \"bidPrice\": \"2.00\",\n        \"theirCostPerFoot\": \"2.01\",\n        \"saiCostPerFoot\": \"1.26\",\n        \"shiftsSAI\": \"\",\n        \"theirShifts\": \"\",\n        \"email\": \"example@sewerai.com\",\n        \"savings\": \"\",\n        \"additionalProfit\": \"100000.00\"\n    }\n}"
+      description: 'example body
+
+        {
+
+        "body": {
+
+        "projectScope": "",
+
+        "footPerShift": 1500,
+
+        "bidPrice": "2.00",
+
+        "theirCostPerFoot": "2.01",
+
+        "saiCostPerFoot": "1.26",
+
+        "shiftsSAI": "",
+
+        "theirShifts": "",
+
+        "email": "example@sewerai.com",
+
+        "savings": "",
+
+        "additionalProfit": "100000.00"
+
+        }
+
+        }'
       responses:
         '201':
           description: ''
@@ -116,13 +154,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Core roi
+      x-summary-source: derived
   /core/set_tos_accepted/:
     parameters: []
     post:
@@ -136,13 +176,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Core set tos accepted
+      x-summary-source: derived
   /core/set_user_hotbuttons/:
     parameters: []
     post:
@@ -156,13 +198,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Core set user hotbuttons
+      x-summary-source: derived
   /core/slack/:
     parameters: []
     post:
@@ -176,13 +220,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Core slack
+      x-summary-source: derived
   /core/stats/:
     parameters: []
     post:
@@ -196,13 +242,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Core stats
+      x-summary-source: derived
   /core/submit_jira_issue/:
     parameters: []
     post:
@@ -216,13 +264,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Core submit jira issue
+      x-summary-source: derived
   /core/subscribe/:
     parameters: []
     post:
@@ -236,13 +286,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Core subscribe
+      x-summary-source: derived
   /core/test_push/:
     parameters: []
     get:
@@ -258,7 +310,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
+      summary: Core test push
+      x-summary-source: derived
   /core/user/:
     parameters: []
     get:
@@ -274,7 +328,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
+      summary: Core user read
+      x-summary-source: derived
     patch:
       operationId: core_user_partial_update
       description: API endpoint that returns user data.
@@ -286,13 +342,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Core user partial update
+      x-summary-source: derived
   /core/users/:
     parameters: []
     get:
@@ -308,7 +366,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
       tags:
-      - core
+      - Core
+      summary: Core users
+      x-summary-source: derived
 components:
   schemas:
     Certificate:

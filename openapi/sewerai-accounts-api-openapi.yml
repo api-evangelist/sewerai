@@ -13,7 +13,7 @@ servers:
 security:
 - Basic: []
 tags:
-- name: accounts
+- name: Accounts
 paths:
   /accounts/:
     parameters: []
@@ -30,7 +30,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Account'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts list
+      x-summary-source: derived
     post:
       operationId: accounts_create
       description: API endpoint that allows users to be viewed or edited.
@@ -42,13 +44,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Account'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Account'
         required: true
+      summary: Accounts create
+      x-summary-source: derived
   /accounts/{account_sid}/files/:
     parameters:
     - name: account_sid
@@ -69,7 +73,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts files list
+      x-summary-source: derived
     post:
       operationId: accounts_files_create
       description: An Endpoint for Files.
@@ -81,13 +87,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/File'
         required: true
+      summary: Accounts files create
+      x-summary-source: derived
   /accounts/{account_sid}/files/attach_files/:
     parameters:
     - name: account_sid
@@ -106,13 +114,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/File'
         required: true
+      summary: Accounts files attach files
+      x-summary-source: derived
   /accounts/{account_sid}/files/attachments/:
     parameters:
     - name: account_sid
@@ -133,7 +143,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts files attachments
+      x-summary-source: derived
   /accounts/{account_sid}/files/batch/:
     parameters:
     - name: account_sid
@@ -152,13 +164,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/File'
         required: true
+      summary: Accounts files batch
+      x-summary-source: derived
   /accounts/{account_sid}/files/reject_match/:
     parameters:
     - name: account_sid
@@ -177,13 +191,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/File'
         required: true
+      summary: Accounts files reject match
+      x-summary-source: derived
   /accounts/{account_sid}/files/{sid}/:
     parameters:
     - name: account_sid
@@ -208,7 +224,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts files read
+      x-summary-source: derived
     put:
       operationId: accounts_files_update
       description: An Endpoint for Files.
@@ -220,13 +238,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/File'
         required: true
+      summary: Accounts files update
+      x-summary-source: derived
     patch:
       operationId: accounts_files_partial_update
       description: An Endpoint for Files.
@@ -238,13 +258,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/File'
         required: true
+      summary: Accounts files partial update
+      x-summary-source: derived
     delete:
       operationId: accounts_files_delete
       description: An Endpoint for Files.
@@ -252,7 +274,9 @@ paths:
         '204':
           description: ''
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts files delete
+      x-summary-source: derived
   /accounts/{account_sid}/files/{sid}/import-test-data/:
     parameters:
     - name: account_sid
@@ -279,7 +303,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts files import test data
+      x-summary-source: derived
   /accounts/{account_sid}/files/{sid}/{part}/:
     parameters:
     - name: account_sid
@@ -300,7 +326,7 @@ paths:
         type: string
     get:
       operationId: accounts_upload_part
-      summary: Return a presigned S3 POST for a single chunked-upload part.
+      summary: Return a presigned S3 POST for a single chunked-upload part
       description: 'The Pioneer SPA (client-external) uploads each chunk of a file as its own
 
         S3 object — accounts/{account_sid}/files/{file_sid}/{0,1,...} then an empty
@@ -333,7 +359,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - accounts
+      - Accounts
   /accounts/{account_sid}/maps/:
     parameters:
     - name: account_sid
@@ -354,7 +380,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/GISMap'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts maps list
+      x-summary-source: derived
   /accounts/{account_sid}/maps/{sid}/:
     parameters:
     - name: account_sid
@@ -379,7 +407,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GISMap'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts maps read
+      x-summary-source: derived
   /accounts/{account_sid}/projects/:
     parameters:
     - name: account_sid
@@ -400,7 +430,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/AccountProject'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts projects list
+      x-summary-source: derived
     post:
       operationId: accounts_projects_create
       description: Project endpoint.
@@ -412,13 +444,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountProject'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AccountProject'
         required: true
+      summary: Accounts projects create
+      x-summary-source: derived
   /accounts/{account_sid}/projects/{sid}/:
     parameters:
     - name: account_sid
@@ -443,7 +477,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountProject'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts projects read
+      x-summary-source: derived
     put:
       operationId: accounts_projects_update
       description: Project endpoint.
@@ -455,13 +491,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountProject'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AccountProject'
         required: true
+      summary: Accounts projects update
+      x-summary-source: derived
     patch:
       operationId: accounts_projects_partial_update
       description: Project endpoint.
@@ -473,13 +511,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountProject'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AccountProject'
         required: true
+      summary: Accounts projects partial update
+      x-summary-source: derived
     delete:
       operationId: accounts_projects_delete
       description: Project endpoint.
@@ -487,7 +527,9 @@ paths:
         '204':
           description: ''
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts projects delete
+      x-summary-source: derived
   /accounts/{account_sid}/projects/{sid}/add-canvotation-template/:
     parameters:
     - name: account_sid
@@ -512,13 +554,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountProject'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AccountProject'
         required: true
+      summary: Accounts projects add canvotation template
+      x-summary-source: derived
   /accounts/{account_sid}/projects/{sid}/remove-canvotation-template/:
     parameters:
     - name: account_sid
@@ -543,13 +587,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountProject'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AccountProject'
         required: true
+      summary: Accounts projects remove canvotation template
+      x-summary-source: derived
   /accounts/{account_sid}/projects/{sid}/sample-video/:
     parameters:
     - name: account_sid
@@ -574,7 +620,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountProject'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts projects sample video
+      x-summary-source: derived
   /accounts/{account_sid}/users/:
     parameters:
     - name: account_sid
@@ -595,7 +643,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts users list
+      x-summary-source: derived
     post:
       operationId: accounts_users_create
       description: ''
@@ -607,13 +657,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Accounts users create
+      x-summary-source: derived
   /accounts/{account_sid}/users/{sid}/:
     parameters:
     - name: account_sid
@@ -638,7 +690,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts users read
+      x-summary-source: derived
     put:
       operationId: accounts_users_update
       description: ''
@@ -650,13 +704,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Accounts users update
+      x-summary-source: derived
     patch:
       operationId: accounts_users_partial_update
       description: ''
@@ -668,13 +724,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Accounts users partial update
+      x-summary-source: derived
     delete:
       operationId: accounts_users_delete
       description: ''
@@ -682,7 +740,9 @@ paths:
         '204':
           description: ''
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts users delete
+      x-summary-source: derived
   /accounts/{account_sid}/users/{sid}/send-reminder/:
     parameters:
     - name: account_sid
@@ -707,13 +767,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
         required: true
+      summary: Accounts users send reminder
+      x-summary-source: derived
   /accounts/{sid}/:
     parameters:
     - name: sid
@@ -733,7 +795,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Account'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts read
+      x-summary-source: derived
     put:
       operationId: accounts_update
       description: API endpoint that allows users to be viewed or edited.
@@ -745,13 +809,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Account'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Account'
         required: true
+      summary: Accounts update
+      x-summary-source: derived
     patch:
       operationId: accounts_partial_update
       description: API endpoint that allows users to be viewed or edited.
@@ -763,13 +829,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Account'
       tags:
-      - accounts
+      - Accounts
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Account'
         required: true
+      summary: Accounts partial update
+      x-summary-source: derived
     delete:
       operationId: accounts_delete
       description: API endpoint that allows users to be viewed or edited.
@@ -777,7 +845,9 @@ paths:
         '204':
           description: ''
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts delete
+      x-summary-source: derived
   /accounts/{sid}/logo_upload_url/:
     parameters:
     - name: sid
@@ -797,9 +867,166 @@ paths:
               schema:
                 $ref: '#/components/schemas/Account'
       tags:
-      - accounts
+      - Accounts
+      summary: Accounts logo upload url
+      x-summary-source: derived
 components:
   schemas:
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
+    File:
+      required:
+      - meta
+      - presigned_upload
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        origin_path:
+          title: Origin path
+          type: string
+          readOnly: true
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          readOnly: true
+          minLength: 1
+        kind:
+          title: Kind
+          type: integer
+          readOnly: true
+        location:
+          title: Location
+          type:
+          - string
+          - 'null'
+        size:
+          title: Size
+          type: string
+          readOnly: true
+        exists:
+          title: Exists
+          type: string
+          readOnly: true
+        upload_location:
+          title: Upload location
+          type: string
+          readOnly: true
+          minLength: 1
+        meta:
+          title: Meta
+          type: object
+        dropbox_meta:
+          title: Dropbox meta
+          type:
+          - object
+          - 'null'
+        presigned_upload:
+          title: Presigned upload
+          type: object
+    AccountProject:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        active:
+          title: Active
+          type: boolean
+        date_due:
+          title: Date due
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_started:
+          title: Date started
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_finished:
+          title: Date finished
+          type:
+          - string
+          - 'null'
+          format: date-time
+        summary:
+          title: Summary
+          type: object
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        preferred_canvotation_template:
+          title: Preferred canvotation template
+          type: string
+          readOnly: true
+        notes:
+          title: Notes
+          type:
+          - string
+          - 'null'
     User:
       required:
       - username
@@ -921,81 +1148,6 @@ components:
         meta:
           title: Meta
           type: object
-    AccountProject:
-      required:
-      - name
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-        active:
-          title: Active
-          type: boolean
-        date_due:
-          title: Date due
-          type:
-          - string
-          - 'null'
-          format: date-time
-        date_started:
-          title: Date started
-          type:
-          - string
-          - 'null'
-          format: date-time
-        date_finished:
-          title: Date finished
-          type:
-          - string
-          - 'null'
-          format: date-time
-        summary:
-          title: Summary
-          type: object
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        preferred_canvotation_template:
-          title: Preferred canvotation template
-          type: string
-          readOnly: true
-        notes:
-          title: Notes
-          type:
-          - string
-          - 'null'
     Account:
       required:
       - name
@@ -1072,22 +1224,6 @@ components:
           title: Default lacp project spec sid
           type: string
           readOnly: true
-    Certificate:
-      type: object
-      properties:
-        number:
-          title: Certificate Number
-          description: The Certificate Number
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        cert_date:
-          title: Cert date
-          type:
-          - string
-          - 'null'
-          format: date-time
     GISMap:
       required:
       - url
@@ -1122,70 +1258,6 @@ components:
           type: string
           maxLength: 128
           minLength: 1
-    File:
-      required:
-      - meta
-      - presigned_upload
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-        origin_path:
-          title: Origin path
-          type: string
-          readOnly: true
-          minLength: 1
-        name:
-          title: Name
-          type: string
-          readOnly: true
-          minLength: 1
-        kind:
-          title: Kind
-          type: integer
-          readOnly: true
-        location:
-          title: Location
-          type:
-          - string
-          - 'null'
-        size:
-          title: Size
-          type: string
-          readOnly: true
-        exists:
-          title: Exists
-          type: string
-          readOnly: true
-        upload_location:
-          title: Upload location
-          type: string
-          readOnly: true
-          minLength: 1
-        meta:
-          title: Meta
-          type: object
-        dropbox_meta:
-          title: Dropbox meta
-          type:
-          - object
-          - 'null'
-        presigned_upload:
-          title: Presigned upload
-          type: object
   securitySchemes:
     Basic:
       type: http

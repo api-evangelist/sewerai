@@ -13,7 +13,7 @@ servers:
 security:
 - Basic: []
 tags:
-- name: files
+- name: Files
 paths:
   /files/:
     parameters: []
@@ -30,7 +30,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/File'
       tags:
-      - files
+      - Files
+      summary: Files list
+      x-summary-source: derived
   /files/FileOptions/:
     parameters: []
     get:
@@ -46,7 +48,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/File'
       tags:
-      - files
+      - Files
+      summary: Files file options
+      x-summary-source: derived
   /files/{sid}/:
     parameters:
     - name: sid
@@ -65,7 +69,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - files
+      - Files
+      summary: Files read
+      x-summary-source: derived
   /files/{sid}/Import/:
     parameters:
     - name: sid
@@ -84,13 +90,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - files
+      - Files
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/File'
         required: true
+      summary: Files import
+      x-summary-source: derived
   /files/{sid}/Read/:
     parameters:
     - name: sid
@@ -109,13 +117,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/File'
       tags:
-      - files
+      - Files
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/File'
         required: true
+      summary: Files read
+      x-summary-source: derived
 components:
   schemas:
     File:

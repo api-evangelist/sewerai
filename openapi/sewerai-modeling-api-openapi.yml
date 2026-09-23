@@ -31,6 +31,8 @@ paths:
                   $ref: '#/components/schemas/BBInferenceAssignment'
       tags:
       - modeling
+      summary: Modeling bbinference list
+      x-summary-source: derived
     post:
       operationId: modeling_bbinference_create
       description: Bounding Box Inference Assignment.
@@ -49,6 +51,8 @@ paths:
             schema:
               $ref: '#/components/schemas/BBInferenceAssignment'
         required: true
+      summary: Modeling bbinference create
+      x-summary-source: derived
   /modeling/bbinference/AutoBBModels/:
     parameters: []
     get:
@@ -65,6 +69,8 @@ paths:
                   $ref: '#/components/schemas/BBInferenceAssignment'
       tags:
       - modeling
+      summary: Modeling bbinference auto BB models
+      x-summary-source: derived
   /modeling/bbinference/MakeObsModel/:
     parameters: []
     post:
@@ -85,6 +91,8 @@ paths:
             schema:
               $ref: '#/components/schemas/BBInferenceAssignment'
         required: true
+      summary: Modeling bbinference make obs model
+      x-summary-source: derived
   /modeling/bbinference/ObsParams/:
     parameters: []
     get:
@@ -101,6 +109,8 @@ paths:
                   $ref: '#/components/schemas/BBInferenceAssignment'
       tags:
       - modeling
+      summary: Modeling bbinference obs params
+      x-summary-source: derived
   /modeling/bbinference/{sid}/:
     parameters:
     - name: sid
@@ -121,6 +131,8 @@ paths:
                 $ref: '#/components/schemas/BBInferenceAssignment'
       tags:
       - modeling
+      summary: Modeling bbinference read
+      x-summary-source: derived
     put:
       operationId: modeling_bbinference_update
       description: Bounding Box Inference Assignment.
@@ -139,6 +151,8 @@ paths:
             schema:
               $ref: '#/components/schemas/BBInferenceAssignment'
         required: true
+      summary: Modeling bbinference update
+      x-summary-source: derived
     patch:
       operationId: modeling_bbinference_partial_update
       description: Bounding Box Inference Assignment.
@@ -157,6 +171,8 @@ paths:
             schema:
               $ref: '#/components/schemas/BBInferenceAssignment'
         required: true
+      summary: Modeling bbinference partial update
+      x-summary-source: derived
     delete:
       operationId: modeling_bbinference_delete
       description: Bounding Box Inference Assignment.
@@ -165,6 +181,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling bbinference delete
+      x-summary-source: derived
   /modeling/bbinference/{sid}/MakeObs/:
     parameters:
     - name: sid
@@ -191,6 +209,8 @@ paths:
             schema:
               $ref: '#/components/schemas/BBInferenceAssignment'
         required: true
+      summary: Modeling bbinference make obs
+      x-summary-source: derived
   /modeling/ensembles/:
     parameters: []
     get:
@@ -207,6 +227,8 @@ paths:
                   $ref: '#/components/schemas/ModelEnsemble'
       tags:
       - modeling
+      summary: Modeling ensembles list
+      x-summary-source: derived
     post:
       operationId: modeling_ensembles_create
       description: ''
@@ -225,6 +247,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ModelEnsemble'
         required: true
+      summary: Modeling ensembles create
+      x-summary-source: derived
   /modeling/ensembles/{sid}/:
     parameters:
     - name: sid
@@ -245,6 +269,8 @@ paths:
                 $ref: '#/components/schemas/ModelEnsemble'
       tags:
       - modeling
+      summary: Modeling ensembles read
+      x-summary-source: derived
     put:
       operationId: modeling_ensembles_update
       description: ''
@@ -263,6 +289,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ModelEnsemble'
         required: true
+      summary: Modeling ensembles update
+      x-summary-source: derived
     patch:
       operationId: modeling_ensembles_partial_update
       description: ''
@@ -281,6 +309,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ModelEnsemble'
         required: true
+      summary: Modeling ensembles partial update
+      x-summary-source: derived
     delete:
       operationId: modeling_ensembles_delete
       description: ''
@@ -289,6 +319,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling ensembles delete
+      x-summary-source: derived
   /modeling/groups/:
     parameters: []
     get:
@@ -305,6 +337,8 @@ paths:
                   $ref: '#/components/schemas/ClassificationGroup'
       tags:
       - modeling
+      summary: Modeling groups list
+      x-summary-source: derived
     post:
       operationId: modeling_groups_create
       description: ''
@@ -323,6 +357,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ClassificationGroup'
         required: true
+      summary: Modeling groups create
+      x-summary-source: derived
   /modeling/groups/GetFastGroups/:
     parameters: []
     get:
@@ -339,6 +375,8 @@ paths:
                   $ref: '#/components/schemas/ClassificationGroup'
       tags:
       - modeling
+      summary: Modeling groups get fast groups
+      x-summary-source: derived
   /modeling/groups/{sid}/:
     parameters:
     - name: sid
@@ -359,6 +397,8 @@ paths:
                 $ref: '#/components/schemas/ClassificationGroup'
       tags:
       - modeling
+      summary: Modeling groups read
+      x-summary-source: derived
     put:
       operationId: modeling_groups_update
       description: ''
@@ -377,6 +417,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ClassificationGroup'
         required: true
+      summary: Modeling groups update
+      x-summary-source: derived
     patch:
       operationId: modeling_groups_partial_update
       description: ''
@@ -395,6 +437,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ClassificationGroup'
         required: true
+      summary: Modeling groups partial update
+      x-summary-source: derived
     delete:
       operationId: modeling_groups_delete
       description: ''
@@ -403,6 +447,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling groups delete
+      x-summary-source: derived
   /modeling/inference/:
     parameters: []
     get:
@@ -419,6 +465,8 @@ paths:
                   $ref: '#/components/schemas/InferenceAssignment'
       tags:
       - modeling
+      summary: Modeling inference list
+      x-summary-source: derived
     post:
       operationId: modeling_inference_create
       description: ''
@@ -437,6 +485,8 @@ paths:
             schema:
               $ref: '#/components/schemas/InferenceAssignment'
         required: true
+      summary: Modeling inference create
+      x-summary-source: derived
   /modeling/inference/{sid}/:
     parameters:
     - name: sid
@@ -457,6 +507,8 @@ paths:
                 $ref: '#/components/schemas/InferenceAssignment'
       tags:
       - modeling
+      summary: Modeling inference read
+      x-summary-source: derived
     put:
       operationId: modeling_inference_update
       description: ''
@@ -475,6 +527,8 @@ paths:
             schema:
               $ref: '#/components/schemas/InferenceAssignment'
         required: true
+      summary: Modeling inference update
+      x-summary-source: derived
     patch:
       operationId: modeling_inference_partial_update
       description: ''
@@ -493,6 +547,8 @@ paths:
             schema:
               $ref: '#/components/schemas/InferenceAssignment'
         required: true
+      summary: Modeling inference partial update
+      x-summary-source: derived
     delete:
       operationId: modeling_inference_delete
       description: ''
@@ -501,6 +557,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling inference delete
+      x-summary-source: derived
   /modeling/inference/{sid}/add_csv/:
     parameters:
     - name: sid
@@ -527,6 +585,8 @@ paths:
             schema:
               $ref: '#/components/schemas/InferenceAssignment'
         required: true
+      summary: Modeling inference add csv
+      x-summary-source: derived
   /modeling/models/:
     parameters: []
     get:
@@ -543,6 +603,8 @@ paths:
                   $ref: '#/components/schemas/TrainingModel'
       tags:
       - modeling
+      summary: Modeling models list
+      x-summary-source: derived
     post:
       operationId: modeling_models_create
       description: ''
@@ -561,6 +623,8 @@ paths:
             schema:
               $ref: '#/components/schemas/TrainingModel'
         required: true
+      summary: Modeling models create
+      x-summary-source: derived
   /modeling/models/GetModelNames/:
     parameters: []
     get:
@@ -577,6 +641,8 @@ paths:
                   $ref: '#/components/schemas/TrainingModel'
       tags:
       - modeling
+      summary: Modeling models get model names
+      x-summary-source: derived
   /modeling/models/{sid}/:
     parameters:
     - name: sid
@@ -597,6 +663,8 @@ paths:
                 $ref: '#/components/schemas/TrainingModel'
       tags:
       - modeling
+      summary: Modeling models read
+      x-summary-source: derived
     put:
       operationId: modeling_models_update
       description: ''
@@ -615,6 +683,8 @@ paths:
             schema:
               $ref: '#/components/schemas/TrainingModel'
         required: true
+      summary: Modeling models update
+      x-summary-source: derived
     patch:
       operationId: modeling_models_partial_update
       description: ''
@@ -633,6 +703,8 @@ paths:
             schema:
               $ref: '#/components/schemas/TrainingModel'
         required: true
+      summary: Modeling models partial update
+      x-summary-source: derived
     delete:
       operationId: modeling_models_delete
       description: ''
@@ -641,6 +713,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling models delete
+      x-summary-source: derived
   /modeling/models/{sid}/coco/:
     parameters:
     - name: sid
@@ -661,6 +735,8 @@ paths:
                 $ref: '#/components/schemas/TrainingModel'
       tags:
       - modeling
+      summary: Modeling models coco
+      x-summary-source: derived
   /modeling/observationrun/:
     parameters: []
     get:
@@ -677,6 +753,8 @@ paths:
                   $ref: '#/components/schemas/ObservationRun'
       tags:
       - modeling
+      summary: Modeling observationrun list
+      x-summary-source: derived
     post:
       operationId: modeling_observationrun_create
       description: ''
@@ -695,6 +773,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationRun'
         required: true
+      summary: Modeling observationrun create
+      x-summary-source: derived
   /modeling/observationrun/AddRunsToGroup/:
     parameters: []
     patch:
@@ -715,6 +795,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationRun'
         required: true
+      summary: Modeling observationrun add runs to group
+      x-summary-source: derived
   /modeling/observationrun/CreateRunGroup/:
     parameters: []
     post:
@@ -735,6 +817,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationRun'
         required: true
+      summary: Modeling observationrun create run group
+      x-summary-source: derived
   /modeling/observationrun/CreateTemplateRun/:
     parameters: []
     post:
@@ -755,6 +839,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationRun'
         required: true
+      summary: Modeling observationrun create template run
+      x-summary-source: derived
   /modeling/observationrun/DeleteRunsFromGroups/:
     parameters: []
     patch:
@@ -775,6 +861,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationRun'
         required: true
+      summary: Modeling observationrun delete runs from groups
+      x-summary-source: derived
   /modeling/observationrun/GetFilters/:
     parameters: []
     get:
@@ -791,6 +879,8 @@ paths:
                   $ref: '#/components/schemas/ObservationRun'
       tags:
       - modeling
+      summary: Modeling observationrun get filters
+      x-summary-source: derived
   /modeling/observationrun/GetRunGroups/:
     parameters: []
     get:
@@ -807,6 +897,8 @@ paths:
                   $ref: '#/components/schemas/ObservationRun'
       tags:
       - modeling
+      summary: Modeling observationrun get run groups
+      x-summary-source: derived
   /modeling/observationrun/GetRunNames/:
     parameters: []
     get:
@@ -823,6 +915,8 @@ paths:
                   $ref: '#/components/schemas/ObservationRun'
       tags:
       - modeling
+      summary: Modeling observationrun get run names
+      x-summary-source: derived
   /modeling/observationrun/GetSourcePresets/:
     parameters: []
     get:
@@ -839,6 +933,8 @@ paths:
                   $ref: '#/components/schemas/ObservationRun'
       tags:
       - modeling
+      summary: Modeling observationrun get source presets
+      x-summary-source: derived
   /modeling/observationrun/MakeRunsFromTemplateGroup/:
     parameters: []
     post:
@@ -859,6 +955,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationRun'
         required: true
+      summary: Modeling observationrun make runs from template group
+      x-summary-source: derived
   /modeling/observationrun/ReifyGroup/:
     parameters: []
     get:
@@ -875,6 +973,8 @@ paths:
                   $ref: '#/components/schemas/ObservationRun'
       tags:
       - modeling
+      summary: Modeling observationrun reify group
+      x-summary-source: derived
   /modeling/observationrun/{sid}/:
     parameters:
     - name: sid
@@ -895,6 +995,8 @@ paths:
                 $ref: '#/components/schemas/ObservationRun'
       tags:
       - modeling
+      summary: Modeling observationrun read
+      x-summary-source: derived
     put:
       operationId: modeling_observationrun_update
       description: ''
@@ -913,6 +1015,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationRun'
         required: true
+      summary: Modeling observationrun update
+      x-summary-source: derived
     patch:
       operationId: modeling_observationrun_partial_update
       description: ''
@@ -931,6 +1035,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ObservationRun'
         required: true
+      summary: Modeling observationrun partial update
+      x-summary-source: derived
     delete:
       operationId: modeling_observationrun_delete
       description: ''
@@ -939,6 +1045,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling observationrun delete
+      x-summary-source: derived
   /modeling/observationrun/{sid}/GetGraph/:
     parameters:
     - name: sid
@@ -959,6 +1067,8 @@ paths:
                 $ref: '#/components/schemas/ObservationRun'
       tags:
       - modeling
+      summary: Modeling observationrun get graph
+      x-summary-source: derived
   /modeling/observationrun/{sid}/Reify/:
     parameters:
     - name: sid
@@ -979,6 +1089,8 @@ paths:
                 $ref: '#/components/schemas/ObservationRun'
       tags:
       - modeling
+      summary: Modeling observationrun reify
+      x-summary-source: derived
   /modeling/observationrun/{sid}/RunObsRun/:
     parameters:
     - name: sid
@@ -999,6 +1111,8 @@ paths:
                 $ref: '#/components/schemas/ObservationRun'
       tags:
       - modeling
+      summary: Modeling observationrun run obs run
+      x-summary-source: derived
   /modeling/pobs/:
     parameters: []
     get:
@@ -1015,6 +1129,8 @@ paths:
                   $ref: '#/components/schemas/ProvisionalObservationClassification'
       tags:
       - modeling
+      summary: Modeling pobs list
+      x-summary-source: derived
     post:
       operationId: modeling_pobs_create
       description: ''
@@ -1033,6 +1149,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ProvisionalObservationClassification'
         required: true
+      summary: Modeling pobs create
+      x-summary-source: derived
   /modeling/pobs/GetIntervalReview/:
     parameters: []
     get:
@@ -1049,6 +1167,8 @@ paths:
                   $ref: '#/components/schemas/ProvisionalObservationClassification'
       tags:
       - modeling
+      summary: Modeling pobs get interval review
+      x-summary-source: derived
   /modeling/pobs/{sid}/:
     parameters:
     - name: sid
@@ -1069,6 +1189,8 @@ paths:
                 $ref: '#/components/schemas/ProvisionalObservationClassification'
       tags:
       - modeling
+      summary: Modeling pobs read
+      x-summary-source: derived
     put:
       operationId: modeling_pobs_update
       description: ''
@@ -1087,6 +1209,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ProvisionalObservationClassification'
         required: true
+      summary: Modeling pobs update
+      x-summary-source: derived
     patch:
       operationId: modeling_pobs_partial_update
       description: ''
@@ -1105,6 +1229,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ProvisionalObservationClassification'
         required: true
+      summary: Modeling pobs partial update
+      x-summary-source: derived
     delete:
       operationId: modeling_pobs_delete
       description: ''
@@ -1113,6 +1239,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling pobs delete
+      x-summary-source: derived
   /modeling/pobs/{sid}/ReviewInterval/:
     parameters:
     - name: sid
@@ -1139,6 +1267,8 @@ paths:
             schema:
               $ref: '#/components/schemas/ProvisionalObservationClassification'
         required: true
+      summary: Modeling pobs review interval
+      x-summary-source: derived
   /modeling/reginference/:
     parameters: []
     get:
@@ -1149,6 +1279,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling reginference list
+      x-summary-source: derived
     post:
       operationId: modeling_reginference_create
       description: Regression Inference Assignment.
@@ -1157,6 +1289,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling reginference create
+      x-summary-source: derived
   /modeling/reginference/{sid}/:
     parameters:
     - name: sid
@@ -1173,6 +1307,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling reginference read
+      x-summary-source: derived
     put:
       operationId: modeling_reginference_update
       description: Regression Inference Assignment.
@@ -1181,6 +1317,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling reginference update
+      x-summary-source: derived
     patch:
       operationId: modeling_reginference_partial_update
       description: Regression Inference Assignment.
@@ -1189,6 +1327,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling reginference partial update
+      x-summary-source: derived
     delete:
       operationId: modeling_reginference_delete
       description: Regression Inference Assignment.
@@ -1197,6 +1337,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling reginference delete
+      x-summary-source: derived
   /modeling/regmodels/:
     parameters: []
     get:
@@ -1213,6 +1355,8 @@ paths:
                   $ref: '#/components/schemas/RegressionModel'
       tags:
       - modeling
+      summary: Modeling regmodels list
+      x-summary-source: derived
     post:
       operationId: modeling_regmodels_create
       description: ''
@@ -1231,6 +1375,8 @@ paths:
             schema:
               $ref: '#/components/schemas/RegressionModel'
         required: true
+      summary: Modeling regmodels create
+      x-summary-source: derived
   /modeling/regmodels/{sid}/:
     parameters:
     - name: sid
@@ -1251,6 +1397,8 @@ paths:
                 $ref: '#/components/schemas/RegressionModel'
       tags:
       - modeling
+      summary: Modeling regmodels read
+      x-summary-source: derived
     put:
       operationId: modeling_regmodels_update
       description: ''
@@ -1269,6 +1417,8 @@ paths:
             schema:
               $ref: '#/components/schemas/RegressionModel'
         required: true
+      summary: Modeling regmodels update
+      x-summary-source: derived
     patch:
       operationId: modeling_regmodels_partial_update
       description: ''
@@ -1287,6 +1437,8 @@ paths:
             schema:
               $ref: '#/components/schemas/RegressionModel'
         required: true
+      summary: Modeling regmodels partial update
+      x-summary-source: derived
     delete:
       operationId: modeling_regmodels_delete
       description: ''
@@ -1295,6 +1447,8 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling regmodels delete
+      x-summary-source: derived
   /modeling/testobservation/:
     parameters: []
     get:
@@ -1311,6 +1465,8 @@ paths:
                   $ref: '#/components/schemas/TestObservationClassification'
       tags:
       - modeling
+      summary: Modeling testobservation list
+      x-summary-source: derived
     post:
       operationId: modeling_testobservation_create
       description: ''
@@ -1329,6 +1485,8 @@ paths:
             schema:
               $ref: '#/components/schemas/TestObservationClassification'
         required: true
+      summary: Modeling testobservation create
+      x-summary-source: derived
   /modeling/testobservation/{sid}/:
     parameters:
     - name: sid
@@ -1349,6 +1507,8 @@ paths:
                 $ref: '#/components/schemas/TestObservationClassification'
       tags:
       - modeling
+      summary: Modeling testobservation read
+      x-summary-source: derived
     put:
       operationId: modeling_testobservation_update
       description: ''
@@ -1367,6 +1527,8 @@ paths:
             schema:
               $ref: '#/components/schemas/TestObservationClassification'
         required: true
+      summary: Modeling testobservation update
+      x-summary-source: derived
     patch:
       operationId: modeling_testobservation_partial_update
       description: ''
@@ -1385,6 +1547,8 @@ paths:
             schema:
               $ref: '#/components/schemas/TestObservationClassification'
         required: true
+      summary: Modeling testobservation partial update
+      x-summary-source: derived
     delete:
       operationId: modeling_testobservation_delete
       description: ''
@@ -1393,189 +1557,10 @@ paths:
           description: ''
       tags:
       - modeling
+      summary: Modeling testobservation delete
+      x-summary-source: derived
 components:
   schemas:
-    VideoObservationClassification:
-      required:
-      - system
-      - code
-      - version
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        system:
-          title: System
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        code:
-          title: Code
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        version:
-          title: Version
-          type:
-          - string
-          - 'null'
-          maxLength: 32
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        family_group_color:
-          title: Family group color
-          type: string
-          readOnly: true
-    TrainingModel:
-      required:
-      - name
-      - groups
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        location:
-          title: Location
-          description: S3 location of saved model
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        wandb:
-          title: Wandb
-          description: Weights and Biases link
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - defined
-          - queued
-          - training
-          - trained
-        groups:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        groups_detail:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClassificationGroup'
-          readOnly: true
-        config_location:
-          title: Config location
-          description: S3 location of config json file
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        excluded_codes:
-          title: Excluded codes
-          type:
-          - object
-          - 'null'
-        is_testable:
-          title: Is testable
-          type: boolean
-        meta:
-          title: Meta
-          type:
-          - object
-          - 'null'
-        statistics:
-          title: Statistics
-          type:
-          - object
-          - 'null'
-        hyperparameters:
-          title: Hyperparameters
-          type:
-          - object
-          - 'null'
-        qa_type:
-          title: Qa type
-          type: string
-          enum:
-          - qa
-          - review
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
     Inspection:
       required:
       - ratings
@@ -2744,6 +2729,886 @@ components:
             type:
             - string
             - 'null'
+    ProvisionalObservationClassification:
+      required:
+      - start_frame
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        video_sid:
+          title: Video sid
+          type: string
+          readOnly: true
+          minLength: 1
+        observation_run_sid:
+          title: Observation run sid
+          type: string
+          readOnly: true
+          minLength: 1
+        classification:
+          $ref: '#/components/schemas/VideoObservationClassification'
+        interval:
+          title: Interval
+          type: string
+          readOnly: true
+        frame_urls:
+          title: Frame urls
+          type: string
+          readOnly: true
+        start_payout:
+          title: Start payout
+          type:
+          - number
+          - 'null'
+        end_payout:
+          title: End payout
+          type:
+          - number
+          - 'null'
+        start_frame:
+          title: Start frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        end_frame:
+          title: End frame
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        boxes:
+          title: Boxes
+          type: object
+        reviewed_by:
+          title: Reviewed by
+          type:
+          - string
+          - 'null'
+          format: uri
+        frame_map:
+          title: Frame map
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        inference_sid:
+          title: Inference sid
+          type: string
+          readOnly: true
+          minLength: 1
+        graph_url:
+          title: Graph url
+          type: string
+          readOnly: true
+        private_comment:
+          title: Private comment
+          type: string
+          maxLength: 10000
+          minLength: 1
+        pacp_comment:
+          title: Pacp comment
+          type: string
+          maxLength: 10000
+          minLength: 1
+    ClassificationGroup:
+      required:
+      - name
+      - codes
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          description: The name of the group
+          type: string
+          maxLength: 128
+          minLength: 1
+        codes:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        codes_detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/VideoObservationClassification'
+          readOnly: true
+        bb_count:
+          title: Bb count
+          type: integer
+          readOnly: true
+        bb_reviewed_count:
+          title: Bb reviewed count
+          type: integer
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    AccountUser:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        last_pioneer_login:
+          title: Last pioneer login
+          type: string
+          readOnly: true
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
+    InspectionRatings:
+      type: object
+      properties:
+        STGradeScore1:
+          title: Stgradescore1
+          type:
+          - number
+          - 'null'
+        STGradeScore2:
+          title: Stgradescore2
+          type:
+          - number
+          - 'null'
+        STGradeScore3:
+          title: Stgradescore3
+          type:
+          - number
+          - 'null'
+        STGradeScore4:
+          title: Stgradescore4
+          type:
+          - number
+          - 'null'
+        STGradeScore5:
+          title: Stgradescore5
+          type:
+          - number
+          - 'null'
+        OMGradeScore1:
+          title: Omgradescore1
+          type:
+          - number
+          - 'null'
+        OMGradeScore2:
+          title: Omgradescore2
+          type:
+          - number
+          - 'null'
+        OMGradeScore3:
+          title: Omgradescore3
+          type:
+          - number
+          - 'null'
+        OMGradeScore4:
+          title: Omgradescore4
+          type:
+          - number
+          - 'null'
+        OMGradeScore5:
+          title: Omgradescore5
+          type:
+          - number
+          - 'null'
+        ST1:
+          title: St1
+          type:
+          - number
+          - 'null'
+        ST2:
+          title: St2
+          type:
+          - number
+          - 'null'
+        ST3:
+          title: St3
+          type:
+          - number
+          - 'null'
+        ST4:
+          title: St4
+          type:
+          - number
+          - 'null'
+        ST5:
+          title: St5
+          type:
+          - number
+          - 'null'
+        OM1:
+          title: Om1
+          type:
+          - number
+          - 'null'
+        OM2:
+          title: Om2
+          type:
+          - number
+          - 'null'
+        OM3:
+          title: Om3
+          type:
+          - number
+          - 'null'
+        OM4:
+          title: Om4
+          type:
+          - number
+          - 'null'
+        OM5:
+          title: Om5
+          type:
+          - number
+          - 'null'
+        STPipeRating:
+          title: Stpiperating
+          type:
+          - number
+          - 'null'
+        OMPipeRating:
+          title: Ompiperating
+          type:
+          - number
+          - 'null'
+        OverallPipeRating:
+          title: Overallpiperating
+          type:
+          - number
+          - 'null'
+        STPipeRatingsIndex:
+          title: Stpiperatingsindex
+          type:
+          - number
+          - 'null'
+        OMPipeRatingsIndex:
+          title: Ompiperatingsindex
+          type:
+          - number
+          - 'null'
+        OverallPipeRatingsIndex:
+          title: Overallpiperatingsindex
+          type:
+          - number
+          - 'null'
+        Risk:
+          title: Risk
+          type:
+          - number
+          - 'null'
+        RatingID:
+          title: Ratingid
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STQuickRating:
+          title: Stquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OMQuickRating:
+          title: Omquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OverallQuickRating:
+          title: Overallquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFPACP:
+          title: Lofpacp
+          type:
+          - number
+          - 'null'
+        PACPQuickRating:
+          title: Pacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFLACP:
+          title: Loflacp
+          type:
+          - number
+          - 'null'
+        LACPQuickRating:
+          title: Lacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STMHRating:
+          title: Stmhrating
+          type:
+          - number
+          - 'null'
+        OMMHRating:
+          title: Ommhrating
+          type:
+          - number
+          - 'null'
+        OverallMHRating:
+          title: Overallmhrating
+          type:
+          - number
+          - 'null'
+        STMHRatingsIndex:
+          title: Stmhratingsindex
+          type:
+          - number
+          - 'null'
+        OMMHRatingsIndex:
+          title: Ommhratingsindex
+          type:
+          - number
+          - 'null'
+        OverallMHRatingsIndex:
+          title: Overallmhratingsindex
+          type:
+          - number
+          - 'null'
+        LoFMACP:
+          title: Lofmacp
+          type:
+          - number
+          - 'null'
+        MACPQuickRating:
+          title: Macpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+    ObservationRun:
+      required:
+      - training_model
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        training_model:
+          title: Training model
+          type: string
+          format: uri
+        model_name:
+          title: Model name
+          type: string
+          readOnly: true
+          minLength: 1
+        run_type:
+          title: Run type
+          type: integer
+          enum:
+          - 1
+          - 0
+          - 2
+        model_version:
+          title: Model version
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        display_name:
+          title: Display name
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        params:
+          title: Params
+          type: object
+        metrics:
+          title: Metrics
+          type: string
+          readOnly: true
+        source_preset:
+          title: Source preset
+          type: integer
+          enum:
+          - 4
+          - 0
+          - 3
+          - 2
+          - 1
+        source_kwargs:
+          title: Source kwargs
+          type: object
+        num_inference_required:
+          title: Num inference required
+          type: string
+          readOnly: true
+        eligible_count:
+          title: Eligible count
+          type: string
+          readOnly: true
+        videos:
+          title: Videos
+          type: string
+          readOnly: true
+        run_status:
+          title: Run status
+          type: integer
+          enum:
+          - 2
+          - 0
+          - 1
+        completed_count:
+          title: Completed count
+          type: string
+          readOnly: true
+        model_sid:
+          title: Model sid
+          type: string
+          readOnly: true
+          minLength: 1
+        group_sids:
+          title: Group sids
+          type: string
+          readOnly: true
+        video_filters:
+          title: Video filters
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        codes:
+          title: Codes
+          type: string
+          readOnly: true
+        inference_resolution:
+          title: Inference resolution
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        run_groups:
+          title: Run groups
+          type: string
+          readOnly: true
+        prov_obs_stats:
+          title: Prov obs stats
+          type: string
+          readOnly: true
+    InferenceAssignment:
+      required:
+      - name
+      - ensembles
+      - video
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        ensembles:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        ensemble_names:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          uniqueItems: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        model_csvs:
+          type:
+          - array
+          - 'null'
+          items:
+            title: Model csvs
+            type: string
+            maxLength: 1024
+            minLength: 1
+        truth_table_location:
+          title: Truth table location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        boolean_output_location:
+          title: Boolean output location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        boolean_location_url:
+          title: Boolean location url
+          type: string
+          readOnly: true
+        truth_table_location_url:
+          title: Truth table location url
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    RegressionModel:
+      required:
+      - name
+      - regression_type
+      - dims
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        location:
+          title: Location
+          description: S3 location of saved model
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        wandb:
+          title: Wandb
+          description: Weights and Biases link
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - defined
+          - queued
+          - training
+          - trained
+        regression_type:
+          title: Regression type
+          type: string
+          maxLength: 128
+          minLength: 1
+        dims:
+          title: Dims
+          type: object
+        config_location:
+          title: Config location
+          description: S3 location of config json file
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        is_testable:
+          title: Is testable
+          type: boolean
+        meta:
+          title: Meta
+          type:
+          - object
+          - 'null'
+        statistics:
+          title: Statistics
+          type:
+          - object
+          - 'null'
+        hyperparameters:
+          title: Hyperparameters
+          type:
+          - object
+          - 'null'
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
+          readOnly: true
+    ModelEnsemble:
+      required:
+      - name
+      - training_models
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        training_models:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        model_names:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          uniqueItems: true
+        logic:
+          title: Logic
+          type:
+          - object
+          - 'null'
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
     Video:
       required:
       - created_by
@@ -3158,67 +4023,6 @@ components:
           type:
           - number
           - 'null'
-    ClassificationGroup:
-      required:
-      - name
-      - codes
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          description: The name of the group
-          type: string
-          maxLength: 128
-          minLength: 1
-        codes:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        codes_detail:
-          type: array
-          items:
-            $ref: '#/components/schemas/VideoObservationClassification'
-          readOnly: true
-        bb_count:
-          title: Bb count
-          type: integer
-          readOnly: true
-        bb_reviewed_count:
-          title: Bb reviewed count
-          type: integer
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
     PartnerLink:
       required:
       - partner
@@ -3250,240 +4054,11 @@ components:
           type:
           - object
           - 'null'
-    ModelEnsemble:
+    TestObservationClassification:
       required:
-      - name
-      - training_models
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        training_models:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        model_names:
-          type: array
-          items:
-            type: string
-          readOnly: true
-          uniqueItems: true
-        logic:
-          title: Logic
-          type:
-          - object
-          - 'null'
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    AccountUser:
-      required:
-      - email
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        first_name:
-          title: First name
-          type: string
-          maxLength: 150
-        last_name:
-          title: Last name
-          type: string
-          maxLength: 150
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
-        last_pioneer_login:
-          title: Last pioneer login
-          type: string
-          readOnly: true
-        permission_level:
-          title: Permission level
-          type: string
-          readOnly: true
-        projects:
-          title: Projects
-          type: string
-          readOnly: true
-    ObservationRun:
-      required:
-      - training_model
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        training_model:
-          title: Training model
-          type: string
-          format: uri
-        model_name:
-          title: Model name
-          type: string
-          readOnly: true
-          minLength: 1
-        run_type:
-          title: Run type
-          type: integer
-          enum:
-          - 1
-          - 0
-          - 2
-        model_version:
-          title: Model version
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        display_name:
-          title: Display name
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-        params:
-          title: Params
-          type: object
-        metrics:
-          title: Metrics
-          type: string
-          readOnly: true
-        source_preset:
-          title: Source preset
-          type: integer
-          enum:
-          - 4
-          - 0
-          - 3
-          - 2
-          - 1
-        source_kwargs:
-          title: Source kwargs
-          type: object
-        num_inference_required:
-          title: Num inference required
-          type: string
-          readOnly: true
-        eligible_count:
-          title: Eligible count
-          type: string
-          readOnly: true
-        videos:
-          title: Videos
-          type: string
-          readOnly: true
-        run_status:
-          title: Run status
-          type: integer
-          enum:
-          - 2
-          - 0
-          - 1
-        completed_count:
-          title: Completed count
-          type: string
-          readOnly: true
-        model_sid:
-          title: Model sid
-          type: string
-          readOnly: true
-          minLength: 1
-        group_sids:
-          title: Group sids
-          type: string
-          readOnly: true
-        video_filters:
-          title: Video filters
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        codes:
-          title: Codes
-          type: string
-          readOnly: true
-        inference_resolution:
-          title: Inference resolution
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        run_groups:
-          title: Run groups
-          type: string
-          readOnly: true
-        prov_obs_stats:
-          title: Prov obs stats
-          type: string
-          readOnly: true
-    InferenceAssignment:
-      required:
-      - name
-      - ensembles
+      - observation_run
       - video
+      - video_frame
       type: object
       properties:
         sid:
@@ -3496,58 +4071,144 @@ components:
           type: string
           format: uri
           readOnly: true
-        name:
-          title: Name
+        observation_run:
+          title: Observation run
           type: string
-          maxLength: 128
-          minLength: 1
-        ensembles:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        ensemble_names:
-          type: array
-          items:
-            type: string
-          readOnly: true
-          uniqueItems: true
+          format: uri
         video:
           title: Video
           type: string
           format: uri
-        model_csvs:
+        video_sid:
+          title: Video sid
+          type: string
+          readOnly: true
+          minLength: 1
+        classification:
+          $ref: '#/components/schemas/VideoObservationClassification'
+        payout:
+          title: Payout
           type:
-          - array
+          - number
           - 'null'
+        video_frame:
+          title: Video frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    TrainingModel:
+      required:
+      - name
+      - groups
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        location:
+          title: Location
+          description: S3 location of saved model
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        wandb:
+          title: Wandb
+          description: Weights and Biases link
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - defined
+          - queued
+          - training
+          - trained
+        groups:
+          type: array
           items:
-            title: Model csvs
             type: string
-            maxLength: 1024
-            minLength: 1
-        truth_table_location:
-          title: Truth table location
+            format: uri
+          uniqueItems: true
+        groups_detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationGroup'
+          readOnly: true
+        config_location:
+          title: Config location
+          description: S3 location of config json file
           type:
           - string
           - 'null'
           maxLength: 1024
           minLength: 1
-        boolean_output_location:
-          title: Boolean output location
+        excluded_codes:
+          title: Excluded codes
           type:
-          - string
+          - object
           - 'null'
-          maxLength: 1024
-          minLength: 1
-        boolean_location_url:
-          title: Boolean location url
+        is_testable:
+          title: Is testable
+          type: boolean
+        meta:
+          title: Meta
+          type:
+          - object
+          - 'null'
+        statistics:
+          title: Statistics
+          type:
+          - object
+          - 'null'
+        hyperparameters:
+          title: Hyperparameters
+          type:
+          - object
+          - 'null'
+        qa_type:
+          title: Qa type
           type: string
-          readOnly: true
-        truth_table_location_url:
-          title: Truth table location url
-          type: string
-          readOnly: true
+          enum:
+          - qa
+          - review
         created:
           title: Created
           type: string
@@ -3656,501 +4317,6 @@ components:
           readOnly: true
         video_details:
           $ref: '#/components/schemas/Video'
-    TestObservationClassification:
-      required:
-      - observation_run
-      - video
-      - video_frame
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        observation_run:
-          title: Observation run
-          type: string
-          format: uri
-        video:
-          title: Video
-          type: string
-          format: uri
-        video_sid:
-          title: Video sid
-          type: string
-          readOnly: true
-          minLength: 1
-        classification:
-          $ref: '#/components/schemas/VideoObservationClassification'
-        payout:
-          title: Payout
-          type:
-          - number
-          - 'null'
-        video_frame:
-          title: Video frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    ProvisionalObservationClassification:
-      required:
-      - start_frame
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        video_sid:
-          title: Video sid
-          type: string
-          readOnly: true
-          minLength: 1
-        observation_run_sid:
-          title: Observation run sid
-          type: string
-          readOnly: true
-          minLength: 1
-        classification:
-          $ref: '#/components/schemas/VideoObservationClassification'
-        interval:
-          title: Interval
-          type: string
-          readOnly: true
-        frame_urls:
-          title: Frame urls
-          type: string
-          readOnly: true
-        start_payout:
-          title: Start payout
-          type:
-          - number
-          - 'null'
-        end_payout:
-          title: End payout
-          type:
-          - number
-          - 'null'
-        start_frame:
-          title: Start frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        end_frame:
-          title: End frame
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        boxes:
-          title: Boxes
-          type: object
-        reviewed_by:
-          title: Reviewed by
-          type:
-          - string
-          - 'null'
-          format: uri
-        frame_map:
-          title: Frame map
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        inference_sid:
-          title: Inference sid
-          type: string
-          readOnly: true
-          minLength: 1
-        graph_url:
-          title: Graph url
-          type: string
-          readOnly: true
-        private_comment:
-          title: Private comment
-          type: string
-          maxLength: 10000
-          minLength: 1
-        pacp_comment:
-          title: Pacp comment
-          type: string
-          maxLength: 10000
-          minLength: 1
-    InspectionRatings:
-      type: object
-      properties:
-        STGradeScore1:
-          title: Stgradescore1
-          type:
-          - number
-          - 'null'
-        STGradeScore2:
-          title: Stgradescore2
-          type:
-          - number
-          - 'null'
-        STGradeScore3:
-          title: Stgradescore3
-          type:
-          - number
-          - 'null'
-        STGradeScore4:
-          title: Stgradescore4
-          type:
-          - number
-          - 'null'
-        STGradeScore5:
-          title: Stgradescore5
-          type:
-          - number
-          - 'null'
-        OMGradeScore1:
-          title: Omgradescore1
-          type:
-          - number
-          - 'null'
-        OMGradeScore2:
-          title: Omgradescore2
-          type:
-          - number
-          - 'null'
-        OMGradeScore3:
-          title: Omgradescore3
-          type:
-          - number
-          - 'null'
-        OMGradeScore4:
-          title: Omgradescore4
-          type:
-          - number
-          - 'null'
-        OMGradeScore5:
-          title: Omgradescore5
-          type:
-          - number
-          - 'null'
-        ST1:
-          title: St1
-          type:
-          - number
-          - 'null'
-        ST2:
-          title: St2
-          type:
-          - number
-          - 'null'
-        ST3:
-          title: St3
-          type:
-          - number
-          - 'null'
-        ST4:
-          title: St4
-          type:
-          - number
-          - 'null'
-        ST5:
-          title: St5
-          type:
-          - number
-          - 'null'
-        OM1:
-          title: Om1
-          type:
-          - number
-          - 'null'
-        OM2:
-          title: Om2
-          type:
-          - number
-          - 'null'
-        OM3:
-          title: Om3
-          type:
-          - number
-          - 'null'
-        OM4:
-          title: Om4
-          type:
-          - number
-          - 'null'
-        OM5:
-          title: Om5
-          type:
-          - number
-          - 'null'
-        STPipeRating:
-          title: Stpiperating
-          type:
-          - number
-          - 'null'
-        OMPipeRating:
-          title: Ompiperating
-          type:
-          - number
-          - 'null'
-        OverallPipeRating:
-          title: Overallpiperating
-          type:
-          - number
-          - 'null'
-        STPipeRatingsIndex:
-          title: Stpiperatingsindex
-          type:
-          - number
-          - 'null'
-        OMPipeRatingsIndex:
-          title: Ompiperatingsindex
-          type:
-          - number
-          - 'null'
-        OverallPipeRatingsIndex:
-          title: Overallpiperatingsindex
-          type:
-          - number
-          - 'null'
-        Risk:
-          title: Risk
-          type:
-          - number
-          - 'null'
-        RatingID:
-          title: Ratingid
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        STQuickRating:
-          title: Stquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        OMQuickRating:
-          title: Omquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        OverallQuickRating:
-          title: Overallquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        LoFPACP:
-          title: Lofpacp
-          type:
-          - number
-          - 'null'
-        PACPQuickRating:
-          title: Pacpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        LoFLACP:
-          title: Loflacp
-          type:
-          - number
-          - 'null'
-        LACPQuickRating:
-          title: Lacpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        STMHRating:
-          title: Stmhrating
-          type:
-          - number
-          - 'null'
-        OMMHRating:
-          title: Ommhrating
-          type:
-          - number
-          - 'null'
-        OverallMHRating:
-          title: Overallmhrating
-          type:
-          - number
-          - 'null'
-        STMHRatingsIndex:
-          title: Stmhratingsindex
-          type:
-          - number
-          - 'null'
-        OMMHRatingsIndex:
-          title: Ommhratingsindex
-          type:
-          - number
-          - 'null'
-        OverallMHRatingsIndex:
-          title: Overallmhratingsindex
-          type:
-          - number
-          - 'null'
-        LoFMACP:
-          title: Lofmacp
-          type:
-          - number
-          - 'null'
-        MACPQuickRating:
-          title: Macpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-    RegressionModel:
-      required:
-      - name
-      - regression_type
-      - dims
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        location:
-          title: Location
-          description: S3 location of saved model
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        wandb:
-          title: Wandb
-          description: Weights and Biases link
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - defined
-          - queued
-          - training
-          - trained
-        regression_type:
-          title: Regression type
-          type: string
-          maxLength: 128
-          minLength: 1
-        dims:
-          title: Dims
-          type: object
-        config_location:
-          title: Config location
-          description: S3 location of config json file
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        is_testable:
-          title: Is testable
-          type: boolean
-        meta:
-          title: Meta
-          type:
-          - object
-          - 'null'
-        statistics:
-          title: Statistics
-          type:
-          - object
-          - 'null'
-        hyperparameters:
-          title: Hyperparameters
-          type:
-          - object
-          - 'null'
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
   securitySchemes:
     Basic:
       type: http

@@ -19,7 +19,7 @@ paths:
     parameters: []
     get:
       operationId: api_schema_list
-      summary: OpenApi3 schema for this API. Format can be selected via content negotiation.
+      summary: OpenApi3 schema for this API. Format can be selected via content negotiation
       description: '- YAML: application/vnd.oai.openapi
 
         - JSON: application/vnd.oai.openapi+json'
@@ -38,6 +38,8 @@ paths:
           description: ''
       tags:
       - api
+      summary: Api schema redoc list
+      x-summary-source: derived
   /api/schema/swagger/:
     parameters: []
     get:
@@ -48,6 +50,8 @@ paths:
           description: ''
       tags:
       - api
+      summary: Api schema swagger list
+      x-summary-source: derived
 components:
   securitySchemes:
     Basic:

@@ -13,7 +13,7 @@ servers:
 security:
 - Basic: []
 tags:
-- name: annotations
+- name: Annotations
 paths:
   /annotations/:
     parameters: []
@@ -30,7 +30,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/AIAnnotation'
       tags:
-      - annotations
+      - Annotations
+      summary: Annotations list
+      x-summary-source: derived
     post:
       operationId: annotations_create
       description: ''
@@ -42,13 +44,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AIAnnotation'
       tags:
-      - annotations
+      - Annotations
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AIAnnotation'
         required: true
+      summary: Annotations create
+      x-summary-source: derived
   /annotations/{sid}/:
     parameters:
     - name: sid
@@ -67,7 +71,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/AIAnnotation'
       tags:
-      - annotations
+      - Annotations
+      summary: Annotations read
+      x-summary-source: derived
     put:
       operationId: annotations_update
       description: ''
@@ -79,13 +85,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AIAnnotation'
       tags:
-      - annotations
+      - Annotations
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AIAnnotation'
         required: true
+      summary: Annotations update
+      x-summary-source: derived
     patch:
       operationId: annotations_partial_update
       description: ''
@@ -97,13 +105,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/AIAnnotation'
       tags:
-      - annotations
+      - Annotations
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/AIAnnotation'
         required: true
+      summary: Annotations partial update
+      x-summary-source: derived
     delete:
       operationId: annotations_delete
       description: ''
@@ -111,7 +121,9 @@ paths:
         '204':
           description: ''
       tags:
-      - annotations
+      - Annotations
+      summary: Annotations delete
+      x-summary-source: derived
 components:
   schemas:
     AIAnnotation:
