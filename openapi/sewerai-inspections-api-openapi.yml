@@ -1,0 +1,614 @@
+openapi: 3.2.0
+info:
+  title: Snippets Inspections API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: Inspections
+paths:
+  /v1/inspections/:
+    parameters: []
+    get:
+      operationId: v1_inspections_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InspectionList'
+      tags:
+      - Inspections
+      summary: V1 inspections list
+      x-summary-source: derived
+    post:
+      operationId: v1_inspections_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Inspections
+      summary: V1 inspections create
+      x-summary-source: derived
+  /v1/inspections/AutoCode/:
+    parameters: []
+    post:
+      operationId: v1_inspections_AutoCode
+      description: ''
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Inspections
+      summary: V1 inspections auto code
+      x-summary-source: derived
+  /v1/inspections/{inspection_sid}/observations/:
+    parameters:
+    - name: inspection_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: v1_inspections_observations_list
+      description: Observations endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObservationRead'
+      tags:
+      - Inspections
+      summary: V1 inspections observations list
+      x-summary-source: derived
+    post:
+      operationId: v1_inspections_observations_create
+      description: Observations endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationWrite'
+      tags:
+      - Inspections
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationWrite'
+        required: true
+      summary: V1 inspections observations create
+      x-summary-source: derived
+  /v1/inspections/{inspection_sid}/observations/{sid}/:
+    parameters:
+    - name: inspection_sid
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_inspections_observations_read
+      description: Observations endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationRead'
+      tags:
+      - Inspections
+      summary: V1 inspections observations read
+      x-summary-source: derived
+    put:
+      operationId: v1_inspections_observations_update
+      description: Observations endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationWrite'
+      tags:
+      - Inspections
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationWrite'
+        required: true
+      summary: V1 inspections observations update
+      x-summary-source: derived
+    patch:
+      operationId: v1_inspections_observations_partial_update
+      description: Observations endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationWrite'
+      tags:
+      - Inspections
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationWrite'
+        required: true
+      summary: V1 inspections observations partial update
+      x-summary-source: derived
+    delete:
+      operationId: v1_inspections_observations_delete
+      description: Observations endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Inspections
+      summary: V1 inspections observations delete
+      x-summary-source: derived
+  /v1/inspections/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_inspections_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Inspections
+      summary: V1 inspections read
+      x-summary-source: derived
+    put:
+      operationId: v1_inspections_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Inspections
+      summary: V1 inspections update
+      x-summary-source: derived
+    patch:
+      operationId: v1_inspections_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Inspections
+      summary: V1 inspections partial update
+      x-summary-source: derived
+    delete:
+      operationId: v1_inspections_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Inspections
+      summary: V1 inspections delete
+      x-summary-source: derived
+components:
+  schemas:
+    ObservationWrite:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_frame:
+          title: Video frame
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        Distance:
+          title: Distance
+          type: number
+          readOnly: true
+        code:
+          title: Code
+          type: string
+          readOnly: true
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          readOnly: true
+          minLength: 1
+        Continuous:
+          title: Continuous
+          type: string
+          readOnly: true
+          minLength: 1
+        Joint:
+          title: Joint
+          type: boolean
+          readOnly: true
+        Clock_At_From:
+          title: Clock at from
+          type: integer
+          readOnly: true
+        Clock_To:
+          title: Clock to
+          type: integer
+          readOnly: true
+        Value_1st_Dimension:
+          title: Value 1st dimension
+          type: number
+          readOnly: true
+        Value_2nd_Dimension:
+          title: Value 2nd dimension
+          type: number
+          readOnly: true
+        Value_Percent:
+          title: Value percent
+          type: number
+          readOnly: true
+        Remarks:
+          title: Remarks
+          type: string
+          readOnly: true
+          minLength: 1
+        snapshot_url:
+          title: Snapshot url
+          type: string
+          readOnly: true
+        bounding_boxes:
+          title: Bounding boxes
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uuid
+    InspectionList:
+      required:
+      - key
+      - inspection_datetime
+      - inspection_type
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        key:
+          title: Key
+          description: Enables customers to uniquely identify inspections using their own method
+          type: string
+          maxLength: 128
+          minLength: 1
+        asset:
+          title: Asset
+          type: string
+          format: uri
+          readOnly: true
+        owner:
+          title: Owner
+          type: string
+          format: uri
+          readOnly: true
+        client:
+          title: Client
+          type: string
+          format: uri
+          readOnly: true
+        reason:
+          title: Reason
+          type: string
+          enum:
+          - operations-support
+          - infiltation-and-inflow
+          - new-install
+          - post-renewal
+          - pre-renewal
+          - routine
+          - pre-construction
+          - resurvey
+          - sewer-system-evaluation-survey
+          - pre-existing-media
+          - other
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        inspection_datetime:
+          title: Inspection datetime
+          type: string
+          format: date-time
+        inspection_type:
+          title: Inspection type
+          type: string
+          enum:
+          - mainline
+          - lateral
+          - maintenance-hole
+        autocode_complete:
+          title: Autocoded
+          type: boolean
+        autocode_complete_date:
+          title: Autocode complete date
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        distance:
+          title: Distance
+          type: object
+        metadata:
+          title: Metadata
+          description: Customer defined Inspection metadata.
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          format: uuid
+        video:
+          title: Video
+          type: string
+          format: uri
+          readOnly: true
+        validate:
+          title: Validate
+          description: 'Should this inspection be validated (default: True)'
+          type: boolean
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+    ObservationRead:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_frame:
+          title: Video frame
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        Distance:
+          title: Distance
+          type: number
+          readOnly: true
+        code:
+          title: Code
+          type: string
+          readOnly: true
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          readOnly: true
+          minLength: 1
+        Continuous:
+          title: Continuous
+          type: string
+          readOnly: true
+          minLength: 1
+        Joint:
+          title: Joint
+          type: boolean
+          readOnly: true
+        Clock_At_From:
+          title: Clock at from
+          type: integer
+          readOnly: true
+        Clock_To:
+          title: Clock to
+          type: integer
+          readOnly: true
+        Value_1st_Dimension:
+          title: Value 1st dimension
+          type: number
+          readOnly: true
+        Value_2nd_Dimension:
+          title: Value 2nd dimension
+          type: number
+          readOnly: true
+        Value_Percent:
+          title: Value percent
+          type: number
+          readOnly: true
+        Grade:
+          title: Grade
+          type: string
+          readOnly: true
+          minLength: 1
+        Remarks:
+          title: Remarks
+          type: string
+          readOnly: true
+          minLength: 1
+        snapshot_url:
+          title: Snapshot url
+          type: string
+          readOnly: true
+        bounding_boxes:
+          title: Bounding boxes
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

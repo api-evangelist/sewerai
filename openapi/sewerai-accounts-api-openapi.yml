@@ -872,26 +872,10 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Certificate:
-      type: object
-      properties:
-        number:
-          title: Certificate Number
-          description: The Certificate Number
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        cert_date:
-          title: Cert date
-          type:
-          - string
-          - 'null'
-          format: date-time
-    File:
+    Account:
       required:
-      - meta
-      - presigned_upload
+      - name
+      - display_name
       type: object
       properties:
         url:
@@ -904,54 +888,66 @@ components:
           type: string
           format: uuid
           readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-        origin_path:
-          title: Origin path
-          type: string
-          readOnly: true
-          minLength: 1
         name:
           title: Name
           type: string
-          readOnly: true
+          maxLength: 512
           minLength: 1
+        display_name:
+          title: Display name
+          type: string
+          maxLength: 512
+          minLength: 1
+        location:
+          title: Location
+          type: string
+          maxLength: 512
+        user_permission:
+          title: User permission
+          type: string
+          readOnly: true
+        stage:
+          title: Stage
+          type: string
+          readOnly: true
         kind:
           title: Kind
           type: integer
-          readOnly: true
-        location:
-          title: Location
-          type:
-          - string
-          - 'null'
-        size:
-          title: Size
-          type: string
-          readOnly: true
-        exists:
-          title: Exists
-          type: string
-          readOnly: true
-        upload_location:
-          title: Upload location
-          type: string
-          readOnly: true
-          minLength: 1
-        meta:
-          title: Meta
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+        owners:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        file_naming_formats:
+          title: File naming formats
           type: object
-        dropbox_meta:
-          title: Dropbox meta
-          type:
-          - object
-          - 'null'
-        presigned_upload:
-          title: Presigned upload
-          type: object
+        pdf_template_options:
+          title: Pdf template options
+          type: string
+          readOnly: true
+        logo_url:
+          title: Logo url
+          type: string
+          readOnly: true
+        default_pacp_project_spec_sid:
+          title: Default pacp project spec sid
+          type: string
+          readOnly: true
+        default_macp_project_spec_sid:
+          title: Default macp project spec sid
+          type: string
+          readOnly: true
+        default_lacp_project_spec_sid:
+          title: Default lacp project spec sid
+          type: string
+          readOnly: true
     AccountProject:
       required:
       - name
@@ -1027,6 +1023,104 @@ components:
           type:
           - string
           - 'null'
+    File:
+      required:
+      - meta
+      - presigned_upload
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        origin_path:
+          title: Origin path
+          type: string
+          readOnly: true
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          readOnly: true
+          minLength: 1
+        kind:
+          title: Kind
+          type: integer
+          readOnly: true
+        location:
+          title: Location
+          type:
+          - string
+          - 'null'
+        size:
+          title: Size
+          type: string
+          readOnly: true
+        exists:
+          title: Exists
+          type: string
+          readOnly: true
+        upload_location:
+          title: Upload location
+          type: string
+          readOnly: true
+          minLength: 1
+        meta:
+          title: Meta
+          type: object
+        dropbox_meta:
+          title: Dropbox meta
+          type:
+          - object
+          - 'null'
+        presigned_upload:
+          title: Presigned upload
+          type: object
+    GISMap:
+      required:
+      - url
+      - name
+      - sewer_key_pipe
+      - sewer_key_upmh
+      - sewer_key_downmh
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          maxLength: 1024
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_pipe:
+          title: Sewer key pipe
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_upmh:
+          title: Sewer key upmh
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_downmh:
+          title: Sewer key downmh
+          type: string
+          maxLength: 128
+          minLength: 1
     User:
       required:
       - username
@@ -1148,116 +1242,22 @@ components:
         meta:
           title: Meta
           type: object
-    Account:
-      required:
-      - name
-      - display_name
+    Certificate:
       type: object
       properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 512
-          minLength: 1
-        display_name:
-          title: Display name
-          type: string
-          maxLength: 512
-          minLength: 1
-        location:
-          title: Location
-          type: string
-          maxLength: 512
-        user_permission:
-          title: User permission
-          type: string
-          readOnly: true
-        stage:
-          title: Stage
-          type: string
-          readOnly: true
-        kind:
-          title: Kind
-          type: integer
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-        owners:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        file_naming_formats:
-          title: File naming formats
-          type: object
-        pdf_template_options:
-          title: Pdf template options
-          type: string
-          readOnly: true
-        logo_url:
-          title: Logo url
-          type: string
-          readOnly: true
-        default_pacp_project_spec_sid:
-          title: Default pacp project spec sid
-          type: string
-          readOnly: true
-        default_macp_project_spec_sid:
-          title: Default macp project spec sid
-          type: string
-          readOnly: true
-        default_lacp_project_spec_sid:
-          title: Default lacp project spec sid
-          type: string
-          readOnly: true
-    GISMap:
-      required:
-      - url
-      - name
-      - sewer_key_pipe
-      - sewer_key_upmh
-      - sewer_key_downmh
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          maxLength: 1024
-          minLength: 1
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        sewer_key_pipe:
-          title: Sewer key pipe
-          type: string
-          maxLength: 128
-          minLength: 1
-        sewer_key_upmh:
-          title: Sewer key upmh
-          type: string
-          maxLength: 128
-          minLength: 1
-        sewer_key_downmh:
-          title: Sewer key downmh
-          type: string
-          maxLength: 128
-          minLength: 1
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
   securitySchemes:
     Basic:
       type: http

@@ -89,74 +89,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    VideoObservationClassification:
-      required:
-      - system
-      - code
-      - version
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        system:
-          title: System
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        code:
-          title: Code
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        version:
-          title: Version
-          type:
-          - string
-          - 'null'
-          maxLength: 32
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        family_group_color:
-          title: Family group color
-          type: string
-          readOnly: true
     ObservationClassificationAnalytics:
       required:
       - percent
@@ -265,6 +197,74 @@ components:
           title: Updated by
           type: string
           format: uri
+          readOnly: true
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
           readOnly: true
   securitySchemes:
     Basic:

@@ -1,0 +1,307 @@
+openapi: 3.2.0
+info:
+  title: Snippets Projects API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: Projects
+paths:
+  /v1/projects/:
+    parameters: []
+    get:
+      operationId: v1_projects_list
+      description: Projects endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProjectRead'
+      tags:
+      - Projects
+      summary: V1 projects list
+      x-summary-source: derived
+    post:
+      operationId: v1_projects_create
+      description: Projects endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectWrite'
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectWrite'
+        required: true
+      summary: V1 projects create
+      x-summary-source: derived
+  /v1/projects/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_projects_read
+      description: Projects endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectRead'
+      tags:
+      - Projects
+      summary: V1 projects read
+      x-summary-source: derived
+    put:
+      operationId: v1_projects_update
+      description: Projects endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectWrite'
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectWrite'
+        required: true
+      summary: V1 projects update
+      x-summary-source: derived
+    patch:
+      operationId: v1_projects_partial_update
+      description: Projects endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectWrite'
+      tags:
+      - Projects
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectWrite'
+        required: true
+      summary: V1 projects partial update
+      x-summary-source: derived
+    delete:
+      operationId: v1_projects_delete
+      description: Projects endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Projects
+      summary: V1 projects delete
+      x-summary-source: derived
+components:
+  schemas:
+    ProjectRead:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        client:
+          title: Client
+          type: string
+          format: uri
+          readOnly: true
+        date_due:
+          title: Date due
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_started:
+          title: Date started
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_finished:
+          title: Date finished
+          type:
+          - string
+          - 'null'
+          format: date-time
+        active:
+          title: Active
+          type: boolean
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+    ProjectWrite:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uuid
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        client:
+          title: Client
+          type:
+          - string
+          - 'null'
+          format: uuid
+        date_due:
+          title: Date due
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_started:
+          title: Date started
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_finished:
+          title: Date finished
+          type:
+          - string
+          - 'null'
+          format: date-time
+        active:
+          title: Active
+          type: boolean
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

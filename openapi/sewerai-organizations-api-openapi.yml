@@ -1,0 +1,314 @@
+openapi: 3.2.0
+info:
+  title: Snippets Organizations API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: Organizations
+paths:
+  /v1/organizations/:
+    parameters: []
+    get:
+      operationId: v1_organizations_list
+      description: Organization endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrganizationRead'
+      tags:
+      - Organizations
+      summary: V1 organizations list
+      x-summary-source: derived
+    post:
+      operationId: v1_organizations_create
+      description: Organization endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationWrite'
+      tags:
+      - Organizations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationWrite'
+        required: true
+      summary: V1 organizations create
+      x-summary-source: derived
+  /v1/organizations/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_organizations_read
+      description: Organization endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationRead'
+      tags:
+      - Organizations
+      summary: V1 organizations read
+      x-summary-source: derived
+    put:
+      operationId: v1_organizations_update
+      description: Organization endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationWrite'
+      tags:
+      - Organizations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationWrite'
+        required: true
+      summary: V1 organizations update
+      x-summary-source: derived
+    patch:
+      operationId: v1_organizations_partial_update
+      description: Organization endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationWrite'
+      tags:
+      - Organizations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationWrite'
+        required: true
+      summary: V1 organizations partial update
+      x-summary-source: derived
+    delete:
+      operationId: v1_organizations_delete
+      description: Organization endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Organizations
+      summary: V1 organizations delete
+      x-summary-source: derived
+components:
+  schemas:
+    OrganizationWrite:
+      required:
+      - name
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        phone_number:
+          title: Phone number
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        account:
+          title: Account
+          type: string
+          format: uuid
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+    OrganizationRead:
+      required:
+      - name
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        phone_number:
+          title: Phone number
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

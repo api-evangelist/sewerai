@@ -1,0 +1,581 @@
+openapi: 3.2.0
+info:
+  title: Snippets Assets API
+  description: Test description
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@snippets.local
+  license:
+    name: BSD License
+  version: v1
+servers:
+- url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+security:
+- Basic: []
+tags:
+- name: Assets
+paths:
+  /v1/assets/:
+    parameters: []
+    get:
+      operationId: v1_assets_list
+      description: Asset endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssetList'
+      tags:
+      - Assets
+      summary: V1 assets list
+      x-summary-source: derived
+    post:
+      operationId: v1_assets_create
+      description: Asset endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MainlineAssetWrite'
+      tags:
+      - Assets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MainlineAssetWrite'
+        required: true
+      summary: V1 assets create
+      x-summary-source: derived
+  /v1/assets/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_assets_read
+      description: Asset endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MainlineAssetRead'
+      tags:
+      - Assets
+      summary: V1 assets read
+      x-summary-source: derived
+    put:
+      operationId: v1_assets_update
+      description: Asset endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MainlineAssetWrite'
+      tags:
+      - Assets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MainlineAssetWrite'
+        required: true
+      summary: V1 assets update
+      x-summary-source: derived
+    patch:
+      operationId: v1_assets_partial_update
+      description: Asset endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MainlineAssetWrite'
+      tags:
+      - Assets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MainlineAssetWrite'
+        required: true
+      summary: V1 assets partial update
+      x-summary-source: derived
+    delete:
+      operationId: v1_assets_delete
+      description: Asset endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Assets
+      summary: V1 assets delete
+      x-summary-source: derived
+components:
+  schemas:
+    AssetList:
+      required:
+      - name
+      - kind
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        key:
+          title: Key
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        owner:
+          title: Owner
+          type: string
+          format: uri
+          readOnly: true
+        kind:
+          title: Kind
+          type: string
+          enum:
+          - mainline
+          - lateral
+          - maintenance-hole
+        geojson:
+          title: Geojson
+          type: object
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+    MainlineAssetRead:
+      required:
+      - name
+      - kind
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        key:
+          title: Key
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        owner:
+          title: Owner
+          type: string
+          format: uri
+          readOnly: true
+        kind:
+          title: Kind
+          type: string
+          enum:
+          - mainline
+          - lateral
+          - maintenance-hole
+        geojson:
+          title: Geojson
+          type: object
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        category:
+          title: Category
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        metric:
+          title: Metric
+          type:
+          - boolean
+          - 'null'
+        shape:
+          title: Shape
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        host_material:
+          title: Host material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        renewal_method:
+          title: Renewal method
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        renewal_year:
+          title: Renewal year
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        length:
+          title: Length
+          type:
+          - number
+          - 'null'
+        height:
+          title: Height
+          type:
+          - number
+          - 'null'
+        width:
+          title: Width
+          type:
+          - number
+          - 'null'
+        joint_distance:
+          title: Joint distance
+          type:
+          - number
+          - 'null'
+        rim_to_invert:
+          title: Rim to invert
+          type:
+          - number
+          - 'null'
+        rim_to_grade:
+          title: Rim to grade
+          type:
+          - number
+          - 'null'
+    MainlineAssetWrite:
+      required:
+      - name
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        key:
+          title: Key
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        owner:
+          title: Owner
+          type:
+          - string
+          - 'null'
+          format: uuid
+        kind:
+          title: Kind
+          type: string
+          default: mainline
+          minLength: 1
+        geojson:
+          title: Geojson
+          type: object
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uuid
+        category:
+          title: Category
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        metric:
+          title: Metric
+          type:
+          - boolean
+          - 'null'
+        shape:
+          title: Shape
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        host_material:
+          title: Host material
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        renewal_method:
+          title: Renewal method
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        renewal_year:
+          title: Renewal year
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        length:
+          title: Length
+          type:
+          - number
+          - 'null'
+        height:
+          title: Height
+          type:
+          - number
+          - 'null'
+        width:
+          title: Width
+          type:
+          - number
+          - 'null'
+        joint_distance:
+          title: Joint distance
+          type:
+          - number
+          - 'null'
+        rim_to_invert:
+          title: Rim to invert
+          type:
+          - number
+          - 'null'
+        rim_to_grade:
+          title: Rim to grade
+          type:
+          - number
+          - 'null'
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

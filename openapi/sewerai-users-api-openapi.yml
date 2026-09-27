@@ -15,6 +15,116 @@ security:
 tags:
 - name: Users
 paths:
+  /v1/users/:
+    parameters: []
+    get:
+      operationId: v1_users_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserList'
+      tags:
+      - Users
+      summary: V1 users list
+      x-summary-source: derived
+    post:
+      operationId: v1_users_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRead'
+      tags:
+      - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRead'
+        required: true
+      summary: V1 users create
+      x-summary-source: derived
+  /v1/users/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_users_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRead'
+      tags:
+      - Users
+      summary: V1 users read
+      x-summary-source: derived
+    put:
+      operationId: v1_users_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRead'
+      tags:
+      - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRead'
+        required: true
+      summary: V1 users update
+      x-summary-source: derived
+    patch:
+      operationId: v1_users_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRead'
+      tags:
+      - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRead'
+        required: true
+      summary: V1 users partial update
+      x-summary-source: derived
+    delete:
+      operationId: v1_users_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Users
+      summary: V1 users delete
+      x-summary-source: derived
   /users/:
     parameters: []
     get:
@@ -473,22 +583,72 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Certificate:
+    UserList:
+      required:
+      - email
       type: object
       properties:
-        number:
-          title: Certificate Number
-          description: The Certificate Number
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        cert_date:
-          title: Cert date
-          type:
-          - string
-          - 'null'
-          format: date-time
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+    UserRead:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
     User:
       required:
       - username
@@ -610,6 +770,22 @@ components:
         meta:
           title: Meta
           type: object
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
   securitySchemes:
     Basic:
       type: http

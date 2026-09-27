@@ -559,59 +559,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DownloadHistory:
-      required:
-      - video
-      - frame
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        video:
-          title: Video
-          type: string
-          format: uri
-        video_sid:
-          title: Video sid
-          type: string
-          readOnly: true
-          minLength: 1
-        frame:
-          title: Frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
     FrameQualityReview:
       required:
       - video
@@ -655,6 +602,59 @@ components:
         from_intermediate:
           title: From intermediate
           type: boolean
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    DownloadHistory:
+      required:
+      - video
+      - frame
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        video_sid:
+          title: Video sid
+          type: string
+          readOnly: true
+          minLength: 1
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        meta:
+          title: Meta
+          type: object
         created:
           title: Created
           type: string

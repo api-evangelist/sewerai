@@ -15,6 +15,115 @@ security:
 tags:
 - name: Exports
 paths:
+  /v1/exports/:
+    parameters: []
+    get:
+      operationId: v1_exports_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExportRead'
+      tags:
+      - Exports
+      summary: V1 exports list
+      x-summary-source: derived
+    post:
+      operationId: v1_exports_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportWrite'
+      tags:
+      - Exports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportWrite'
+        required: true
+      summary: V1 exports create
+      x-summary-source: derived
+  /v1/exports/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: v1_exports_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportRead'
+      tags:
+      - Exports
+      summary: V1 exports read
+      x-summary-source: derived
+    put:
+      operationId: v1_exports_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportWrite'
+      tags:
+      - Exports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportWrite'
+        required: true
+      summary: V1 exports update
+      x-summary-source: derived
+    patch:
+      operationId: v1_exports_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportWrite'
+      tags:
+      - Exports
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportWrite'
+        required: true
+      summary: V1 exports partial update
+      x-summary-source: derived
+    delete:
+      operationId: v1_exports_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Exports
+      summary: V1 exports delete
+      x-summary-source: derived
   /exports/:
     parameters: []
     get:
@@ -183,6 +292,53 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ExportRead:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        downloads:
+          title: Downloads
+          type: string
+          readOnly: true
+        output_paths:
+          title: Output paths
+          type: string
+          readOnly: true
+        progress:
+          title: Progress
+          type: object
+        total_size:
+          title: Total size
+          type: number
+    ExportWrite:
+      type: object
+      properties:
+        name:
+          title: Name
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
     Export:
       type: object
       properties:

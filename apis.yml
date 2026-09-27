@@ -51,7 +51,7 @@ tags:
 - Water Infrastructure
 - Sewer Inspection
 - Asset Management
-- Computer-Vision
+- Computer Vision
 - Artificial Intelligence
 - GIS
 - Public Works
@@ -70,6 +70,7 @@ tags_raw:
 - construction-technology
 - nassco
 - cctv-inspection
+- Computer-Vision
 apis:
 - aid: sewerai:sewerai-account-usage-api
   name: SewerAI Account Usage API
@@ -167,33 +168,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/sewerai-annotations-api-openapi.yml
-  - type: Documentation
-    url: https://docs.sewerai.com/
-  - type: APIReference
-    url: https://docs.sewerai.com/#sewerai-api
-  - type: GettingStarted
-    url: https://docs.sewerai.com/#introduction
-  - type: Swagger
-    url: openapi/_original/sewerai-swagger.json
-  - type: Authentication
-    url: authentication/sewerai-authentication.yml
-  - type: Conventions
-    url: conventions/sewerai-conventions.yml
-  - type: DataModel
-    url: data-model/sewerai-data-model.yml
-  - type: ErrorCatalog
-    url: errors/sewerai-problem-types.yml
-- aid: sewerai:sewerai-api-api
-  name: SewerAI API
-  description: The api API from SewerAI — 3 operation(s) for api.
-  humanURL: https://docs.sewerai.com/
-  baseURL: https://api.sewerai.com/v1
-  tags: []
-  tags_raw:
-  - api
-  properties:
-  - type: OpenAPI
-    url: openapi/sewerai-api-api-openapi.yml
   - type: Documentation
     url: https://docs.sewerai.com/
   - type: APIReference
@@ -762,16 +736,18 @@ apis:
     url: data-model/sewerai-data-model.yml
   - type: ErrorCatalog
     url: errors/sewerai-problem-types.yml
-- aid: sewerai:sewerai-v1-api
-  name: SewerAI V1 API
-  description: The v1 API from SewerAI — 21 operation(s) for v1.
+- aid: sewerai:sewerai-videos-api
+  name: SewerAI Videos API
+  description: The videos API from SewerAI — 89 operation(s) for videos.
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
-  - v1
+  - Video
+  tags_raw:
+  - videos
   properties:
   - type: OpenAPI
-    url: openapi/sewerai-v1-api-openapi.yml
+    url: openapi/sewerai-videos-api-openapi.yml
   - type: Documentation
     url: https://docs.sewerai.com/
   - type: APIReference
@@ -788,18 +764,146 @@ apis:
     url: data-model/sewerai-data-model.yml
   - type: ErrorCatalog
     url: errors/sewerai-problem-types.yml
-- aid: sewerai:sewerai-videos-api
-  name: SewerAI Videos API
-  description: The videos API from SewerAI — 89 operation(s) for videos.
+- aid: sewerai:sewerai-assets-api
+  name: SewerAI Assets API
+  description: The Assets API from SewerAI — 2 operation(s) for assets.
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
-  - Video
-  tags_raw:
-  - videos
+  - Assets
   properties:
   - type: OpenAPI
-    url: openapi/sewerai-videos-api-openapi.yml
+    url: openapi/sewerai-assets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sewerai.com/
+  - type: APIReference
+    url: https://docs.sewerai.com/#sewerai-api
+  - type: GettingStarted
+    url: https://docs.sewerai.com/#introduction
+  - type: Swagger
+    url: openapi/_original/sewerai-swagger.json
+  - type: Authentication
+    url: authentication/sewerai-authentication.yml
+  - type: Conventions
+    url: conventions/sewerai-conventions.yml
+  - type: DataModel
+    url: data-model/sewerai-data-model.yml
+  - type: ErrorCatalog
+    url: errors/sewerai-problem-types.yml
+- aid: sewerai:sewerai-inspections-api
+  name: SewerAI Inspections API
+  description: The Inspections API from SewerAI — 5 operation(s) for inspections.
+  humanURL: https://docs.sewerai.com/
+  baseURL: https://api.sewerai.com/v1
+  tags:
+  - Inspections
+  properties:
+  - type: OpenAPI
+    url: openapi/sewerai-inspections-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sewerai.com/
+  - type: APIReference
+    url: https://docs.sewerai.com/#sewerai-api
+  - type: GettingStarted
+    url: https://docs.sewerai.com/#introduction
+  - type: Swagger
+    url: openapi/_original/sewerai-swagger.json
+  - type: Authentication
+    url: authentication/sewerai-authentication.yml
+  - type: Conventions
+    url: conventions/sewerai-conventions.yml
+  - type: DataModel
+    url: data-model/sewerai-data-model.yml
+  - type: ErrorCatalog
+    url: errors/sewerai-problem-types.yml
+- aid: sewerai:sewerai-observations-api
+  name: SewerAI Observations API
+  description: The Observations API from SewerAI — 2 operation(s) for observations.
+  humanURL: https://docs.sewerai.com/
+  baseURL: https://api.sewerai.com/v1
+  tags:
+  - Observations
+  properties:
+  - type: OpenAPI
+    url: openapi/sewerai-observations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sewerai.com/
+  - type: APIReference
+    url: https://docs.sewerai.com/#sewerai-api
+  - type: GettingStarted
+    url: https://docs.sewerai.com/#introduction
+  - type: Swagger
+    url: openapi/_original/sewerai-swagger.json
+  - type: Authentication
+    url: authentication/sewerai-authentication.yml
+  - type: Conventions
+    url: conventions/sewerai-conventions.yml
+  - type: DataModel
+    url: data-model/sewerai-data-model.yml
+  - type: ErrorCatalog
+    url: errors/sewerai-problem-types.yml
+- aid: sewerai:sewerai-organizations-api
+  name: SewerAI Organizations API
+  description: The Organizations API from SewerAI — 2 operation(s) for organizations.
+  humanURL: https://docs.sewerai.com/
+  baseURL: https://api.sewerai.com/v1
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/sewerai-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sewerai.com/
+  - type: APIReference
+    url: https://docs.sewerai.com/#sewerai-api
+  - type: GettingStarted
+    url: https://docs.sewerai.com/#introduction
+  - type: Swagger
+    url: openapi/_original/sewerai-swagger.json
+  - type: Authentication
+    url: authentication/sewerai-authentication.yml
+  - type: Conventions
+    url: conventions/sewerai-conventions.yml
+  - type: DataModel
+    url: data-model/sewerai-data-model.yml
+  - type: ErrorCatalog
+    url: errors/sewerai-problem-types.yml
+- aid: sewerai:sewerai-projects-api
+  name: SewerAI Projects API
+  description: The Projects API from SewerAI — 2 operation(s) for projects.
+  humanURL: https://docs.sewerai.com/
+  baseURL: https://api.sewerai.com/v1
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/sewerai-projects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sewerai.com/
+  - type: APIReference
+    url: https://docs.sewerai.com/#sewerai-api
+  - type: GettingStarted
+    url: https://docs.sewerai.com/#introduction
+  - type: Swagger
+    url: openapi/_original/sewerai-swagger.json
+  - type: Authentication
+    url: authentication/sewerai-authentication.yml
+  - type: Conventions
+    url: conventions/sewerai-conventions.yml
+  - type: DataModel
+    url: data-model/sewerai-data-model.yml
+  - type: ErrorCatalog
+    url: errors/sewerai-problem-types.yml
+- aid: sewerai:sewerai-schema-api
+  name: SewerAI Schema API
+  description: The Schema API from SewerAI — 3 operation(s) for schema.
+  humanURL: https://docs.sewerai.com/
+  baseURL: https://api.sewerai.com/v1
+  tags:
+  - Schema
+  properties:
+  - type: OpenAPI
+    url: openapi/sewerai-schema-api-openapi.yml
   - type: Documentation
     url: https://docs.sewerai.com/
   - type: APIReference

@@ -15,6 +15,166 @@ security:
 tags:
 - name: Videos
 paths:
+  /v1/videos/:
+    parameters: []
+    get:
+      operationId: v1_videos_list
+      description: Video endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VideoRead'
+      tags:
+      - Videos
+      summary: V1 videos list
+      x-summary-source: derived
+    post:
+      operationId: v1_videos_create
+      description: Video endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoWrite'
+      tags:
+      - Videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoWrite'
+        required: true
+      summary: V1 videos create
+      x-summary-source: derived
+  /v1/videos/{sid}/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_videos_read
+      description: Video endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoRead'
+      tags:
+      - Videos
+      summary: V1 videos read
+      x-summary-source: derived
+    put:
+      operationId: v1_videos_update
+      description: Video endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoWrite'
+      tags:
+      - Videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoWrite'
+        required: true
+      summary: V1 videos update
+      x-summary-source: derived
+    patch:
+      operationId: v1_videos_partial_update
+      description: Video endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoWrite'
+      tags:
+      - Videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoWrite'
+        required: true
+      summary: V1 videos partial update
+      x-summary-source: derived
+    delete:
+      operationId: v1_videos_delete
+      description: Video endpoint.
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Videos
+      summary: V1 videos delete
+      x-summary-source: derived
+  /v1/videos/{sid}/change-inspection/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: v1_videos_change_inspection
+      description: Video endpoint.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoWrite'
+      tags:
+      - Videos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoWrite'
+        required: true
+      summary: V1 videos change inspection
+      x-summary-source: derived
+  /v1/videos/{sid}/url/:
+    parameters:
+    - name: sid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: v1_videos_url
+      description: Video endpoint.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoWrite'
+      tags:
+      - Videos
+      summary: V1 videos url
+      x-summary-source: derived
   /videos/:
     parameters: []
     get:
@@ -2357,6 +2517,257 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    VideoWrite:
+      required:
+      - inspection
+      - path
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_name:
+          title: Video name
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        inspection:
+          title: Inspection
+          type: string
+          format: uuid
+        payouts:
+          title: Payouts
+          type: string
+        path:
+          title: Path
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        presigned_upload_data:
+          title: Presigned upload data
+          type: object
+          readOnly: true
+        stage:
+          title: Stage
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 11
+          - 12
+          - 13
+          - 20
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uuid
+    ProjectRead:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        client:
+          title: Client
+          type: string
+          format: uri
+          readOnly: true
+        date_due:
+          title: Date due
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_started:
+          title: Date started
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_finished:
+          title: Date finished
+          type:
+          - string
+          - 'null'
+          format: date-time
+        active:
+          title: Active
+          type: boolean
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+    VideoRead:
+      required:
+      - path
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_name:
+          title: Video name
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        inspection:
+          title: Inspection
+          type: string
+          format: uri
+          readOnly: true
+        path:
+          title: Path
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        stage:
+          title: Stage
+          type: string
+          readOnly: true
+        presigned_upload_data:
+          title: Presigned upload data
+          type: object
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        project:
+          $ref: '#/components/schemas/ProjectRead'
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
     Inspection:
       required:
       - ratings
@@ -3525,6 +3936,134 @@ components:
             type:
             - string
             - 'null'
+    PartnerLink:
+      required:
+      - partner
+      - link
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        partner:
+          title: Partner
+          type: string
+          enum:
+          - unearth
+        link:
+          title: Link
+          type: string
+          format: uri
+          maxLength: 1024
+          minLength: 1
+        icon_url:
+          title: Icon url
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type:
+          - object
+          - 'null'
+    BoundingBox:
+      required:
+      - frame
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        observation_classification:
+          title: Observation classification
+          type: string
+          format: uri
+          readOnly: true
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        boxes:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              title: Boxes
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+            maxItems: 4
+        frame_location:
+          title: Frame location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        frame_file_size:
+          title: Frame file size
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        reviewed_by:
+          title: Reviewed by
+          type:
+          - string
+          - 'null'
+          format: uri
+        frame_height:
+          title: Frame height
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        frame_width:
+          title: Frame width
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        code:
+          $ref: '#/components/schemas/VideoObservationClassification'
+        video:
+          $ref: '#/components/schemas/Video'
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
     AccountUser:
       required:
       - email
@@ -3559,299 +4098,6 @@ components:
           readOnly: true
         projects:
           title: Projects
-          type: string
-          readOnly: true
-    InspectionRatings:
-      type: object
-      properties:
-        STGradeScore1:
-          title: Stgradescore1
-          type:
-          - number
-          - 'null'
-        STGradeScore2:
-          title: Stgradescore2
-          type:
-          - number
-          - 'null'
-        STGradeScore3:
-          title: Stgradescore3
-          type:
-          - number
-          - 'null'
-        STGradeScore4:
-          title: Stgradescore4
-          type:
-          - number
-          - 'null'
-        STGradeScore5:
-          title: Stgradescore5
-          type:
-          - number
-          - 'null'
-        OMGradeScore1:
-          title: Omgradescore1
-          type:
-          - number
-          - 'null'
-        OMGradeScore2:
-          title: Omgradescore2
-          type:
-          - number
-          - 'null'
-        OMGradeScore3:
-          title: Omgradescore3
-          type:
-          - number
-          - 'null'
-        OMGradeScore4:
-          title: Omgradescore4
-          type:
-          - number
-          - 'null'
-        OMGradeScore5:
-          title: Omgradescore5
-          type:
-          - number
-          - 'null'
-        ST1:
-          title: St1
-          type:
-          - number
-          - 'null'
-        ST2:
-          title: St2
-          type:
-          - number
-          - 'null'
-        ST3:
-          title: St3
-          type:
-          - number
-          - 'null'
-        ST4:
-          title: St4
-          type:
-          - number
-          - 'null'
-        ST5:
-          title: St5
-          type:
-          - number
-          - 'null'
-        OM1:
-          title: Om1
-          type:
-          - number
-          - 'null'
-        OM2:
-          title: Om2
-          type:
-          - number
-          - 'null'
-        OM3:
-          title: Om3
-          type:
-          - number
-          - 'null'
-        OM4:
-          title: Om4
-          type:
-          - number
-          - 'null'
-        OM5:
-          title: Om5
-          type:
-          - number
-          - 'null'
-        STPipeRating:
-          title: Stpiperating
-          type:
-          - number
-          - 'null'
-        OMPipeRating:
-          title: Ompiperating
-          type:
-          - number
-          - 'null'
-        OverallPipeRating:
-          title: Overallpiperating
-          type:
-          - number
-          - 'null'
-        STPipeRatingsIndex:
-          title: Stpiperatingsindex
-          type:
-          - number
-          - 'null'
-        OMPipeRatingsIndex:
-          title: Ompiperatingsindex
-          type:
-          - number
-          - 'null'
-        OverallPipeRatingsIndex:
-          title: Overallpiperatingsindex
-          type:
-          - number
-          - 'null'
-        Risk:
-          title: Risk
-          type:
-          - number
-          - 'null'
-        RatingID:
-          title: Ratingid
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        STQuickRating:
-          title: Stquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        OMQuickRating:
-          title: Omquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        OverallQuickRating:
-          title: Overallquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        LoFPACP:
-          title: Lofpacp
-          type:
-          - number
-          - 'null'
-        PACPQuickRating:
-          title: Pacpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        LoFLACP:
-          title: Loflacp
-          type:
-          - number
-          - 'null'
-        LACPQuickRating:
-          title: Lacpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        STMHRating:
-          title: Stmhrating
-          type:
-          - number
-          - 'null'
-        OMMHRating:
-          title: Ommhrating
-          type:
-          - number
-          - 'null'
-        OverallMHRating:
-          title: Overallmhrating
-          type:
-          - number
-          - 'null'
-        STMHRatingsIndex:
-          title: Stmhratingsindex
-          type:
-          - number
-          - 'null'
-        OMMHRatingsIndex:
-          title: Ommhratingsindex
-          type:
-          - number
-          - 'null'
-        OverallMHRatingsIndex:
-          title: Overallmhratingsindex
-          type:
-          - number
-          - 'null'
-        LoFMACP:
-          title: Lofmacp
-          type:
-          - number
-          - 'null'
-        MACPQuickRating:
-          title: Macpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-    VideoObservationClassification:
-      required:
-      - system
-      - code
-      - version
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        system:
-          title: System
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        code:
-          title: Code
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        version:
-          title: Version
-          type:
-          - string
-          - 'null'
-          maxLength: 32
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        family_group_color:
-          title: Family group color
           type: string
           readOnly: true
     Video:
@@ -4268,37 +4514,299 @@ components:
           type:
           - number
           - 'null'
-    PartnerLink:
-      required:
-      - partner
-      - link
+    InspectionRatings:
       type: object
       properties:
+        STGradeScore1:
+          title: Stgradescore1
+          type:
+          - number
+          - 'null'
+        STGradeScore2:
+          title: Stgradescore2
+          type:
+          - number
+          - 'null'
+        STGradeScore3:
+          title: Stgradescore3
+          type:
+          - number
+          - 'null'
+        STGradeScore4:
+          title: Stgradescore4
+          type:
+          - number
+          - 'null'
+        STGradeScore5:
+          title: Stgradescore5
+          type:
+          - number
+          - 'null'
+        OMGradeScore1:
+          title: Omgradescore1
+          type:
+          - number
+          - 'null'
+        OMGradeScore2:
+          title: Omgradescore2
+          type:
+          - number
+          - 'null'
+        OMGradeScore3:
+          title: Omgradescore3
+          type:
+          - number
+          - 'null'
+        OMGradeScore4:
+          title: Omgradescore4
+          type:
+          - number
+          - 'null'
+        OMGradeScore5:
+          title: Omgradescore5
+          type:
+          - number
+          - 'null'
+        ST1:
+          title: St1
+          type:
+          - number
+          - 'null'
+        ST2:
+          title: St2
+          type:
+          - number
+          - 'null'
+        ST3:
+          title: St3
+          type:
+          - number
+          - 'null'
+        ST4:
+          title: St4
+          type:
+          - number
+          - 'null'
+        ST5:
+          title: St5
+          type:
+          - number
+          - 'null'
+        OM1:
+          title: Om1
+          type:
+          - number
+          - 'null'
+        OM2:
+          title: Om2
+          type:
+          - number
+          - 'null'
+        OM3:
+          title: Om3
+          type:
+          - number
+          - 'null'
+        OM4:
+          title: Om4
+          type:
+          - number
+          - 'null'
+        OM5:
+          title: Om5
+          type:
+          - number
+          - 'null'
+        STPipeRating:
+          title: Stpiperating
+          type:
+          - number
+          - 'null'
+        OMPipeRating:
+          title: Ompiperating
+          type:
+          - number
+          - 'null'
+        OverallPipeRating:
+          title: Overallpiperating
+          type:
+          - number
+          - 'null'
+        STPipeRatingsIndex:
+          title: Stpiperatingsindex
+          type:
+          - number
+          - 'null'
+        OMPipeRatingsIndex:
+          title: Ompiperatingsindex
+          type:
+          - number
+          - 'null'
+        OverallPipeRatingsIndex:
+          title: Overallpiperatingsindex
+          type:
+          - number
+          - 'null'
+        Risk:
+          title: Risk
+          type:
+          - number
+          - 'null'
+        RatingID:
+          title: Ratingid
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STQuickRating:
+          title: Stquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OMQuickRating:
+          title: Omquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OverallQuickRating:
+          title: Overallquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFPACP:
+          title: Lofpacp
+          type:
+          - number
+          - 'null'
+        PACPQuickRating:
+          title: Pacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFLACP:
+          title: Loflacp
+          type:
+          - number
+          - 'null'
+        LACPQuickRating:
+          title: Lacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STMHRating:
+          title: Stmhrating
+          type:
+          - number
+          - 'null'
+        OMMHRating:
+          title: Ommhrating
+          type:
+          - number
+          - 'null'
+        OverallMHRating:
+          title: Overallmhrating
+          type:
+          - number
+          - 'null'
+        STMHRatingsIndex:
+          title: Stmhratingsindex
+          type:
+          - number
+          - 'null'
+        OMMHRatingsIndex:
+          title: Ommhratingsindex
+          type:
+          - number
+          - 'null'
+        OverallMHRatingsIndex:
+          title: Overallmhratingsindex
+          type:
+          - number
+          - 'null'
+        LoFMACP:
+          title: Lofmacp
+          type:
+          - number
+          - 'null'
+        MACPQuickRating:
+          title: Macpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
         sid:
           title: Sid
           type: string
           format: uuid
           readOnly: true
-        partner:
-          title: Partner
-          type: string
-          enum:
-          - unearth
-        link:
-          title: Link
-          type: string
-          format: uri
-          maxLength: 1024
-          minLength: 1
-        icon_url:
-          title: Icon url
-          type: string
-          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
         meta:
           title: Meta
-          type:
-          - object
-          - 'null'
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
+          readOnly: true
     VideoPayout:
       required:
       - payouts
@@ -4337,103 +4845,6 @@ components:
           title: Graph url
           type: string
           readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    BoundingBox:
-      required:
-      - frame
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        observation_classification:
-          title: Observation classification
-          type: string
-          format: uri
-          readOnly: true
-        frame:
-          title: Frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        boxes:
-          type:
-          - array
-          - 'null'
-          items:
-            type: array
-            items:
-              title: Boxes
-              type: integer
-              maximum: 2147483647
-              minimum: -2147483648
-            maxItems: 4
-        frame_location:
-          title: Frame location
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-        frame_file_size:
-          title: Frame file size
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        reviewed_by:
-          title: Reviewed by
-          type:
-          - string
-          - 'null'
-          format: uri
-        frame_height:
-          title: Frame height
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        frame_width:
-          title: Frame width
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        code:
-          $ref: '#/components/schemas/VideoObservationClassification'
-        video:
-          $ref: '#/components/schemas/Video'
-        meta:
-          title: Meta
-          type: object
         created:
           title: Created
           type: string
