@@ -127,113 +127,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    AssetList:
-      required:
-      - name
-      - kind
-      - city
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 1024
-          minLength: 1
-        key:
-          title: Key
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-          minLength: 1
-        owner:
-          title: Owner
-          type: string
-          format: uri
-          readOnly: true
-        kind:
-          title: Kind
-          type: string
-          enum:
-          - mainline
-          - lateral
-          - maintenance-hole
-        geojson:
-          title: Geojson
-          type: object
-        city:
-          title: City
-          type: string
-          minLength: 1
-        city_area:
-          title: City area
-          type: string
-          minLength: 1
-        country_area:
-          title: Country area
-          type: string
-          minLength: 1
-        country_code:
-          title: Country code
-          type: string
-          minLength: 1
-        postal_code:
-          title: Postal code
-          type: string
-          minLength: 1
-        sorting_code:
-          title: Sorting code
-          type: string
-          minLength: 1
-        street_address:
-          title: Street address
-          type: string
-          minLength: 1
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        deleted:
-          title: Deleted
-          type: string
-          format: date-time
-          readOnly: true
-        deleted_by:
-          title: Deleted by
-          type: string
-          format: uri
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
     MainlineAssetRead:
       required:
       - name
@@ -575,6 +468,113 @@ components:
           type:
           - number
           - 'null'
+    AssetList:
+      required:
+      - name
+      - kind
+      - city
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 1024
+          minLength: 1
+        key:
+          title: Key
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+          minLength: 1
+        owner:
+          title: Owner
+          type: string
+          format: uri
+          readOnly: true
+        kind:
+          title: Kind
+          type: string
+          enum:
+          - mainline
+          - lateral
+          - maintenance-hole
+        geojson:
+          title: Geojson
+          type: object
+        city:
+          title: City
+          type: string
+          minLength: 1
+        city_area:
+          title: City area
+          type: string
+          minLength: 1
+        country_area:
+          title: Country area
+          type: string
+          minLength: 1
+        country_code:
+          title: Country code
+          type: string
+          minLength: 1
+        postal_code:
+          title: Postal code
+          type: string
+          minLength: 1
+        sorting_code:
+          title: Sorting code
+          type: string
+          minLength: 1
+        street_address:
+          title: Street address
+          type: string
+          minLength: 1
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
   securitySchemes:
     Basic:
       type: http

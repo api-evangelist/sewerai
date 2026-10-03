@@ -225,6 +225,122 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ObservationRead:
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_frame:
+          title: Video frame
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        Distance:
+          title: Distance
+          type: number
+          readOnly: true
+        code:
+          title: Code
+          type: string
+          readOnly: true
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          readOnly: true
+          minLength: 1
+        Continuous:
+          title: Continuous
+          type: string
+          readOnly: true
+          minLength: 1
+        Joint:
+          title: Joint
+          type: boolean
+          readOnly: true
+        Clock_At_From:
+          title: Clock at from
+          type: integer
+          readOnly: true
+        Clock_To:
+          title: Clock to
+          type: integer
+          readOnly: true
+        Value_1st_Dimension:
+          title: Value 1st dimension
+          type: number
+          readOnly: true
+        Value_2nd_Dimension:
+          title: Value 2nd dimension
+          type: number
+          readOnly: true
+        Value_Percent:
+          title: Value percent
+          type: number
+          readOnly: true
+        Grade:
+          title: Grade
+          type: string
+          readOnly: true
+          minLength: 1
+        Remarks:
+          title: Remarks
+          type: string
+          readOnly: true
+          minLength: 1
+        snapshot_url:
+          title: Snapshot url
+          type: string
+          readOnly: true
+        bounding_boxes:
+          title: Bounding boxes
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
     ObservationWrite:
       type: object
       properties:
@@ -471,122 +587,6 @@ components:
           title: Created by
           type: string
           format: uri
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        deleted:
-          title: Deleted
-          type: string
-          format: date-time
-          readOnly: true
-        deleted_by:
-          title: Deleted by
-          type: string
-          format: uri
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-    ObservationRead:
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        video_frame:
-          title: Video frame
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        Distance:
-          title: Distance
-          type: number
-          readOnly: true
-        code:
-          title: Code
-          type: string
-          readOnly: true
-          minLength: 1
-        description:
-          title: Description
-          type: string
-          readOnly: true
-          minLength: 1
-        Continuous:
-          title: Continuous
-          type: string
-          readOnly: true
-          minLength: 1
-        Joint:
-          title: Joint
-          type: boolean
-          readOnly: true
-        Clock_At_From:
-          title: Clock at from
-          type: integer
-          readOnly: true
-        Clock_To:
-          title: Clock to
-          type: integer
-          readOnly: true
-        Value_1st_Dimension:
-          title: Value 1st dimension
-          type: number
-          readOnly: true
-        Value_2nd_Dimension:
-          title: Value 2nd dimension
-          type: number
-          readOnly: true
-        Value_Percent:
-          title: Value percent
-          type: number
-          readOnly: true
-        Grade:
-          title: Grade
-          type: string
-          readOnly: true
-          minLength: 1
-        Remarks:
-          title: Remarks
-          type: string
-          readOnly: true
-          minLength: 1
-        snapshot_url:
-          title: Snapshot url
-          type: string
-          readOnly: true
-        bounding_boxes:
-          title: Bounding boxes
-          type: string
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
           readOnly: true
         updated_by:
           title: Updated by

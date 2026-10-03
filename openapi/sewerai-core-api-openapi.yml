@@ -371,6 +371,22 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
     User:
       required:
       - username
@@ -492,22 +508,6 @@ components:
         meta:
           title: Meta
           type: object
-    Certificate:
-      type: object
-      properties:
-        number:
-          title: Certificate Number
-          description: The Certificate Number
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        cert_date:
-          title: Cert date
-          type:
-          - string
-          - 'null'
-          format: date-time
   securitySchemes:
     Basic:
       type: http

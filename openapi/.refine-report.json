@@ -36,9 +36,7 @@
     "sewerai-submittal-api-openapi.yml",
     "sewerai-token-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 2 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -134,15 +132,14 @@
     "sewerai-swagger.json: declared missing tag: token",
     "sewerai-swagger.json: declared missing tag: users",
     "sewerai-swagger.json: declared missing tag: videos",
-    "superseded outputs removed: sewerai-api-api-openapi.yml, sewerai-v1-api-openapi.yml",
-    "apis.yml register: written (+6 apis, 31 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "sewerai-account-usage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-analytics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-annotations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "sewerai-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sewerai-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-autocode-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-canvotation-templates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-comment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -150,20 +147,24 @@
     "sewerai-exports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sewerai-inspections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-labels-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-modeling-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-note-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-notification-preferences-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-notifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-observationclassifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sewerai-observations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sewerai-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-project-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sewerai-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-saitests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sewerai-schema-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-schemas-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-submittal-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-token-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "sewerai-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-videos-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }
