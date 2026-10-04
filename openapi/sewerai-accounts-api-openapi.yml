@@ -872,40 +872,70 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GISMap:
+    File:
       required:
-      - url
-      - name
-      - sewer_key_pipe
-      - sewer_key_upmh
-      - sewer_key_downmh
+      - meta
+      - presigned_upload
       type: object
       properties:
         url:
           title: Url
           type: string
-          maxLength: 1024
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        origin_path:
+          title: Origin path
+          type: string
+          readOnly: true
           minLength: 1
         name:
           title: Name
           type: string
-          maxLength: 128
+          readOnly: true
           minLength: 1
-        sewer_key_pipe:
-          title: Sewer key pipe
+        kind:
+          title: Kind
+          type: integer
+          readOnly: true
+        location:
+          title: Location
+          type:
+          - string
+          - 'null'
+        size:
+          title: Size
           type: string
-          maxLength: 128
-          minLength: 1
-        sewer_key_upmh:
-          title: Sewer key upmh
+          readOnly: true
+        exists:
+          title: Exists
           type: string
-          maxLength: 128
-          minLength: 1
-        sewer_key_downmh:
-          title: Sewer key downmh
+          readOnly: true
+        upload_location:
+          title: Upload location
           type: string
-          maxLength: 128
+          readOnly: true
           minLength: 1
+        meta:
+          title: Meta
+          type: object
+        dropbox_meta:
+          title: Dropbox meta
+          type:
+          - object
+          - 'null'
+        presigned_upload:
+          title: Presigned upload
+          type: object
     AccountProject:
       required:
       - name
@@ -981,70 +1011,6 @@ components:
           type:
           - string
           - 'null'
-    File:
-      required:
-      - meta
-      - presigned_upload
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-        origin_path:
-          title: Origin path
-          type: string
-          readOnly: true
-          minLength: 1
-        name:
-          title: Name
-          type: string
-          readOnly: true
-          minLength: 1
-        kind:
-          title: Kind
-          type: integer
-          readOnly: true
-        location:
-          title: Location
-          type:
-          - string
-          - 'null'
-        size:
-          title: Size
-          type: string
-          readOnly: true
-        exists:
-          title: Exists
-          type: string
-          readOnly: true
-        upload_location:
-          title: Upload location
-          type: string
-          readOnly: true
-          minLength: 1
-        meta:
-          title: Meta
-          type: object
-        dropbox_meta:
-          title: Dropbox meta
-          type:
-          - object
-          - 'null'
-        presigned_upload:
-          title: Presigned upload
-          type: object
     User:
       required:
       - username
@@ -1166,6 +1132,56 @@ components:
         meta:
           title: Meta
           type: object
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
+    GISMap:
+      required:
+      - url
+      - name
+      - sewer_key_pipe
+      - sewer_key_upmh
+      - sewer_key_downmh
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          maxLength: 1024
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_pipe:
+          title: Sewer key pipe
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_upmh:
+          title: Sewer key upmh
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_downmh:
+          title: Sewer key downmh
+          type: string
+          maxLength: 128
+          minLength: 1
     Account:
       required:
       - name
@@ -1242,22 +1258,6 @@ components:
           title: Default lacp project spec sid
           type: string
           readOnly: true
-    Certificate:
-      type: object
-      properties:
-        number:
-          title: Certificate Number
-          description: The Certificate Number
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        cert_date:
-          title: Cert date
-          type:
-          - string
-          - 'null'
-          format: date-time
   securitySchemes:
     Basic:
       type: http

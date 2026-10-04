@@ -63,20 +63,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    TokenRefresh:
-      required:
-      - refresh
-      type: object
-      properties:
-        refresh:
-          title: Refresh
-          type: string
-          minLength: 1
-        access:
-          title: Access
-          type: string
-          readOnly: true
-          minLength: 1
     CortTokenObtainPair:
       required:
       - username
@@ -90,6 +76,20 @@ components:
         password:
           title: Password
           type: string
+          minLength: 1
+    TokenRefresh:
+      required:
+      - refresh
+      type: object
+      properties:
+        refresh:
+          title: Refresh
+          type: string
+          minLength: 1
+        access:
+          title: Access
+          type: string
+          readOnly: true
           minLength: 1
   securitySchemes:
     Basic:

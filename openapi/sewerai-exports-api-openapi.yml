@@ -292,6 +292,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ExportWrite:
+      type: object
+      properties:
+        name:
+          title: Name
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
     ExportRead:
       type: object
       properties:
@@ -325,20 +339,6 @@ components:
         total_size:
           title: Total size
           type: number
-    ExportWrite:
-      type: object
-      properties:
-        name:
-          title: Name
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
     Export:
       type: object
       properties:

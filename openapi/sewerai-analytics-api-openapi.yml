@@ -612,9 +612,12 @@ components:
           type: string
           format: uri
           readOnly: true
-    AnalyticsDashboard:
+    FrameQualityReview:
       required:
-      - name
+      - video
+      - frame
+      - boxes_created_on
+      - is_good
       type: object
       properties:
         sid:
@@ -622,21 +625,36 @@ components:
           type: string
           format: uuid
           readOnly: true
-        name:
-          title: Name
+        url:
+          title: Url
           type: string
-          maxLength: 128
-          minLength: 1
-        private:
-          title: Private
-          type: boolean
-        admin_only:
-          title: Admin only
-          type: boolean
-        dashboard:
-          title: Dashboard
-          type: string
+          format: uri
           readOnly: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        boxes_created_by:
+          title: Boxes created by
+          type:
+          - string
+          - 'null'
+          format: uri
+        boxes_created_on:
+          title: Boxes created on
+          type: string
+          format: date-time
+        is_good:
+          title: Is good
+          type: boolean
+        from_intermediate:
+          title: From intermediate
+          type: boolean
         created:
           title: Created
           type: string
@@ -806,12 +824,9 @@ components:
           type: string
           format: uri
           readOnly: true
-    FrameQualityReview:
+    AnalyticsDashboard:
       required:
-      - video
-      - frame
-      - boxes_created_on
-      - is_good
+      - name
       type: object
       properties:
         sid:
@@ -819,36 +834,21 @@ components:
           type: string
           format: uuid
           readOnly: true
-        url:
-          title: Url
+        name:
+          title: Name
           type: string
-          format: uri
+          maxLength: 128
+          minLength: 1
+        private:
+          title: Private
+          type: boolean
+        admin_only:
+          title: Admin only
+          type: boolean
+        dashboard:
+          title: Dashboard
+          type: string
           readOnly: true
-        video:
-          title: Video
-          type: string
-          format: uri
-        frame:
-          title: Frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        boxes_created_by:
-          title: Boxes created by
-          type:
-          - string
-          - 'null'
-          format: uri
-        boxes_created_on:
-          title: Boxes created on
-          type: string
-          format: date-time
-        is_good:
-          title: Is good
-          type: boolean
-        from_intermediate:
-          title: From intermediate
-          type: boolean
         created:
           title: Created
           type: string
