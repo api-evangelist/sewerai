@@ -796,6 +796,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Inspection
+  tags_raw:
   - Inspections
   properties:
   - type: OpenAPI
@@ -848,6 +850,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
@@ -874,6 +878,8 @@ apis:
   humanURL: https://docs.sewerai.com/
   baseURL: https://api.sewerai.com/v1
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
