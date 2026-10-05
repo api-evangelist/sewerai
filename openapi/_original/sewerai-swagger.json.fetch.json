@@ -1,0 +1,12 @@
+{
+ "url": "https://api.sewerai.com/swagger.json",
+ "requested_url": "https://api.sewerai.com/swagger.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 260436,
+ "sha256": "5c0c695943eb51a03e2a5d46a14bcf7028e8f1a94cabf14721107619622e8eb8",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.998), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
