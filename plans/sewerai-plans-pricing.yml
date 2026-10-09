@@ -78,3 +78,27 @@ contact:
   sales_form: https://www.sewerai.com/pricing
   demo: https://www.sewerai.com/demo
   phone: '+1 855 952 2200'
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: PIONEER
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: AutoCode
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Risk & Rehab
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
