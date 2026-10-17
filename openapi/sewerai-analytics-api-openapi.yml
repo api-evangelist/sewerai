@@ -559,10 +559,9 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DownloadHistory:
+    AnalyticsDashboard:
       required:
-      - video
-      - frame
+      - name
       type: object
       properties:
         sid:
@@ -570,91 +569,21 @@ components:
           type: string
           format: uuid
           readOnly: true
-        url:
-          title: Url
+        name:
+          title: Name
           type: string
-          format: uri
-          readOnly: true
-        video:
-          title: Video
-          type: string
-          format: uri
-        video_sid:
-          title: Video sid
-          type: string
-          readOnly: true
+          maxLength: 128
           minLength: 1
-        frame:
-          title: Frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    FrameQualityReview:
-      required:
-      - video
-      - frame
-      - boxes_created_on
-      - is_good
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        video:
-          title: Video
-          type: string
-          format: uri
-        frame:
-          title: Frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        boxes_created_by:
-          title: Boxes created by
-          type:
-          - string
-          - 'null'
-          format: uri
-        boxes_created_on:
-          title: Boxes created on
-          type: string
-          format: date-time
-        is_good:
-          title: Is good
+        private:
+          title: Private
           type: boolean
-        from_intermediate:
-          title: From intermediate
+        admin_only:
+          title: Admin only
           type: boolean
+        dashboard:
+          title: Dashboard
+          type: string
+          readOnly: true
         created:
           title: Created
           type: string
@@ -824,9 +753,12 @@ components:
           type: string
           format: uri
           readOnly: true
-    AnalyticsDashboard:
+    FrameQualityReview:
       required:
-      - name
+      - video
+      - frame
+      - boxes_created_on
+      - is_good
       type: object
       properties:
         sid:
@@ -834,21 +766,89 @@ components:
           type: string
           format: uuid
           readOnly: true
-        name:
-          title: Name
+        url:
+          title: Url
           type: string
-          maxLength: 128
-          minLength: 1
-        private:
-          title: Private
+          format: uri
+          readOnly: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        boxes_created_by:
+          title: Boxes created by
+          type:
+          - string
+          - 'null'
+          format: uri
+        boxes_created_on:
+          title: Boxes created on
+          type: string
+          format: date-time
+        is_good:
+          title: Is good
           type: boolean
-        admin_only:
-          title: Admin only
+        from_intermediate:
+          title: From intermediate
           type: boolean
-        dashboard:
-          title: Dashboard
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    DownloadHistory:
+      required:
+      - video
+      - frame
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        video_sid:
+          title: Video sid
           type: string
           readOnly: true
+          minLength: 1
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        meta:
+          title: Meta
+          type: object
         created:
           title: Created
           type: string

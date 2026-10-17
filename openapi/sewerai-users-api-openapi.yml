@@ -583,35 +583,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UserList:
-      required:
-      - email
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        first_name:
-          title: First name
-          type: string
-          maxLength: 150
-        last_name:
-          title: Last name
-          type: string
-          maxLength: 150
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
     UserRead:
       required:
       - email
@@ -649,6 +620,35 @@ components:
           title: Projects
           type: string
           readOnly: true
+    UserList:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
     Certificate:
       type: object
       properties:

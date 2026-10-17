@@ -2517,83 +2517,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    VideoRead:
-      required:
-      - path
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        video_name:
-          title: Video name
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        inspection:
-          title: Inspection
-          type: string
-          format: uri
-          readOnly: true
-        path:
-          title: Path
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        stage:
-          title: Stage
-          type: string
-          readOnly: true
-        presigned_upload_data:
-          title: Presigned upload data
-          type: object
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        project:
-          $ref: '#/components/schemas/ProjectRead'
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        deleted:
-          title: Deleted
-          type: string
-          format: date-time
-          readOnly: true
-        deleted_by:
-          title: Deleted by
-          type: string
-          format: uri
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
     ProjectRead:
       required:
       - name
@@ -2768,6 +2691,83 @@ components:
           title: Account
           type: string
           format: uuid
+    VideoRead:
+      required:
+      - path
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        video_name:
+          title: Video name
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        inspection:
+          title: Inspection
+          type: string
+          format: uri
+          readOnly: true
+        path:
+          title: Path
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        stage:
+          title: Stage
+          type: string
+          readOnly: true
+        presigned_upload_data:
+          title: Presigned upload data
+          type: object
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        project:
+          $ref: '#/components/schemas/ProjectRead'
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        deleted:
+          title: Deleted
+          type: string
+          format: date-time
+          readOnly: true
+        deleted_by:
+          title: Deleted by
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
     VideoPayout:
       required:
       - payouts
@@ -2825,6 +2825,74 @@ components:
           title: Updated by
           type: string
           format: uri
+          readOnly: true
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
           readOnly: true
     Inspection:
       required:
@@ -4219,238 +4287,6 @@ components:
           - string
           - 'null'
           minLength: 1
-    PartnerLink:
-      required:
-      - partner
-      - link
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        partner:
-          title: Partner
-          type: string
-          enum:
-          - unearth
-        link:
-          title: Link
-          type: string
-          format: uri
-          maxLength: 1024
-          minLength: 1
-        icon_url:
-          title: Icon url
-          type: string
-          readOnly: true
-        meta:
-          title: Meta
-          type:
-          - object
-          - 'null'
-    BoundingBox:
-      required:
-      - frame
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        observation_classification:
-          title: Observation classification
-          type: string
-          format: uri
-          readOnly: true
-        frame:
-          title: Frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        boxes:
-          type:
-          - array
-          - 'null'
-          items:
-            type: array
-            items:
-              title: Boxes
-              type: integer
-              maximum: 2147483647
-              minimum: -2147483648
-            maxItems: 4
-        frame_location:
-          title: Frame location
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-        frame_file_size:
-          title: Frame file size
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        reviewed_by:
-          title: Reviewed by
-          type:
-          - string
-          - 'null'
-          format: uri
-        frame_height:
-          title: Frame height
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        frame_width:
-          title: Frame width
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        code:
-          $ref: '#/components/schemas/VideoObservationClassification'
-        video:
-          $ref: '#/components/schemas/Video'
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    VideoObservationClassification:
-      required:
-      - system
-      - code
-      - version
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        system:
-          title: System
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        code:
-          title: Code
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        version:
-          title: Version
-          type:
-          - string
-          - 'null'
-          maxLength: 32
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        family_group_color:
-          title: Family group color
-          type: string
-          readOnly: true
-    AccountUser:
-      required:
-      - email
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        first_name:
-          title: First name
-          type: string
-          maxLength: 150
-        last_name:
-          title: Last name
-          type: string
-          maxLength: 150
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
-        last_pioneer_login:
-          title: Last pioneer login
-          type: string
-          readOnly: true
-        permission_level:
-          title: Permission level
-          type: string
-          readOnly: true
-        projects:
-          title: Projects
-          type: string
-          readOnly: true
     Video:
       required:
       - created_by
@@ -4864,6 +4700,170 @@ components:
           title: Zero distance mark
           type:
           - number
+          - 'null'
+    BoundingBox:
+      required:
+      - frame
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        observation_classification:
+          title: Observation classification
+          type: string
+          format: uri
+          readOnly: true
+        frame:
+          title: Frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        boxes:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              title: Boxes
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+            maxItems: 4
+        frame_location:
+          title: Frame location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        frame_file_size:
+          title: Frame file size
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        reviewed_by:
+          title: Reviewed by
+          type:
+          - string
+          - 'null'
+          format: uri
+        frame_height:
+          title: Frame height
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        frame_width:
+          title: Frame width
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        code:
+          $ref: '#/components/schemas/VideoObservationClassification'
+        video:
+          $ref: '#/components/schemas/Video'
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    AccountUser:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        last_pioneer_login:
+          title: Last pioneer login
+          type: string
+          readOnly: true
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
+    PartnerLink:
+      required:
+      - partner
+      - link
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        partner:
+          title: Partner
+          type: string
+          enum:
+          - unearth
+        link:
+          title: Link
+          type: string
+          format: uri
+          maxLength: 1024
+          minLength: 1
+        icon_url:
+          title: Icon url
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type:
+          - object
           - 'null'
   securitySchemes:
     Basic:

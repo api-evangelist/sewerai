@@ -127,7 +127,7 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ProjectRead:
+    ProjectWrite:
       required:
       - name
       type: object
@@ -145,8 +145,7 @@ components:
         account:
           title: Account
           type: string
-          format: uri
-          readOnly: true
+          format: uuid
         name:
           title: Name
           type: string
@@ -160,9 +159,10 @@ components:
           maxLength: 1024
         client:
           title: Client
-          type: string
-          format: uri
-          readOnly: true
+          type:
+          - string
+          - 'null'
+          format: uuid
         date_due:
           title: Date due
           type:
@@ -214,7 +214,7 @@ components:
           type: string
           format: uri
           readOnly: true
-    ProjectWrite:
+    ProjectRead:
       required:
       - name
       type: object
@@ -232,7 +232,8 @@ components:
         account:
           title: Account
           type: string
-          format: uuid
+          format: uri
+          readOnly: true
         name:
           title: Name
           type: string
@@ -246,10 +247,9 @@ components:
           maxLength: 1024
         client:
           title: Client
-          type:
-          - string
-          - 'null'
-          format: uuid
+          type: string
+          format: uri
+          readOnly: true
         date_due:
           title: Date due
           type:

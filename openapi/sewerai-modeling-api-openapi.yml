@@ -1561,266 +1561,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    InferenceAssignment:
-      required:
-      - name
-      - ensembles
-      - video
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        ensembles:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        ensemble_names:
-          type: array
-          items:
-            type: string
-          readOnly: true
-          uniqueItems: true
-        video:
-          title: Video
-          type: string
-          format: uri
-        model_csvs:
-          type:
-          - array
-          - 'null'
-          items:
-            title: Model csvs
-            type: string
-            maxLength: 1024
-            minLength: 1
-        truth_table_location:
-          title: Truth table location
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        boolean_output_location:
-          title: Boolean output location
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        boolean_location_url:
-          title: Boolean location url
-          type: string
-          readOnly: true
-        truth_table_location_url:
-          title: Truth table location url
-          type: string
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    ModelEnsemble:
-      required:
-      - name
-      - training_models
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        training_models:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        model_names:
-          type: array
-          items:
-            type: string
-          readOnly: true
-          uniqueItems: true
-        logic:
-          title: Logic
-          type:
-          - object
-          - 'null'
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    TrainingModel:
-      required:
-      - name
-      - groups
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        location:
-          title: Location
-          description: S3 location of saved model
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        wandb:
-          title: Wandb
-          description: Weights and Biases link
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - defined
-          - queued
-          - training
-          - trained
-        groups:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        groups_detail:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClassificationGroup'
-          readOnly: true
-        config_location:
-          title: Config location
-          description: S3 location of config json file
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        excluded_codes:
-          title: Excluded codes
-          type:
-          - object
-          - 'null'
-        is_testable:
-          title: Is testable
-          type: boolean
-        meta:
-          title: Meta
-          type:
-          - object
-          - 'null'
-        statistics:
-          title: Statistics
-          type:
-          - object
-          - 'null'
-        hyperparameters:
-          title: Hyperparameters
-          type:
-          - object
-          - 'null'
-        qa_type:
-          title: Qa type
-          type: string
-          enum:
-          - qa
-          - review
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
     TestObservationClassification:
       required:
       - observation_run
@@ -1882,6 +1622,209 @@ components:
           title: Updated by
           type: string
           format: uri
+          readOnly: true
+    ObservationRun:
+      required:
+      - training_model
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        training_model:
+          title: Training model
+          type: string
+          format: uri
+        model_name:
+          title: Model name
+          type: string
+          readOnly: true
+          minLength: 1
+        run_type:
+          title: Run type
+          type: integer
+          enum:
+          - 1
+          - 0
+          - 2
+        model_version:
+          title: Model version
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        display_name:
+          title: Display name
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        params:
+          title: Params
+          type: object
+        metrics:
+          title: Metrics
+          type: string
+          readOnly: true
+        source_preset:
+          title: Source preset
+          type: integer
+          enum:
+          - 4
+          - 0
+          - 3
+          - 2
+          - 1
+        source_kwargs:
+          title: Source kwargs
+          type: object
+        num_inference_required:
+          title: Num inference required
+          type: string
+          readOnly: true
+        eligible_count:
+          title: Eligible count
+          type: string
+          readOnly: true
+        videos:
+          title: Videos
+          type: string
+          readOnly: true
+        run_status:
+          title: Run status
+          type: integer
+          enum:
+          - 2
+          - 0
+          - 1
+        completed_count:
+          title: Completed count
+          type: string
+          readOnly: true
+        model_sid:
+          title: Model sid
+          type: string
+          readOnly: true
+          minLength: 1
+        group_sids:
+          title: Group sids
+          type: string
+          readOnly: true
+        video_filters:
+          title: Video filters
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        codes:
+          title: Codes
+          type: string
+          readOnly: true
+        inference_resolution:
+          title: Inference resolution
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        run_groups:
+          title: Run groups
+          type: string
+          readOnly: true
+        prov_obs_stats:
+          title: Prov obs stats
+          type: string
+          readOnly: true
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
           readOnly: true
     BBInferenceAssignment:
       required:
@@ -1971,6 +1914,95 @@ components:
           readOnly: true
         video_details:
           $ref: '#/components/schemas/Video'
+    InferenceAssignment:
+      required:
+      - name
+      - ensembles
+      - video
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        ensembles:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        ensemble_names:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          uniqueItems: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        model_csvs:
+          type:
+          - array
+          - 'null'
+          items:
+            title: Model csvs
+            type: string
+            maxLength: 1024
+            minLength: 1
+        truth_table_location:
+          title: Truth table location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        boolean_output_location:
+          title: Boolean output location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        boolean_location_url:
+          title: Boolean location url
+          type: string
+          readOnly: true
+        truth_table_location_url:
+          title: Truth table location url
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
     ProvisionalObservationClassification:
       required:
       - start_frame
@@ -3347,10 +3379,10 @@ components:
             type:
             - string
             - 'null'
-    PartnerLink:
+    ModelEnsemble:
       required:
-      - partner
-      - link
+      - name
+      - training_models
       type: object
       properties:
         sid:
@@ -3358,26 +3390,53 @@ components:
           type: string
           format: uuid
           readOnly: true
-        partner:
-          title: Partner
-          type: string
-          enum:
-          - unearth
-        link:
-          title: Link
+        url:
+          title: Url
           type: string
           format: uri
-          maxLength: 1024
-          minLength: 1
-        icon_url:
-          title: Icon url
-          type: string
           readOnly: true
-        meta:
-          title: Meta
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        training_models:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        model_names:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          uniqueItems: true
+        logic:
+          title: Logic
           type:
           - object
           - 'null'
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
     InspectionRatings:
       type: object
       properties:
@@ -3603,306 +3662,6 @@ components:
           - string
           - 'null'
           minLength: 1
-    ClassificationGroup:
-      required:
-      - name
-      - codes
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          description: The name of the group
-          type: string
-          maxLength: 128
-          minLength: 1
-        codes:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        codes_detail:
-          type: array
-          items:
-            $ref: '#/components/schemas/VideoObservationClassification'
-          readOnly: true
-        bb_count:
-          title: Bb count
-          type: integer
-          readOnly: true
-        bb_reviewed_count:
-          title: Bb reviewed count
-          type: integer
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    VideoObservationClassification:
-      required:
-      - system
-      - code
-      - version
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        system:
-          title: System
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        code:
-          title: Code
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        version:
-          title: Version
-          type:
-          - string
-          - 'null'
-          maxLength: 32
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        family_group_color:
-          title: Family group color
-          type: string
-          readOnly: true
-    ObservationRun:
-      required:
-      - training_model
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        training_model:
-          title: Training model
-          type: string
-          format: uri
-        model_name:
-          title: Model name
-          type: string
-          readOnly: true
-          minLength: 1
-        run_type:
-          title: Run type
-          type: integer
-          enum:
-          - 1
-          - 0
-          - 2
-        model_version:
-          title: Model version
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        display_name:
-          title: Display name
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-        params:
-          title: Params
-          type: object
-        metrics:
-          title: Metrics
-          type: string
-          readOnly: true
-        source_preset:
-          title: Source preset
-          type: integer
-          enum:
-          - 4
-          - 0
-          - 3
-          - 2
-          - 1
-        source_kwargs:
-          title: Source kwargs
-          type: object
-        num_inference_required:
-          title: Num inference required
-          type: string
-          readOnly: true
-        eligible_count:
-          title: Eligible count
-          type: string
-          readOnly: true
-        videos:
-          title: Videos
-          type: string
-          readOnly: true
-        run_status:
-          title: Run status
-          type: integer
-          enum:
-          - 2
-          - 0
-          - 1
-        completed_count:
-          title: Completed count
-          type: string
-          readOnly: true
-        model_sid:
-          title: Model sid
-          type: string
-          readOnly: true
-          minLength: 1
-        group_sids:
-          title: Group sids
-          type: string
-          readOnly: true
-        video_filters:
-          title: Video filters
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        codes:
-          title: Codes
-          type: string
-          readOnly: true
-        inference_resolution:
-          title: Inference resolution
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        run_groups:
-          title: Run groups
-          type: string
-          readOnly: true
-        prov_obs_stats:
-          title: Prov obs stats
-          type: string
-          readOnly: true
-    AccountUser:
-      required:
-      - email
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        first_name:
-          title: First name
-          type: string
-          maxLength: 150
-        last_name:
-          title: Last name
-          type: string
-          maxLength: 150
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
-        last_pioneer_login:
-          title: Last pioneer login
-          type: string
-          readOnly: true
-        permission_level:
-          title: Permission level
-          type: string
-          readOnly: true
-        projects:
-          title: Projects
-          type: string
-          readOnly: true
     Video:
       required:
       - created_by
@@ -4317,6 +4076,247 @@ components:
           type:
           - number
           - 'null'
+    AccountUser:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        last_pioneer_login:
+          title: Last pioneer login
+          type: string
+          readOnly: true
+        permission_level:
+          title: Permission level
+          type: string
+          readOnly: true
+        projects:
+          title: Projects
+          type: string
+          readOnly: true
+    PartnerLink:
+      required:
+      - partner
+      - link
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        partner:
+          title: Partner
+          type: string
+          enum:
+          - unearth
+        link:
+          title: Link
+          type: string
+          format: uri
+          maxLength: 1024
+          minLength: 1
+        icon_url:
+          title: Icon url
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
+          type:
+          - object
+          - 'null'
+    ClassificationGroup:
+      required:
+      - name
+      - codes
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          description: The name of the group
+          type: string
+          maxLength: 128
+          minLength: 1
+        codes:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        codes_detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/VideoObservationClassification'
+          readOnly: true
+        bb_count:
+          title: Bb count
+          type: integer
+          readOnly: true
+        bb_reviewed_count:
+          title: Bb reviewed count
+          type: integer
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    TrainingModel:
+      required:
+      - name
+      - groups
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        location:
+          title: Location
+          description: S3 location of saved model
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        wandb:
+          title: Wandb
+          description: Weights and Biases link
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - defined
+          - queued
+          - training
+          - trained
+        groups:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        groups_detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationGroup'
+          readOnly: true
+        config_location:
+          title: Config location
+          description: S3 location of config json file
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        excluded_codes:
+          title: Excluded codes
+          type:
+          - object
+          - 'null'
+        is_testable:
+          title: Is testable
+          type: boolean
+        meta:
+          title: Meta
+          type:
+          - object
+          - 'null'
+        statistics:
+          title: Statistics
+          type:
+          - object
+          - 'null'
+        hyperparameters:
+          title: Hyperparameters
+          type:
+          - object
+          - 'null'
+        qa_type:
+          title: Qa type
+          type: string
+          enum:
+          - qa
+          - review
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
   securitySchemes:
     Basic:
       type: http
