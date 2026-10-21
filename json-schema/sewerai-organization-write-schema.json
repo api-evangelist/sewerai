@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-organization-write-schema.json",
+  "title": "OrganizationWrite",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-organizations-api-openapi.yml#/components/schemas/OrganizationWrite",
+  "required": [
+    "name",
+    "city"
+  ],
+  "type": "object",
+  "properties": {
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "maxLength": 1024,
+      "minLength": 1
+    },
+    "city": {
+      "title": "City",
+      "type": "string",
+      "minLength": 1
+    },
+    "city_area": {
+      "title": "City area",
+      "type": "string",
+      "minLength": 1
+    },
+    "country_area": {
+      "title": "Country area",
+      "type": "string",
+      "minLength": 1
+    },
+    "country_code": {
+      "title": "Country code",
+      "type": "string",
+      "minLength": 1
+    },
+    "postal_code": {
+      "title": "Postal code",
+      "type": "string",
+      "minLength": 1
+    },
+    "sorting_code": {
+      "title": "Sorting code",
+      "type": "string",
+      "minLength": 1
+    },
+    "street_address": {
+      "title": "Street address",
+      "type": "string",
+      "minLength": 1
+    },
+    "phone_number": {
+      "title": "Phone number",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "account": {
+      "title": "Account",
+      "type": "string",
+      "format": "uuid"
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "deleted": {
+      "title": "Deleted",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_by": {
+      "title": "Deleted by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    }
+  }
+}

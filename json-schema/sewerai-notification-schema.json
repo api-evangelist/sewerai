@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-notification-schema.json",
+  "title": "Notification",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-notifications-api-openapi.yml#/components/schemas/Notification",
+  "required": [
+    "content"
+  ],
+  "type": "object",
+  "properties": {
+    "action_url": {
+      "title": "Action url",
+      "type": "string",
+      "readOnly": true
+    },
+    "category": {
+      "title": "Category",
+      "type": "string",
+      "readOnly": true
+    },
+    "content": {
+      "title": "Content",
+      "type": "string",
+      "enum": [
+        "export_ready",
+        "digital_submittal_sent",
+        "digital_submittal_accepted",
+        "digital_submittal_received",
+        "digital_submittal_deleted",
+        "review_task_created",
+        "review_task_comment_created",
+        "review_task_comment_user_tagged",
+        "user_invited_to_account_or_project"
+      ]
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "full_content": {
+      "title": "Full content",
+      "type": "string",
+      "readOnly": true
+    },
+    "meta": {
+      "title": "Meta",
+      "type": "object"
+    },
+    "read": {
+      "title": "Read",
+      "type": "boolean"
+    },
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "target_user": {
+      "title": "Target user",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    }
+  }
+}

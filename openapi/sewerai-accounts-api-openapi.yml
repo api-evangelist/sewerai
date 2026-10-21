@@ -872,6 +872,207 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    AccountProject:
+      required:
+      - name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        account:
+          title: Account
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+        active:
+          title: Active
+          type: boolean
+        date_due:
+          title: Date due
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_started:
+          title: Date started
+          type:
+          - string
+          - 'null'
+          format: date-time
+        date_finished:
+          title: Date finished
+          type:
+          - string
+          - 'null'
+          format: date-time
+        summary:
+          title: Summary
+          type: object
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        preferred_canvotation_template:
+          title: Preferred canvotation template
+          type: string
+          readOnly: true
+        notes:
+          title: Notes
+          type:
+          - string
+          - 'null'
+    GISMap:
+      required:
+      - url
+      - name
+      - sewer_key_pipe
+      - sewer_key_upmh
+      - sewer_key_downmh
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          maxLength: 1024
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_pipe:
+          title: Sewer key pipe
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_upmh:
+          title: Sewer key upmh
+          type: string
+          maxLength: 128
+          minLength: 1
+        sewer_key_downmh:
+          title: Sewer key downmh
+          type: string
+          maxLength: 128
+          minLength: 1
+    Account:
+      required:
+      - name
+      - display_name
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 512
+          minLength: 1
+        display_name:
+          title: Display name
+          type: string
+          maxLength: 512
+          minLength: 1
+        location:
+          title: Location
+          type: string
+          maxLength: 512
+        user_permission:
+          title: User permission
+          type: string
+          readOnly: true
+        stage:
+          title: Stage
+          type: string
+          readOnly: true
+        kind:
+          title: Kind
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+        owners:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        file_naming_formats:
+          title: File naming formats
+          type: object
+        pdf_template_options:
+          title: Pdf template options
+          type: string
+          readOnly: true
+        logo_url:
+          title: Logo url
+          type: string
+          readOnly: true
+        default_pacp_project_spec_sid:
+          title: Default pacp project spec sid
+          type: string
+          readOnly: true
+        default_macp_project_spec_sid:
+          title: Default macp project spec sid
+          type: string
+          readOnly: true
+        default_lacp_project_spec_sid:
+          title: Default lacp project spec sid
+          type: string
+          readOnly: true
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
     User:
       required:
       - username
@@ -1057,207 +1258,6 @@ components:
         presigned_upload:
           title: Presigned upload
           type: object
-    AccountProject:
-      required:
-      - name
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        account:
-          title: Account
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-        active:
-          title: Active
-          type: boolean
-        date_due:
-          title: Date due
-          type:
-          - string
-          - 'null'
-          format: date-time
-        date_started:
-          title: Date started
-          type:
-          - string
-          - 'null'
-          format: date-time
-        date_finished:
-          title: Date finished
-          type:
-          - string
-          - 'null'
-          format: date-time
-        summary:
-          title: Summary
-          type: object
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        preferred_canvotation_template:
-          title: Preferred canvotation template
-          type: string
-          readOnly: true
-        notes:
-          title: Notes
-          type:
-          - string
-          - 'null'
-    GISMap:
-      required:
-      - url
-      - name
-      - sewer_key_pipe
-      - sewer_key_upmh
-      - sewer_key_downmh
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          maxLength: 1024
-          minLength: 1
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        sewer_key_pipe:
-          title: Sewer key pipe
-          type: string
-          maxLength: 128
-          minLength: 1
-        sewer_key_upmh:
-          title: Sewer key upmh
-          type: string
-          maxLength: 128
-          minLength: 1
-        sewer_key_downmh:
-          title: Sewer key downmh
-          type: string
-          maxLength: 128
-          minLength: 1
-    Certificate:
-      type: object
-      properties:
-        number:
-          title: Certificate Number
-          description: The Certificate Number
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        cert_date:
-          title: Cert date
-          type:
-          - string
-          - 'null'
-          format: date-time
-    Account:
-      required:
-      - name
-      - display_name
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 512
-          minLength: 1
-        display_name:
-          title: Display name
-          type: string
-          maxLength: 512
-          minLength: 1
-        location:
-          title: Location
-          type: string
-          maxLength: 512
-        user_permission:
-          title: User permission
-          type: string
-          readOnly: true
-        stage:
-          title: Stage
-          type: string
-          readOnly: true
-        kind:
-          title: Kind
-          type: integer
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-        owners:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        file_naming_formats:
-          title: File naming formats
-          type: object
-        pdf_template_options:
-          title: Pdf template options
-          type: string
-          readOnly: true
-        logo_url:
-          title: Logo url
-          type: string
-          readOnly: true
-        default_pacp_project_spec_sid:
-          title: Default pacp project spec sid
-          type: string
-          readOnly: true
-        default_macp_project_spec_sid:
-          title: Default macp project spec sid
-          type: string
-          readOnly: true
-        default_lacp_project_spec_sid:
-          title: Default lacp project spec sid
-          type: string
-          readOnly: true
   securitySchemes:
     Basic:
       type: http

@@ -3,35 +3,16 @@ method: searched
 source: https://www.sewerai.com/changelog
 http_status: 200
 checked: '2026-08-27'
-scheme:
-  type: dated-product-changelog
-  cadence: irregular
-  versioned: false
-  categories:
-  - API
-  - Integrations
-  - Improvements
-  - Inspections
-  - Projects
-  - Reports
-  - Pioneer
-  - Security
-  - Fixes
-  breaking_changes_flagged: false
-  note: >-
-    Entries are dated and grouped by category, with a standing API category, but carry no version
-    number and no breaking-change marker. The changelog documents the Pioneer product as a whole;
-    the API items sit inside it rather than in a separate API changelog.
+scheme: dated-product-changelog
 current_version: v1
 latest_entry: '2026-07-14'
 entry_count_published: 2
-window: '2026-07-01 to 2026-07-14'
+window: 2026-07-01 to 2026-07-14
 entries:
 - date: '2026-07-14'
   title: Better data in and out of Pioneer
-  summary: >-
-    The public API now works in metric units and filters by customer and owner, while closer
-    Cityworks and Unearth sync keeps connected systems current.
+  summary: The public API now works in metric units and filters by customer and owner, while closer Cityworks and
+    Unearth sync keeps connected systems current.
   breaking: false
   api_changes:
   - The v2 inspection and observation endpoints return converted measurements when metric units are requested.
@@ -50,22 +31,40 @@ entries:
   - Unreviewed AutoCode observations are no longer counted in NASSCO ratings.
 - date: '2026-07-01'
   title: Clearer inspection data and safer review
-  summary: >-
-    Custom inspection fields carry user-defined labels, videos failing automated checks stay in
-    review instead of being rejected, and the v2 API adds large-export and submittal endpoints.
+  summary: Custom inspection fields carry user-defined labels, videos failing automated checks stay in review instead
+    of being rejected, and the v2 API adds large-export and submittal endpoints.
   breaking: false
   api_changes:
   - A new v2 endpoint exports reports with the same output as a direct report pull.
-  - A new v2 endpoint returns large inspection-list CSV exports, matching the legacy list export used for PACP and Consent Decree reporting.
+  - A new v2 endpoint returns large inspection-list CSV exports, matching the legacy list export used for PACP and
+    Consent Decree reporting.
   - A new v2 endpoint kicks off digital submittals.
   - The v2 API can update inspection custom fields, including invoice and payment tracking values.
   - Export, download and bulk update operations in the v2 API are faster for high-volume programs.
   other_highlights:
   - The ten NASSCO custom inspection fields can be named on the project spec.
-  - Videos failing automated payout/length checks stay in review; new rejection reasons Poor Quality Render and Missing Information.
+  - Videos failing automated payout/length checks stay in review; new rejection reasons Poor Quality Render and
+    Missing Information.
   - Metric measurements round to NASSCO-allowed precision for PACP, LACP and MACP.
   - MACP inspections support standard MP4 in addition to equirectangular video.
-finding: >-
-  Every API item in both published entries describes a "v2" API. No v2 surface is reachable
-  anonymously (see lifecycle/sewerai-lifecycle.yml for the probe table) and no v2 contract is
-  published, so the changelog documents an API that integrators cannot discover, read or call.
+finding: Every API item in both published entries describes a "v2" API. No v2 surface is reachable anonymously (see
+  lifecycle/sewerai-lifecycle.yml for the probe table) and no v2 contract is published, so the changelog documents
+  an API that integrators cannot discover, read or call.
+scheme_detail:
+  type: dated-product-changelog
+  cadence: irregular
+  versioned: false
+  categories:
+  - API
+  - Integrations
+  - Improvements
+  - Inspections
+  - Projects
+  - Reports
+  - Pioneer
+  - Security
+  - Fixes
+  breaking_changes_flagged: false
+  note: Entries are dated and grouped by category, with a standing API category, but carry no version number and
+    no breaking-change marker. The changelog documents the Pioneer product as a whole; the API items sit inside
+    it rather than in a separate API changelog.

@@ -1561,11 +1561,10 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    TestObservationClassification:
+    ClassificationGroup:
       required:
-      - observation_run
-      - video
-      - video_frame
+      - name
+      - codes
       type: object
       properties:
         sid:
@@ -1578,31 +1577,120 @@ components:
           type: string
           format: uri
           readOnly: true
-        observation_run:
-          title: Observation run
+        name:
+          title: Name
+          description: The name of the group
+          type: string
+          maxLength: 128
+          minLength: 1
+        codes:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        codes_detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/VideoObservationClassification'
+          readOnly: true
+        bb_count:
+          title: Bb count
+          type: integer
+          readOnly: true
+        bb_reviewed_count:
+          title: Bb reviewed count
+          type: integer
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
           type: string
           format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    InferenceAssignment:
+      required:
+      - name
+      - ensembles
+      - video
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        ensembles:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        ensemble_names:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          uniqueItems: true
         video:
           title: Video
           type: string
           format: uri
-        video_sid:
-          title: Video sid
+        model_csvs:
+          type:
+          - array
+          - 'null'
+          items:
+            title: Model csvs
+            type: string
+            maxLength: 1024
+            minLength: 1
+        truth_table_location:
+          title: Truth table location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        boolean_output_location:
+          title: Boolean output location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        boolean_location_url:
+          title: Boolean location url
           type: string
           readOnly: true
-          minLength: 1
-        classification:
-          $ref: '#/components/schemas/VideoObservationClassification'
-        payout:
-          title: Payout
-          type:
-          - number
-          - 'null'
-        video_frame:
-          title: Video frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
+        truth_table_location_url:
+          title: Truth table location url
+          type: string
+          readOnly: true
         created:
           title: Created
           type: string
@@ -1758,359 +1846,6 @@ components:
           title: Prov obs stats
           type: string
           readOnly: true
-    VideoObservationClassification:
-      required:
-      - system
-      - code
-      - version
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        system:
-          title: System
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        code:
-          title: Code
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        version:
-          title: Version
-          type:
-          - string
-          - 'null'
-          maxLength: 32
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        family_group_color:
-          title: Family group color
-          type: string
-          readOnly: true
-    BBInferenceAssignment:
-      required:
-      - video
-      - training_models
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        video:
-          title: Video
-          type: string
-          format: uri
-        frame_size:
-          title: Frame size
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        training_models:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        model_names:
-          type: array
-          items:
-            type: string
-          readOnly: true
-          uniqueItems: true
-        model_details:
-          type: array
-          items:
-            $ref: '#/components/schemas/TrainingModel'
-          readOnly: true
-        bb_json_location:
-          title: BB JSON location
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        bb_json_location_url:
-          title: Bb json location url
-          type: string
-          readOnly: true
-        start_time:
-          title: Start time
-          type:
-          - string
-          - 'null'
-        end_time:
-          title: End time
-          type:
-          - string
-          - 'null'
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        video_details:
-          $ref: '#/components/schemas/Video'
-    InferenceAssignment:
-      required:
-      - name
-      - ensembles
-      - video
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        ensembles:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        ensemble_names:
-          type: array
-          items:
-            type: string
-          readOnly: true
-          uniqueItems: true
-        video:
-          title: Video
-          type: string
-          format: uri
-        model_csvs:
-          type:
-          - array
-          - 'null'
-          items:
-            title: Model csvs
-            type: string
-            maxLength: 1024
-            minLength: 1
-        truth_table_location:
-          title: Truth table location
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        boolean_output_location:
-          title: Boolean output location
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        boolean_location_url:
-          title: Boolean location url
-          type: string
-          readOnly: true
-        truth_table_location_url:
-          title: Truth table location url
-          type: string
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    ProvisionalObservationClassification:
-      required:
-      - start_frame
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        video_sid:
-          title: Video sid
-          type: string
-          readOnly: true
-          minLength: 1
-        observation_run_sid:
-          title: Observation run sid
-          type: string
-          readOnly: true
-          minLength: 1
-        classification:
-          $ref: '#/components/schemas/VideoObservationClassification'
-        interval:
-          title: Interval
-          type: string
-          readOnly: true
-        frame_urls:
-          title: Frame urls
-          type: string
-          readOnly: true
-        start_payout:
-          title: Start payout
-          type:
-          - number
-          - 'null'
-        end_payout:
-          title: End payout
-          type:
-          - number
-          - 'null'
-        start_frame:
-          title: Start frame
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        end_frame:
-          title: End frame
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        boxes:
-          title: Boxes
-          type: object
-        reviewed_by:
-          title: Reviewed by
-          type:
-          - string
-          - 'null'
-          format: uri
-        frame_map:
-          title: Frame map
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        inference_sid:
-          title: Inference sid
-          type: string
-          readOnly: true
-          minLength: 1
-        graph_url:
-          title: Graph url
-          type: string
-          readOnly: true
-        private_comment:
-          title: Private comment
-          type: string
-          maxLength: 10000
-          minLength: 1
-        pacp_comment:
-          title: Pacp comment
-          type: string
-          maxLength: 10000
-          minLength: 1
     RegressionModel:
       required:
       - name
@@ -2210,6 +1945,445 @@ components:
           title: Updated by
           type: string
           format: uri
+          readOnly: true
+    InspectionRatings:
+      type: object
+      properties:
+        STGradeScore1:
+          title: Stgradescore1
+          type:
+          - number
+          - 'null'
+        STGradeScore2:
+          title: Stgradescore2
+          type:
+          - number
+          - 'null'
+        STGradeScore3:
+          title: Stgradescore3
+          type:
+          - number
+          - 'null'
+        STGradeScore4:
+          title: Stgradescore4
+          type:
+          - number
+          - 'null'
+        STGradeScore5:
+          title: Stgradescore5
+          type:
+          - number
+          - 'null'
+        OMGradeScore1:
+          title: Omgradescore1
+          type:
+          - number
+          - 'null'
+        OMGradeScore2:
+          title: Omgradescore2
+          type:
+          - number
+          - 'null'
+        OMGradeScore3:
+          title: Omgradescore3
+          type:
+          - number
+          - 'null'
+        OMGradeScore4:
+          title: Omgradescore4
+          type:
+          - number
+          - 'null'
+        OMGradeScore5:
+          title: Omgradescore5
+          type:
+          - number
+          - 'null'
+        ST1:
+          title: St1
+          type:
+          - number
+          - 'null'
+        ST2:
+          title: St2
+          type:
+          - number
+          - 'null'
+        ST3:
+          title: St3
+          type:
+          - number
+          - 'null'
+        ST4:
+          title: St4
+          type:
+          - number
+          - 'null'
+        ST5:
+          title: St5
+          type:
+          - number
+          - 'null'
+        OM1:
+          title: Om1
+          type:
+          - number
+          - 'null'
+        OM2:
+          title: Om2
+          type:
+          - number
+          - 'null'
+        OM3:
+          title: Om3
+          type:
+          - number
+          - 'null'
+        OM4:
+          title: Om4
+          type:
+          - number
+          - 'null'
+        OM5:
+          title: Om5
+          type:
+          - number
+          - 'null'
+        STPipeRating:
+          title: Stpiperating
+          type:
+          - number
+          - 'null'
+        OMPipeRating:
+          title: Ompiperating
+          type:
+          - number
+          - 'null'
+        OverallPipeRating:
+          title: Overallpiperating
+          type:
+          - number
+          - 'null'
+        STPipeRatingsIndex:
+          title: Stpiperatingsindex
+          type:
+          - number
+          - 'null'
+        OMPipeRatingsIndex:
+          title: Ompiperatingsindex
+          type:
+          - number
+          - 'null'
+        OverallPipeRatingsIndex:
+          title: Overallpiperatingsindex
+          type:
+          - number
+          - 'null'
+        Risk:
+          title: Risk
+          type:
+          - number
+          - 'null'
+        RatingID:
+          title: Ratingid
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STQuickRating:
+          title: Stquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OMQuickRating:
+          title: Omquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        OverallQuickRating:
+          title: Overallquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFPACP:
+          title: Lofpacp
+          type:
+          - number
+          - 'null'
+        PACPQuickRating:
+          title: Pacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        LoFLACP:
+          title: Loflacp
+          type:
+          - number
+          - 'null'
+        LACPQuickRating:
+          title: Lacpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        STMHRating:
+          title: Stmhrating
+          type:
+          - number
+          - 'null'
+        OMMHRating:
+          title: Ommhrating
+          type:
+          - number
+          - 'null'
+        OverallMHRating:
+          title: Overallmhrating
+          type:
+          - number
+          - 'null'
+        STMHRatingsIndex:
+          title: Stmhratingsindex
+          type:
+          - number
+          - 'null'
+        OMMHRatingsIndex:
+          title: Ommhratingsindex
+          type:
+          - number
+          - 'null'
+        OverallMHRatingsIndex:
+          title: Overallmhratingsindex
+          type:
+          - number
+          - 'null'
+        LoFMACP:
+          title: Lofmacp
+          type:
+          - number
+          - 'null'
+        MACPQuickRating:
+          title: Macpquickrating
+          type:
+          - string
+          - 'null'
+          minLength: 1
+    ModelEnsemble:
+      required:
+      - name
+      - training_models
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 128
+          minLength: 1
+        training_models:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        model_names:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          uniqueItems: true
+        logic:
+          title: Logic
+          type:
+          - object
+          - 'null'
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+    BBInferenceAssignment:
+      required:
+      - video
+      - training_models
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        video:
+          title: Video
+          type: string
+          format: uri
+        frame_size:
+          title: Frame size
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        training_models:
+          type: array
+          items:
+            type: string
+            format: uri
+          uniqueItems: true
+        model_names:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          uniqueItems: true
+        model_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrainingModel'
+          readOnly: true
+        bb_json_location:
+          title: BB JSON location
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        bb_json_location_url:
+          title: Bb json location url
+          type: string
+          readOnly: true
+        start_time:
+          title: Start time
+          type:
+          - string
+          - 'null'
+        end_time:
+          title: End time
+          type:
+          - string
+          - 'null'
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        video_details:
+          $ref: '#/components/schemas/Video'
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
           readOnly: true
     Inspection:
       required:
@@ -3379,10 +3553,10 @@ components:
             type:
             - string
             - 'null'
-    ModelEnsemble:
+    TrainingModel:
       required:
       - name
-      - training_models
+      - groups
       type: object
       properties:
         sid:
@@ -3400,23 +3574,78 @@ components:
           type: string
           maxLength: 128
           minLength: 1
-        training_models:
+        location:
+          title: Location
+          description: S3 location of saved model
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        wandb:
+          title: Wandb
+          description: Weights and Biases link
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - defined
+          - queued
+          - training
+          - trained
+        groups:
           type: array
           items:
             type: string
             format: uri
           uniqueItems: true
-        model_names:
+        groups_detail:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/ClassificationGroup'
           readOnly: true
-          uniqueItems: true
-        logic:
-          title: Logic
+        config_location:
+          title: Config location
+          description: S3 location of config json file
+          type:
+          - string
+          - 'null'
+          maxLength: 1024
+          minLength: 1
+        excluded_codes:
+          title: Excluded codes
           type:
           - object
           - 'null'
+        is_testable:
+          title: Is testable
+          type: boolean
+        meta:
+          title: Meta
+          type:
+          - object
+          - 'null'
+        statistics:
+          title: Statistics
+          type:
+          - object
+          - 'null'
+        hyperparameters:
+          title: Hyperparameters
+          type:
+          - object
+          - 'null'
+        qa_type:
+          title: Qa type
+          type: string
+          enum:
+          - qa
+          - review
         created:
           title: Created
           type: string
@@ -3437,231 +3666,37 @@ components:
           type: string
           format: uri
           readOnly: true
-    InspectionRatings:
+    PartnerLink:
+      required:
+      - partner
+      - link
       type: object
       properties:
-        STGradeScore1:
-          title: Stgradescore1
-          type:
-          - number
-          - 'null'
-        STGradeScore2:
-          title: Stgradescore2
-          type:
-          - number
-          - 'null'
-        STGradeScore3:
-          title: Stgradescore3
-          type:
-          - number
-          - 'null'
-        STGradeScore4:
-          title: Stgradescore4
-          type:
-          - number
-          - 'null'
-        STGradeScore5:
-          title: Stgradescore5
-          type:
-          - number
-          - 'null'
-        OMGradeScore1:
-          title: Omgradescore1
-          type:
-          - number
-          - 'null'
-        OMGradeScore2:
-          title: Omgradescore2
-          type:
-          - number
-          - 'null'
-        OMGradeScore3:
-          title: Omgradescore3
-          type:
-          - number
-          - 'null'
-        OMGradeScore4:
-          title: Omgradescore4
-          type:
-          - number
-          - 'null'
-        OMGradeScore5:
-          title: Omgradescore5
-          type:
-          - number
-          - 'null'
-        ST1:
-          title: St1
-          type:
-          - number
-          - 'null'
-        ST2:
-          title: St2
-          type:
-          - number
-          - 'null'
-        ST3:
-          title: St3
-          type:
-          - number
-          - 'null'
-        ST4:
-          title: St4
-          type:
-          - number
-          - 'null'
-        ST5:
-          title: St5
-          type:
-          - number
-          - 'null'
-        OM1:
-          title: Om1
-          type:
-          - number
-          - 'null'
-        OM2:
-          title: Om2
-          type:
-          - number
-          - 'null'
-        OM3:
-          title: Om3
-          type:
-          - number
-          - 'null'
-        OM4:
-          title: Om4
-          type:
-          - number
-          - 'null'
-        OM5:
-          title: Om5
-          type:
-          - number
-          - 'null'
-        STPipeRating:
-          title: Stpiperating
-          type:
-          - number
-          - 'null'
-        OMPipeRating:
-          title: Ompiperating
-          type:
-          - number
-          - 'null'
-        OverallPipeRating:
-          title: Overallpiperating
-          type:
-          - number
-          - 'null'
-        STPipeRatingsIndex:
-          title: Stpiperatingsindex
-          type:
-          - number
-          - 'null'
-        OMPipeRatingsIndex:
-          title: Ompiperatingsindex
-          type:
-          - number
-          - 'null'
-        OverallPipeRatingsIndex:
-          title: Overallpiperatingsindex
-          type:
-          - number
-          - 'null'
-        Risk:
-          title: Risk
-          type:
-          - number
-          - 'null'
-        RatingID:
-          title: Ratingid
-          type:
-          - string
-          - 'null'
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        partner:
+          title: Partner
+          type: string
+          enum:
+          - unearth
+        link:
+          title: Link
+          type: string
+          format: uri
+          maxLength: 1024
           minLength: 1
-        STQuickRating:
-          title: Stquickrating
+        icon_url:
+          title: Icon url
+          type: string
+          readOnly: true
+        meta:
+          title: Meta
           type:
-          - string
+          - object
           - 'null'
-          minLength: 1
-        OMQuickRating:
-          title: Omquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        OverallQuickRating:
-          title: Overallquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        LoFPACP:
-          title: Lofpacp
-          type:
-          - number
-          - 'null'
-        PACPQuickRating:
-          title: Pacpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        LoFLACP:
-          title: Loflacp
-          type:
-          - number
-          - 'null'
-        LACPQuickRating:
-          title: Lacpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        STMHRating:
-          title: Stmhrating
-          type:
-          - number
-          - 'null'
-        OMMHRating:
-          title: Ommhrating
-          type:
-          - number
-          - 'null'
-        OverallMHRating:
-          title: Overallmhrating
-          type:
-          - number
-          - 'null'
-        STMHRatingsIndex:
-          title: Stmhratingsindex
-          type:
-          - number
-          - 'null'
-        OMMHRatingsIndex:
-          title: Ommhratingsindex
-          type:
-          - number
-          - 'null'
-        OverallMHRatingsIndex:
-          title: Overallmhratingsindex
-          type:
-          - number
-          - 'null'
-        LoFMACP:
-          title: Lofmacp
-          type:
-          - number
-          - 'null'
-        MACPQuickRating:
-          title: Macpquickrating
-          type:
-          - string
-          - 'null'
-          minLength: 1
     Video:
       required:
       - created_by
@@ -4076,6 +4111,176 @@ components:
           type:
           - number
           - 'null'
+    ProvisionalObservationClassification:
+      required:
+      - start_frame
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        video_sid:
+          title: Video sid
+          type: string
+          readOnly: true
+          minLength: 1
+        observation_run_sid:
+          title: Observation run sid
+          type: string
+          readOnly: true
+          minLength: 1
+        classification:
+          $ref: '#/components/schemas/VideoObservationClassification'
+        interval:
+          title: Interval
+          type: string
+          readOnly: true
+        frame_urls:
+          title: Frame urls
+          type: string
+          readOnly: true
+        start_payout:
+          title: Start payout
+          type:
+          - number
+          - 'null'
+        end_payout:
+          title: End payout
+          type:
+          - number
+          - 'null'
+        start_frame:
+          title: Start frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        end_frame:
+          title: End frame
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        boxes:
+          title: Boxes
+          type: object
+        reviewed_by:
+          title: Reviewed by
+          type:
+          - string
+          - 'null'
+          format: uri
+        frame_map:
+          title: Frame map
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        inference_sid:
+          title: Inference sid
+          type: string
+          readOnly: true
+          minLength: 1
+        graph_url:
+          title: Graph url
+          type: string
+          readOnly: true
+        private_comment:
+          title: Private comment
+          type: string
+          maxLength: 10000
+          minLength: 1
+        pacp_comment:
+          title: Pacp comment
+          type: string
+          maxLength: 10000
+          minLength: 1
+    TestObservationClassification:
+      required:
+      - observation_run
+      - video
+      - video_frame
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        observation_run:
+          title: Observation run
+          type: string
+          format: uri
+        video:
+          title: Video
+          type: string
+          format: uri
+        video_sid:
+          title: Video sid
+          type: string
+          readOnly: true
+          minLength: 1
+        classification:
+          $ref: '#/components/schemas/VideoObservationClassification'
+        payout:
+          title: Payout
+          type:
+          - number
+          - 'null'
+        video_frame:
+          title: Video frame
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
     AccountUser:
       required:
       - email
@@ -4111,211 +4316,6 @@ components:
         projects:
           title: Projects
           type: string
-          readOnly: true
-    PartnerLink:
-      required:
-      - partner
-      - link
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        partner:
-          title: Partner
-          type: string
-          enum:
-          - unearth
-        link:
-          title: Link
-          type: string
-          format: uri
-          maxLength: 1024
-          minLength: 1
-        icon_url:
-          title: Icon url
-          type: string
-          readOnly: true
-        meta:
-          title: Meta
-          type:
-          - object
-          - 'null'
-    ClassificationGroup:
-      required:
-      - name
-      - codes
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          description: The name of the group
-          type: string
-          maxLength: 128
-          minLength: 1
-        codes:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        codes_detail:
-          type: array
-          items:
-            $ref: '#/components/schemas/VideoObservationClassification'
-          readOnly: true
-        bb_count:
-          title: Bb count
-          type: integer
-          readOnly: true
-        bb_reviewed_count:
-          title: Bb reviewed count
-          type: integer
-          readOnly: true
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-    TrainingModel:
-      required:
-      - name
-      - groups
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          maxLength: 128
-          minLength: 1
-        location:
-          title: Location
-          description: S3 location of saved model
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        wandb:
-          title: Wandb
-          description: Weights and Biases link
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - defined
-          - queued
-          - training
-          - trained
-        groups:
-          type: array
-          items:
-            type: string
-            format: uri
-          uniqueItems: true
-        groups_detail:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClassificationGroup'
-          readOnly: true
-        config_location:
-          title: Config location
-          description: S3 location of config json file
-          type:
-          - string
-          - 'null'
-          maxLength: 1024
-          minLength: 1
-        excluded_codes:
-          title: Excluded codes
-          type:
-          - object
-          - 'null'
-        is_testable:
-          title: Is testable
-          type: boolean
-        meta:
-          title: Meta
-          type:
-          - object
-          - 'null'
-        statistics:
-          title: Statistics
-          type:
-          - object
-          - 'null'
-        hyperparameters:
-          title: Hyperparameters
-          type:
-          - object
-          - 'null'
-        qa_type:
-          title: Qa type
-          type: string
-          enum:
-          - qa
-          - review
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
           readOnly: true
   securitySchemes:
     Basic:

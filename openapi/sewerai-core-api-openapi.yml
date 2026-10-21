@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Snippets Core API
-  description: Test description
-  termsOfService: https://www.google.com/policies/terms/
+  title: Sewerai Core API
+  version: v1
   contact:
     email: contact@snippets.local
   license:
     name: BSD License
-  version: v1
+  termsOfService: https://www.google.com/policies/terms/
+  description: 'Operations tagged core across 2 of this provider''s published API definitions: sewerai-swagger.json, sewerai-core-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
 security:
@@ -37,6 +37,8 @@ paths:
         required: true
       summary: Core SAI analytics
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/StatFuncList/:
     parameters: []
     get:
@@ -55,24 +57,8 @@ paths:
       - Core
       summary: Core stat func list
       x-summary-source: derived
-  /core/import_users/:
-    parameters: []
-    get:
-      operationId: core_import_users
-      description: API endpoint that returns user data.
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'
-      tags:
-      - Core
-      summary: Core import users
-      x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/notifications/:
     parameters: []
     get:
@@ -91,6 +77,8 @@ paths:
       - Core
       summary: Core notifications
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/push_notification/:
     parameters: []
     post:
@@ -113,6 +101,8 @@ paths:
         required: true
       summary: Core push notification
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/roi/:
     parameters: []
     post:
@@ -163,6 +153,8 @@ paths:
         required: true
       summary: Core roi
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/set_tos_accepted/:
     parameters: []
     post:
@@ -185,6 +177,8 @@ paths:
         required: true
       summary: Core set tos accepted
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/set_user_hotbuttons/:
     parameters: []
     post:
@@ -207,6 +201,8 @@ paths:
         required: true
       summary: Core set user hotbuttons
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/slack/:
     parameters: []
     post:
@@ -229,6 +225,8 @@ paths:
         required: true
       summary: Core slack
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/stats/:
     parameters: []
     post:
@@ -251,6 +249,8 @@ paths:
         required: true
       summary: Core stats
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/submit_jira_issue/:
     parameters: []
     post:
@@ -273,6 +273,8 @@ paths:
         required: true
       summary: Core submit jira issue
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/subscribe/:
     parameters: []
     post:
@@ -295,6 +297,8 @@ paths:
         required: true
       summary: Core subscribe
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/test_push/:
     parameters: []
     get:
@@ -313,6 +317,8 @@ paths:
       - Core
       summary: Core test push
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/user/:
     parameters: []
     get:
@@ -351,6 +357,8 @@ paths:
         required: true
       summary: Core user partial update
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /core/users/:
     parameters: []
     get:
@@ -369,24 +377,30 @@ paths:
       - Core
       summary: Core users
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
+  /core/import_users/:
+    parameters: []
+    get:
+      operationId: core_import_users
+      description: API endpoint that returns user data.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      tags:
+      - Core
+      summary: Core import users
+      x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
 components:
   schemas:
-    Certificate:
-      type: object
-      properties:
-        number:
-          title: Certificate Number
-          description: The Certificate Number
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        cert_date:
-          title: Cert date
-          type:
-          - string
-          - 'null'
-          format: date-time
     User:
       required:
       - username
@@ -508,7 +522,26 @@ components:
         meta:
           title: Meta
           type: object
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
   securitySchemes:
     Basic:
       type: http
       scheme: basic
+x-refined-from:
+- sewerai-swagger.json
+- sewerai-core-api-openapi.yml

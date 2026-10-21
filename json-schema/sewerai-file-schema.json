@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-file-schema.json",
+  "title": "File",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-accounts-api-openapi.yml#/components/schemas/File",
+  "required": [
+    "meta",
+    "presigned_upload"
+  ],
+  "type": "object",
+  "properties": {
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "account": {
+      "title": "Account",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "origin_path": {
+      "title": "Origin path",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "kind": {
+      "title": "Kind",
+      "type": "integer",
+      "readOnly": true
+    },
+    "location": {
+      "title": "Location",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "size": {
+      "title": "Size",
+      "type": "string",
+      "readOnly": true
+    },
+    "exists": {
+      "title": "Exists",
+      "type": "string",
+      "readOnly": true
+    },
+    "upload_location": {
+      "title": "Upload location",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "meta": {
+      "title": "Meta",
+      "type": "object"
+    },
+    "dropbox_meta": {
+      "title": "Dropbox meta",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "presigned_upload": {
+      "title": "Presigned upload",
+      "type": "object"
+    }
+  }
+}

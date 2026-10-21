@@ -1,7 +1,7 @@
 ---
 generated: '2026-08-27'
 method: generated
-name: Pull NASSCO-coded observations for a program
+name: sewerai-pull-coded-observations
 description: Read coded inspection results out of SewerAI PIONEER into your own system — list inspections, pull their PACP/MACP/LACP observations and ratings, and fetch video playback URLs — without pagination, without rate-limit signal, and without over-fetching.
 api: openapi/sewerai-swagger.json
 operations: [v1_inspections_list, v1_inspections_read, v1_inspections_observations_list, v1_observations_list, v1_observations_read, v1_videos_list, v1_videos_url, v1_assets_list]

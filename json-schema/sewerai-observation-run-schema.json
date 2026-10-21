@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-observation-run-schema.json",
+  "title": "ObservationRun",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-modeling-api-openapi.yml#/components/schemas/ObservationRun",
+  "required": [
+    "training_model"
+  ],
+  "type": "object",
+  "properties": {
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "training_model": {
+      "title": "Training model",
+      "type": "string",
+      "format": "uri"
+    },
+    "model_name": {
+      "title": "Model name",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "run_type": {
+      "title": "Run type",
+      "type": "integer",
+      "enum": [
+        1,
+        0,
+        2
+      ]
+    },
+    "model_version": {
+      "title": "Model version",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "display_name": {
+      "title": "Display name",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1024
+    },
+    "params": {
+      "title": "Params",
+      "type": "object"
+    },
+    "metrics": {
+      "title": "Metrics",
+      "type": "string",
+      "readOnly": true
+    },
+    "source_preset": {
+      "title": "Source preset",
+      "type": "integer",
+      "enum": [
+        4,
+        0,
+        3,
+        2,
+        1
+      ]
+    },
+    "source_kwargs": {
+      "title": "Source kwargs",
+      "type": "object"
+    },
+    "num_inference_required": {
+      "title": "Num inference required",
+      "type": "string",
+      "readOnly": true
+    },
+    "eligible_count": {
+      "title": "Eligible count",
+      "type": "string",
+      "readOnly": true
+    },
+    "videos": {
+      "title": "Videos",
+      "type": "string",
+      "readOnly": true
+    },
+    "run_status": {
+      "title": "Run status",
+      "type": "integer",
+      "enum": [
+        2,
+        0,
+        1
+      ]
+    },
+    "completed_count": {
+      "title": "Completed count",
+      "type": "string",
+      "readOnly": true
+    },
+    "model_sid": {
+      "title": "Model sid",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "group_sids": {
+      "title": "Group sids",
+      "type": "string",
+      "readOnly": true
+    },
+    "video_filters": {
+      "title": "Video filters",
+      "type": "object"
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "codes": {
+      "title": "Codes",
+      "type": "string",
+      "readOnly": true
+    },
+    "inference_resolution": {
+      "title": "Inference resolution",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "run_groups": {
+      "title": "Run groups",
+      "type": "string",
+      "readOnly": true
+    },
+    "prov_obs_stats": {
+      "title": "Prov obs stats",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

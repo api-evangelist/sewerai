@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-export-schema.json",
+  "title": "Export",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-exports-api-openapi.yml#/components/schemas/Export",
+  "type": "object",
+  "properties": {
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "options": {
+      "title": "Options",
+      "type": "string",
+      "readOnly": true
+    },
+    "name": {
+      "title": "Name",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 128
+    },
+    "num_inspections": {
+      "title": "Num inspections",
+      "type": "string",
+      "readOnly": true
+    },
+    "num_inspections_completed": {
+      "title": "Num inspections completed",
+      "type": "string",
+      "readOnly": true
+    },
+    "num_files": {
+      "title": "Num files",
+      "type": "string",
+      "readOnly": true
+    },
+    "is_done": {
+      "title": "Is done",
+      "type": "string",
+      "readOnly": true
+    },
+    "files": {
+      "title": "Files",
+      "type": "string",
+      "readOnly": true
+    },
+    "has_error": {
+      "title": "Has error",
+      "type": "string",
+      "readOnly": true
+    },
+    "lineal_feet": {
+      "title": "Lineal feet",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "title": "Projects",
+        "type": "string",
+        "maxLength": 512,
+        "minLength": 1
+      }
+    },
+    "total_size": {
+      "title": "Total size",
+      "type": "number"
+    },
+    "progress": {
+      "title": "Progress",
+      "type": "object"
+    },
+    "packaging_progress": {
+      "title": "Packaging progress",
+      "type": "string",
+      "readOnly": true
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "integer",
+      "readOnly": true
+    },
+    "created_by_email": {
+      "title": "Created by email",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "integer",
+      "readOnly": true
+    },
+    "completed_at": {
+      "title": "Completed at",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}

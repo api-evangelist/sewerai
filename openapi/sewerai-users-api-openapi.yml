@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Snippets Users API
-  description: Test description
-  termsOfService: https://www.google.com/policies/terms/
+  title: Sewerai Users API
+  version: v1
   contact:
     email: contact@snippets.local
   license:
     name: BSD License
-  version: v1
+  termsOfService: https://www.google.com/policies/terms/
+  description: 'Operations tagged Users across 2 of this provider''s published API definitions: sewerai-swagger.json, sewerai-users-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
 security:
@@ -53,6 +53,8 @@ paths:
         required: true
       summary: V1 users create
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /v1/users/{sid}/:
     parameters:
     - name: sid
@@ -125,6 +127,8 @@ paths:
       - Users
       summary: V1 users delete
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/:
     parameters: []
     get:
@@ -163,6 +167,8 @@ paths:
         required: true
       summary: Users create
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/change_email/:
     parameters: []
     post:
@@ -185,6 +191,8 @@ paths:
         required: true
       summary: Users change email
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/get_current/:
     parameters: []
     get:
@@ -203,6 +211,8 @@ paths:
       - Users
       summary: Users get current
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/get_metabase_url/:
     parameters: []
     get:
@@ -221,6 +231,8 @@ paths:
       - Users
       summary: Users get metabase url
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/import_users/:
     parameters: []
     get:
@@ -239,6 +251,8 @@ paths:
       - Users
       summary: Users import users
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/labelers/:
     parameters: []
     get:
@@ -257,6 +271,8 @@ paths:
       - Users
       summary: Users labelers
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/my_permissions/:
     parameters: []
     get:
@@ -275,6 +291,8 @@ paths:
       - Users
       summary: Users my permissions
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/notifications/:
     parameters: []
     get:
@@ -293,6 +311,8 @@ paths:
       - Users
       summary: Users notifications
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/push_notification/:
     parameters: []
     post:
@@ -315,6 +335,8 @@ paths:
         required: true
       summary: Users push notification
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/reset_password/:
     parameters: []
     post:
@@ -337,6 +359,8 @@ paths:
         required: true
       summary: Users reset password
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/set_tos_accepted/:
     parameters: []
     post:
@@ -359,6 +383,8 @@ paths:
         required: true
       summary: Users set tos accepted
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/set_user_hotbuttons/:
     parameters: []
     post:
@@ -381,6 +407,8 @@ paths:
         required: true
       summary: Users set user hotbuttons
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/stats/:
     parameters: []
     post:
@@ -403,6 +431,8 @@ paths:
         required: true
       summary: Users stats
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/submit_jira_issue/:
     parameters: []
     post:
@@ -425,6 +455,8 @@ paths:
         required: true
       summary: Users submit jira issue
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/subscribe/:
     parameters: []
     post:
@@ -447,6 +479,8 @@ paths:
         required: true
       summary: Users subscribe
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/test_push/:
     parameters: []
     get:
@@ -465,6 +499,8 @@ paths:
       - Users
       summary: Users test push
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/update_current/:
     parameters: []
     patch:
@@ -487,6 +523,8 @@ paths:
         required: true
       summary: Users update current
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/{id}/:
     parameters:
     - name: id
@@ -559,6 +597,8 @@ paths:
       - Users
       summary: Users delete
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
   /users/{id}/labeler_stats/:
     parameters:
     - name: id
@@ -581,8 +621,39 @@ paths:
       - Users
       summary: Users labeler stats
       x-summary-source: derived
+    servers:
+    - url: https://574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws/
 components:
   schemas:
+    UserList:
+      required:
+      - email
+      type: object
+      properties:
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 150
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 150
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
     UserRead:
       required:
       - email
@@ -620,51 +691,6 @@ components:
           title: Projects
           type: string
           readOnly: true
-    UserList:
-      required:
-      - email
-      type: object
-      properties:
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        first_name:
-          title: First name
-          type: string
-          maxLength: 150
-        last_name:
-          title: Last name
-          type: string
-          maxLength: 150
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
-    Certificate:
-      type: object
-      properties:
-        number:
-          title: Certificate Number
-          description: The Certificate Number
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        cert_date:
-          title: Cert date
-          type:
-          - string
-          - 'null'
-          format: date-time
     User:
       required:
       - username
@@ -786,7 +812,26 @@ components:
         meta:
           title: Meta
           type: object
+    Certificate:
+      type: object
+      properties:
+        number:
+          title: Certificate Number
+          description: The Certificate Number
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        cert_date:
+          title: Cert date
+          type:
+          - string
+          - 'null'
+          format: date-time
   securitySchemes:
     Basic:
       type: http
       scheme: basic
+x-refined-from:
+- sewerai-swagger.json
+- sewerai-users-api-openapi.yml

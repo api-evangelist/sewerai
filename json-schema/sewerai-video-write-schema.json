@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-video-write-schema.json",
+  "title": "VideoWrite",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-videos-api-openapi.yml#/components/schemas/VideoWrite",
+  "required": [
+    "inspection",
+    "path"
+  ],
+  "type": "object",
+  "properties": {
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "video_name": {
+      "title": "Video name",
+      "type": [
+        "string",
+        "null"
+      ],
+      "readOnly": true
+    },
+    "inspection": {
+      "title": "Inspection",
+      "type": "string",
+      "format": "uuid"
+    },
+    "payouts": {
+      "title": "Payouts",
+      "type": "string"
+    },
+    "path": {
+      "title": "Path",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "presigned_upload_data": {
+      "title": "Presigned upload data",
+      "type": "object",
+      "readOnly": true
+    },
+    "stage": {
+      "title": "Stage",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        11,
+        12,
+        13,
+        20
+      ]
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "deleted": {
+      "title": "Deleted",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_by": {
+      "title": "Deleted by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "account": {
+      "title": "Account",
+      "type": "string",
+      "format": "uuid"
+    }
+  }
+}

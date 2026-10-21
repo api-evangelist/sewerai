@@ -1,7 +1,7 @@
 ---
 generated: '2026-08-27'
 method: generated
-name: Upload an inspection video and run AutoCode
+name: sewerai-upload-inspection-and-run-autocode
 description: Take a CCTV inspection video from a local file to AI-coded NASSCO observations in SewerAI PIONEER — create the asset, project and inspection, register and upload the video via presigned S3 POST, wait for encoding, then start an AutoCode run.
 api: openapi/sewerai-swagger.json
 operations: [v1_organizations_create, v1_assets_create, v1_projects_create, v1_inspections_create, v1_videos_create, v1_videos_read, v1_inspections_AutoCode, v1_inspections_observations_list]

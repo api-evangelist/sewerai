@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-inference-assignment-schema.json",
+  "title": "InferenceAssignment",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-modeling-api-openapi.yml#/components/schemas/InferenceAssignment",
+  "required": [
+    "name",
+    "ensembles",
+    "video"
+  ],
+  "type": "object",
+  "properties": {
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "ensembles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "uniqueItems": true
+    },
+    "ensemble_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "uniqueItems": true
+    },
+    "video": {
+      "title": "Video",
+      "type": "string",
+      "format": "uri"
+    },
+    "model_csvs": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "title": "Model csvs",
+        "type": "string",
+        "maxLength": 1024,
+        "minLength": 1
+      }
+    },
+    "truth_table_location": {
+      "title": "Truth table location",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1024,
+      "minLength": 1
+    },
+    "boolean_output_location": {
+      "title": "Boolean output location",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1024,
+      "minLength": 1
+    },
+    "boolean_location_url": {
+      "title": "Boolean location url",
+      "type": "string",
+      "readOnly": true
+    },
+    "truth_table_location_url": {
+      "title": "Truth table location url",
+      "type": "string",
+      "readOnly": true
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    }
+  }
+}

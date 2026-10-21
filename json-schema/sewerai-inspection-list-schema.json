@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-inspection-list-schema.json",
+  "title": "InspectionList",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-inspections-api-openapi.yml#/components/schemas/InspectionList",
+  "required": [
+    "key",
+    "inspection_datetime",
+    "inspection_type"
+  ],
+  "type": "object",
+  "properties": {
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "key": {
+      "title": "Key",
+      "description": "Enables customers to uniquely identify inspections using their own method",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "asset": {
+      "title": "Asset",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "owner": {
+      "title": "Owner",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "client": {
+      "title": "Client",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "reason": {
+      "title": "Reason",
+      "type": "string",
+      "enum": [
+        "operations-support",
+        "infiltation-and-inflow",
+        "new-install",
+        "post-renewal",
+        "pre-renewal",
+        "routine",
+        "pre-construction",
+        "resurvey",
+        "sewer-system-evaluation-survey",
+        "pre-existing-media",
+        "other"
+      ]
+    },
+    "city": {
+      "title": "City",
+      "type": "string",
+      "minLength": 1
+    },
+    "city_area": {
+      "title": "City area",
+      "type": "string",
+      "minLength": 1
+    },
+    "country_area": {
+      "title": "Country area",
+      "type": "string",
+      "minLength": 1
+    },
+    "country_code": {
+      "title": "Country code",
+      "type": "string",
+      "minLength": 1
+    },
+    "postal_code": {
+      "title": "Postal code",
+      "type": "string",
+      "minLength": 1
+    },
+    "sorting_code": {
+      "title": "Sorting code",
+      "type": "string",
+      "minLength": 1
+    },
+    "street_address": {
+      "title": "Street address",
+      "type": "string",
+      "minLength": 1
+    },
+    "inspection_datetime": {
+      "title": "Inspection datetime",
+      "type": "string",
+      "format": "date-time"
+    },
+    "inspection_type": {
+      "title": "Inspection type",
+      "type": "string",
+      "enum": [
+        "mainline",
+        "lateral",
+        "maintenance-hole"
+      ]
+    },
+    "autocode_complete": {
+      "title": "Autocoded",
+      "type": "boolean"
+    },
+    "autocode_complete_date": {
+      "title": "Autocode complete date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "readOnly": true
+    },
+    "distance": {
+      "title": "Distance",
+      "type": "object"
+    },
+    "metadata": {
+      "title": "Metadata",
+      "description": "Customer defined Inspection metadata.",
+      "type": "object"
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "projects": {
+      "title": "Projects",
+      "type": "string",
+      "format": "uuid"
+    },
+    "video": {
+      "title": "Video",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "validate": {
+      "title": "Validate",
+      "description": "Should this inspection be validated (default: True)",
+      "type": "boolean"
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "deleted": {
+      "title": "Deleted",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_by": {
+      "title": "Deleted by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "account": {
+      "title": "Account",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    }
+  }
+}

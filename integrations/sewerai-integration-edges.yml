@@ -1,0 +1,16 @@
+generated: '2026-10-20'
+method: none
+source:
+- https://zapier.com/apps/sewerai/integrations
+- https://n8n.io/integrations/sewerai/
+- https://composio.dev/toolkits/sewerai
+- https://monid.ai/tools/sewerai
+checked:
+- https://composio.dev/toolkits/sewerai
+- https://monid.ai/tools/sewerai
+- https://n8n.io/integrations/sewerai/
+- https://zapier.com/apps/sewerai/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []

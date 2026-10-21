@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-regression-model-schema.json",
+  "title": "RegressionModel",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-modeling-api-openapi.yml#/components/schemas/RegressionModel",
+  "required": [
+    "name",
+    "regression_type",
+    "dims"
+  ],
+  "type": "object",
+  "properties": {
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "location": {
+      "title": "Location",
+      "description": "S3 location of saved model",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1024,
+      "minLength": 1
+    },
+    "wandb": {
+      "title": "Wandb",
+      "description": "Weights and Biases link",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1024,
+      "minLength": 1
+    },
+    "status": {
+      "title": "Status",
+      "type": "string",
+      "enum": [
+        "defined",
+        "queued",
+        "training",
+        "trained"
+      ]
+    },
+    "regression_type": {
+      "title": "Regression type",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "dims": {
+      "title": "Dims",
+      "type": "object"
+    },
+    "config_location": {
+      "title": "Config location",
+      "description": "S3 location of config json file",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1024,
+      "minLength": 1
+    },
+    "is_testable": {
+      "title": "Is testable",
+      "type": "boolean"
+    },
+    "meta": {
+      "title": "Meta",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "statistics": {
+      "title": "Statistics",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "hyperparameters": {
+      "title": "Hyperparameters",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    }
+  }
+}

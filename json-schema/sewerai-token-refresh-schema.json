@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-token-refresh-schema.json",
+  "title": "TokenRefresh",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-token-api-openapi.yml#/components/schemas/TokenRefresh",
+  "required": [
+    "refresh"
+  ],
+  "type": "object",
+  "properties": {
+    "refresh": {
+      "title": "Refresh",
+      "type": "string",
+      "minLength": 1
+    },
+    "access": {
+      "title": "Access",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    }
+  }
+}

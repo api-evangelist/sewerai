@@ -1,0 +1,211 @@
+generated: '2026-10-20'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 15
+  own: 12
+  other_domain: 2
+  platform: 1
+  roles:
+  - api
+  - identity
+  - other
+  - portal
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: 574ea6n6tdopt2qigvs3hjzoha0nhhvj.lambda-url.us-west-2.on.aws
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: on.aws
+  role: other
+  relation: other-domain
+- host: api.on.aws
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: on.aws
+  role: api
+  relation: other-domain
+- host: api.sewerai.com
+  found_by:
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types: []
+  serves:
+  - api
+  - docs
+  - api-gateway
+  vendor: aws-api-gateway
+  registrable_domain: sewerai.com
+  role: api
+  relation: own
+- host: app.sewerai.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - Login
+  serves: []
+  registrable_domain: sewerai.com
+  role: identity
+  relation: own
+- host: console.sewerai.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: sewerai.com
+  role: other
+  relation: own
+- host: docs.sewerai.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  - cdn
+  vendor: cloudflare
+  registrable_domain: sewerai.com
+  role: portal
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: go.sewerai.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: sewerai.com
+  role: other
+  relation: own
+- host: help.sewerai.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  - vendor-detect
+  types:
+  - Support
+  - HelpCenter
+  serves:
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: sewerai.com
+  role: support
+  relation: own
+- host: pioneer.sewerai.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: sewerai.com
+  role: other
+  relation: own
+- host: sewerai.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: sewerai.com
+  role: other
+  relation: own
+- host: sewerbrain.sewerai.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: sewerai.com
+  role: other
+  relation: own
+- host: status.sewerai.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  - vendor-detect
+  types:
+  - StatusPage
+  serves:
+  - status-page
+  vendor: incident-io
+  registrable_domain: sewerai.com
+  role: status
+  relation: own
+- host: trust.sewerai.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - TrustCenter
+  serves: []
+  registrable_domain: sewerai.com
+  role: other
+  relation: own
+- host: www.sewerai.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Newsroom
+  - Website
+  - Blog
+  - Pricing
+  - SignUp
+  - TermsOfService
+  - PrivacyPolicy
+  - ChangeLog
+  serves:
+  - docs
+  - hosting
+  vendor: vercel
+  registrable_domain: sewerai.com
+  role: website
+  relation: own

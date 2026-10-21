@@ -1,7 +1,9 @@
 {
   "provider": "sewerai",
   "sources": [
-    "_original/sewerai-swagger.json"
+    "_original/sewerai-swagger.json",
+    "sewerai-core-api-openapi.yml",
+    "sewerai-users-api-openapi.yml"
   ],
   "outputs": [
     "sewerai-assets-api-openapi.yml",
@@ -38,7 +40,10 @@
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "sewerai-core-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /core/import_users/ get); its other 15 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "sewerai-users-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /users/ post, /users/{id}/ delete, /users/{id}/ patch); its other 25 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "sewerai-swagger.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
@@ -132,6 +137,8 @@
     "sewerai-swagger.json: declared missing tag: token",
     "sewerai-swagger.json: declared missing tag: users",
     "sewerai-swagger.json: declared missing tag: videos",
+    "tag 'Users' spans 2 source specs (sewerai-swagger.json, sewerai-users-api-openapi.yml): per-path servers applied",
+    "tag 'core' spans 2 source specs (sewerai-swagger.json, sewerai-core-api-openapi.yml): per-path servers applied",
     "apis.yml register: already-registered"
   ],
   "skipped": [
@@ -143,7 +150,6 @@
     "sewerai-autocode-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-canvotation-templates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-comment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "sewerai-core-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-exports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -164,7 +170,6 @@
     "sewerai-schemas-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-submittal-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-token-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "sewerai-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "sewerai-videos-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

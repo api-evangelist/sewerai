@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-user-read-schema.json",
+  "title": "UserRead",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-users-api-openapi.yml#/components/schemas/UserRead",
+  "required": [
+    "email"
+  ],
+  "type": "object",
+  "properties": {
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "first_name": {
+      "title": "First name",
+      "type": "string",
+      "maxLength": 150
+    },
+    "last_name": {
+      "title": "Last name",
+      "type": "string",
+      "maxLength": 150
+    },
+    "email": {
+      "title": "Email",
+      "type": "string",
+      "format": "email",
+      "maxLength": 254,
+      "minLength": 1
+    },
+    "permission_level": {
+      "title": "Permission level",
+      "type": "string",
+      "readOnly": true
+    },
+    "projects": {
+      "title": "Projects",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

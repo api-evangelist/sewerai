@@ -21,7 +21,7 @@ paths:
       operationId: labels_classifications_video_list
       description: 'API endpoint that allows Video Observation Classifications to be viewed
 
-        and created.'
+        by any user and managed by staff.'
       parameters:
       - name: system
         in: query
@@ -58,7 +58,7 @@ paths:
       operationId: labels_classifications_video_create
       description: 'API endpoint that allows Video Observation Classifications to be viewed
 
-        and created.'
+        by any user and managed by staff.'
       responses:
         '201':
           description: ''
@@ -88,7 +88,7 @@ paths:
       operationId: labels_classifications_video_read
       description: 'API endpoint that allows Video Observation Classifications to be viewed
 
-        and created.'
+        by any user and managed by staff.'
       responses:
         '200':
           description: ''
@@ -104,7 +104,7 @@ paths:
       operationId: labels_classifications_video_update
       description: 'API endpoint that allows Video Observation Classifications to be viewed
 
-        and created.'
+        by any user and managed by staff.'
       responses:
         '200':
           description: ''
@@ -126,7 +126,7 @@ paths:
       operationId: labels_classifications_video_partial_update
       description: 'API endpoint that allows Video Observation Classifications to be viewed
 
-        and created.'
+        by any user and managed by staff.'
       responses:
         '200':
           description: ''
@@ -148,7 +148,7 @@ paths:
       operationId: labels_classifications_video_delete
       description: 'API endpoint that allows Video Observation Classifications to be viewed
 
-        and created.'
+        by any user and managed by staff.'
       responses:
         '204':
           description: ''
@@ -160,9 +160,9 @@ paths:
     parameters: []
     get:
       operationId: labels_regressions_video_list
-      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+      description: 'API endpoint that allows Video Observation Regressions to be viewed by
 
-        created.'
+        any user and managed by staff.'
       parameters:
       - name: system
         in: query
@@ -191,9 +191,9 @@ paths:
       x-summary-source: derived
     post:
       operationId: labels_regressions_video_create
-      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+      description: 'API endpoint that allows Video Observation Regressions to be viewed by
 
-        created.'
+        any user and managed by staff.'
       responses:
         '201':
           description: ''
@@ -221,9 +221,9 @@ paths:
         format: uuid
     get:
       operationId: labels_regressions_video_read
-      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+      description: 'API endpoint that allows Video Observation Regressions to be viewed by
 
-        created.'
+        any user and managed by staff.'
       responses:
         '200':
           description: ''
@@ -237,9 +237,9 @@ paths:
       x-summary-source: derived
     put:
       operationId: labels_regressions_video_update
-      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+      description: 'API endpoint that allows Video Observation Regressions to be viewed by
 
-        created.'
+        any user and managed by staff.'
       responses:
         '200':
           description: ''
@@ -259,9 +259,9 @@ paths:
       x-summary-source: derived
     patch:
       operationId: labels_regressions_video_partial_update
-      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+      description: 'API endpoint that allows Video Observation Regressions to be viewed by
 
-        created.'
+        any user and managed by staff.'
       responses:
         '200':
           description: ''
@@ -281,9 +281,9 @@ paths:
       x-summary-source: derived
     delete:
       operationId: labels_regressions_video_delete
-      description: 'API endpoint that allows Video Observation Regressions to be viewed and
+      description: 'API endpoint that allows Video Observation Regressions to be viewed by
 
-        created.'
+        any user and managed by staff.'
       responses:
         '204':
           description: ''
@@ -293,6 +293,74 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    VideoObservationClassification:
+      required:
+      - system
+      - code
+      - version
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        sid:
+          title: Sid
+          type: string
+          format: uuid
+          readOnly: true
+        system:
+          title: System
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        code:
+          title: Code
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        version:
+          title: Version
+          type:
+          - string
+          - 'null'
+          maxLength: 32
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          maxLength: 128
+        meta:
+          title: Meta
+          type: object
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+        created_by:
+          title: Created by
+          type: string
+          format: uri
+          readOnly: true
+        updated:
+          title: Updated
+          type: string
+          format: date-time
+          readOnly: true
+        updated_by:
+          title: Updated by
+          type: string
+          format: uri
+          readOnly: true
+        family_group_color:
+          title: Family group color
+          type: string
+          readOnly: true
     VideoObservationRegression:
       required:
       - system
@@ -361,74 +429,6 @@ components:
           title: Updated by
           type: string
           format: uri
-          readOnly: true
-    VideoObservationClassification:
-      required:
-      - system
-      - code
-      - version
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        sid:
-          title: Sid
-          type: string
-          format: uuid
-          readOnly: true
-        system:
-          title: System
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        code:
-          title: Code
-          type:
-          - string
-          - 'null'
-          maxLength: 64
-        version:
-          title: Version
-          type:
-          - string
-          - 'null'
-          maxLength: 32
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          maxLength: 128
-        meta:
-          title: Meta
-          type: object
-        created:
-          title: Created
-          type: string
-          format: date-time
-          readOnly: true
-        created_by:
-          title: Created by
-          type: string
-          format: uri
-          readOnly: true
-        updated:
-          title: Updated
-          type: string
-          format: date-time
-          readOnly: true
-        updated_by:
-          title: Updated by
-          type: string
-          format: uri
-          readOnly: true
-        family_group_color:
-          title: Family group color
-          type: string
           readOnly: true
   securitySchemes:
     Basic:

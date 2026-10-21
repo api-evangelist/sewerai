@@ -1,0 +1,459 @@
+generated: '2026-10-20'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/sewerai-account-usage-api-openapi.yml
+- openapi/sewerai-accounts-api-openapi.yml
+- openapi/sewerai-analytics-api-openapi.yml
+- openapi/sewerai-annotations-api-openapi.yml
+- openapi/sewerai-assets-api-openapi.yml
+vocabulary:
+  name: SewerAI Domain Vocabulary
+  description: 'Terms declared by SewerAI''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-20'
+  terms:
+  - term: User
+    definition: 'Object declared by the contract with fields: sid, username, first_name, last_name, email, admin, staff, labeler, is_senior_labeler,
+      tos_accepted, picture, certificates. (15 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-accounts-api-openapi.yml#/components/schemas/User
+  - term: File
+    definition: 'Object declared by the contract with fields: url, sid, account, origin_path, name, kind, location, size, exists, upload_location,
+      meta, dropbox_meta. (1 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-accounts-api-openapi.yml#/components/schemas/File
+  - term: AccountProject
+    definition: 'Object declared by the contract with fields: url, sid, account, name, description, active, date_due, date_started, date_finished,
+      summary, created, updated. (2 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-accounts-api-openapi.yml#/components/schemas/AccountProject
+  - term: GISMap
+    definition: 'Object declared by the contract with fields: url, name, sewer_key_pipe, sewer_key_upmh, sewer_key_downmh.'
+    tags:
+    - Object
+    source: openapi/sewerai-accounts-api-openapi.yml#/components/schemas/GISMap
+  - term: Certificate
+    definition: 'Object declared by the contract with fields: number, cert_date.'
+    tags:
+    - Object
+    source: openapi/sewerai-accounts-api-openapi.yml#/components/schemas/Certificate
+  - term: Account
+    definition: 'Object declared by the contract with fields: url, sid, name, display_name, location, user_permission, stage, kind, owners, file_naming_formats,
+      pdf_template_options, logo_url. (3 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-accounts-api-openapi.yml#/components/schemas/Account
+  - term: AnalyticsDashboard
+    definition: 'Object declared by the contract with fields: sid, name, private, admin_only, dashboard, created, created_by, updated, updated_by.'
+    tags:
+    - Object
+    source: openapi/sewerai-analytics-api-openapi.yml#/components/schemas/AnalyticsDashboard
+  - term: ETETest
+    definition: 'Object declared by the contract with fields: sid, url, inf, inf_sid, video_sid, obs_run_sid, params, precision, recall, f1, num_pos,
+      num_gt. (20 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-analytics-api-openapi.yml#/components/schemas/ETETest
+  - term: FrameQualityReview
+    definition: 'Object declared by the contract with fields: sid, url, video, frame, boxes_created_by, boxes_created_on, is_good, from_intermediate,
+      created, created_by, updated, updated_by.'
+    tags:
+    - Object
+    source: openapi/sewerai-analytics-api-openapi.yml#/components/schemas/FrameQualityReview
+  - term: DownloadHistory
+    definition: 'Object declared by the contract with fields: sid, url, video, video_sid, frame, meta, created, created_by, updated, updated_by.'
+    tags:
+    - Object
+    source: openapi/sewerai-analytics-api-openapi.yml#/components/schemas/DownloadHistory
+  - term: AIAnnotation
+    definition: 'Object declared by the contract with fields: sid, frame, video_sid, code, box, frame_width, frame_height, reviewed_by_user, created,
+      created_by, updated, updated_by.'
+    tags:
+    - Object
+    source: openapi/sewerai-annotations-api-openapi.yml#/components/schemas/AIAnnotation
+  - term: AssetList
+    definition: 'Object declared by the contract with fields: url, sid, name, key, owner, kind, geojson, city, city_area, country_area, country_code,
+      postal_code. (9 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-assets-api-openapi.yml#/components/schemas/AssetList
+  - term: MainlineAssetWrite
+    definition: 'Object declared by the contract with fields: url, sid, name, key, owner, kind, geojson, city, city_area, country_area, country_code,
+      postal_code. (21 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-assets-api-openapi.yml#/components/schemas/MainlineAssetWrite
+  - term: MainlineAssetRead
+    definition: 'Object declared by the contract with fields: url, sid, name, key, owner, kind, geojson, city, city_area, country_area, country_code,
+      postal_code. (21 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-assets-api-openapi.yml#/components/schemas/MainlineAssetRead
+  - term: Comment
+    definition: 'Object declared by the contract with fields: sid, created, created_by_username, deleted, picture, text, note_sid, url, tagged_users,
+      is_editable.'
+    tags:
+    - Object
+    source: openapi/sewerai-comment-api-openapi.yml#/components/schemas/Comment
+  - term: ExportWrite
+    definition: 'Object declared by the contract with fields: name, sid.'
+    tags:
+    - Object
+    source: openapi/sewerai-exports-api-openapi.yml#/components/schemas/ExportWrite
+  - term: ExportRead
+    definition: 'Object declared by the contract with fields: url, sid, name, downloads, output_paths, progress, total_size.'
+    tags:
+    - Object
+    source: openapi/sewerai-exports-api-openapi.yml#/components/schemas/ExportRead
+  - term: Export
+    definition: 'Object declared by the contract with fields: sid, options, name, num_inspections, num_inspections_completed, num_files, is_done,
+      files, has_error, lineal_feet, projects, total_size. (8 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-exports-api-openapi.yml#/components/schemas/Export
+  - term: Group
+    definition: 'Object declared by the contract with fields: url, name.'
+    tags:
+    - Object
+    source: openapi/sewerai-groups-api-openapi.yml#/components/schemas/Group
+  - term: ObservationRead
+    definition: 'Object declared by the contract with fields: url, sid, video_frame, Distance, code, description, Continuous, Joint, Clock_At_From,
+      Clock_To, Value_1st_Dimension, Value_2nd_Dimension. (12 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-inspections-api-openapi.yml#/components/schemas/ObservationRead
+  - term: InspectionList
+    definition: 'Object declared by the contract with fields: sid, url, key, asset, owner, client, reason, city, city_area, country_area, country_code,
+      postal_code. (18 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-inspections-api-openapi.yml#/components/schemas/InspectionList
+  - term: ObservationWrite
+    definition: 'Object declared by the contract with fields: url, sid, video_frame, Distance, code, description, Continuous, Joint, Clock_At_From,
+      Clock_To, Value_1st_Dimension, Value_2nd_Dimension. (11 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-inspections-api-openapi.yml#/components/schemas/ObservationWrite
+  - term: VideoObservationRegression
+    definition: 'Object declared by the contract with fields: url, sid, system, code, version, meaning, system_field, created, created_by, updated,
+      updated_by.'
+    tags:
+    - Object
+    source: openapi/sewerai-labels-api-openapi.yml#/components/schemas/VideoObservationRegression
+  - term: VideoObservationClassification
+    definition: 'Object declared by the contract with fields: url, sid, system, code, version, description, meta, created, created_by, updated,
+      updated_by, family_group_color.'
+    tags:
+    - Object
+    source: openapi/sewerai-labels-api-openapi.yml#/components/schemas/VideoObservationClassification
+  - term: TestObservationClassification
+    definition: 'Object declared by the contract with fields: sid, url, observation_run, video, video_sid, classification, payout, video_frame,
+      created, created_by, updated, updated_by.'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/TestObservationClassification
+  - term: ObservationRun
+    definition: 'Object declared by the contract with fields: sid, url, training_model, model_name, run_type, model_version, display_name, params,
+      metrics, source_preset, source_kwargs, num_inference_required. (15 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/ObservationRun
+  - term: BBInferenceAssignment
+    definition: 'Object declared by the contract with fields: sid, url, video, frame_size, training_models, model_names, model_details, bb_json_location,
+      bb_json_location_url, start_time, end_time, meta. (5 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/BBInferenceAssignment
+  - term: InferenceAssignment
+    definition: 'Object declared by the contract with fields: sid, url, name, ensembles, ensemble_names, video, model_csvs, truth_table_location,
+      boolean_output_location, boolean_location_url, truth_table_location_url, created. (3 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/InferenceAssignment
+  - term: ProvisionalObservationClassification
+    definition: 'Object declared by the contract with fields: sid, url, video_sid, observation_run_sid, classification, interval, frame_urls,
+      start_payout, end_payout, start_frame, end_frame, boxes. (10 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/ProvisionalObservationClassification
+  - term: RegressionModel
+    definition: 'Object declared by the contract with fields: sid, url, name, location, wandb, status, regression_type, dims, config_location,
+      is_testable, meta, statistics. (5 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/RegressionModel
+  - term: Inspection
+    definition: 'Object declared by the contract with fields: sid, Inspection_Date, Inspection_Time, inspection_datetime, Street, City, City_Area,
+      Country_Area, Country_Code, Postal_Code, Sorting_Code, validate. (202 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/Inspection
+  - term: ModelEnsemble
+    definition: 'Object declared by the contract with fields: sid, url, name, training_models, model_names, logic, created, created_by, updated,
+      updated_by.'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/ModelEnsemble
+  - term: InspectionRatings
+    definition: 'Object declared by the contract with fields: STGradeScore1, STGradeScore2, STGradeScore3, STGradeScore4, STGradeScore5, OMGradeScore1,
+      OMGradeScore2, OMGradeScore3, OMGradeScore4, OMGradeScore5, ST1, ST2. (31 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/InspectionRatings
+  - term: Video
+    definition: 'Object declared by the contract with fields: account_sid, account, agency, autocode_complete, autocode_complete_date, autocode_labeled_by_id,
+      autocode_labeler_complete_datetime, autocode_mode, auxillary_videos, camera, client_reviewed_by, client_reviewed. (61 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/Video
+  - term: AccountUser
+    definition: 'Object declared by the contract with fields: sid, first_name, last_name, email, last_pioneer_login, permission_level, projects.'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/AccountUser
+  - term: PartnerLink
+    definition: 'Object declared by the contract with fields: sid, partner, link, icon_url, meta.'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/PartnerLink
+  - term: ClassificationGroup
+    definition: 'Object declared by the contract with fields: sid, url, name, codes, codes_detail, bb_count, bb_reviewed_count, created, created_by,
+      updated, updated_by.'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/ClassificationGroup
+  - term: TrainingModel
+    definition: 'Object declared by the contract with fields: sid, url, name, location, wandb, status, groups, groups_detail, config_location,
+      excluded_codes, is_testable, meta. (7 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-modeling-api-openapi.yml#/components/schemas/TrainingModel
+  - term: Note
+    definition: 'Object declared by the contract with fields: sid, created, created_by, deleted, comment_set, status, inspection_sid, video, text,
+      viewed_by, viewed_by_user_sid, url. (3 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-note-api-openapi.yml#/components/schemas/Note
+  - term: NotificationPreference
+    definition: 'Object declared by the contract with fields: notification_method, notification_type, notification_type_category, sid, url, user.'
+    tags:
+    - Object
+    source: openapi/sewerai-notification-preferences-api-openapi.yml#/components/schemas/NotificationPreference
+  - term: Notification
+    definition: 'Object declared by the contract with fields: action_url, category, content, created, full_content, meta, read, sid, target_user,
+      url.'
+    tags:
+    - Object
+    source: openapi/sewerai-notifications-api-openapi.yml#/components/schemas/Notification
+  - term: ObservationClassificationAnalytics
+    definition: 'Object declared by the contract with fields: url, sid, video_sid, encoding_location, encoding_location_url, video_agency, video_contractor,
+      classification, dimension_1, payout, video_frame, dimension_2. (9 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-observationclassifications-api-openapi.yml#/components/schemas/ObservationClassificationAnalytics
+  - term: OrganizationWrite
+    definition: 'Object declared by the contract with fields: url, sid, name, city, city_area, country_area, country_code, postal_code, sorting_code,
+      street_address, phone_number, account. (6 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-organizations-api-openapi.yml#/components/schemas/OrganizationWrite
+  - term: OrganizationRead
+    definition: 'Object declared by the contract with fields: url, sid, name, city, city_area, country_area, country_code, postal_code, sorting_code,
+      street_address, phone_number, account. (6 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-organizations-api-openapi.yml#/components/schemas/OrganizationRead
+  - term: Profile
+    definition: 'Object declared by the contract with fields: url, sid, user.'
+    tags:
+    - Object
+    source: openapi/sewerai-profiles-api-openapi.yml#/components/schemas/Profile
+  - term: ProjectTask
+    definition: 'Object declared by the contract with fields: url, sid, task_type, task_details, task_priority, status, project, project_name,
+      explicit_assignees, instructions, created, updated. (2 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-project-tasks-api-openapi.yml#/components/schemas/ProjectTask
+  - term: ProjectWrite
+    definition: 'Object declared by the contract with fields: url, sid, account, name, description, client, date_due, date_started, date_finished,
+      active, created, updated. (4 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-projects-api-openapi.yml#/components/schemas/ProjectWrite
+  - term: ProjectRead
+    definition: 'Object declared by the contract with fields: url, sid, account, name, description, client, date_due, date_started, date_finished,
+      active, created, updated. (4 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-projects-api-openapi.yml#/components/schemas/ProjectRead
+  - term: Submittal
+    definition: 'Object declared by the contract with fields: accepted, accepting_project_name, account, account_name, am_initiator, created,
+      download_ready, initiator, name, num_ins, project_names, reviewers. (4 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-submittal-api-openapi.yml#/components/schemas/Submittal
+  - term: CortTokenObtainPair
+    definition: 'Object declared by the contract with fields: username, password.'
+    tags:
+    - Object
+    source: openapi/sewerai-token-api-openapi.yml#/components/schemas/CortTokenObtainPair
+  - term: TokenRefresh
+    definition: 'Object declared by the contract with fields: refresh, access.'
+    tags:
+    - Object
+    source: openapi/sewerai-token-api-openapi.yml#/components/schemas/TokenRefresh
+  - term: UserRead
+    definition: 'Object declared by the contract with fields: sid, url, first_name, last_name, email, permission_level, projects.'
+    tags:
+    - Object
+    source: openapi/sewerai-users-api-openapi.yml#/components/schemas/UserRead
+  - term: UserList
+    definition: 'Object declared by the contract with fields: sid, url, first_name, last_name, email.'
+    tags:
+    - Object
+    source: openapi/sewerai-users-api-openapi.yml#/components/schemas/UserList
+  - term: VideoWrite
+    definition: 'Object declared by the contract with fields: url, sid, video_name, inspection, payouts, path, presigned_upload_data, stage, created,
+      updated, created_by, updated_by. (3 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-videos-api-openapi.yml#/components/schemas/VideoWrite
+  - term: VideoRead
+    definition: 'Object declared by the contract with fields: url, sid, video_name, inspection, path, stage, presigned_upload_data, created, updated,
+      project, created_by, updated_by. (3 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-videos-api-openapi.yml#/components/schemas/VideoRead
+  - term: VideoPayout
+    definition: 'Object declared by the contract with fields: url, sid, video, payouts, check_results, auto_created, loaded_from_text, graph_url,
+      created, created_by, updated, updated_by.'
+    tags:
+    - Object
+    source: openapi/sewerai-videos-api-openapi.yml#/components/schemas/VideoPayout
+  - term: BoundingBox
+    definition: 'Object declared by the contract with fields: url, sid, observation_classification, frame, boxes, frame_location, frame_file_size,
+      reviewed_by, frame_height, frame_width, code, video. (5 more)'
+    tags:
+    - Object
+    source: openapi/sewerai-videos-api-openapi.yml#/components/schemas/BoundingBox
+  - term: Account Usage
+    definition: 'Resource group in the contract; its operation GET /account_usage/: Account usage list'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-account-usage-api-openapi.yml
+  - term: Accounts
+    definition: 'Resource group in the contract; its operation GET /accounts/: API endpoint that allows users to be viewed or edited.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-accounts-api-openapi.yml
+  - term: Analytics
+    definition: 'Resource group in the contract; its operation GET /analytics/bbuser/: Analytics bbuser list'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-analytics-api-openapi.yml
+  - term: Annotations
+    definition: 'Resource group in the contract; its operation GET /annotations/: Annotations list'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-annotations-api-openapi.yml
+  - term: Assets
+    definition: 'Resource group in the contract; its operation GET /v1/assets/: Asset endpoint.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-assets-api-openapi.yml
+  - term: autocode
+    definition: 'Resource group in the contract; its operation GET /autocode/: Autocode list'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-autocode-api-openapi.yml
+  - term: canvotation-templates
+    definition: 'Resource group in the contract; its operation GET /canvotation-templates/: - Project-related templates - Account-related templates
+      - Global templates Admins can see every template.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-canvotation-templates-api-openapi.yml
+  - term: Core
+    definition: 'Resource group in the contract; its operation POST /core/SAIAnalytics/: API endpoint that returns user data.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-core-api-openapi.yml
+  - term: Exports
+    definition: 'Resource group in the contract; its operation GET /v1/exports/: V1 exports list'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-exports-api-openapi.yml
+  - term: Files
+    definition: 'Resource group in the contract; its operation GET /files/: An endpoint for Files.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-files-api-openapi.yml
+  - term: Groups
+    definition: 'Resource group in the contract; its operation GET /groups/: API endpoint that allows groups to be viewed or edited.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-groups-api-openapi.yml
+  - term: Inspections
+    definition: 'Resource group in the contract; its operation GET /v1/inspections/: V1 inspections list'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-inspections-api-openapi.yml
+  - term: Labels
+    definition: 'Resource group in the contract; its operation GET /labels/classifications/video/: API endpoint that allows Video Observation
+      Classifications to be viewed and created.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-labels-api-openapi.yml
+  - term: modeling
+    definition: 'Resource group in the contract; its operation GET /modeling/bbinference/: Bounding Box Inference Assignment.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-modeling-api-openapi.yml
+  - term: Notification Preferences
+    definition: 'Resource group in the contract; its operation GET /notification-preferences/: Notification preferences list'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-notification-preferences-api-openapi.yml
+  - term: Notifications
+    definition: 'Resource group in the contract; its operation GET /notifications/: Notifications list'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-notifications-api-openapi.yml
+  - term: observationclassifications
+    definition: 'Resource group in the contract; its operation GET /observationclassifications/: Observationclassifications list'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-observationclassifications-api-openapi.yml
+  - term: Observations
+    definition: 'Resource group in the contract; its operation GET /v1/observations/: Observations endpoint.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-observations-api-openapi.yml
+  - term: Organizations
+    definition: 'Resource group in the contract; its operation GET /v1/organizations/: Organization endpoint.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-organizations-api-openapi.yml
+  - term: Profiles
+    definition: 'Resource group in the contract; its operation GET /profiles/: API endpoint that allows users to be viewed or edited.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-profiles-api-openapi.yml
+  - term: Project Tasks
+    definition: 'Resource group in the contract; its operation GET /project_tasks/: Project tasks list'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-project-tasks-api-openapi.yml
+  - term: Projects
+    definition: 'Resource group in the contract; its operation GET /v1/projects/: Projects endpoint.'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-projects-api-openapi.yml
+  - term: saitests
+    definition: 'Resource group in the contract; its operation GET /saitests/get_tests/: Saitests get tests'
+    tags:
+    - Resource Group
+    source: openapi/sewerai-saitests-api-openapi.yml

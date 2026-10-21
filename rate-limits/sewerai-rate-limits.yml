@@ -1,6 +1,7 @@
 generated: '2026-08-27'
 method: searched
 source: https://docs.sewerai.com/
+name: SewerAI API Rate Limits
 checked: '2026-08-27'
 limit_count: 0
 documented: false

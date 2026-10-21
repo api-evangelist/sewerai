@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-account-schema.json",
+  "title": "Account",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-accounts-api-openapi.yml#/components/schemas/Account",
+  "required": [
+    "name",
+    "display_name"
+  ],
+  "type": "object",
+  "properties": {
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "maxLength": 512,
+      "minLength": 1
+    },
+    "display_name": {
+      "title": "Display name",
+      "type": "string",
+      "maxLength": 512,
+      "minLength": 1
+    },
+    "location": {
+      "title": "Location",
+      "type": "string",
+      "maxLength": 512
+    },
+    "user_permission": {
+      "title": "User permission",
+      "type": "string",
+      "readOnly": true
+    },
+    "stage": {
+      "title": "Stage",
+      "type": "string",
+      "readOnly": true
+    },
+    "kind": {
+      "title": "Kind",
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "owners": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "uniqueItems": true
+    },
+    "file_naming_formats": {
+      "title": "File naming formats",
+      "type": "object"
+    },
+    "pdf_template_options": {
+      "title": "Pdf template options",
+      "type": "string",
+      "readOnly": true
+    },
+    "logo_url": {
+      "title": "Logo url",
+      "type": "string",
+      "readOnly": true
+    },
+    "default_pacp_project_spec_sid": {
+      "title": "Default pacp project spec sid",
+      "type": "string",
+      "readOnly": true
+    },
+    "default_macp_project_spec_sid": {
+      "title": "Default macp project spec sid",
+      "type": "string",
+      "readOnly": true
+    },
+    "default_lacp_project_spec_sid": {
+      "title": "Default lacp project spec sid",
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

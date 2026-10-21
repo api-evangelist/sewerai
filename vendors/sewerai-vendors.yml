@@ -1,0 +1,85 @@
+generated: '2026-10-20'
+method: probed
+source: pre-flight dossier (docs platform, portal detections) + CNAME chains and response headers of the hosts apis.yml names
+registry: all/0-working/vendors.yml
+areas_vocabulary:
+- documentation
+- developer-portal
+- api-gateway
+- cdn
+- hosting
+- sdk-generation
+- api-collections
+- status-page
+- support
+- community
+- identity
+- mcp-hosting
+vendors:
+- vendor: aws-api-gateway
+  name: Amazon API Gateway
+  area: api-gateway
+  host: api.sewerai.com
+  evidence: header:x-amzn-requestid
+  signal: header
+  confidence: high
+  kin_score: []
+- vendor: cloudflare
+  name: Cloudflare
+  area: cdn
+  host: docs.sewerai.com
+  evidence: header:cf-ray
+  signal: header
+  confidence: high
+  kin_score:
+  - https_enforced
+  - hsts
+- vendor: cloudfront
+  name: Amazon CloudFront
+  area: cdn
+  host: help.sewerai.com
+  evidence: cname:cloudfront.net
+  signal: cname
+  confidence: high
+  kin_score: []
+- vendor: vercel
+  name: Vercel
+  area: hosting
+  host: www.sewerai.com
+  evidence: header:x-vercel-id
+  signal: header
+  confidence: high
+  kin_score: []
+- vendor: incident-io
+  name: incident.io
+  area: status-page
+  host: status.sewerai.com
+  evidence: cname:incident.io
+  signal: cname
+  confidence: high
+  kin_score:
+  - status_page
+reliance:
+  areas_vendor_served:
+  - api-gateway
+  - cdn
+  - hosting
+  - status-page
+  vendor_count: 5
+  areas_observed: 12
+  share_of_observable_areas: 0.333
+  note: areas where a third party was DETECTED serving this provider; an area absent here was either self-run or not observed, and this script
+    cannot tell those apart
+checked:
+- 'docs-platform: custom'
+- www.sewerai.com (Website)
+- docs.sewerai.com (DeveloperPortal)
+- docs.sewerai.com (Documentation)
+- docs.sewerai.com (APIReference)
+- docs.sewerai.com (GettingStarted)
+- help.sewerai.com (Support)
+- help.sewerai.com (HelpCenter)
+- www.sewerai.com (SignUp)
+- app.sewerai.com (Login)
+- status.sewerai.com (StatusPage)
+- api.sewerai.com (baseURL)

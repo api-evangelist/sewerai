@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-project-read-schema.json",
+  "title": "ProjectRead",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-projects-api-openapi.yml#/components/schemas/ProjectRead",
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "properties": {
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "account": {
+      "title": "Account",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "description": {
+      "title": "Description",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1024
+    },
+    "client": {
+      "title": "Client",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "date_due": {
+      "title": "Date due",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "date_started": {
+      "title": "Date started",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "date_finished": {
+      "title": "Date finished",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "active": {
+      "title": "Active",
+      "type": "boolean"
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "deleted": {
+      "title": "Deleted",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "deleted_by": {
+      "title": "Deleted by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    }
+  }
+}

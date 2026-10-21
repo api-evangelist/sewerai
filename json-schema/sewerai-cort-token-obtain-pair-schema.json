@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-cort-token-obtain-pair-schema.json",
+  "title": "CortTokenObtainPair",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-token-api-openapi.yml#/components/schemas/CortTokenObtainPair",
+  "required": [
+    "username",
+    "password"
+  ],
+  "type": "object",
+  "properties": {
+    "username": {
+      "title": "Username",
+      "type": "string",
+      "minLength": 1
+    },
+    "password": {
+      "title": "Password",
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

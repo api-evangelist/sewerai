@@ -1,0 +1,2469 @@
+{
+  "@context": {
+    "@vocab": "https://sewerai.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "sewerai": "https://sewerai.com/schema#",
+    "User": "sewerai:User",
+    "sid": {
+      "@id": "sewerai:sid",
+      "@type": "xsd:string"
+    },
+    "username": {
+      "@id": "sewerai:username",
+      "@type": "xsd:string"
+    },
+    "first_name": {
+      "@id": "sewerai:first_name",
+      "@type": "xsd:string"
+    },
+    "last_name": {
+      "@id": "sewerai:last_name",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "sewerai:email",
+      "@type": "xsd:string"
+    },
+    "admin": {
+      "@id": "sewerai:admin",
+      "@type": "xsd:boolean"
+    },
+    "staff": {
+      "@id": "sewerai:staff",
+      "@type": "xsd:boolean"
+    },
+    "labeler": {
+      "@id": "sewerai:labeler",
+      "@type": "xsd:boolean"
+    },
+    "is_senior_labeler": {
+      "@id": "sewerai:is_senior_labeler",
+      "@type": "xsd:boolean"
+    },
+    "tos_accepted": {
+      "@id": "sewerai:tos_accepted",
+      "@type": "xsd:string"
+    },
+    "picture": {
+      "@id": "sewerai:picture",
+      "@type": "xsd:string"
+    },
+    "certificates": {
+      "@id": "sewerai:certificates",
+      "@container": "@list"
+    },
+    "account_level": {
+      "@id": "sewerai:account_level",
+      "@type": "xsd:string"
+    },
+    "joined": {
+      "@id": "sewerai:joined",
+      "@type": "xsd:string"
+    },
+    "email_verified": {
+      "@id": "sewerai:email_verified",
+      "@type": "xsd:boolean"
+    },
+    "phone_number": {
+      "@id": "sewerai:phone_number",
+      "@type": "xsd:string"
+    },
+    "organization": {
+      "@id": "sewerai:organization",
+      "@type": "xsd:string"
+    },
+    "country_code": {
+      "@id": "sewerai:country_code",
+      "@type": "xsd:string"
+    },
+    "country_area_code": {
+      "@id": "sewerai:country_area_code",
+      "@type": "xsd:string"
+    },
+    "country_area": {
+      "@id": "sewerai:country_area",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "sewerai:city",
+      "@type": "xsd:string"
+    },
+    "postal_code": {
+      "@id": "sewerai:postal_code",
+      "@type": "xsd:string"
+    },
+    "token": {
+      "@id": "sewerai:token",
+      "@type": "xsd:string"
+    },
+    "auth_type": {
+      "@id": "sewerai:auth_type",
+      "@type": "xsd:string"
+    },
+    "auth_token": {
+      "@id": "sewerai:auth_token",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "sewerai:source",
+      "@type": "xsd:string"
+    },
+    "meta": {
+      "@id": "sewerai:meta"
+    },
+    "File": "sewerai:File",
+    "url": {
+      "@id": "sewerai:url",
+      "@type": "@id"
+    },
+    "account": {
+      "@id": "sewerai:account",
+      "@type": "@id"
+    },
+    "origin_path": {
+      "@id": "sewerai:origin_path",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "sewerai:name",
+      "@type": "xsd:string"
+    },
+    "kind": {
+      "@id": "sewerai:kind",
+      "@type": "xsd:integer"
+    },
+    "location": {
+      "@id": "sewerai:location",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "sewerai:size",
+      "@type": "xsd:string"
+    },
+    "exists": {
+      "@id": "sewerai:exists",
+      "@type": "xsd:string"
+    },
+    "upload_location": {
+      "@id": "sewerai:upload_location",
+      "@type": "xsd:string"
+    },
+    "dropbox_meta": {
+      "@id": "sewerai:dropbox_meta"
+    },
+    "presigned_upload": {
+      "@id": "sewerai:presigned_upload"
+    },
+    "AccountProject": "sewerai:AccountProject",
+    "description": {
+      "@id": "sewerai:description",
+      "@type": "xsd:string"
+    },
+    "active": {
+      "@id": "sewerai:active",
+      "@type": "xsd:boolean"
+    },
+    "date_due": {
+      "@id": "sewerai:date_due",
+      "@type": "xsd:dateTime"
+    },
+    "date_started": {
+      "@id": "sewerai:date_started",
+      "@type": "xsd:dateTime"
+    },
+    "date_finished": {
+      "@id": "sewerai:date_finished",
+      "@type": "xsd:dateTime"
+    },
+    "summary": {
+      "@id": "sewerai:summary"
+    },
+    "created": {
+      "@id": "sewerai:created",
+      "@type": "xsd:dateTime"
+    },
+    "updated": {
+      "@id": "sewerai:updated",
+      "@type": "xsd:dateTime"
+    },
+    "preferred_canvotation_template": {
+      "@id": "sewerai:preferred_canvotation_template",
+      "@type": "xsd:string"
+    },
+    "notes": {
+      "@id": "sewerai:notes",
+      "@type": "xsd:string"
+    },
+    "GISMap": "sewerai:GISMap",
+    "sewer_key_pipe": {
+      "@id": "sewerai:sewer_key_pipe",
+      "@type": "xsd:string"
+    },
+    "sewer_key_upmh": {
+      "@id": "sewerai:sewer_key_upmh",
+      "@type": "xsd:string"
+    },
+    "sewer_key_downmh": {
+      "@id": "sewerai:sewer_key_downmh",
+      "@type": "xsd:string"
+    },
+    "Certificate": "sewerai:Certificate",
+    "number": {
+      "@id": "sewerai:number",
+      "@type": "xsd:string"
+    },
+    "cert_date": {
+      "@id": "sewerai:cert_date",
+      "@type": "xsd:dateTime"
+    },
+    "Account": "sewerai:Account",
+    "display_name": {
+      "@id": "sewerai:display_name",
+      "@type": "xsd:string"
+    },
+    "user_permission": {
+      "@id": "sewerai:user_permission",
+      "@type": "xsd:string"
+    },
+    "stage": {
+      "@id": "sewerai:stage",
+      "@type": "xsd:string"
+    },
+    "owners": {
+      "@id": "sewerai:owners",
+      "@container": "@list"
+    },
+    "file_naming_formats": {
+      "@id": "sewerai:file_naming_formats"
+    },
+    "pdf_template_options": {
+      "@id": "sewerai:pdf_template_options",
+      "@type": "xsd:string"
+    },
+    "logo_url": {
+      "@id": "sewerai:logo_url",
+      "@type": "xsd:string"
+    },
+    "default_pacp_project_spec_sid": {
+      "@id": "sewerai:default_pacp_project_spec_sid",
+      "@type": "xsd:string"
+    },
+    "default_macp_project_spec_sid": {
+      "@id": "sewerai:default_macp_project_spec_sid",
+      "@type": "xsd:string"
+    },
+    "default_lacp_project_spec_sid": {
+      "@id": "sewerai:default_lacp_project_spec_sid",
+      "@type": "xsd:string"
+    },
+    "AnalyticsDashboard": "sewerai:AnalyticsDashboard",
+    "private": {
+      "@id": "sewerai:private",
+      "@type": "xsd:boolean"
+    },
+    "admin_only": {
+      "@id": "sewerai:admin_only",
+      "@type": "xsd:boolean"
+    },
+    "dashboard": {
+      "@id": "sewerai:dashboard",
+      "@type": "xsd:string"
+    },
+    "created_by": {
+      "@id": "sewerai:created_by",
+      "@type": "@id"
+    },
+    "updated_by": {
+      "@id": "sewerai:updated_by",
+      "@type": "@id"
+    },
+    "ETETest": "sewerai:ETETest",
+    "inf": {
+      "@id": "sewerai:inf",
+      "@type": "@id"
+    },
+    "inf_sid": {
+      "@id": "sewerai:inf_sid",
+      "@type": "xsd:string"
+    },
+    "video_sid": {
+      "@id": "sewerai:video_sid",
+      "@type": "xsd:string"
+    },
+    "obs_run_sid": {
+      "@id": "sewerai:obs_run_sid",
+      "@type": "xsd:string"
+    },
+    "params": {
+      "@id": "sewerai:params"
+    },
+    "precision": {
+      "@id": "sewerai:precision",
+      "@type": "xsd:decimal"
+    },
+    "recall": {
+      "@id": "sewerai:recall",
+      "@type": "xsd:decimal"
+    },
+    "f1": {
+      "@id": "sewerai:f1",
+      "@type": "xsd:decimal"
+    },
+    "num_pos": {
+      "@id": "sewerai:num_pos",
+      "@type": "xsd:integer"
+    },
+    "num_gt": {
+      "@id": "sewerai:num_gt",
+      "@type": "xsd:integer"
+    },
+    "tp": {
+      "@id": "sewerai:tp",
+      "@type": "xsd:integer"
+    },
+    "fp": {
+      "@id": "sewerai:fp",
+      "@type": "xsd:integer"
+    },
+    "fn": {
+      "@id": "sewerai:fn",
+      "@type": "xsd:integer"
+    },
+    "score_type": {
+      "@id": "sewerai:score_type",
+      "@type": "xsd:string"
+    },
+    "tp_bin": {
+      "@id": "sewerai:tp_bin",
+      "@type": "xsd:integer"
+    },
+    "fp_bin": {
+      "@id": "sewerai:fp_bin",
+      "@type": "xsd:integer"
+    },
+    "fn_bin": {
+      "@id": "sewerai:fn_bin",
+      "@type": "xsd:integer"
+    },
+    "precision_bin": {
+      "@id": "sewerai:precision_bin",
+      "@type": "xsd:decimal"
+    },
+    "recall_bin": {
+      "@id": "sewerai:recall_bin",
+      "@type": "xsd:decimal"
+    },
+    "f1_bin": {
+      "@id": "sewerai:f1_bin",
+      "@type": "xsd:decimal"
+    },
+    "review_bins_needed": {
+      "@id": "sewerai:review_bins_needed",
+      "@type": "xsd:integer"
+    },
+    "real_tp": {
+      "@id": "sewerai:real_tp",
+      "@type": "xsd:integer"
+    },
+    "real_fp": {
+      "@id": "sewerai:real_fp",
+      "@type": "xsd:integer"
+    },
+    "real_fn": {
+      "@id": "sewerai:real_fn",
+      "@type": "xsd:integer"
+    },
+    "real_recall": {
+      "@id": "sewerai:real_recall",
+      "@type": "xsd:decimal"
+    },
+    "real_precision": {
+      "@id": "sewerai:real_precision",
+      "@type": "xsd:decimal"
+    },
+    "FrameQualityReview": "sewerai:FrameQualityReview",
+    "video": {
+      "@id": "sewerai:video",
+      "@type": "@id"
+    },
+    "frame": {
+      "@id": "sewerai:frame",
+      "@type": "xsd:integer"
+    },
+    "boxes_created_by": {
+      "@id": "sewerai:boxes_created_by",
+      "@type": "@id"
+    },
+    "boxes_created_on": {
+      "@id": "sewerai:boxes_created_on",
+      "@type": "xsd:dateTime"
+    },
+    "is_good": {
+      "@id": "sewerai:is_good",
+      "@type": "xsd:boolean"
+    },
+    "from_intermediate": {
+      "@id": "sewerai:from_intermediate",
+      "@type": "xsd:boolean"
+    },
+    "DownloadHistory": "sewerai:DownloadHistory",
+    "AIAnnotation": "sewerai:AIAnnotation",
+    "code": {
+      "@id": "sewerai:code",
+      "@type": "xsd:string"
+    },
+    "box": {
+      "@id": "sewerai:box",
+      "@container": "@list"
+    },
+    "frame_width": {
+      "@id": "sewerai:frame_width",
+      "@type": "xsd:integer"
+    },
+    "frame_height": {
+      "@id": "sewerai:frame_height",
+      "@type": "xsd:integer"
+    },
+    "reviewed_by_user": {
+      "@id": "sewerai:reviewed_by_user",
+      "@type": "xsd:string"
+    },
+    "AssetList": "sewerai:AssetList",
+    "key": {
+      "@id": "sewerai:key",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "sewerai:owner",
+      "@type": "@id"
+    },
+    "geojson": {
+      "@id": "sewerai:geojson"
+    },
+    "city_area": {
+      "@id": "sewerai:city_area",
+      "@type": "xsd:string"
+    },
+    "sorting_code": {
+      "@id": "sewerai:sorting_code",
+      "@type": "xsd:string"
+    },
+    "street_address": {
+      "@id": "sewerai:street_address",
+      "@type": "xsd:string"
+    },
+    "deleted": {
+      "@id": "sewerai:deleted",
+      "@type": "xsd:dateTime"
+    },
+    "deleted_by": {
+      "@id": "sewerai:deleted_by",
+      "@type": "@id"
+    },
+    "MainlineAssetWrite": "sewerai:MainlineAssetWrite",
+    "category": {
+      "@id": "sewerai:category",
+      "@type": "xsd:string"
+    },
+    "metric": {
+      "@id": "sewerai:metric",
+      "@type": "xsd:boolean"
+    },
+    "shape": {
+      "@id": "sewerai:shape",
+      "@type": "xsd:string"
+    },
+    "host_material": {
+      "@id": "sewerai:host_material",
+      "@type": "xsd:string"
+    },
+    "renewal_method": {
+      "@id": "sewerai:renewal_method",
+      "@type": "xsd:string"
+    },
+    "renewal_year": {
+      "@id": "sewerai:renewal_year",
+      "@type": "xsd:string"
+    },
+    "length": {
+      "@id": "sewerai:length",
+      "@type": "xsd:decimal"
+    },
+    "height": {
+      "@id": "sewerai:height",
+      "@type": "xsd:decimal"
+    },
+    "width": {
+      "@id": "sewerai:width",
+      "@type": "xsd:decimal"
+    },
+    "joint_distance": {
+      "@id": "sewerai:joint_distance",
+      "@type": "xsd:decimal"
+    },
+    "rim_to_invert": {
+      "@id": "sewerai:rim_to_invert",
+      "@type": "xsd:decimal"
+    },
+    "rim_to_grade": {
+      "@id": "sewerai:rim_to_grade",
+      "@type": "xsd:decimal"
+    },
+    "MainlineAssetRead": "sewerai:MainlineAssetRead",
+    "Comment": "sewerai:Comment",
+    "created_by_username": {
+      "@id": "sewerai:created_by_username",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "sewerai:text",
+      "@type": "xsd:string"
+    },
+    "note_sid": {
+      "@id": "sewerai:note_sid",
+      "@type": "xsd:string"
+    },
+    "tagged_users": {
+      "@id": "sewerai:tagged_users",
+      "@type": "xsd:string"
+    },
+    "is_editable": {
+      "@id": "sewerai:is_editable",
+      "@type": "xsd:string"
+    },
+    "ExportWrite": "sewerai:ExportWrite",
+    "ExportRead": "sewerai:ExportRead",
+    "downloads": {
+      "@id": "sewerai:downloads",
+      "@type": "xsd:string"
+    },
+    "output_paths": {
+      "@id": "sewerai:output_paths",
+      "@type": "xsd:string"
+    },
+    "progress": {
+      "@id": "sewerai:progress"
+    },
+    "total_size": {
+      "@id": "sewerai:total_size",
+      "@type": "xsd:decimal"
+    },
+    "Export": "sewerai:Export",
+    "options": {
+      "@id": "sewerai:options",
+      "@type": "xsd:string"
+    },
+    "num_inspections": {
+      "@id": "sewerai:num_inspections",
+      "@type": "xsd:string"
+    },
+    "num_inspections_completed": {
+      "@id": "sewerai:num_inspections_completed",
+      "@type": "xsd:string"
+    },
+    "num_files": {
+      "@id": "sewerai:num_files",
+      "@type": "xsd:string"
+    },
+    "is_done": {
+      "@id": "sewerai:is_done",
+      "@type": "xsd:string"
+    },
+    "files": {
+      "@id": "sewerai:files",
+      "@type": "xsd:string"
+    },
+    "has_error": {
+      "@id": "sewerai:has_error",
+      "@type": "xsd:string"
+    },
+    "lineal_feet": {
+      "@id": "sewerai:lineal_feet",
+      "@type": "xsd:integer"
+    },
+    "projects": {
+      "@id": "sewerai:projects",
+      "@container": "@list"
+    },
+    "packaging_progress": {
+      "@id": "sewerai:packaging_progress",
+      "@type": "xsd:string"
+    },
+    "created_by_email": {
+      "@id": "sewerai:created_by_email",
+      "@type": "xsd:string"
+    },
+    "completed_at": {
+      "@id": "sewerai:completed_at",
+      "@type": "xsd:dateTime"
+    },
+    "Group": "sewerai:Group",
+    "ObservationRead": "sewerai:ObservationRead",
+    "video_frame": {
+      "@id": "sewerai:video_frame",
+      "@type": "xsd:integer"
+    },
+    "Distance": {
+      "@id": "sewerai:Distance",
+      "@type": "xsd:decimal"
+    },
+    "Continuous": {
+      "@id": "sewerai:Continuous",
+      "@type": "xsd:string"
+    },
+    "Joint": {
+      "@id": "sewerai:Joint",
+      "@type": "xsd:boolean"
+    },
+    "Clock_At_From": {
+      "@id": "sewerai:Clock_At_From",
+      "@type": "xsd:integer"
+    },
+    "Clock_To": {
+      "@id": "sewerai:Clock_To",
+      "@type": "xsd:integer"
+    },
+    "Value_1st_Dimension": {
+      "@id": "sewerai:Value_1st_Dimension",
+      "@type": "xsd:decimal"
+    },
+    "Value_2nd_Dimension": {
+      "@id": "sewerai:Value_2nd_Dimension",
+      "@type": "xsd:decimal"
+    },
+    "Value_Percent": {
+      "@id": "sewerai:Value_Percent",
+      "@type": "xsd:decimal"
+    },
+    "Grade": {
+      "@id": "sewerai:Grade",
+      "@type": "xsd:string"
+    },
+    "Remarks": {
+      "@id": "sewerai:Remarks",
+      "@type": "xsd:string"
+    },
+    "snapshot_url": {
+      "@id": "sewerai:snapshot_url",
+      "@type": "xsd:string"
+    },
+    "bounding_boxes": {
+      "@id": "sewerai:bounding_boxes",
+      "@type": "xsd:string"
+    },
+    "InspectionList": "sewerai:InspectionList",
+    "asset": {
+      "@id": "sewerai:asset",
+      "@type": "@id"
+    },
+    "client": {
+      "@id": "sewerai:client",
+      "@type": "@id"
+    },
+    "reason": {
+      "@id": "sewerai:reason",
+      "@type": "xsd:string"
+    },
+    "inspection_datetime": {
+      "@id": "sewerai:inspection_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "inspection_type": {
+      "@id": "sewerai:inspection_type",
+      "@type": "xsd:string"
+    },
+    "autocode_complete": {
+      "@id": "sewerai:autocode_complete",
+      "@type": "xsd:boolean"
+    },
+    "autocode_complete_date": {
+      "@id": "sewerai:autocode_complete_date",
+      "@type": "xsd:dateTime"
+    },
+    "distance": {
+      "@id": "sewerai:distance"
+    },
+    "metadata": {
+      "@id": "sewerai:metadata"
+    },
+    "validate": {
+      "@id": "sewerai:validate",
+      "@type": "xsd:boolean"
+    },
+    "ObservationWrite": "sewerai:ObservationWrite",
+    "VideoObservationRegression": "sewerai:VideoObservationRegression",
+    "system": {
+      "@id": "sewerai:system",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "sewerai:version",
+      "@type": "xsd:string"
+    },
+    "meaning": {
+      "@id": "sewerai:meaning",
+      "@type": "xsd:string"
+    },
+    "system_field": {
+      "@id": "sewerai:system_field",
+      "@type": "xsd:string"
+    },
+    "VideoObservationClassification": "sewerai:VideoObservationClassification",
+    "family_group_color": {
+      "@id": "sewerai:family_group_color",
+      "@type": "xsd:string"
+    },
+    "TestObservationClassification": "sewerai:TestObservationClassification",
+    "observation_run": {
+      "@id": "sewerai:observation_run",
+      "@type": "@id"
+    },
+    "classification": {
+      "@id": "sewerai:classification",
+      "@type": "@id"
+    },
+    "payout": {
+      "@id": "sewerai:payout",
+      "@type": "xsd:decimal"
+    },
+    "ObservationRun": "sewerai:ObservationRun",
+    "training_model": {
+      "@id": "sewerai:training_model",
+      "@type": "@id"
+    },
+    "model_name": {
+      "@id": "sewerai:model_name",
+      "@type": "xsd:string"
+    },
+    "run_type": {
+      "@id": "sewerai:run_type",
+      "@type": "xsd:integer"
+    },
+    "model_version": {
+      "@id": "sewerai:model_version",
+      "@type": "xsd:integer"
+    },
+    "metrics": {
+      "@id": "sewerai:metrics",
+      "@type": "xsd:string"
+    },
+    "source_preset": {
+      "@id": "sewerai:source_preset",
+      "@type": "xsd:integer"
+    },
+    "source_kwargs": {
+      "@id": "sewerai:source_kwargs"
+    },
+    "num_inference_required": {
+      "@id": "sewerai:num_inference_required",
+      "@type": "xsd:string"
+    },
+    "eligible_count": {
+      "@id": "sewerai:eligible_count",
+      "@type": "xsd:string"
+    },
+    "videos": {
+      "@id": "sewerai:videos",
+      "@type": "xsd:string"
+    },
+    "run_status": {
+      "@id": "sewerai:run_status",
+      "@type": "xsd:integer"
+    },
+    "completed_count": {
+      "@id": "sewerai:completed_count",
+      "@type": "xsd:string"
+    },
+    "model_sid": {
+      "@id": "sewerai:model_sid",
+      "@type": "xsd:string"
+    },
+    "group_sids": {
+      "@id": "sewerai:group_sids",
+      "@type": "xsd:string"
+    },
+    "video_filters": {
+      "@id": "sewerai:video_filters"
+    },
+    "codes": {
+      "@id": "sewerai:codes",
+      "@type": "xsd:string"
+    },
+    "inference_resolution": {
+      "@id": "sewerai:inference_resolution",
+      "@type": "xsd:integer"
+    },
+    "run_groups": {
+      "@id": "sewerai:run_groups",
+      "@type": "xsd:string"
+    },
+    "prov_obs_stats": {
+      "@id": "sewerai:prov_obs_stats",
+      "@type": "xsd:string"
+    },
+    "BBInferenceAssignment": "sewerai:BBInferenceAssignment",
+    "frame_size": {
+      "@id": "sewerai:frame_size",
+      "@type": "xsd:integer"
+    },
+    "training_models": {
+      "@id": "sewerai:training_models",
+      "@container": "@list"
+    },
+    "model_names": {
+      "@id": "sewerai:model_names",
+      "@container": "@list"
+    },
+    "model_details": {
+      "@id": "sewerai:model_details",
+      "@container": "@list"
+    },
+    "bb_json_location": {
+      "@id": "sewerai:bb_json_location",
+      "@type": "xsd:string"
+    },
+    "bb_json_location_url": {
+      "@id": "sewerai:bb_json_location_url",
+      "@type": "xsd:string"
+    },
+    "start_time": {
+      "@id": "sewerai:start_time",
+      "@type": "xsd:string"
+    },
+    "end_time": {
+      "@id": "sewerai:end_time",
+      "@type": "xsd:string"
+    },
+    "video_details": {
+      "@id": "sewerai:video_details",
+      "@type": "@id"
+    },
+    "InferenceAssignment": "sewerai:InferenceAssignment",
+    "ensembles": {
+      "@id": "sewerai:ensembles",
+      "@container": "@list"
+    },
+    "ensemble_names": {
+      "@id": "sewerai:ensemble_names",
+      "@container": "@list"
+    },
+    "model_csvs": {
+      "@id": "sewerai:model_csvs",
+      "@container": "@list"
+    },
+    "truth_table_location": {
+      "@id": "sewerai:truth_table_location",
+      "@type": "xsd:string"
+    },
+    "boolean_output_location": {
+      "@id": "sewerai:boolean_output_location",
+      "@type": "xsd:string"
+    },
+    "boolean_location_url": {
+      "@id": "sewerai:boolean_location_url",
+      "@type": "xsd:string"
+    },
+    "truth_table_location_url": {
+      "@id": "sewerai:truth_table_location_url",
+      "@type": "xsd:string"
+    },
+    "ProvisionalObservationClassification": "sewerai:ProvisionalObservationClassification",
+    "observation_run_sid": {
+      "@id": "sewerai:observation_run_sid",
+      "@type": "xsd:string"
+    },
+    "interval": {
+      "@id": "sewerai:interval",
+      "@type": "xsd:string"
+    },
+    "frame_urls": {
+      "@id": "sewerai:frame_urls",
+      "@type": "xsd:string"
+    },
+    "start_payout": {
+      "@id": "sewerai:start_payout",
+      "@type": "xsd:decimal"
+    },
+    "end_payout": {
+      "@id": "sewerai:end_payout",
+      "@type": "xsd:decimal"
+    },
+    "start_frame": {
+      "@id": "sewerai:start_frame",
+      "@type": "xsd:integer"
+    },
+    "end_frame": {
+      "@id": "sewerai:end_frame",
+      "@type": "xsd:integer"
+    },
+    "boxes": {
+      "@id": "sewerai:boxes"
+    },
+    "reviewed_by": {
+      "@id": "sewerai:reviewed_by",
+      "@type": "@id"
+    },
+    "frame_map": {
+      "@id": "sewerai:frame_map"
+    },
+    "inference_sid": {
+      "@id": "sewerai:inference_sid",
+      "@type": "xsd:string"
+    },
+    "graph_url": {
+      "@id": "sewerai:graph_url",
+      "@type": "xsd:string"
+    },
+    "private_comment": {
+      "@id": "sewerai:private_comment",
+      "@type": "xsd:string"
+    },
+    "pacp_comment": {
+      "@id": "sewerai:pacp_comment",
+      "@type": "xsd:string"
+    },
+    "RegressionModel": "sewerai:RegressionModel",
+    "wandb": {
+      "@id": "sewerai:wandb",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "sewerai:status",
+      "@type": "xsd:string"
+    },
+    "regression_type": {
+      "@id": "sewerai:regression_type",
+      "@type": "xsd:string"
+    },
+    "dims": {
+      "@id": "sewerai:dims"
+    },
+    "config_location": {
+      "@id": "sewerai:config_location",
+      "@type": "xsd:string"
+    },
+    "is_testable": {
+      "@id": "sewerai:is_testable",
+      "@type": "xsd:boolean"
+    },
+    "statistics": {
+      "@id": "sewerai:statistics"
+    },
+    "hyperparameters": {
+      "@id": "sewerai:hyperparameters"
+    },
+    "Inspection": "sewerai:Inspection",
+    "Inspection_Date": {
+      "@id": "sewerai:Inspection_Date",
+      "@type": "xsd:string"
+    },
+    "Inspection_Time": {
+      "@id": "sewerai:Inspection_Time",
+      "@type": "xsd:string"
+    },
+    "Street": {
+      "@id": "sewerai:Street",
+      "@type": "xsd:string"
+    },
+    "City": {
+      "@id": "sewerai:City",
+      "@type": "xsd:string"
+    },
+    "City_Area": {
+      "@id": "sewerai:City_Area",
+      "@type": "xsd:string"
+    },
+    "Country_Area": {
+      "@id": "sewerai:Country_Area",
+      "@type": "xsd:string"
+    },
+    "Country_Code": {
+      "@id": "sewerai:Country_Code",
+      "@type": "xsd:string"
+    },
+    "Postal_Code": {
+      "@id": "sewerai:Postal_Code",
+      "@type": "xsd:string"
+    },
+    "Sorting_Code": {
+      "@id": "sewerai:Sorting_Code",
+      "@type": "xsd:string"
+    },
+    "partner_links": {
+      "@id": "sewerai:partner_links",
+      "@container": "@list"
+    },
+    "ratings": {
+      "@id": "sewerai:ratings",
+      "@type": "@id"
+    },
+    "num_errors": {
+      "@id": "sewerai:num_errors",
+      "@type": "xsd:string"
+    },
+    "InspectionID": {
+      "@id": "sewerai:InspectionID",
+      "@type": "xsd:string"
+    },
+    "Surveyed_By": {
+      "@id": "sewerai:Surveyed_By",
+      "@type": "xsd:string"
+    },
+    "Certificate_Number": {
+      "@id": "sewerai:Certificate_Number",
+      "@type": "xsd:string"
+    },
+    "Reviewed_By": {
+      "@id": "sewerai:Reviewed_By",
+      "@type": "xsd:string"
+    },
+    "Reviewer_Certificate_Number": {
+      "@id": "sewerai:Reviewer_Certificate_Number",
+      "@type": "xsd:string"
+    },
+    "Owner": {
+      "@id": "sewerai:Owner",
+      "@type": "xsd:string"
+    },
+    "Customer": {
+      "@id": "sewerai:Customer",
+      "@type": "xsd:string"
+    },
+    "PO_Number": {
+      "@id": "sewerai:PO_Number",
+      "@type": "xsd:string"
+    },
+    "WorkOrder": {
+      "@id": "sewerai:WorkOrder",
+      "@type": "xsd:string"
+    },
+    "Media_Label": {
+      "@id": "sewerai:Media_Label",
+      "@type": "xsd:string"
+    },
+    "Project": {
+      "@id": "sewerai:Project",
+      "@type": "xsd:string"
+    },
+    "Weather": {
+      "@id": "sewerai:Weather",
+      "@type": "xsd:string"
+    },
+    "PreCleaning": {
+      "@id": "sewerai:PreCleaning",
+      "@type": "xsd:string"
+    },
+    "Date_Cleaned": {
+      "@id": "sewerai:Date_Cleaned",
+      "@type": "xsd:string"
+    },
+    "Purpose": {
+      "@id": "sewerai:Purpose",
+      "@type": "xsd:string"
+    },
+    "Consequence_Of_Failure": {
+      "@id": "sewerai:Consequence_Of_Failure",
+      "@type": "xsd:string"
+    },
+    "Drainage_Area": {
+      "@id": "sewerai:Drainage_Area",
+      "@type": "xsd:string"
+    },
+    "Location_Code": {
+      "@id": "sewerai:Location_Code",
+      "@type": "xsd:string"
+    },
+    "Location_Details": {
+      "@id": "sewerai:Location_Details",
+      "@type": "xsd:string"
+    },
+    "Vertical_Datum": {
+      "@id": "sewerai:Vertical_Datum",
+      "@type": "xsd:string"
+    },
+    "GPS_Accuracy": {
+      "@id": "sewerai:GPS_Accuracy",
+      "@type": "xsd:string"
+    },
+    "Additional_Info": {
+      "@id": "sewerai:Additional_Info",
+      "@type": "xsd:string"
+    },
+    "Year_Constructed": {
+      "@id": "sewerai:Year_Constructed",
+      "@type": "xsd:integer"
+    },
+    "Year_Renewed": {
+      "@id": "sewerai:Year_Renewed",
+      "@type": "xsd:integer"
+    },
+    "Sheet_Number": {
+      "@id": "sewerai:Sheet_Number",
+      "@type": "xsd:integer"
+    },
+    "IsImperial": {
+      "@id": "sewerai:IsImperial",
+      "@type": "xsd:boolean"
+    },
+    "Custom_Fields": {
+      "@id": "sewerai:Custom_Fields"
+    },
+    "Custom_Labels": {
+      "@id": "sewerai:Custom_Labels"
+    },
+    "Pipe_Use": {
+      "@id": "sewerai:Pipe_Use",
+      "@type": "xsd:string"
+    },
+    "Upstream_MH": {
+      "@id": "sewerai:Upstream_MH",
+      "@type": "xsd:string"
+    },
+    "Downstream_MH": {
+      "@id": "sewerai:Downstream_MH",
+      "@type": "xsd:string"
+    },
+    "Material": {
+      "@id": "sewerai:Material",
+      "@type": "xsd:string"
+    },
+    "Lining_Method": {
+      "@id": "sewerai:Lining_Method",
+      "@type": "xsd:string"
+    },
+    "Direction": {
+      "@id": "sewerai:Direction",
+      "@type": "xsd:string"
+    },
+    "Pipe_Segment_Reference": {
+      "@id": "sewerai:Pipe_Segment_Reference",
+      "@type": "xsd:string"
+    },
+    "Inspection_Status": {
+      "@id": "sewerai:Inspection_Status",
+      "@type": "xsd:string"
+    },
+    "Pressure_Value": {
+      "@id": "sewerai:Pressure_Value",
+      "@type": "xsd:string"
+    },
+    "Total_Length": {
+      "@id": "sewerai:Total_Length",
+      "@type": "xsd:decimal"
+    },
+    "Length_Surveyed": {
+      "@id": "sewerai:Length_Surveyed",
+      "@type": "xsd:decimal"
+    },
+    "Reverse_Setup": {
+      "@id": "sewerai:Reverse_Setup",
+      "@type": "xsd:decimal"
+    },
+    "Inspection_Technology_Used_CCTV": {
+      "@id": "sewerai:Inspection_Technology_Used_CCTV",
+      "@type": "xsd:boolean"
+    },
+    "Inspection_Technology_Used_Laser": {
+      "@id": "sewerai:Inspection_Technology_Used_Laser",
+      "@type": "xsd:boolean"
+    },
+    "Inspection_Technology_Used_Sonar": {
+      "@id": "sewerai:Inspection_Technology_Used_Sonar",
+      "@type": "xsd:boolean"
+    },
+    "Inspection_Technology_Used_Sidewall": {
+      "@id": "sewerai:Inspection_Technology_Used_Sidewall",
+      "@type": "xsd:boolean"
+    },
+    "Inspection_Technology_Used_Zoom": {
+      "@id": "sewerai:Inspection_Technology_Used_Zoom",
+      "@type": "xsd:boolean"
+    },
+    "Inspection_Technology_Used_Other": {
+      "@id": "sewerai:Inspection_Technology_Used_Other",
+      "@type": "xsd:boolean"
+    },
+    "Flow_Control": {
+      "@id": "sewerai:Flow_Control",
+      "@type": "xsd:string"
+    },
+    "Shape": {
+      "@id": "sewerai:Shape",
+      "@type": "xsd:string"
+    },
+    "Coating_Method": {
+      "@id": "sewerai:Coating_Method",
+      "@type": "xsd:string"
+    },
+    "Up_Northing": {
+      "@id": "sewerai:Up_Northing",
+      "@type": "xsd:string"
+    },
+    "Up_Easting": {
+      "@id": "sewerai:Up_Easting",
+      "@type": "xsd:string"
+    },
+    "Up_Elevation": {
+      "@id": "sewerai:Up_Elevation",
+      "@type": "xsd:string"
+    },
+    "Down_Northing": {
+      "@id": "sewerai:Down_Northing",
+      "@type": "xsd:string"
+    },
+    "Down_Easting": {
+      "@id": "sewerai:Down_Easting",
+      "@type": "xsd:string"
+    },
+    "Down_Elevation": {
+      "@id": "sewerai:Down_Elevation",
+      "@type": "xsd:string"
+    },
+    "MH_Coordinate_System": {
+      "@id": "sewerai:MH_Coordinate_System",
+      "@type": "xsd:string"
+    },
+    "Coordinate_System": {
+      "@id": "sewerai:Coordinate_System",
+      "@type": "xsd:string"
+    },
+    "Height": {
+      "@id": "sewerai:Height",
+      "@type": "xsd:decimal"
+    },
+    "Width": {
+      "@id": "sewerai:Width",
+      "@type": "xsd:decimal"
+    },
+    "Pipe_Joint_Length": {
+      "@id": "sewerai:Pipe_Joint_Length",
+      "@type": "xsd:decimal"
+    },
+    "Up_Rim_to_Invert": {
+      "@id": "sewerai:Up_Rim_to_Invert",
+      "@type": "xsd:decimal"
+    },
+    "Up_Grade_to_Invert": {
+      "@id": "sewerai:Up_Grade_to_Invert",
+      "@type": "xsd:decimal"
+    },
+    "Up_Rim_to_Grade": {
+      "@id": "sewerai:Up_Rim_to_Grade",
+      "@type": "xsd:decimal"
+    },
+    "Down_Rim_to_Invert": {
+      "@id": "sewerai:Down_Rim_to_Invert",
+      "@type": "xsd:decimal"
+    },
+    "Down_Grade_to_Invert": {
+      "@id": "sewerai:Down_Grade_to_Invert",
+      "@type": "xsd:decimal"
+    },
+    "Down_Rim_to_Grade": {
+      "@id": "sewerai:Down_Rim_to_Grade",
+      "@type": "xsd:decimal"
+    },
+    "PACPInspectionID": {
+      "@id": "sewerai:PACPInspectionID",
+      "@type": "xsd:string"
+    },
+    "Lateral_Segment_Reference": {
+      "@id": "sewerai:Lateral_Segment_Reference",
+      "@type": "xsd:string"
+    },
+    "Access_Point": {
+      "@id": "sewerai:Access_Point",
+      "@type": "xsd:string"
+    },
+    "Access_Point_Northing": {
+      "@id": "sewerai:Access_Point_Northing",
+      "@type": "xsd:string"
+    },
+    "Access_Point_Easting": {
+      "@id": "sewerai:Access_Point_Easting",
+      "@type": "xsd:string"
+    },
+    "Access_Point_Elevation": {
+      "@id": "sewerai:Access_Point_Elevation",
+      "@type": "xsd:string"
+    },
+    "StartManhole": {
+      "@id": "sewerai:StartManhole",
+      "@type": "xsd:string"
+    },
+    "Size": {
+      "@id": "sewerai:Size",
+      "@type": "xsd:decimal"
+    },
+    "Property_Line": {
+      "@id": "sewerai:Property_Line",
+      "@type": "xsd:decimal"
+    },
+    "Tap_Location": {
+      "@id": "sewerai:Tap_Location",
+      "@type": "xsd:decimal"
+    },
+    "Rim_Invert": {
+      "@id": "sewerai:Rim_Invert",
+      "@type": "xsd:decimal"
+    },
+    "InspectionLevel": {
+      "@id": "sewerai:InspectionLevel",
+      "@type": "xsd:string"
+    },
+    "Manhole_Number": {
+      "@id": "sewerai:Manhole_Number",
+      "@type": "xsd:string"
+    },
+    "Inflow_Potential_from_Runoff": {
+      "@id": "sewerai:Inflow_Potential_from_Runoff",
+      "@type": "xsd:string"
+    },
+    "MH_Use": {
+      "@id": "sewerai:MH_Use",
+      "@type": "xsd:string"
+    },
+    "Access_Type": {
+      "@id": "sewerai:Access_Type",
+      "@type": "xsd:string"
+    },
+    "Northing": {
+      "@id": "sewerai:Northing",
+      "@type": "xsd:string"
+    },
+    "Easting": {
+      "@id": "sewerai:Easting",
+      "@type": "xsd:string"
+    },
+    "Elevation": {
+      "@id": "sewerai:Elevation",
+      "@type": "xsd:string"
+    },
+    "Cover_Shape": {
+      "@id": "sewerai:Cover_Shape",
+      "@type": "xsd:string"
+    },
+    "Cover_Material": {
+      "@id": "sewerai:Cover_Material",
+      "@type": "xsd:string"
+    },
+    "Hole_Diameter": {
+      "@id": "sewerai:Hole_Diameter",
+      "@type": "xsd:string"
+    },
+    "Cover_Frame_Fit": {
+      "@id": "sewerai:Cover_Frame_Fit",
+      "@type": "xsd:string"
+    },
+    "Cover_Insert_Type": {
+      "@id": "sewerai:Cover_Insert_Type",
+      "@type": "xsd:string"
+    },
+    "Adjustment_Ring_Type": {
+      "@id": "sewerai:Adjustment_Ring_Type",
+      "@type": "xsd:string"
+    },
+    "Adjustment_Ring_Material": {
+      "@id": "sewerai:Adjustment_Ring_Material",
+      "@type": "xsd:string"
+    },
+    "Frame_Material": {
+      "@id": "sewerai:Frame_Material",
+      "@type": "xsd:string"
+    },
+    "Frame_Seal_Inflow": {
+      "@id": "sewerai:Frame_Seal_Inflow",
+      "@type": "xsd:string"
+    },
+    "Chimney_Present": {
+      "@id": "sewerai:Chimney_Present",
+      "@type": "xsd:string"
+    },
+    "Chimney_Material1": {
+      "@id": "sewerai:Chimney_Material1",
+      "@type": "xsd:string"
+    },
+    "Chimney_Material2": {
+      "@id": "sewerai:Chimney_Material2",
+      "@type": "xsd:string"
+    },
+    "Chimney_InI": {
+      "@id": "sewerai:Chimney_InI",
+      "@type": "xsd:string"
+    },
+    "Chimney_Lining_Interior": {
+      "@id": "sewerai:Chimney_Lining_Interior",
+      "@type": "xsd:string"
+    },
+    "Chimney_Lining_Exterior": {
+      "@id": "sewerai:Chimney_Lining_Exterior",
+      "@type": "xsd:string"
+    },
+    "Chimney_Condition": {
+      "@id": "sewerai:Chimney_Condition",
+      "@type": "xsd:string"
+    },
+    "Cone_Type": {
+      "@id": "sewerai:Cone_Type",
+      "@type": "xsd:string"
+    },
+    "Cone_Material": {
+      "@id": "sewerai:Cone_Material",
+      "@type": "xsd:string"
+    },
+    "Cone_Lining_Interior": {
+      "@id": "sewerai:Cone_Lining_Interior",
+      "@type": "xsd:string"
+    },
+    "Cone_Lining_Exterior": {
+      "@id": "sewerai:Cone_Lining_Exterior",
+      "@type": "xsd:string"
+    },
+    "Cone_Condition": {
+      "@id": "sewerai:Cone_Condition",
+      "@type": "xsd:string"
+    },
+    "Wall_Material": {
+      "@id": "sewerai:Wall_Material",
+      "@type": "xsd:string"
+    },
+    "Wall_Lining_Interior": {
+      "@id": "sewerai:Wall_Lining_Interior",
+      "@type": "xsd:string"
+    },
+    "Wall_Lining_Exterior": {
+      "@id": "sewerai:Wall_Lining_Exterior",
+      "@type": "xsd:string"
+    },
+    "Wall_Condition": {
+      "@id": "sewerai:Wall_Condition",
+      "@type": "xsd:string"
+    },
+    "Bench_Present": {
+      "@id": "sewerai:Bench_Present",
+      "@type": "xsd:string"
+    },
+    "Bench_Material": {
+      "@id": "sewerai:Bench_Material",
+      "@type": "xsd:string"
+    },
+    "Bench_Lining": {
+      "@id": "sewerai:Bench_Lining",
+      "@type": "xsd:string"
+    },
+    "Bench_Condition": {
+      "@id": "sewerai:Bench_Condition",
+      "@type": "xsd:string"
+    },
+    "Channel_Installed": {
+      "@id": "sewerai:Channel_Installed",
+      "@type": "xsd:string"
+    },
+    "Channel_Material": {
+      "@id": "sewerai:Channel_Material",
+      "@type": "xsd:string"
+    },
+    "Channel_Type": {
+      "@id": "sewerai:Channel_Type",
+      "@type": "xsd:string"
+    },
+    "Channel_Exposure": {
+      "@id": "sewerai:Channel_Exposure",
+      "@type": "xsd:string"
+    },
+    "Channel_Condition": {
+      "@id": "sewerai:Channel_Condition",
+      "@type": "xsd:string"
+    },
+    "Step_Material": {
+      "@id": "sewerai:Step_Material",
+      "@type": "xsd:string"
+    },
+    "Evidence_Surcharge": {
+      "@id": "sewerai:Evidence_Surcharge",
+      "@type": "xsd:string"
+    },
+    "AdditionalComponentInfo": {
+      "@id": "sewerai:AdditionalComponentInfo",
+      "@type": "xsd:string"
+    },
+    "Rim_to_Invert": {
+      "@id": "sewerai:Rim_to_Invert",
+      "@type": "xsd:decimal"
+    },
+    "Rim_to_Grade": {
+      "@id": "sewerai:Rim_to_Grade",
+      "@type": "xsd:decimal"
+    },
+    "Grade_to_Invert": {
+      "@id": "sewerai:Grade_to_Invert",
+      "@type": "xsd:decimal"
+    },
+    "Rim_to_Grade_Exposed": {
+      "@id": "sewerai:Rim_to_Grade_Exposed",
+      "@type": "xsd:decimal"
+    },
+    "Cover_Size": {
+      "@id": "sewerai:Cover_Size",
+      "@type": "xsd:decimal"
+    },
+    "Center_Cover_Size": {
+      "@id": "sewerai:Center_Cover_Size",
+      "@type": "xsd:decimal"
+    },
+    "Cover_Size_Width": {
+      "@id": "sewerai:Cover_Size_Width",
+      "@type": "xsd:decimal"
+    },
+    "Cover_Bearing_Surface_Dia": {
+      "@id": "sewerai:Cover_Bearing_Surface_Dia",
+      "@type": "xsd:decimal"
+    },
+    "Cover_Bearing_Surface_Width": {
+      "@id": "sewerai:Cover_Bearing_Surface_Width",
+      "@type": "xsd:decimal"
+    },
+    "Adjustment_Ring_Height": {
+      "@id": "sewerai:Adjustment_Ring_Height",
+      "@type": "xsd:decimal"
+    },
+    "Frame_Bearing_Surface_Width": {
+      "@id": "sewerai:Frame_Bearing_Surface_Width",
+      "@type": "xsd:decimal"
+    },
+    "Frame_Bearing_Surface_Depth": {
+      "@id": "sewerai:Frame_Bearing_Surface_Depth",
+      "@type": "xsd:decimal"
+    },
+    "Frame_Clear_Open_Diam": {
+      "@id": "sewerai:Frame_Clear_Open_Diam",
+      "@type": "xsd:decimal"
+    },
+    "Frame_Clear_Open_Width": {
+      "@id": "sewerai:Frame_Clear_Open_Width",
+      "@type": "xsd:decimal"
+    },
+    "Frame_Offset_Distance": {
+      "@id": "sewerai:Frame_Offset_Distance",
+      "@type": "xsd:decimal"
+    },
+    "Frame_Depth": {
+      "@id": "sewerai:Frame_Depth",
+      "@type": "xsd:decimal"
+    },
+    "Chimney_Clear_Opening": {
+      "@id": "sewerai:Chimney_Clear_Opening",
+      "@type": "xsd:decimal"
+    },
+    "Chimney_Depth": {
+      "@id": "sewerai:Chimney_Depth",
+      "@type": "xsd:decimal"
+    },
+    "Cone_Depth": {
+      "@id": "sewerai:Cone_Depth",
+      "@type": "xsd:decimal"
+    },
+    "Wall_Diam": {
+      "@id": "sewerai:Wall_Diam",
+      "@type": "xsd:decimal"
+    },
+    "Wall_BySize": {
+      "@id": "sewerai:Wall_BySize",
+      "@type": "xsd:decimal"
+    },
+    "Wall_Depth": {
+      "@id": "sewerai:Wall_Depth",
+      "@type": "xsd:decimal"
+    },
+    "Hole_Number": {
+      "@id": "sewerai:Hole_Number",
+      "@type": "xsd:integer"
+    },
+    "Step_Number": {
+      "@id": "sewerai:Step_Number",
+      "@type": "xsd:integer"
+    },
+    "Surface_Type_Asphalt": {
+      "@id": "sewerai:Surface_Type_Asphalt",
+      "@type": "xsd:boolean"
+    },
+    "Surface_Type_ConcretePavement": {
+      "@id": "sewerai:Surface_Type_ConcretePavement",
+      "@type": "xsd:boolean"
+    },
+    "Surface_Type_ConcreteCollar": {
+      "@id": "sewerai:Surface_Type_ConcreteCollar",
+      "@type": "xsd:boolean"
+    },
+    "Surface_Type_GrassDirt": {
+      "@id": "sewerai:Surface_Type_GrassDirt",
+      "@type": "xsd:boolean"
+    },
+    "Surface_Type_Gravel": {
+      "@id": "sewerai:Surface_Type_Gravel",
+      "@type": "xsd:boolean"
+    },
+    "Surface_Type_Other": {
+      "@id": "sewerai:Surface_Type_Other",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Type_Bolted": {
+      "@id": "sewerai:Cover_Type_Bolted",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Type_Gasketed": {
+      "@id": "sewerai:Cover_Type_Gasketed",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Type_Hatch_Double": {
+      "@id": "sewerai:Cover_Type_Hatch_Double",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Type_Hatch_Single": {
+      "@id": "sewerai:Cover_Type_Hatch_Single",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Type_Inner_Cover": {
+      "@id": "sewerai:Cover_Type_Inner_Cover",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Type_Lamphole": {
+      "@id": "sewerai:Cover_Type_Lamphole",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Type_Locking": {
+      "@id": "sewerai:Cover_Type_Locking",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Type_Removable_Center": {
+      "@id": "sewerai:Cover_Type_Removable_Center",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Type_Solid": {
+      "@id": "sewerai:Cover_Type_Solid",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Type_Vented": {
+      "@id": "sewerai:Cover_Type_Vented",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Condition_BoltsMissing": {
+      "@id": "sewerai:Cover_Condition_BoltsMissing",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Condition_Broken": {
+      "@id": "sewerai:Cover_Condition_Broken",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Condition_Corroded": {
+      "@id": "sewerai:Cover_Condition_Corroded",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Condition_Cracked": {
+      "@id": "sewerai:Cover_Condition_Cracked",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Condition_Missing": {
+      "@id": "sewerai:Cover_Condition_Missing",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Condition_Restraint_Defective": {
+      "@id": "sewerai:Cover_Condition_Restraint_Defective",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Condition_Restraint_Missing": {
+      "@id": "sewerai:Cover_Condition_Restraint_Missing",
+      "@type": "xsd:boolean"
+    },
+    "Cover_Condition_Sound": {
+      "@id": "sewerai:Cover_Condition_Sound",
+      "@type": "xsd:boolean"
+    },
+    "Insert_Condition_Cracked": {
+      "@id": "sewerai:Insert_Condition_Cracked",
+      "@type": "xsd:boolean"
+    },
+    "Insert_Condition_Corroded": {
+      "@id": "sewerai:Insert_Condition_Corroded",
+      "@type": "xsd:boolean"
+    },
+    "Insert_Condition_InsertFell": {
+      "@id": "sewerai:Insert_Condition_InsertFell",
+      "@type": "xsd:boolean"
+    },
+    "Insert_Condition_Leaking": {
+      "@id": "sewerai:Insert_Condition_Leaking",
+      "@type": "xsd:boolean"
+    },
+    "Insert_Condition_PoorlyFitting": {
+      "@id": "sewerai:Insert_Condition_PoorlyFitting",
+      "@type": "xsd:boolean"
+    },
+    "Insert_Condition_Sound": {
+      "@id": "sewerai:Insert_Condition_Sound",
+      "@type": "xsd:boolean"
+    },
+    "Ring_Condition_Broken": {
+      "@id": "sewerai:Ring_Condition_Broken",
+      "@type": "xsd:boolean"
+    },
+    "Ring_Condition_Corroded": {
+      "@id": "sewerai:Ring_Condition_Corroded",
+      "@type": "xsd:boolean"
+    },
+    "Ring_Condition_Cracked": {
+      "@id": "sewerai:Ring_Condition_Cracked",
+      "@type": "xsd:boolean"
+    },
+    "Ring_Condition_Leaking": {
+      "@id": "sewerai:Ring_Condition_Leaking",
+      "@type": "xsd:boolean"
+    },
+    "Ring_Condition_PoorInstall": {
+      "@id": "sewerai:Ring_Condition_PoorInstall",
+      "@type": "xsd:boolean"
+    },
+    "Ring_Condition_Sound": {
+      "@id": "sewerai:Ring_Condition_Sound",
+      "@type": "xsd:boolean"
+    },
+    "Frame_Condition_Broken": {
+      "@id": "sewerai:Frame_Condition_Broken",
+      "@type": "xsd:boolean"
+    },
+    "Frame_Condition_Coated": {
+      "@id": "sewerai:Frame_Condition_Coated",
+      "@type": "xsd:boolean"
+    },
+    "Frame_Condition_Corroded": {
+      "@id": "sewerai:Frame_Condition_Corroded",
+      "@type": "xsd:boolean"
+    },
+    "Frame_Condition_Cracked": {
+      "@id": "sewerai:Frame_Condition_Cracked",
+      "@type": "xsd:boolean"
+    },
+    "Frame_Condition_Missing": {
+      "@id": "sewerai:Frame_Condition_Missing",
+      "@type": "xsd:boolean"
+    },
+    "Frame_Condition_Sound": {
+      "@id": "sewerai:Frame_Condition_Sound",
+      "@type": "xsd:boolean"
+    },
+    "Seal_Condition_Cracked": {
+      "@id": "sewerai:Seal_Condition_Cracked",
+      "@type": "xsd:boolean"
+    },
+    "Seal_Condition_Loose": {
+      "@id": "sewerai:Seal_Condition_Loose",
+      "@type": "xsd:boolean"
+    },
+    "Seal_Condition_Missing": {
+      "@id": "sewerai:Seal_Condition_Missing",
+      "@type": "xsd:boolean"
+    },
+    "Seal_Condition_Offset": {
+      "@id": "sewerai:Seal_Condition_Offset",
+      "@type": "xsd:boolean"
+    },
+    "Seal_Condition_Sound": {
+      "@id": "sewerai:Seal_Condition_Sound",
+      "@type": "xsd:boolean"
+    },
+    "pipe_connections": {
+      "@id": "sewerai:pipe_connections",
+      "@container": "@list"
+    },
+    "ModelEnsemble": "sewerai:ModelEnsemble",
+    "logic": {
+      "@id": "sewerai:logic"
+    },
+    "InspectionRatings": "sewerai:InspectionRatings",
+    "STGradeScore1": {
+      "@id": "sewerai:STGradeScore1",
+      "@type": "xsd:decimal"
+    },
+    "STGradeScore2": {
+      "@id": "sewerai:STGradeScore2",
+      "@type": "xsd:decimal"
+    },
+    "STGradeScore3": {
+      "@id": "sewerai:STGradeScore3",
+      "@type": "xsd:decimal"
+    },
+    "STGradeScore4": {
+      "@id": "sewerai:STGradeScore4",
+      "@type": "xsd:decimal"
+    },
+    "STGradeScore5": {
+      "@id": "sewerai:STGradeScore5",
+      "@type": "xsd:decimal"
+    },
+    "OMGradeScore1": {
+      "@id": "sewerai:OMGradeScore1",
+      "@type": "xsd:decimal"
+    },
+    "OMGradeScore2": {
+      "@id": "sewerai:OMGradeScore2",
+      "@type": "xsd:decimal"
+    },
+    "OMGradeScore3": {
+      "@id": "sewerai:OMGradeScore3",
+      "@type": "xsd:decimal"
+    },
+    "OMGradeScore4": {
+      "@id": "sewerai:OMGradeScore4",
+      "@type": "xsd:decimal"
+    },
+    "OMGradeScore5": {
+      "@id": "sewerai:OMGradeScore5",
+      "@type": "xsd:decimal"
+    },
+    "ST1": {
+      "@id": "sewerai:ST1",
+      "@type": "xsd:decimal"
+    },
+    "ST2": {
+      "@id": "sewerai:ST2",
+      "@type": "xsd:decimal"
+    },
+    "ST3": {
+      "@id": "sewerai:ST3",
+      "@type": "xsd:decimal"
+    },
+    "ST4": {
+      "@id": "sewerai:ST4",
+      "@type": "xsd:decimal"
+    },
+    "ST5": {
+      "@id": "sewerai:ST5",
+      "@type": "xsd:decimal"
+    },
+    "OM1": {
+      "@id": "sewerai:OM1",
+      "@type": "xsd:decimal"
+    },
+    "OM2": {
+      "@id": "sewerai:OM2",
+      "@type": "xsd:decimal"
+    },
+    "OM3": {
+      "@id": "sewerai:OM3",
+      "@type": "xsd:decimal"
+    },
+    "OM4": {
+      "@id": "sewerai:OM4",
+      "@type": "xsd:decimal"
+    },
+    "OM5": {
+      "@id": "sewerai:OM5",
+      "@type": "xsd:decimal"
+    },
+    "STPipeRating": {
+      "@id": "sewerai:STPipeRating",
+      "@type": "xsd:decimal"
+    },
+    "OMPipeRating": {
+      "@id": "sewerai:OMPipeRating",
+      "@type": "xsd:decimal"
+    },
+    "OverallPipeRating": {
+      "@id": "sewerai:OverallPipeRating",
+      "@type": "xsd:decimal"
+    },
+    "STPipeRatingsIndex": {
+      "@id": "sewerai:STPipeRatingsIndex",
+      "@type": "xsd:decimal"
+    },
+    "OMPipeRatingsIndex": {
+      "@id": "sewerai:OMPipeRatingsIndex",
+      "@type": "xsd:decimal"
+    },
+    "OverallPipeRatingsIndex": {
+      "@id": "sewerai:OverallPipeRatingsIndex",
+      "@type": "xsd:decimal"
+    },
+    "Risk": {
+      "@id": "sewerai:Risk",
+      "@type": "xsd:decimal"
+    },
+    "RatingID": {
+      "@id": "sewerai:RatingID",
+      "@type": "xsd:string"
+    },
+    "STQuickRating": {
+      "@id": "sewerai:STQuickRating",
+      "@type": "xsd:string"
+    },
+    "OMQuickRating": {
+      "@id": "sewerai:OMQuickRating",
+      "@type": "xsd:string"
+    },
+    "OverallQuickRating": {
+      "@id": "sewerai:OverallQuickRating",
+      "@type": "xsd:string"
+    },
+    "LoFPACP": {
+      "@id": "sewerai:LoFPACP",
+      "@type": "xsd:decimal"
+    },
+    "PACPQuickRating": {
+      "@id": "sewerai:PACPQuickRating",
+      "@type": "xsd:string"
+    },
+    "LoFLACP": {
+      "@id": "sewerai:LoFLACP",
+      "@type": "xsd:decimal"
+    },
+    "LACPQuickRating": {
+      "@id": "sewerai:LACPQuickRating",
+      "@type": "xsd:string"
+    },
+    "STMHRating": {
+      "@id": "sewerai:STMHRating",
+      "@type": "xsd:decimal"
+    },
+    "OMMHRating": {
+      "@id": "sewerai:OMMHRating",
+      "@type": "xsd:decimal"
+    },
+    "OverallMHRating": {
+      "@id": "sewerai:OverallMHRating",
+      "@type": "xsd:decimal"
+    },
+    "STMHRatingsIndex": {
+      "@id": "sewerai:STMHRatingsIndex",
+      "@type": "xsd:decimal"
+    },
+    "OMMHRatingsIndex": {
+      "@id": "sewerai:OMMHRatingsIndex",
+      "@type": "xsd:decimal"
+    },
+    "OverallMHRatingsIndex": {
+      "@id": "sewerai:OverallMHRatingsIndex",
+      "@type": "xsd:decimal"
+    },
+    "LoFMACP": {
+      "@id": "sewerai:LoFMACP",
+      "@type": "xsd:decimal"
+    },
+    "MACPQuickRating": {
+      "@id": "sewerai:MACPQuickRating",
+      "@type": "xsd:string"
+    },
+    "Video": "sewerai:Video",
+    "account_sid": {
+      "@id": "sewerai:account_sid",
+      "@type": "xsd:string"
+    },
+    "agency": {
+      "@id": "sewerai:agency",
+      "@type": "xsd:string"
+    },
+    "autocode_labeled_by_id": {
+      "@id": "sewerai:autocode_labeled_by_id",
+      "@type": "xsd:integer"
+    },
+    "autocode_labeler_complete_datetime": {
+      "@id": "sewerai:autocode_labeler_complete_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "autocode_mode": {
+      "@id": "sewerai:autocode_mode",
+      "@type": "xsd:string"
+    },
+    "auxillary_videos": {
+      "@id": "sewerai:auxillary_videos"
+    },
+    "camera": {
+      "@id": "sewerai:camera",
+      "@type": "xsd:integer"
+    },
+    "client_reviewed_by": {
+      "@id": "sewerai:client_reviewed_by",
+      "@type": "xsd:string"
+    },
+    "client_reviewed": {
+      "@id": "sewerai:client_reviewed",
+      "@type": "xsd:dateTime"
+    },
+    "contractor": {
+      "@id": "sewerai:contractor",
+      "@type": "xsd:string"
+    },
+    "default_position_coords": {
+      "@id": "sewerai:default_position_coords"
+    },
+    "encoded": {
+      "@id": "sewerai:encoded",
+      "@type": "xsd:boolean"
+    },
+    "encoding_location_exists": {
+      "@id": "sewerai:encoding_location_exists",
+      "@type": "xsd:boolean"
+    },
+    "encoding_location": {
+      "@id": "sewerai:encoding_location",
+      "@type": "xsd:string"
+    },
+    "file_name": {
+      "@id": "sewerai:file_name",
+      "@type": "xsd:string"
+    },
+    "friendly_stage_str": {
+      "@id": "sewerai:friendly_stage_str",
+      "@type": "xsd:string"
+    },
+    "inspection": {
+      "@id": "sewerai:inspection",
+      "@type": "@id"
+    },
+    "is_metashape": {
+      "@id": "sewerai:is_metashape",
+      "@type": "xsd:string"
+    },
+    "is_selectable": {
+      "@id": "sewerai:is_selectable",
+      "@type": "xsd:boolean"
+    },
+    "last_internal_review_date": {
+      "@id": "sewerai:last_internal_review_date",
+      "@type": "xsd:dateTime"
+    },
+    "last_internal_reviewer": {
+      "@id": "sewerai:last_internal_reviewer",
+      "@type": "xsd:string"
+    },
+    "maximo_id": {
+      "@id": "sewerai:maximo_id",
+      "@type": "xsd:string"
+    },
+    "model_scale_factor": {
+      "@id": "sewerai:model_scale_factor",
+      "@type": "xsd:decimal"
+    },
+    "needs_prescreen": {
+      "@id": "sewerai:needs_prescreen",
+      "@type": "xsd:boolean"
+    },
+    "needs_qc": {
+      "@id": "sewerai:needs_qc",
+      "@type": "xsd:boolean"
+    },
+    "number_of_frames": {
+      "@id": "sewerai:number_of_frames",
+      "@type": "xsd:integer"
+    },
+    "pano_offset": {
+      "@id": "sewerai:pano_offset",
+      "@type": "xsd:string"
+    },
+    "payout_bb": {
+      "@id": "sewerai:payout_bb",
+      "@type": "xsd:string"
+    },
+    "payout_bg": {
+      "@id": "sewerai:payout_bg",
+      "@type": "xsd:string"
+    },
+    "pdf_exists": {
+      "@id": "sewerai:pdf_exists",
+      "@type": "xsd:string"
+    },
+    "permission_level": {
+      "@id": "sewerai:permission_level",
+      "@type": "xsd:string"
+    },
+    "pipe": {
+      "@id": "sewerai:pipe",
+      "@type": "xsd:integer"
+    },
+    "problem": {
+      "@id": "sewerai:problem",
+      "@type": "xsd:string"
+    },
+    "project_names": {
+      "@id": "sewerai:project_names",
+      "@type": "xsd:string"
+    },
+    "project": {
+      "@id": "sewerai:project",
+      "@type": "xsd:string"
+    },
+    "qai_status": {
+      "@id": "sewerai:qai_status",
+      "@type": "xsd:string"
+    },
+    "qc_reviewed": {
+      "@id": "sewerai:qc_reviewed",
+      "@type": "xsd:boolean"
+    },
+    "ready_for_labeling": {
+      "@id": "sewerai:ready_for_labeling",
+      "@type": "xsd:string"
+    },
+    "rotated_pano": {
+      "@id": "sewerai:rotated_pano",
+      "@type": "xsd:string"
+    },
+    "sepehr_im_sorry": {
+      "@id": "sewerai:sepehr_im_sorry",
+      "@type": "xsd:string"
+    },
+    "stage_components": {
+      "@id": "sewerai:stage_components",
+      "@type": "xsd:string"
+    },
+    "stage_str": {
+      "@id": "sewerai:stage_str",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "sewerai:state",
+      "@type": "xsd:string"
+    },
+    "state_updated_by_sid": {
+      "@id": "sewerai:state_updated_by_sid",
+      "@type": "xsd:string"
+    },
+    "six_oclock_angle_degrees": {
+      "@id": "sewerai:six_oclock_angle_degrees",
+      "@type": "xsd:decimal"
+    },
+    "six_oclock_ai_set": {
+      "@id": "sewerai:six_oclock_ai_set",
+      "@type": "xsd:boolean"
+    },
+    "submittal_status": {
+      "@id": "sewerai:submittal_status",
+      "@type": "xsd:string"
+    },
+    "tahoe_phase": {
+      "@id": "sewerai:tahoe_phase",
+      "@type": "xsd:string"
+    },
+    "training_mode": {
+      "@id": "sewerai:training_mode",
+      "@type": "xsd:string"
+    },
+    "truck_info": {
+      "@id": "sewerai:truck_info"
+    },
+    "variant": {
+      "@id": "sewerai:variant",
+      "@type": "xsd:integer"
+    },
+    "video_duration": {
+      "@id": "sewerai:video_duration",
+      "@type": "xsd:decimal"
+    },
+    "video_format": {
+      "@id": "sewerai:video_format",
+      "@type": "xsd:integer"
+    },
+    "video_height": {
+      "@id": "sewerai:video_height",
+      "@type": "xsd:integer"
+    },
+    "video_width": {
+      "@id": "sewerai:video_width",
+      "@type": "xsd:integer"
+    },
+    "zero_distance_mark": {
+      "@id": "sewerai:zero_distance_mark",
+      "@type": "xsd:decimal"
+    },
+    "AccountUser": "sewerai:AccountUser",
+    "last_pioneer_login": {
+      "@id": "sewerai:last_pioneer_login",
+      "@type": "xsd:string"
+    },
+    "PartnerLink": "sewerai:PartnerLink",
+    "partner": {
+      "@id": "sewerai:partner",
+      "@type": "xsd:string"
+    },
+    "link": {
+      "@id": "sewerai:link",
+      "@type": "@id"
+    },
+    "icon_url": {
+      "@id": "sewerai:icon_url",
+      "@type": "xsd:string"
+    },
+    "ClassificationGroup": "sewerai:ClassificationGroup",
+    "codes_detail": {
+      "@id": "sewerai:codes_detail",
+      "@container": "@list"
+    },
+    "bb_count": {
+      "@id": "sewerai:bb_count",
+      "@type": "xsd:integer"
+    },
+    "bb_reviewed_count": {
+      "@id": "sewerai:bb_reviewed_count",
+      "@type": "xsd:integer"
+    },
+    "TrainingModel": "sewerai:TrainingModel",
+    "groups": {
+      "@id": "sewerai:groups",
+      "@container": "@list"
+    },
+    "groups_detail": {
+      "@id": "sewerai:groups_detail",
+      "@container": "@list"
+    },
+    "excluded_codes": {
+      "@id": "sewerai:excluded_codes"
+    },
+    "qa_type": {
+      "@id": "sewerai:qa_type",
+      "@type": "xsd:string"
+    },
+    "Note": "sewerai:Note",
+    "comment_set": {
+      "@id": "sewerai:comment_set",
+      "@container": "@list"
+    },
+    "inspection_sid": {
+      "@id": "sewerai:inspection_sid",
+      "@type": "xsd:string"
+    },
+    "viewed_by": {
+      "@id": "sewerai:viewed_by"
+    },
+    "viewed_by_user_sid": {
+      "@id": "sewerai:viewed_by_user_sid",
+      "@type": "xsd:string"
+    },
+    "escalation_count": {
+      "@id": "sewerai:escalation_count",
+      "@type": "xsd:integer"
+    },
+    "NotificationPreference": "sewerai:NotificationPreference",
+    "notification_method": {
+      "@id": "sewerai:notification_method",
+      "@type": "xsd:string"
+    },
+    "notification_type": {
+      "@id": "sewerai:notification_type",
+      "@type": "xsd:string"
+    },
+    "notification_type_category": {
+      "@id": "sewerai:notification_type_category",
+      "@type": "xsd:string"
+    },
+    "user": {
+      "@id": "sewerai:user",
+      "@type": "xsd:string"
+    },
+    "Notification": "sewerai:Notification",
+    "action_url": {
+      "@id": "sewerai:action_url",
+      "@type": "xsd:string"
+    },
+    "content": {
+      "@id": "sewerai:content",
+      "@type": "xsd:string"
+    },
+    "full_content": {
+      "@id": "sewerai:full_content",
+      "@type": "xsd:string"
+    },
+    "read": {
+      "@id": "sewerai:read",
+      "@type": "xsd:boolean"
+    },
+    "target_user": {
+      "@id": "sewerai:target_user",
+      "@type": "xsd:string"
+    },
+    "ObservationClassificationAnalytics": "sewerai:ObservationClassificationAnalytics",
+    "encoding_location_url": {
+      "@id": "sewerai:encoding_location_url",
+      "@type": "xsd:string"
+    },
+    "video_agency": {
+      "@id": "sewerai:video_agency",
+      "@type": "xsd:string"
+    },
+    "video_contractor": {
+      "@id": "sewerai:video_contractor",
+      "@type": "xsd:string"
+    },
+    "dimension_1": {
+      "@id": "sewerai:dimension_1",
+      "@type": "xsd:decimal"
+    },
+    "dimension_2": {
+      "@id": "sewerai:dimension_2",
+      "@type": "xsd:decimal"
+    },
+    "percent": {
+      "@id": "sewerai:percent",
+      "@type": "xsd:decimal"
+    },
+    "joint": {
+      "@id": "sewerai:joint",
+      "@type": "xsd:boolean"
+    },
+    "clock_from": {
+      "@id": "sewerai:clock_from",
+      "@type": "xsd:integer"
+    },
+    "clock_to": {
+      "@id": "sewerai:clock_to",
+      "@type": "xsd:integer"
+    },
+    "remarks": {
+      "@id": "sewerai:remarks",
+      "@type": "xsd:string"
+    },
+    "OrganizationWrite": "sewerai:OrganizationWrite",
+    "OrganizationRead": "sewerai:OrganizationRead",
+    "Profile": "sewerai:Profile",
+    "ProjectTask": "sewerai:ProjectTask",
+    "task_type": {
+      "@id": "sewerai:task_type",
+      "@type": "xsd:string"
+    },
+    "task_details": {
+      "@id": "sewerai:task_details"
+    },
+    "task_priority": {
+      "@id": "sewerai:task_priority",
+      "@type": "xsd:integer"
+    },
+    "project_name": {
+      "@id": "sewerai:project_name",
+      "@type": "xsd:string"
+    },
+    "explicit_assignees": {
+      "@id": "sewerai:explicit_assignees",
+      "@container": "@list"
+    },
+    "instructions": {
+      "@id": "sewerai:instructions",
+      "@type": "xsd:string"
+    },
+    "ProjectWrite": "sewerai:ProjectWrite",
+    "ProjectRead": "sewerai:ProjectRead",
+    "Submittal": "sewerai:Submittal",
+    "accepted": {
+      "@id": "sewerai:accepted",
+      "@type": "xsd:boolean"
+    },
+    "accepting_project_name": {
+      "@id": "sewerai:accepting_project_name",
+      "@type": "xsd:string"
+    },
+    "account_name": {
+      "@id": "sewerai:account_name",
+      "@type": "xsd:string"
+    },
+    "am_initiator": {
+      "@id": "sewerai:am_initiator",
+      "@type": "xsd:string"
+    },
+    "download_ready": {
+      "@id": "sewerai:download_ready",
+      "@type": "xsd:string"
+    },
+    "initiator": {
+      "@id": "sewerai:initiator",
+      "@type": "xsd:string"
+    },
+    "num_ins": {
+      "@id": "sewerai:num_ins",
+      "@type": "xsd:integer"
+    },
+    "reviewers": {
+      "@id": "sewerai:reviewers",
+      "@type": "xsd:string"
+    },
+    "s3_zip_location": {
+      "@id": "sewerai:s3_zip_location",
+      "@type": "xsd:string"
+    },
+    "submittal_reviewers": {
+      "@id": "sewerai:submittal_reviewers",
+      "@type": "xsd:string"
+    },
+    "zip_downloaders": {
+      "@id": "sewerai:zip_downloaders",
+      "@type": "xsd:string"
+    },
+    "CortTokenObtainPair": "sewerai:CortTokenObtainPair",
+    "password": {
+      "@id": "sewerai:password",
+      "@type": "xsd:string"
+    },
+    "TokenRefresh": "sewerai:TokenRefresh",
+    "refresh": {
+      "@id": "sewerai:refresh",
+      "@type": "xsd:string"
+    },
+    "access": {
+      "@id": "sewerai:access",
+      "@type": "xsd:string"
+    },
+    "UserRead": "sewerai:UserRead",
+    "UserList": "sewerai:UserList",
+    "VideoWrite": "sewerai:VideoWrite",
+    "video_name": {
+      "@id": "sewerai:video_name",
+      "@type": "xsd:string"
+    },
+    "payouts": {
+      "@id": "sewerai:payouts",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "sewerai:path",
+      "@type": "xsd:string"
+    },
+    "presigned_upload_data": {
+      "@id": "sewerai:presigned_upload_data"
+    },
+    "VideoRead": "sewerai:VideoRead",
+    "VideoPayout": "sewerai:VideoPayout",
+    "check_results": {
+      "@id": "sewerai:check_results"
+    },
+    "auto_created": {
+      "@id": "sewerai:auto_created",
+      "@type": "xsd:boolean"
+    },
+    "loaded_from_text": {
+      "@id": "sewerai:loaded_from_text",
+      "@type": "xsd:boolean"
+    },
+    "BoundingBox": "sewerai:BoundingBox",
+    "observation_classification": {
+      "@id": "sewerai:observation_classification",
+      "@type": "@id"
+    },
+    "frame_location": {
+      "@id": "sewerai:frame_location",
+      "@type": "xsd:string"
+    },
+    "frame_file_size": {
+      "@id": "sewerai:frame_file_size",
+      "@type": "xsd:integer"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "SewerAI API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects SewerAI's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-20) from openapi/sewerai-account-usage-api-openapi.yml, openapi/sewerai-accounts-api-openapi.yml, openapi/sewerai-analytics-api-openapi.yml.",
+  "dcterms:created": "2026-10-20",
+  "dcterms:source": [
+    "openapi/sewerai-account-usage-api-openapi.yml",
+    "openapi/sewerai-accounts-api-openapi.yml",
+    "openapi/sewerai-analytics-api-openapi.yml",
+    "openapi/sewerai-annotations-api-openapi.yml",
+    "openapi/sewerai-assets-api-openapi.yml"
+  ]
+}

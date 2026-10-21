@@ -2,7 +2,7 @@ overlay: 1.0.0
 info:
   title: API Evangelist identity and security overlay for the SewerAI Enterprise API
   version: 1.0.0
-extends: openapi/_original/sewerai-swagger.json
+extends: ../openapi/_original/sewerai-swagger.json
 x-generated: '2026-08-27'
 x-method: generated
 x-source: openapi/_original/sewerai-swagger.json

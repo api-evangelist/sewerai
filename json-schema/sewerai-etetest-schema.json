@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-etetest-schema.json",
+  "title": "ETETest",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-analytics-api-openapi.yml#/components/schemas/ETETest",
+  "required": [
+    "inf",
+    "precision",
+    "recall",
+    "f1"
+  ],
+  "type": "object",
+  "properties": {
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "inf": {
+      "title": "Inf",
+      "type": "string",
+      "format": "uri"
+    },
+    "inf_sid": {
+      "title": "Inf sid",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "video_sid": {
+      "title": "Video sid",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "obs_run_sid": {
+      "title": "Obs run sid",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "params": {
+      "title": "Params",
+      "type": "object"
+    },
+    "precision": {
+      "title": "Precision",
+      "type": "number"
+    },
+    "recall": {
+      "title": "Recall",
+      "type": "number"
+    },
+    "f1": {
+      "title": "F1",
+      "type": "number"
+    },
+    "num_pos": {
+      "title": "Num pos",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "num_gt": {
+      "title": "Num gt",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "tp": {
+      "title": "Tp",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "fp": {
+      "title": "Fp",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "fn": {
+      "title": "Fn",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "score_type": {
+      "title": "Score type",
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1
+    },
+    "tp_bin": {
+      "title": "Tp bin",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "fp_bin": {
+      "title": "Fp bin",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "fn_bin": {
+      "title": "Fn bin",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "precision_bin": {
+      "title": "Precision bin",
+      "type": "number"
+    },
+    "recall_bin": {
+      "title": "Recall bin",
+      "type": "number"
+    },
+    "f1_bin": {
+      "title": "F1 bin",
+      "type": "number"
+    },
+    "review_bins_needed": {
+      "title": "Review bins needed",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "real_tp": {
+      "title": "Real tp",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "real_fp": {
+      "title": "Real fp",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "real_fn": {
+      "title": "Real fn",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "real_recall": {
+      "title": "Real recall",
+      "type": "number"
+    },
+    "real_precision": {
+      "title": "Real precision",
+      "type": "number"
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    }
+  }
+}

@@ -1,16 +1,14 @@
 generated: '2026-08-27'
-method: searched
-source: >-
-  registry.npmjs.org search, pypi.org, rubygems.org, crates.io, api.nuget.org, packagist.org,
-  https://github.com/sewerai-org, https://docs.sewerai.com/
+method: none
+source: registry.npmjs.org search, pypi.org, rubygems.org, crates.io, api.nuget.org, packagist.org, https://github.com/sewerai-org,
+  https://docs.sewerai.com/
 package_count: 0
 official_sdk_count: 0
 packages: []
-note: >-
-  SewerAI publishes no first-party client library on any public package registry, and no SDK link
-  exists in the API documentation. The docs ship worked Python examples that call the REST API with
-  the `requests` library directly rather than through a client. No `SDKs` pointer is emitted in
-  apis.yml because there is no SDK to point at.
+note: SewerAI publishes no first-party client library on any public package registry, and no SDK link exists in
+  the API documentation. The docs ship worked Python examples that call the REST API with the `requests` library
+  directly rather than through a client. No `SDKs` pointer is emitted in apis.yml because there is no SDK to point
+  at.
 registries_searched:
 - registry: npm
   query: https://registry.npmjs.org/-/v1/search?text=sewerai
@@ -46,9 +44,7 @@ source_code:
   github_org: https://github.com/sewerai-org
   public_repos: 15
   first_party_libraries: 0
-  note: >-
-    Every public repository in the sewerai-org GitHub organization is a fork of a third-party
-    project (CVAT, YOLOX, UniDepth, ray_lightning, beamcoder, slate, claude-code-action) or an
-    archived interview kata. None is a SewerAI client library, and none carries a SewerAI API
-    surface. The `slate` fork is the generator behind docs.sewerai.com.
+  note: Every public repository in the sewerai-org GitHub organization is a fork of a third-party project (CVAT,
+    YOLOX, UniDepth, ray_lightning, beamcoder, slate, claude-code-action) or an archived interview kata. None is
+    a SewerAI client library, and none carries a SewerAI API surface. The `slate` fork is the generator behind docs.sewerai.com.
   checked: '2026-08-27'

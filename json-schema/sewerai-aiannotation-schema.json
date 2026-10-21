@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-aiannotation-schema.json",
+  "title": "AIAnnotation",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-annotations-api-openapi.yml#/components/schemas/AIAnnotation",
+  "required": [
+    "frame",
+    "video_sid",
+    "code"
+  ],
+  "type": "object",
+  "properties": {
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "frame": {
+      "title": "Frame",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "video_sid": {
+      "title": "Video sid",
+      "type": "string",
+      "minLength": 1
+    },
+    "code": {
+      "title": "Code",
+      "type": "string",
+      "minLength": 1
+    },
+    "box": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "title": "Box",
+        "type": "integer",
+        "maximum": 2147483647,
+        "minimum": -2147483648
+      },
+      "maxItems": 4
+    },
+    "frame_width": {
+      "title": "Frame width",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "frame_height": {
+      "title": "Frame height",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "reviewed_by_user": {
+      "title": "Reviewed by user",
+      "type": "string",
+      "readOnly": true
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "integer",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "integer",
+      "readOnly": true
+    }
+  }
+}

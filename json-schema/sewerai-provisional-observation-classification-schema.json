@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-provisional-observation-classification-schema.json",
+  "title": "ProvisionalObservationClassification",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-modeling-api-openapi.yml#/components/schemas/ProvisionalObservationClassification",
+  "required": [
+    "start_frame"
+  ],
+  "type": "object",
+  "properties": {
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "video_sid": {
+      "title": "Video sid",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "observation_run_sid": {
+      "title": "Observation run sid",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "classification": {
+      "$ref": "#/$defs/VideoObservationClassification"
+    },
+    "interval": {
+      "title": "Interval",
+      "type": "string",
+      "readOnly": true
+    },
+    "frame_urls": {
+      "title": "Frame urls",
+      "type": "string",
+      "readOnly": true
+    },
+    "start_payout": {
+      "title": "Start payout",
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "end_payout": {
+      "title": "End payout",
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "start_frame": {
+      "title": "Start frame",
+      "type": "integer",
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "end_frame": {
+      "title": "End frame",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "maximum": 2147483647,
+      "minimum": -2147483648
+    },
+    "boxes": {
+      "title": "Boxes",
+      "type": "object"
+    },
+    "reviewed_by": {
+      "title": "Reviewed by",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "frame_map": {
+      "title": "Frame map",
+      "type": "object"
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "inference_sid": {
+      "title": "Inference sid",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    },
+    "graph_url": {
+      "title": "Graph url",
+      "type": "string",
+      "readOnly": true
+    },
+    "private_comment": {
+      "title": "Private comment",
+      "type": "string",
+      "maxLength": 10000,
+      "minLength": 1
+    },
+    "pacp_comment": {
+      "title": "Pacp comment",
+      "type": "string",
+      "maxLength": 10000,
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "VideoObservationClassification": {
+      "required": [
+        "system",
+        "code",
+        "version"
+      ],
+      "type": "object",
+      "properties": {
+        "url": {
+          "title": "Url",
+          "type": "string",
+          "format": "uri",
+          "readOnly": true
+        },
+        "sid": {
+          "title": "Sid",
+          "type": "string",
+          "format": "uuid",
+          "readOnly": true
+        },
+        "system": {
+          "title": "System",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 64
+        },
+        "code": {
+          "title": "Code",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 64
+        },
+        "version": {
+          "title": "Version",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 32
+        },
+        "description": {
+          "title": "Description",
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 128
+        },
+        "meta": {
+          "title": "Meta",
+          "type": "object"
+        },
+        "created": {
+          "title": "Created",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "created_by": {
+          "title": "Created by",
+          "type": "string",
+          "format": "uri",
+          "readOnly": true
+        },
+        "updated": {
+          "title": "Updated",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "updated_by": {
+          "title": "Updated by",
+          "type": "string",
+          "format": "uri",
+          "readOnly": true
+        },
+        "family_group_color": {
+          "title": "Family group color",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    }
+  }
+}

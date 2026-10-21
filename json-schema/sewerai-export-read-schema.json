@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-export-read-schema.json",
+  "title": "ExportRead",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-exports-api-openapi.yml#/components/schemas/ExportRead",
+  "type": "object",
+  "properties": {
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "name": {
+      "title": "Name",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 128
+    },
+    "downloads": {
+      "title": "Downloads",
+      "type": "string",
+      "readOnly": true
+    },
+    "output_paths": {
+      "title": "Output paths",
+      "type": "string",
+      "readOnly": true
+    },
+    "progress": {
+      "title": "Progress",
+      "type": "object"
+    },
+    "total_size": {
+      "title": "Total size",
+      "type": "number"
+    }
+  }
+}

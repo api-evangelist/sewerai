@@ -1,7 +1,7 @@
 ---
 generated: '2026-08-27'
 method: generated
-name: Initiate and fetch an inspection export
+name: sewerai-export-inspection-data
 description: Run the asynchronous export flow in SewerAI PIONEER — start an export job, poll it to completion, retrieve the output, and clean up — the pattern SewerAI's own docs single out as a worked example.
 api: openapi/sewerai-swagger.json
 operations: [v1_exports_create, v1_exports_list, v1_exports_read, v1_exports_delete, v1_inspections_list]

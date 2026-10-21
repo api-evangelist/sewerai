@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sewerai/main/json-schema/sewerai-video-observation-regression-schema.json",
+  "title": "VideoObservationRegression",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sewerai-labels-api-openapi.yml#/components/schemas/VideoObservationRegression",
+  "required": [
+    "system",
+    "code",
+    "version",
+    "meaning",
+    "system_field"
+  ],
+  "type": "object",
+  "properties": {
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "sid": {
+      "title": "Sid",
+      "type": "string",
+      "format": "uuid",
+      "readOnly": true
+    },
+    "system": {
+      "title": "System",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 64
+    },
+    "code": {
+      "title": "Code",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 64
+    },
+    "version": {
+      "title": "Version",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 32
+    },
+    "meaning": {
+      "title": "Meaning",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 64
+    },
+    "system_field": {
+      "title": "System field",
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 64
+    },
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_by": {
+      "title": "Created by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    },
+    "updated": {
+      "title": "Updated",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_by": {
+      "title": "Updated by",
+      "type": "string",
+      "format": "uri",
+      "readOnly": true
+    }
+  }
+}
