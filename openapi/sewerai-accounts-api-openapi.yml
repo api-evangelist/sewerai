@@ -1262,3 +1262,9 @@ components:
     Basic:
       type: http
       scheme: basic
+x-provenance:
+  method: harvested
+  publisher: SewerAI
+  source: https://api.sewerai.com/swagger.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
